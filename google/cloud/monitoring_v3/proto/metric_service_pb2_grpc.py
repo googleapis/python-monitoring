@@ -100,7 +100,7 @@ class MetricServiceServicer(object):
     def CreateMetricDescriptor(self, request, context):
         """Creates a new metric descriptor.
     User-created metric descriptors define
-    [custom metrics](/monitoring/custom-metrics).
+    [custom metrics](https://cloud.google.com/monitoring/custom-metrics).
     """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
@@ -108,7 +108,8 @@ class MetricServiceServicer(object):
 
     def DeleteMetricDescriptor(self, request, context):
         """Deletes a metric descriptor. Only user-created
-    [custom metrics](/monitoring/custom-metrics) can be deleted.
+    [custom metrics](https://cloud.google.com/monitoring/custom-metrics) can be
+    deleted.
     """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
