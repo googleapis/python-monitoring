@@ -112,7 +112,6 @@ def system(session):
     # virtualenv's dist-packages.
     session.install("mock", "pytest")
     session.install("git+https://github.com/googleapis/python-test-utils")
-    session.install("-e", "test_utils")
     session.install("-e", ".")
 
     # Run py.test against the system tests.

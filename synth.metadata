@@ -1,4 +1,5 @@
 {
+  "updateTime": "2020-04-21T20:52:59.570188Z",
   "sources": [
     {
       "generator": {
@@ -9,24 +10,17 @@
     },
     {
       "git": {
-        "name": ".",
-        "remote": "https://github.com/googleapis/python-monitoring.git",
-        "sha": "80ec64de0c323b9f780d5071eb57dab76f8832f2"
-      }
-    },
-    {
-      "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "42ee97c1b93a0e3759bbba3013da309f670a90ab",
-        "internalRef": "307114445"
+        "sha": "2bf9f22da3f101aeb536e1e88fe036323b8e9188",
+        "internalRef": "307654927"
       }
     },
     {
       "git": {
         "name": "synthtool",
         "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "f5e4c17dc78a966dbf29961dd01f9bbd63e20a04"
+        "sha": "21ce80f9d4785dc75aa36d26944bddd5a1b7e25b"
       }
     }
   ],
