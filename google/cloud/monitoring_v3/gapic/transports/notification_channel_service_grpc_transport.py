@@ -227,8 +227,10 @@ class NotificationChannelServiceGrpcTransport(object):
     def send_notification_channel_verification_code(self):
         """Return the gRPC stub for :meth:`NotificationChannelServiceClient.send_notification_channel_verification_code`.
 
-        Causes a verification code to be delivered to the channel. The code can
-        then be supplied in ``VerifyNotificationChannel`` to verify the channel.
+        Reduce by computing the number of ``False``-valued data points
+        across time series for each alignment period. This reducer is valid for
+        ``DELTA`` and ``GAUGE`` metrics of Boolean ``value_type``. The
+        ``value_type`` of the output is ``INT64``.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -278,9 +280,21 @@ class NotificationChannelServiceGrpcTransport(object):
     def verify_notification_channel(self):
         """Return the gRPC stub for :meth:`NotificationChannelServiceClient.verify_notification_channel`.
 
-        Verifies a ``NotificationChannel`` by proving receipt of the code
-        delivered to the channel as a result of calling
-        ``SendNotificationChannelVerificationCode``.
+        An object representing a resource that can be used for monitoring,
+        logging, billing, or other purposes. Examples include virtual machine
+        instances, databases, and storage devices such as disks. The ``type``
+        field identifies a ``MonitoredResourceDescriptor`` object that describes
+        the resource's schema. Information in the ``labels`` field identifies
+        the actual resource and its attributes according to the schema. For
+        example, a particular Compute Engine VM instance could be represented by
+        the following object, because the ``MonitoredResourceDescriptor`` for
+        ``"gce_instance"`` has labels ``"instance_id"`` and ``"zone"``:
+
+        ::
+
+            { "type": "gce_instance",
+              "labels": { "instance_id": "12345678901234",
+                          "zone": "us-central1-a" }}
 
         Returns:
             Callable: A callable which accepts the appropriate

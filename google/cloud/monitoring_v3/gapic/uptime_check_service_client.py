@@ -69,14 +69,11 @@ _GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution(
 
 class UptimeCheckServiceClient(object):
     """
-    The UptimeCheckService API is used to manage (list, create, delete,
-    edit) Uptime check configurations in the Stackdriver Monitoring product.
-    An Uptime check is a piece of configuration that determines which
-    resources and services to monitor for availability. These configurations
-    can also be configured interactively by navigating to the [Cloud
-    Console] (http://console.cloud.google.com), selecting the appropriate
-    project, clicking on "Monitoring" on the left-hand side to navigate to
-    Stackdriver, and then clicking on "Uptime".
+    If provided, this field specifies the criteria that must be met by
+    notification channels to be included in the response.
+
+    For more details, see `sorting and
+    filtering <https://cloud.google.com/monitoring/api/v3/sorting-and-filtering>`__.
     """
 
     SERVICE_ADDRESS = "monitoring.googleapis.com:443"
@@ -269,12 +266,7 @@ class UptimeCheckServiceClient(object):
             ...         pass
 
         Args:
-            parent (str): Required. The project whose Uptime check configurations are listed. The
-                format is:
-
-                ::
-
-                     projects/[PROJECT_ID_OR_NUMBER]
+            parent (str): Soft delete this ``Service``.
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
@@ -367,11 +359,7 @@ class UptimeCheckServiceClient(object):
             >>> response = client.get_uptime_check_config(name)
 
         Args:
-            name (str): Required. The Uptime check configuration to retrieve. The format is:
-
-                ::
-
-                     projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+            name (str): Create a ``ServiceLevelObjective`` for the given ``Service``.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -447,12 +435,9 @@ class UptimeCheckServiceClient(object):
             >>> response = client.create_uptime_check_config(parent, uptime_check_config)
 
         Args:
-            parent (str): Required. The project in which to create the Uptime check. The format
-                is:
-
-                ::
-
-                     projects/[PROJECT_ID_OR_NUMBER]
+            parent (str): If non-empty, ``page_token`` must contain a value returned as the
+                ``next_page_token`` in a previous response to request the next set of
+                results.
             uptime_check_config (Union[dict, ~google.cloud.monitoring_v3.types.UptimeCheckConfig]): Required. The new Uptime check configuration.
 
                 If a dict is provided, it must be of the same form as the protobuf
@@ -519,10 +504,7 @@ class UptimeCheckServiceClient(object):
         metadata=None,
     ):
         """
-        Updates an Uptime check configuration. You can either replace the entire
-        configuration with a new one or replace only certain fields in the
-        current configuration by specifying the fields to be updated via
-        ``updateMask``. Returns the updated configuration.
+        The ``ListGroup`` request.
 
         Example:
             >>> from google.cloud import monitoring_v3
@@ -535,17 +517,95 @@ class UptimeCheckServiceClient(object):
             >>> response = client.update_uptime_check_config(uptime_check_config)
 
         Args:
-            uptime_check_config (Union[dict, ~google.cloud.monitoring_v3.types.UptimeCheckConfig]): Required. If an ``updateMask`` has been specified, this field gives the
-                values for the set of fields mentioned in the ``updateMask``. If an
-                ``updateMask`` has not been given, this Uptime check configuration
-                replaces the current configuration. If a field is mentioned in
-                ``updateMask`` but the corresonding field is omitted in this partial
-                Uptime check configuration, it has the effect of deleting/clearing the
-                field from the configuration on the server.
+            uptime_check_config (Union[dict, ~google.cloud.monitoring_v3.types.UptimeCheckConfig]): ``Any`` contains an arbitrary serialized protocol buffer message
+                along with a URL that describes the type of the serialized message.
 
-                The following fields can be updated: ``display_name``, ``http_check``,
-                ``tcp_check``, ``timeout``, ``content_matchers``, and
-                ``selected_regions``.
+                Protobuf library provides support to pack/unpack Any values in the form
+                of utility functions or additional generated methods of the Any type.
+
+                Example 1: Pack and unpack a message in C++.
+
+                ::
+
+                    Foo foo = ...;
+                    Any any;
+                    any.PackFrom(foo);
+                    ...
+                    if (any.UnpackTo(&foo)) {
+                      ...
+                    }
+
+                Example 2: Pack and unpack a message in Java.
+
+                ::
+
+                    Foo foo = ...;
+                    Any any = Any.pack(foo);
+                    ...
+                    if (any.is(Foo.class)) {
+                      foo = any.unpack(Foo.class);
+                    }
+
+                Example 3: Pack and unpack a message in Python.
+
+                ::
+
+                    foo = Foo(...)
+                    any = Any()
+                    any.Pack(foo)
+                    ...
+                    if any.Is(Foo.DESCRIPTOR):
+                      any.Unpack(foo)
+                      ...
+
+                Example 4: Pack and unpack a message in Go
+
+                ::
+
+                     foo := &pb.Foo{...}
+                     any, err := ptypes.MarshalAny(foo)
+                     ...
+                     foo := &pb.Foo{}
+                     if err := ptypes.UnmarshalAny(any, foo); err != nil {
+                       ...
+                     }
+
+                The pack methods provided by protobuf library will by default use
+                'type.googleapis.com/full.type.name' as the type URL and the unpack
+                methods only use the fully qualified type name after the last '/' in the
+                type URL, for example "foo.bar.com/x/y.z" will yield type name "y.z".
+
+                # JSON
+
+                The JSON representation of an ``Any`` value uses the regular
+                representation of the deserialized, embedded message, with an additional
+                field ``@type`` which contains the type URL. Example:
+
+                ::
+
+                    package google.profile;
+                    message Person {
+                      string first_name = 1;
+                      string last_name = 2;
+                    }
+
+                    {
+                      "@type": "type.googleapis.com/google.profile.Person",
+                      "firstName": <string>,
+                      "lastName": <string>
+                    }
+
+                If the embedded message type is well-known and has a custom JSON
+                representation, that representation will be embedded adding a field
+                ``value`` which holds the custom JSON in addition to the ``@type``
+                field. Example (for message ``google.protobuf.Duration``):
+
+                ::
+
+                    {
+                      "@type": "type.googleapis.com/google.protobuf.Duration",
+                      "value": "1.212s"
+                    }
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.monitoring_v3.types.UptimeCheckConfig`
@@ -631,11 +691,32 @@ class UptimeCheckServiceClient(object):
             >>> client.delete_uptime_check_config(name)
 
         Args:
-            name (str): Required. The Uptime check configuration to delete. The format is:
+            name (str): A URL/resource name that uniquely identifies the type of the
+                serialized protocol buffer message. This string must contain at least
+                one "/" character. The last segment of the URL's path must represent the
+                fully qualified name of the type (as in
+                ``path/google.protobuf.Duration``). The name should be in a canonical
+                form (e.g., leading "." is not accepted).
 
-                ::
+                In practice, teams usually precompile into the binary all types that
+                they expect it to use in the context of Any. However, for URLs which use
+                the scheme ``http``, ``https``, or no scheme, one can optionally set up
+                a type server that maps type URLs to message definitions as follows:
 
-                     projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+                -  If no scheme is provided, ``https`` is assumed.
+                -  An HTTP GET on the URL must yield a ``google.protobuf.Type`` value in
+                   binary format, or produce an error.
+                -  Applications are allowed to cache lookup results based on the URL, or
+                   have them precompiled into a binary to avoid any lookup. Therefore,
+                   binary compatibility needs to be preserved on changes to types. (Use
+                   versioned type names to manage breaking changes.)
+
+                Note: this functionality is not currently available in the official
+                protobuf release, and it is not used for type URLs beginning with
+                type.googleapis.com.
+
+                Schemes other than ``http``, ``https`` (or the empty scheme) might be
+                used with implementation specific semantics.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.

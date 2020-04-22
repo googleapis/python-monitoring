@@ -170,10 +170,9 @@ class AlertPolicyServiceGrpcTransport(object):
     def update_alert_policy(self):
         """Return the gRPC stub for :meth:`AlertPolicyServiceClient.update_alert_policy`.
 
-        Updates an alerting policy. You can either replace the entire policy
-        with a new one or replace only certain fields in the current alerting
-        policy by specifying the fields to be updated via ``updateMask``.
-        Returns the updated alerting policy.
+        Combine conditions using logical ``AND`` operator, but unlike the
+        regular ``AND`` option, an incident is created only if all conditions
+        are met simultaneously on at least one resource.
 
         Returns:
             Callable: A callable which accepts the appropriate
