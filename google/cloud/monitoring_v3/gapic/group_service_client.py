@@ -52,19 +52,7 @@ _GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution(
 
 
 class GroupServiceClient(object):
-    """
-    The Group API lets you inspect and manage your
-    `groups <#google.monitoring.v3.Group>`__.
-
-    A group is a named filter that is used to identify a collection of
-    monitored resources. Groups are typically used to mirror the physical
-    and/or logical topology of the environment. Because group membership is
-    computed dynamically, monitored resources that are started in the future
-    are automatically placed in matching groups. By using a group to name
-    monitored resources in, for example, an alert policy, the target of that
-    alert policy is updated automatically as monitored resources are added
-    and removed from the infrastructure.
-    """
+    """Create a ``Service``."""
 
     SERVICE_ADDRESS = "monitoring.googleapis.com:443"
     """The default address of the service."""
@@ -256,38 +244,21 @@ class GroupServiceClient(object):
             ...         pass
 
         Args:
-            name (str): Required. The project whose groups are to be listed. The format is:
+            name (str): Boolean specifying whether to include SSL certificate validation as
+                a part of the Uptime check. Only applies to checks where
+                ``monitored_resource`` is set to ``uptime_url``. If ``use_ssl`` is
+                ``false``, setting ``validate_ssl`` to ``true`` has no effect.
+            children_of_group (str): A Boolean value: ``true`` or ``false``.
+            ancestors_of_group (str): Resource name for this Service. The format is:
 
                 ::
 
-                     projects/[PROJECT_ID_OR_NUMBER]
-            children_of_group (str): A group name. The format is:
-
-                ::
-
-                     projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
-
-                Returns groups whose ``parent_name`` field contains the group name. If
-                no groups have this parent, the results are empty.
-            ancestors_of_group (str): A group name. The format is:
-
-                ::
-
-                     projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
-
-                Returns groups that are ancestors of the specified group. The groups are
-                returned in order, starting with the immediate parent and ending with
-                the most distant ancestor. If the specified group has no immediate
-                parent, the results are empty.
-            descendants_of_group (str): A group name. The format is:
-
-                ::
-
-                     projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
-
-                Returns the descendants of the specified group. This is a superset of
-                the results returned by the ``children_of_group`` filter, and includes
-                children-of-children, and so forth.
+                    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+            descendants_of_group (str): Deprecated features are scheduled to be shut down and removed. For
+                more information, see the “Deprecation Policy” section of our `Terms of
+                Service <https://cloud.google.com/terms/>`__ and the `Google Cloud
+                Platform Subject to the Deprecation
+                Policy <https://cloud.google.com/terms/deprecation>`__ documentation.
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
@@ -392,11 +363,8 @@ class GroupServiceClient(object):
             >>> response = client.get_group(name)
 
         Args:
-            name (str): Required. The group to retrieve. The format is:
-
-                ::
-
-                     projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+            name (str): Optional. The Service id to use for this Service. If omitted, an id
+                will be generated instead. Must match the pattern ``[a-z0-9\-]+``
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -473,13 +441,17 @@ class GroupServiceClient(object):
             >>> response = client.create_group(name, group)
 
         Args:
-            name (str): Required. The project in which to create the group. The format is:
+            name (str): The metric kind of the time series. When listing time series, this
+                metric kind might be different from the metric kind of the associated
+                metric if this time series is an alignment or reduction of other time
+                series.
 
-                ::
-
-                     projects/[PROJECT_ID_OR_NUMBER]
-            group (Union[dict, ~google.cloud.monitoring_v3.types.Group]): Required. A group definition. It is an error to define the ``name``
-                field because the system assigns the name.
+                When creating a time series, this field is optional. If present, it must
+                be the same as the metric kind of the associated metric. If the
+                associated metric's descriptor must be auto-created, then this field
+                specifies the metric kind of the new descriptor and must be either
+                ``GAUGE`` (the default) or ``CUMULATIVE``.
+            group (Union[dict, ~google.cloud.monitoring_v3.types.Group]): The ``ListGroupMembers`` response.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.monitoring_v3.types.Group`
@@ -546,8 +518,17 @@ class GroupServiceClient(object):
         metadata=None,
     ):
         """
-        Updates an existing group. You can change any group attributes except
-        ``name``.
+        Identifies the notification channels to which notifications should
+        be sent when incidents are opened or closed or when new violations occur
+        on an already opened incident. Each element of this array corresponds to
+        the ``name`` field in each of the ``NotificationChannel`` objects that
+        are returned from the [``ListNotificationChannels``]
+        [google.monitoring.v3.NotificationChannelService.ListNotificationChannels]
+        method. The format of the entries in this field is:
+
+        ::
+
+            projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
 
         Example:
             >>> from google.cloud import monitoring_v3
@@ -560,9 +541,28 @@ class GroupServiceClient(object):
             >>> response = client.update_group(group)
 
         Args:
-            group (Union[dict, ~google.cloud.monitoring_v3.types.Group]): Required. The new definition of the group. All fields of the existing
-                group, excepting ``name``, are replaced with the corresponding fields of
-                this group.
+            group (Union[dict, ~google.cloud.monitoring_v3.types.Group]): A closed time interval. It extends from the start time to the end
+                time, and includes both: ``[startTime, endTime]``. Valid time intervals
+                depend on the
+                ```MetricKind`` <https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors#MetricKind>`__
+                of the metric value. In no case can the end time be earlier than the
+                start time.
+
+                -  For a ``GAUGE`` metric, the ``startTime`` value is technically
+                   optional; if no value is specified, the start time defaults to the
+                   value of the end time, and the interval represents a single point in
+                   time. If both start and end times are specified, they must be
+                   identical. Such an interval is valid only for ``GAUGE`` metrics,
+                   which are point-in-time measurements.
+
+                -  For ``DELTA`` and ``CUMULATIVE`` metrics, the start time must be
+                   earlier than the end time.
+
+                -  In all cases, the start time of the next interval must be at least a
+                   millisecond after the end time of the previous interval. Because the
+                   interval is closed, if the start time of a new interval is the same
+                   as the end time of the previous interval, data written at the new
+                   start time could overwrite data written at the previous end time.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.monitoring_v3.types.Group`
@@ -641,11 +641,12 @@ class GroupServiceClient(object):
             >>> client.delete_group(name)
 
         Args:
-            name (str): Required. The group to delete. The format is:
-
-                ::
-
-                     projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+            name (str): The request body associated with the HTTP request. If
+                ``content_type`` is ``URL_ENCODED``, the body passed in must be
+                URL-encoded. Users can provide a ``Content-Length`` header via the
+                ``headers`` field or the API will do so. The maximum byte size is 1
+                megabyte. Note: As with all ``bytes`` fields JSON representations are
+                base64 encoded.
             recursive (bool): If this field is true, then the request means to delete a group with all
                 its descendants. Otherwise, the request means to delete a group only when
                 it has no descendants. The default value is false.
@@ -732,26 +733,28 @@ class GroupServiceClient(object):
             ...         pass
 
         Args:
-            name (str): Required. The group whose members are listed. The format is:
+            name (str): The data points of this time series. When listing time series,
+                points are returned in reverse time order.
 
-                ::
-
-                     projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+                When creating a time series, this field must contain exactly one point
+                and the point's type must be the same as the value type of the
+                associated metric. If the associated metric's descriptor must be
+                auto-created, then the value type of the descriptor is determined by the
+                point's type, which must be ``BOOL``, ``INT64``, ``DOUBLE``, or
+                ``DISTRIBUTION``.
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
                 streaming is performed per-page, this determines the maximum number
                 of resources in a page.
-            filter_ (str): An optional `list
-                filter <https://cloud.google.com/monitoring/api/learn_more#filtering>`__
-                describing the members to be returned. The filter may reference the
-                type, labels, and metadata of monitored resources that comprise the
-                group. For example, to return only resources representing Compute Engine
-                VM instances, use this filter:
+            filter_ (str): ``Struct`` represents a structured data value, consisting of fields
+                which map to dynamically typed values. In some languages, ``Struct``
+                might be supported by a native representation. For example, in scripting
+                languages like JS a struct is represented as an object. The details of
+                that representation are described together with the proto support for
+                the language.
 
-                ::
-
-                     `resource.type = "gce_instance"`
+                The JSON representation for ``Struct`` is JSON object.
             interval (Union[dict, ~google.cloud.monitoring_v3.types.TimeInterval]): An optional time interval for which results should be returned. Only
                 members that were part of the group during the specified interval are
                 included in the response.  If no interval is provided then the group
