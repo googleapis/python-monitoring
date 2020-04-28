@@ -50,8 +50,15 @@ _GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution(
 
 class AlertPolicyServiceClient(object):
     """
-    A specific metric, identified by specifying values for all of the
-    labels of a ``MetricDescriptor``.
+    The AlertPolicyService API is used to manage (list, create, delete,
+    edit) alert policies in Stackdriver Monitoring. An alerting policy is a
+    description of the conditions under which some aspect of your system is
+    considered to be "unhealthy" and the ways to notify people or services
+    about this state. In addition to using this API, alert policies can also
+    be managed through `Stackdriver
+    Monitoring <https://cloud.google.com/monitoring/docs/>`__, which can be
+    reached by clicking the "Monitoring" tab in `Cloud
+    Console <https://console.cloud.google.com/>`__.
     """
 
     SERVICE_ADDRESS = "monitoring.googleapis.com:443"
@@ -255,15 +262,25 @@ class AlertPolicyServiceClient(object):
             ...         pass
 
         Args:
-            name (str): Signed seconds of the span of time. Must be from -315,576,000,000 to
-                +315,576,000,000 inclusive. Note: these bounds are computed from: 60
-                sec/min \* 60 min/hr \* 24 hr/day \* 365.25 days/year \* 10000 years
-            filter_ (str): The name of the Kubernetes cluster in which this Istio service is
-                defined. Corresponds to the ``cluster_name`` resource label in
-                ``k8s_cluster`` resources.
-            order_by (str): Wrapper message for ``string``.
+            name (str): Required. The project whose alert policies are to be listed. The format
+                is:
 
-                The JSON representation for ``StringValue`` is JSON string.
+                     projects/[PROJECT_ID_OR_NUMBER]
+
+                Note that this field names the parent container in which the alerting
+                policies to be listed are stored. To retrieve a single alerting policy
+                by name, use the ``GetAlertPolicy`` operation, instead.
+            filter_ (str): If provided, this field specifies the criteria that must be met by alert
+                policies to be included in the response.
+
+                For more details, see `sorting and
+                filtering <https://cloud.google.com/monitoring/api/v3/sorting-and-filtering>`__.
+            order_by (str): A comma-separated list of fields by which to sort the result. Supports
+                the same set of field references as the ``filter`` field. Entries can be
+                prefixed with a minus sign to sort by the field in descending order.
+
+                For more details, see `sorting and
+                filtering <https://cloud.google.com/monitoring/api/v3/sorting-and-filtering>`__.
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
@@ -356,8 +373,9 @@ class AlertPolicyServiceClient(object):
             >>> response = client.get_alert_policy(name)
 
         Args:
-            name (str): The set of label values that uniquely identify this metric. All
-                labels listed in the ``MetricDescriptor`` must be assigned values.
+            name (str): Required. The alerting policy to retrieve. The format is:
+
+                     projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -433,17 +451,20 @@ class AlertPolicyServiceClient(object):
             >>> response = client.create_alert_policy(name, alert_policy)
 
         Args:
-            name (str): An existing metric type, see ``google.api.MetricDescriptor``. For
-                example, ``custom.googleapis.com/invoice/paid/amount``.
-            alert_policy (Union[dict, ~google.cloud.monitoring_v3.types.AlertPolicy]): Required if the policy exists. The resource name for this policy.
-                The format is:
+            name (str): Required. The project in which to create the alerting policy. The format
+                is:
 
-                    projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
+                     projects/[PROJECT_ID_OR_NUMBER]
 
-                ``[ALERT_POLICY_ID]`` is assigned by Stackdriver Monitoring when the
-                policy is created. When calling the ``alertPolicies.create`` method, do
-                not include the ``name`` field in the alerting policy passed as part of
-                the request.
+                Note that this field names the parent container in which the alerting
+                policy will be written, not the name of the created policy. The alerting
+                policy that is returned will have a name that contains a normalized
+                representation of this name as a prefix but adds a suffix of the form
+                ``/alertPolicies/[ALERT_POLICY_ID]``, identifying the policy in the
+                container.
+            alert_policy (Union[dict, ~google.cloud.monitoring_v3.types.AlertPolicy]): Required. The requested alerting policy. You should omit the ``name``
+                field in this policy. The name will be returned in the new policy,
+                including a new ``[ALERT_POLICY_ID]`` value.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.monitoring_v3.types.AlertPolicy`
@@ -520,8 +541,11 @@ class AlertPolicyServiceClient(object):
             >>> client.delete_alert_policy(name)
 
         Args:
-            name (str): The name of the Istio service underlying this service. Corresponds
-                to the ``destination_service_name`` metric label in Istio metrics.
+            name (str): Required. The alerting policy to delete. The format is:
+
+                     projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
+
+                For more information, see ``AlertPolicy``.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -579,9 +603,10 @@ class AlertPolicyServiceClient(object):
         metadata=None,
     ):
         """
-        Combine conditions using logical ``AND`` operator, but unlike the
-        regular ``AND`` option, an incident is created only if all conditions
-        are met simultaneously on at least one resource.
+        Updates an alerting policy. You can either replace the entire policy
+        with a new one or replace only certain fields in the current alerting
+        policy by specifying the fields to be updated via ``updateMask``.
+        Returns the updated alerting policy.
 
         Example:
             >>> from google.cloud import monitoring_v3
@@ -594,12 +619,35 @@ class AlertPolicyServiceClient(object):
             >>> response = client.update_alert_policy(alert_policy)
 
         Args:
-            alert_policy (Union[dict, ~google.cloud.monitoring_v3.types.AlertPolicy]): The ``QueryTimeSeries`` response.
+            alert_policy (Union[dict, ~google.cloud.monitoring_v3.types.AlertPolicy]): Required. The updated alerting policy or the updated values for the
+                fields listed in ``update_mask``. If ``update_mask`` is not empty, any
+                fields in this policy that are not in ``update_mask`` are ignored.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.monitoring_v3.types.AlertPolicy`
-            update_mask (Union[dict, ~google.cloud.monitoring_v3.types.FieldMask]): Required. The ``ServiceLevelObjective`` to draw updates from. The
-                given ``name`` specifies the resource to update.
+            update_mask (Union[dict, ~google.cloud.monitoring_v3.types.FieldMask]): Optional. A list of alerting policy field names. If this field is not
+                empty, each listed field in the existing alerting policy is set to the
+                value of the corresponding field in the supplied policy
+                (``alert_policy``), or to the field's default value if the field is not
+                in the supplied alerting policy. Fields not listed retain their previous
+                value.
+
+                Examples of valid field masks include ``display_name``,
+                ``documentation``, ``documentation.content``,
+                ``documentation.mime_type``, ``user_labels``, ``user_label.nameofkey``,
+                ``enabled``, ``conditions``, ``combiner``, etc.
+
+                If this field is empty, then the supplied alerting policy replaces the
+                existing policy. It is the same as deleting the existing policy and
+                adding the supplied policy, except for the following:
+
+                -  The new policy will have the same ``[ALERT_POLICY_ID]`` as the former
+                   policy. This gives you continuity with the former policy in your
+                   notifications and incidents.
+                -  Conditions in the new policy will keep their former
+                   ``[CONDITION_ID]`` if the supplied condition includes the ``name``
+                   field with that ``[CONDITION_ID]``. If the supplied condition omits
+                   the ``name`` field, then a new ``[CONDITION_ID]`` is created.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.monitoring_v3.types.FieldMask`

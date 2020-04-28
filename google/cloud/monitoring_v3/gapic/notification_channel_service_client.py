@@ -266,7 +266,16 @@ class NotificationChannelServiceClient(object):
             ...         pass
 
         Args:
-            name (str): The ``UpdateServiceLevelObjective`` request.
+            name (str): Required. The REST resource name of the parent from which to retrieve
+                the notification channel descriptors. The expected syntax is:
+
+                ::
+
+                     projects/[PROJECT_ID_OR_NUMBER]
+
+                Note that this names the parent container in which to look for the
+                descriptors; to retrieve a single descriptor by name, use the
+                ``GetNotificationChannelDescriptor`` operation, instead.
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
@@ -364,12 +373,12 @@ class NotificationChannelServiceClient(object):
             >>> response = client.get_notification_channel_descriptor(name)
 
         Args:
-            name (str): Auxiliary metadata for a ``MonitoredResource`` object.
-                ``MonitoredResource`` objects contain the minimum set of information to
-                uniquely identify a monitored resource instance. There is some other
-                useful auxiliary metadata. Monitoring and Logging use an ingestion
-                pipeline to extract metadata for cloud resources of all types, and store
-                the metadata in this message.
+            name (str): Required. The channel type for which to execute the request. The format
+                is:
+
+                ::
+
+                     projects/[PROJECT_ID_OR_NUMBER]/notificationChannelDescriptors/[CHANNEL_TYPE]
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -462,16 +471,26 @@ class NotificationChannelServiceClient(object):
             ...         pass
 
         Args:
-            name (str): The maximum number of results to return in a single response. The
-                server may further constrain the maximum number of results returned in a
-                single page. If the page_size is <=0, the server will decide the number
-                of results to be returned.
-            filter_ (str): The ``ListServices`` request.
-            order_by (str): Reduce by computing the `5th
-                percentile <https://en.wikipedia.org/wiki/Percentile>`__ of data points
-                across time series for each alignment period. This reducer is valid for
-                ``GAUGE`` and ``DELTA`` metrics of numeric and distribution type. The
-                value of the output is ``DOUBLE``.
+            name (str): Required. The project on which to execute the request. The format is:
+
+                ::
+
+                     projects/[PROJECT_ID_OR_NUMBER]
+
+                This names the container in which to look for the notification channels;
+                it does not name a specific channel. To query a specific channel by REST
+                resource name, use the ``GetNotificationChannel`` operation.
+            filter_ (str): If provided, this field specifies the criteria that must be met by
+                notification channels to be included in the response.
+
+                For more details, see `sorting and
+                filtering <https://cloud.google.com/monitoring/api/v3/sorting-and-filtering>`__.
+            order_by (str): A comma-separated list of fields by which to sort the result. Supports
+                the same set of fields as in ``filter``. Entries can be prefixed with a
+                minus sign to sort in descending rather than ascending order.
+
+                For more details, see `sorting and
+                filtering <https://cloud.google.com/monitoring/api/v3/sorting-and-filtering>`__.
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
@@ -570,15 +589,11 @@ class NotificationChannelServiceClient(object):
             >>> response = client.get_notification_channel(name)
 
         Args:
-            name (str): The ``alignment_period`` specifies a time interval, in seconds, that
-                is used to divide the data in all the ``time series`` into consistent
-                blocks of time. This will be done before the per-series aligner can be
-                applied to the data.
+            name (str): Required. The channel for which to execute the request. The format is:
 
-                The value must be at least 60 seconds. If a per-series aligner other
-                than ``ALIGN_NONE`` is specified, this field is required or an error is
-                returned. If no per-series aligner is specified, or the aligner
-                ``ALIGN_NONE`` is specified, then this field is ignored.
+                ::
+
+                     projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -655,14 +670,17 @@ class NotificationChannelServiceClient(object):
             >>> response = client.create_notification_channel(name, notification_channel)
 
         Args:
-            name (str): Reduce by computing the `50th
-                percentile <https://en.wikipedia.org/wiki/Percentile>`__ of data points
-                across time series for each alignment period. This reducer is valid for
-                ``GAUGE`` and ``DELTA`` metrics of numeric and distribution type. The
-                value of the output is ``DOUBLE``.
-            notification_channel (Union[dict, ~google.cloud.monitoring_v3.types.NotificationChannel]): Header options corresponding to the Content-Type of the body in HTTP
-                requests. Note that a ``Content-Type`` header cannot be present in the
-                ``headers`` field if this field is specified.
+            name (str): Required. The project on which to execute the request. The format is:
+
+                ::
+
+                     projects/[PROJECT_ID_OR_NUMBER]
+
+                This names the container into which the channel will be written, this
+                does not name the newly created channel. The resulting channel's name
+                will have a normalized version of this field as a prefix, but will add
+                ``/notificationChannels/[CHANNEL_ID]`` to identify the channel.
+            notification_channel (Union[dict, ~google.cloud.monitoring_v3.types.NotificationChannel]): Required. The definition of the ``NotificationChannel`` to create.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.monitoring_v3.types.NotificationChannel`
@@ -744,20 +762,10 @@ class NotificationChannelServiceClient(object):
             >>> response = client.update_notification_channel(notification_channel)
 
         Args:
-            notification_channel (Union[dict, ~google.cloud.monitoring_v3.types.NotificationChannel]): OAuth scopes needed for the client.
-
-                Example:
-
-                | service Foo { option (google.api.oauth_scopes) =
-                | "https://www.googleapis.com/auth/cloud-platform"; ... }
-
-                If there is more than one scope, use a comma-separated string:
-
-                Example:
-
-                | service Foo { option (google.api.oauth_scopes) =
-                | "https://www.googleapis.com/auth/cloud-platform,"
-                  "https://www.googleapis.com/auth/monitoring"; ... }
+            notification_channel (Union[dict, ~google.cloud.monitoring_v3.types.NotificationChannel]): Required. A description of the changes to be applied to the specified
+                notification channel. The description must provide a definition for
+                fields to be updated; the names of these fields should also be included
+                in the ``update_mask``.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.monitoring_v3.types.NotificationChannel`
@@ -841,7 +849,11 @@ class NotificationChannelServiceClient(object):
             >>> client.delete_notification_channel(name)
 
         Args:
-            name (str): The protocol for the ``CreateUptimeCheckConfig`` request.
+            name (str): Required. The channel for which to execute the request. The format is:
+
+                ::
+
+                     projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
             force (bool): If true, the notification channel will be deleted regardless of its
                 use in alert policies (the policies will be updated to remove the
                 channel). If false, channels that are still referenced by an existing
@@ -906,10 +918,8 @@ class NotificationChannelServiceClient(object):
         metadata=None,
     ):
         """
-        Reduce by computing the number of ``False``-valued data points
-        across time series for each alignment period. This reducer is valid for
-        ``DELTA`` and ``GAUGE`` metrics of Boolean ``value_type``. The
-        ``value_type`` of the output is ``INT64``.
+        Causes a verification code to be delivered to the channel. The code can
+        then be supplied in ``VerifyNotificationChannel`` to verify the channel.
 
         Example:
             >>> from google.cloud import monitoring_v3
@@ -1098,21 +1108,9 @@ class NotificationChannelServiceClient(object):
         metadata=None,
     ):
         """
-        An object representing a resource that can be used for monitoring,
-        logging, billing, or other purposes. Examples include virtual machine
-        instances, databases, and storage devices such as disks. The ``type``
-        field identifies a ``MonitoredResourceDescriptor`` object that describes
-        the resource's schema. Information in the ``labels`` field identifies
-        the actual resource and its attributes according to the schema. For
-        example, a particular Compute Engine VM instance could be represented by
-        the following object, because the ``MonitoredResourceDescriptor`` for
-        ``"gce_instance"`` has labels ``"instance_id"`` and ``"zone"``:
-
-        ::
-
-            { "type": "gce_instance",
-              "labels": { "instance_id": "12345678901234",
-                          "zone": "us-central1-a" }}
+        Verifies a ``NotificationChannel`` by proving receipt of the code
+        delivered to the channel as a result of calling
+        ``SendNotificationChannelVerificationCode``.
 
         Example:
             >>> from google.cloud import monitoring_v3
@@ -1128,11 +1126,13 @@ class NotificationChannelServiceClient(object):
 
         Args:
             name (str): Required. The notification channel to verify.
-            code (str): Optional (defaults to "/"). The path to the page against which to
-                run the check. Will be combined with the ``host`` (specified within the
-                ``monitored_resource``) and ``port`` to construct the full URL. If the
-                provided path does not begin with "/", a "/" will be prepended
-                automatically.
+            code (str): Required. The verification code that was delivered to the channel as a
+                result of invoking the ``SendNotificationChannelVerificationCode`` API
+                method or that was retrieved from a verified channel via
+                ``GetNotificationChannelVerificationCode``. For example, one might have
+                "G-123456" or "TKNZGhhd2EyN3I1MnRnMjRv" (in general, one is only
+                guaranteed that the code is valid UTF-8; one should not make any
+                assumptions regarding the structure or format of the code).
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.

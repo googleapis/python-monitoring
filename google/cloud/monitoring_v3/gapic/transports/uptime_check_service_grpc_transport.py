@@ -158,7 +158,10 @@ class UptimeCheckServiceGrpcTransport(object):
     def update_uptime_check_config(self):
         """Return the gRPC stub for :meth:`UptimeCheckServiceClient.update_uptime_check_config`.
 
-        The ``ListGroup`` request.
+        Updates an Uptime check configuration. You can either replace the entire
+        configuration with a new one or replace only certain fields in the
+        current configuration by specifying the fields to be updated via
+        ``updateMask``. Returns the updated configuration.
 
         Returns:
             Callable: A callable which accepts the appropriate

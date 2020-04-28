@@ -155,17 +155,8 @@ class GroupServiceGrpcTransport(object):
     def update_group(self):
         """Return the gRPC stub for :meth:`GroupServiceClient.update_group`.
 
-        Identifies the notification channels to which notifications should
-        be sent when incidents are opened or closed or when new violations occur
-        on an already opened incident. Each element of this array corresponds to
-        the ``name`` field in each of the ``NotificationChannel`` objects that
-        are returned from the [``ListNotificationChannels``]
-        [google.monitoring.v3.NotificationChannelService.ListNotificationChannels]
-        method. The format of the entries in this field is:
-
-        ::
-
-            projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
+        Updates an existing group. You can change any group attributes except
+        ``name``.
 
         Returns:
             Callable: A callable which accepts the appropriate

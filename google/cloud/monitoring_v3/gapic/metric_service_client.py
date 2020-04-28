@@ -260,13 +260,20 @@ class MetricServiceClient(object):
             ...         pass
 
         Args:
-            name (str): Align the time series by returning the number of values in each
-                alignment period. This aligner is valid for ``GAUGE`` and ``DELTA``
-                metrics with numeric or Boolean values. The ``value_type`` of the
-                aligned result is ``INT64``.
-            filter_ (str): The definition of good service, used to measure and calculate the
-                quality of the ``Service``'s performance with respect to a single aspect
-                of service quality.
+            name (str): Required. The project on which to execute the request. The format is:
+
+                ::
+
+                     projects/[PROJECT_ID_OR_NUMBER]
+            filter_ (str): An optional
+                `filter <https://cloud.google.com/monitoring/api/v3/filters>`__
+                describing the descriptors to be returned. The filter can reference the
+                descriptor's type and labels. For example, the following filter returns
+                only Google Compute Engine descriptors that have an ``id`` label:
+
+                ::
+
+                     resource.type = starts_with("gce_") AND resource.label:id
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
@@ -363,10 +370,14 @@ class MetricServiceClient(object):
             >>> response = client.get_monitored_resource_descriptor(name)
 
         Args:
-            name (str): Align the time series by returning the standard deviation of the
-                values in each alignment period. This aligner is valid for ``GAUGE`` and
-                ``DELTA`` metrics with numeric values. The ``value_type`` of the output
-                is ``DOUBLE``.
+            name (str): Required. The monitored resource descriptor to get. The format is:
+
+                ::
+
+                     projects/[PROJECT_ID_OR_NUMBER]/monitoredResourceDescriptors/[RESOURCE_TYPE]
+
+                The ``[RESOURCE_TYPE]`` is a predefined type, such as
+                ``cloudsql_database``.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -456,11 +467,21 @@ class MetricServiceClient(object):
             ...         pass
 
         Args:
-            name (str): Align the time series by returning the number of ``True`` values in
-                each alignment period. This aligner is valid for ``GAUGE`` metrics with
-                Boolean values. The ``value_type`` of the output is ``INT64``.
-            filter_ (str): For extensions, this is the name of the type being extended. It is
-                resolved in the same manner as type_name.
+            name (str): Required. The project on which to execute the request. The format is:
+
+                ::
+
+                     projects/[PROJECT_ID_OR_NUMBER]
+            filter_ (str): If this field is empty, all custom and system-defined metric descriptors
+                are returned. Otherwise, the
+                `filter <https://cloud.google.com/monitoring/api/v3/filters>`__
+                specifies which metric descriptors are to be returned. For example, the
+                following filter matches all `custom
+                metrics <https://cloud.google.com/monitoring/custom-metrics>`__:
+
+                ::
+
+                     metric.type = starts_with("custom.googleapis.com/")
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
@@ -553,11 +574,15 @@ class MetricServiceClient(object):
             >>> response = client.get_metric_descriptor(name)
 
         Args:
-            name (str): Align the time series by returning the ratio of the number of
-                ``True`` values to the total number of values in each alignment period.
-                This aligner is valid for ``GAUGE`` metrics with Boolean values. The
-                output value is in the range [0.0, 1.0] and has ``value_type``
-                ``DOUBLE``.
+            name (str): Required. The metric descriptor on which to execute the request. The
+                format is:
+
+                ::
+
+                     projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID]
+
+                An example value of ``[METRIC_ID]`` is
+                ``"compute.googleapis.com/instance/disk/read_bytes_count"``.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -618,9 +643,8 @@ class MetricServiceClient(object):
         metadata=None,
     ):
         """
-        Align the time series by returning the mean value in each alignment
-        period. This aligner is valid for ``GAUGE`` and ``DELTA`` metrics with
-        numeric values. The ``value_type`` of the aligned result is ``DOUBLE``.
+        Creates a new metric descriptor. User-created metric descriptors define
+        `custom metrics <https://cloud.google.com/monitoring/custom-metrics>`__.
 
         Example:
             >>> from google.cloud import monitoring_v3
@@ -635,14 +659,14 @@ class MetricServiceClient(object):
             >>> response = client.create_metric_descriptor(name, metric_descriptor)
 
         Args:
-            name (str): Align the time series by using `percentile
-                aggregation <https://en.wikipedia.org/wiki/Percentile>`__. The resulting
-                data point in each alignment period is the 99th percentile of all data
-                points in the period. This aligner is valid for ``GAUGE`` and ``DELTA``
-                metrics with distribution values. The output is a ``GAUGE`` metric with
-                ``value_type`` ``DOUBLE``.
-            metric_descriptor (Union[dict, ~google.cloud.monitoring_v3.types.MetricDescriptor]): Good service is defined to be the count of requests made to this
-                service that are fast enough with respect to ``latency.threshold``.
+            name (str): Required. The project on which to execute the request. The format is:
+
+                ::
+
+                     projects/[PROJECT_ID_OR_NUMBER]
+            metric_descriptor (Union[dict, ~google.cloud.monitoring_v3.types.MetricDescriptor]): Required. The new `custom
+                metric <https://cloud.google.com/monitoring/custom-metrics>`__
+                descriptor.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.monitoring_v3.types.MetricDescriptor`
@@ -707,7 +731,9 @@ class MetricServiceClient(object):
         metadata=None,
     ):
         """
-        Represents a repeated ``Value``.
+        Deletes a metric descriptor. Only user-created `custom
+        metrics <https://cloud.google.com/monitoring/custom-metrics>`__ can be
+        deleted.
 
         Example:
             >>> from google.cloud import monitoring_v3
@@ -719,8 +745,15 @@ class MetricServiceClient(object):
             >>> client.delete_metric_descriptor(name)
 
         Args:
-            name (str): If set, gives the index of a oneof in the containing type's
-                oneof_decl list. This field is a member of that oneof.
+            name (str): Required. The metric descriptor on which to execute the request. The
+                format is:
+
+                ::
+
+                     projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID]
+
+                An example of ``[METRIC_ID]`` is:
+                ``"custom.googleapis.com/my_test_metric"``.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -817,15 +850,21 @@ class MetricServiceClient(object):
             ...         pass
 
         Args:
-            name (str): A calendar period, semantically "since the start of the current
-                ``<calendar_period>``". At this time, only ``DAY``, ``WEEK``,
-                ``FORTNIGHT``, and ``MONTH`` are supported.
-            filter_ (str): Align the time series by using `percentile
-                aggregation <https://en.wikipedia.org/wiki/Percentile>`__. The resulting
-                data point in each alignment period is the 50th percentile of all data
-                points in the period. This aligner is valid for ``GAUGE`` and ``DELTA``
-                metrics with distribution values. The output is a ``GAUGE`` metric with
-                ``value_type`` ``DOUBLE``.
+            name (str): Required. The project on which to execute the request. The format is:
+
+                ::
+
+                     projects/[PROJECT_ID_OR_NUMBER]
+            filter_ (str): Required. A `monitoring
+                filter <https://cloud.google.com/monitoring/api/v3/filters>`__ that
+                specifies which time series should be returned. The filter must specify
+                a single metric type, and can additionally specify metric labels and
+                other information. For example:
+
+                ::
+
+                     metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
+                         metric.labels.instance_name = "my-instance-name"
             interval (Union[dict, ~google.cloud.monitoring_v3.types.TimeInterval]): Required. The time interval for which results should be returned. Only time series
                 that contain data points in the specified interval are included
                 in the response.
@@ -833,10 +872,11 @@ class MetricServiceClient(object):
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.monitoring_v3.types.TimeInterval`
             view (~google.cloud.monitoring_v3.types.TimeSeriesView): Required. Specifies which information is returned about the time series.
-            aggregation (Union[dict, ~google.cloud.monitoring_v3.types.Aggregation]): JSON name of this field. The value is set by protocol compiler. If
-                the user has set a "json_name" option on this field, that option's value
-                will be used. Otherwise, it's deduced from the field's name by
-                converting it to camelCase.
+            aggregation (Union[dict, ~google.cloud.monitoring_v3.types.Aggregation]): Specifies the alignment of data points in individual time series as well
+                as how to combine the retrieved time series across specified labels.
+
+                By default (if no ``aggregation`` is explicitly specified), the raw time
+                series data is returned.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.monitoring_v3.types.Aggregation`
@@ -947,21 +987,19 @@ class MetricServiceClient(object):
             >>> client.create_time_series(name, time_series)
 
         Args:
-            name (str): An object that describes the schema of a ``MonitoredResource``
-                object using a type name and a set of labels. For example, the monitored
-                resource descriptor for Google Compute Engine VM instances has a type of
-                ``"gce_instance"`` and specifies the use of the labels ``"instance_id"``
-                and ``"zone"`` to identify particular VM instances.
-
-                Different APIs can support different monitored resource types. APIs
-                generally provide a ``list`` method that returns the monitored resource
-                descriptors used by the API.
-            time_series (list[Union[dict, ~google.cloud.monitoring_v3.types.TimeSeries]]): Required. The project on which to execute the request. The format
-                is:
+            name (str): Required. The project on which to execute the request. The format is:
 
                 ::
 
-                    projects/[PROJECT_ID_OR_NUMBER]
+                     projects/[PROJECT_ID_OR_NUMBER]
+            time_series (list[Union[dict, ~google.cloud.monitoring_v3.types.TimeSeries]]): Required. The new data to be added to a list of time series. Adds at
+                most one data point to each of several time series. The new data point
+                must be more recent than any other point in its time series. Each
+                ``TimeSeries`` value must fully specify a unique time series by
+                supplying all label values for the metric and the monitored resource.
+
+                The maximum number of ``TimeSeries`` objects per ``Create`` request is
+                200.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.monitoring_v3.types.TimeSeries`

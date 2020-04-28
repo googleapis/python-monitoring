@@ -118,9 +118,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
     def create_service(self):
         """Return the gRPC stub for :meth:`ServiceMonitoringServiceClient.create_service`.
 
-        Creates a new metric descriptor. User-created metric descriptors
-        define `custom
-        metrics <https://cloud.google.com/monitoring/custom-metrics>`__.
+        Create a ``Service``.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -133,16 +131,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
     def get_service(self):
         """Return the gRPC stub for :meth:`ServiceMonitoringServiceClient.get_service`.
 
-        A unique resource name for this Uptime check configuration. The
-        format is:
-
-        ::
-
-             projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
-
-        This field should be omitted when creating the Uptime check
-        configuration; on create, the resource name is assigned by the server
-        and included in the response.
+        Get the named ``Service``.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -155,7 +144,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
     def list_services(self):
         """Return the gRPC stub for :meth:`ServiceMonitoringServiceClient.list_services`.
 
-        Delete the given ``ServiceLevelObjective``.
+        List ``Service``\ s for this workspace.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -168,9 +157,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
     def update_service(self):
         """Return the gRPC stub for :meth:`ServiceMonitoringServiceClient.update_service`.
 
-        Required. The monitored resource type. This field must match the
-        ``type`` field of a ``MonitoredResourceDescriptor`` object. For example,
-        the type of a Compute Engine VM instance is ``gce_instance``.
+        Update this ``Service``.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -183,37 +170,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
     def delete_service(self):
         """Return the gRPC stub for :meth:`ServiceMonitoringServiceClient.delete_service`.
 
-        Each of the definitions above may have "options" attached. These are
-        just annotations which may cause code to be generated slightly
-        differently or may contain hints for code that manipulates protocol
-        messages.
-
-        Clients may define custom options as extensions of the \*Options
-        messages. These extensions may not yet be known at parsing time, so the
-        parser cannot store the values in them. Instead it stores them in a
-        field in the \*Options message called uninterpreted_option. This field
-        must have the same name across all \*Options messages. We then use this
-        field to populate the extensions when we build a descriptor, at which
-        point all protos have been parsed and so all extensions are known.
-
-        Extension numbers for custom options may be chosen as follows:
-
-        -  For options which will only be used within a single application or
-           organization, or for experimental options, use field numbers 50000
-           through 99999. It is up to you to ensure that you do not use the same
-           number for multiple options.
-        -  For options which will be published and used publicly by multiple
-           independent entities, e-mail
-           protobuf-global-extension-registry@google.com to reserve extension
-           numbers. Simply provide your project name (e.g. Objective-C plugin)
-           and your project website (if available) -- there's no need to explain
-           how you intend to use them. Usually you only need one extension
-           number. You can declare multiple options with only one extension
-           number by putting them in a sub-message. See the Custom Options
-           section of the docs for examples:
-           https://developers.google.com/protocol-buffers/docs/proto#options If
-           this turns out to be popular, a web service will be set up to
-           automatically assign option numbers.
+        Soft delete this ``Service``.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -226,37 +183,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
     def create_service_level_objective(self):
         """Return the gRPC stub for :meth:`ServiceMonitoringServiceClient.create_service_level_objective`.
 
-        Protocol Buffers - Google's data interchange format Copyright 2008
-        Google Inc. All rights reserved.
-        https://developers.google.com/protocol-buffers/
-
-        Redistribution and use in source and binary forms, with or without
-        modification, are permitted provided that the following conditions are
-        met:
-
-        ::
-
-            * Redistributions of source code must retain the above copyright
-
-        notice, this list of conditions and the following disclaimer. \*
-        Redistributions in binary form must reproduce the above copyright
-        notice, this list of conditions and the following disclaimer in the
-        documentation and/or other materials provided with the distribution. \*
-        Neither the name of Google Inc. nor the names of its contributors may be
-        used to endorse or promote products derived from this software without
-        specific prior written permission.
-
-        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
-        IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
-        TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
-        PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
-        OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-        EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-        PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-        PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-        LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-        NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        Create a ``ServiceLevelObjective`` for the given ``Service``.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -271,8 +198,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
     def get_service_level_objective(self):
         """Return the gRPC stub for :meth:`ServiceMonitoringServiceClient.get_service_level_objective`.
 
-        An annotation that describes a resource reference, see
-        ``ResourceReference``.
+        Get a ``ServiceLevelObjective`` by name.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -285,37 +211,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
     def list_service_level_objectives(self):
         """Return the gRPC stub for :meth:`ServiceMonitoringServiceClient.list_service_level_objectives`.
 
-        Protocol Buffers - Google's data interchange format Copyright 2008
-        Google Inc. All rights reserved.
-        https://developers.google.com/protocol-buffers/
-
-        Redistribution and use in source and binary forms, with or without
-        modification, are permitted provided that the following conditions are
-        met:
-
-        ::
-
-            * Redistributions of source code must retain the above copyright
-
-        notice, this list of conditions and the following disclaimer. \*
-        Redistributions in binary form must reproduce the above copyright
-        notice, this list of conditions and the following disclaimer in the
-        documentation and/or other materials provided with the distribution. \*
-        Neither the name of Google Inc. nor the names of its contributors may be
-        used to endorse or promote products derived from this software without
-        specific prior written permission.
-
-        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
-        IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
-        TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
-        PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
-        OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-        EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-        PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-        PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-        LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-        NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        List the ``ServiceLevelObjective``\ s for the given ``Service``.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -328,15 +224,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
     def update_service_level_objective(self):
         """Return the gRPC stub for :meth:`ServiceMonitoringServiceClient.update_service_level_objective`.
 
-        Wrappers for primitive (non-message) types. These types are useful
-        for embedding primitives in the ``google.protobuf.Any`` type and for
-        places where we need to distinguish between the absence of a primitive
-        typed field and its default value.
-
-        These wrappers have no meaningful use within repeated fields as they
-        lack the ability to detect presence on individual elements. These
-        wrappers have no meaningful use within a map or a oneof since individual
-        entries of a map or fields of a oneof can already detect presence.
+        Update the given ``ServiceLevelObjective``.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -351,11 +239,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
     def delete_service_level_objective(self):
         """Return the gRPC stub for :meth:`ServiceMonitoringServiceClient.delete_service_level_objective`.
 
-        Required. The project whose groups are to be listed. The format is:
-
-        ::
-
-            projects/[PROJECT_ID_OR_NUMBER]
+        Delete the given ``ServiceLevelObjective``.
 
         Returns:
             Callable: A callable which accepts the appropriate

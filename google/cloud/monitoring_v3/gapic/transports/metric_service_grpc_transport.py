@@ -168,9 +168,8 @@ class MetricServiceGrpcTransport(object):
     def create_metric_descriptor(self):
         """Return the gRPC stub for :meth:`MetricServiceClient.create_metric_descriptor`.
 
-        Align the time series by returning the mean value in each alignment
-        period. This aligner is valid for ``GAUGE`` and ``DELTA`` metrics with
-        numeric values. The ``value_type`` of the aligned result is ``DOUBLE``.
+        Creates a new metric descriptor. User-created metric descriptors define
+        `custom metrics <https://cloud.google.com/monitoring/custom-metrics>`__.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -183,7 +182,9 @@ class MetricServiceGrpcTransport(object):
     def delete_metric_descriptor(self):
         """Return the gRPC stub for :meth:`MetricServiceClient.delete_metric_descriptor`.
 
-        Represents a repeated ``Value``.
+        Deletes a metric descriptor. Only user-created `custom
+        metrics <https://cloud.google.com/monitoring/custom-metrics>`__ can be
+        deleted.
 
         Returns:
             Callable: A callable which accepts the appropriate
