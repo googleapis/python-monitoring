@@ -18,19 +18,20 @@ import synthtool as s
 import synthtool.gcp as gcp
 import logging
 
+AUTOSYNTH_MULTIPLE_COMMITS = True
+
 logging.basicConfig(level=logging.DEBUG)
 
-gapic = gcp.GAPICGenerator()
+gapic = gcp.GAPICBazel()
 common = gcp.CommonTemplates()
 
 # ----------------------------------------------------------------------------
 # Generate monitoring GAPIC layer
 # ----------------------------------------------------------------------------
 v3_library = gapic.py_library(
-    "monitoring",
-    "v3",
-    config_path="/google/monitoring/artman_monitoring.yaml",
-    artman_output_name="monitoring-v3",
+    service="monitoring",
+    version="v3",
+    bazel_target="//google/monitoring/v3:monitoring-v3-py",
     include_protos=True,
 )
 
@@ -71,9 +72,9 @@ s.replace(
 
 s.replace(
     "google/cloud/monitoring_v3/proto/metric_service_pb2.py",
-    "^(\s+)have an ``id`` label:  ::      resource.type =\n.*",
-    "\g<1>have an ``id`` label::\n\n"
-    '\g<1>    resource.type = starts_with("gce_") AND resource.label:id\n',
+    """(\s+)resource\.type
+          = starts_with\("gce_"\) AND resource\.label:id""",
+    """\n              resource.type = starts_with("gce_") AND resource.label:id"""
 )
 
 # Deal with long lines due to long proto name
