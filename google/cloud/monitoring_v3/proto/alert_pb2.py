@@ -1251,8 +1251,7 @@ AlertPolicy = _reflection.GeneratedProtocolMessageType(
           nnel] objects that are returned from the
           [``ListNotificationChannels``] [google.monitoring.v3.Notificat
           ionChannelService.ListNotificationChannels] method. The format
-          of the entries in this field is:  ::     projects/[PROJECT_ID_
-          OR_NUMBER]/notificationChannels/[CHANNEL_ID]
+          of the entries in this field is:  projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
       creation_record:
           A read-only record of the creation of the alerting policy. If
           provided in a call to create or update, this field will be

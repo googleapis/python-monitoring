@@ -1403,8 +1403,9 @@ ListMonitoredResourceDescriptorsRequest = _reflection.GeneratedProtocolMessageTy
           describing the descriptors to be returned. The filter can
           reference the descriptor’s type and labels. For example, the
           following filter returns only Google Compute Engine
-          descriptors that have an ``id`` label:  ::     resource.type =
-          starts_with("gce_") AND resource.label:id
+          descriptors that have an ``id`` label:  ::     
+          
+              resource.type = starts_with("gce_") AND resource.label:id
       page_size:
           A positive number that is the maximum number of results to
           return.

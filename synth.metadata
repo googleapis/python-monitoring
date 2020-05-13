@@ -3,23 +3,23 @@
     {
       "git": {
         "name": ".",
-        "remote": "https://github.com/googleapis/python-monitoring.git",
-        "sha": "36a6539beedbc9427f3040e39682c4173d22a477"
+        "remote": "git@github.com:googleapis/python-monitoring",
+        "sha": "cdd09cd01428dbc43f45b538e1761f9f2529d153"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "d3cc7bbf41afdfd6677cc1ab0d53965625cc073b",
-        "internalRef": "310454506"
+        "sha": "c8e291e6a4d60771219205b653715d5aeec3e96b",
+        "internalRef": "311222505"
       }
     },
     {
       "git": {
         "name": "synthtool",
         "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "4674113712c0c7ada19e6a8219d7963ff174b392"
+        "sha": "c585ac3b5eff5cd2097a5315ffd9cf4823cc1ed2"
       }
     }
   ],

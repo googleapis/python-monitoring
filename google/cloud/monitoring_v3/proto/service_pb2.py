@@ -1828,8 +1828,7 @@ ServiceLevelObjective = _reflection.GeneratedProtocolMessageType(
   Attributes:
       name:
           Resource name for this ``ServiceLevelObjective``. The format
-          is:  ::     projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_
-          ID]/serviceLevelObjectives/[SLO_NAME]
+          is:  ::     projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
       display_name:
           Name used for UI elements listing this SLO.
       service_level_indicator:
