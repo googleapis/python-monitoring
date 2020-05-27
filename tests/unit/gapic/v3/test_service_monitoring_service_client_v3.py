@@ -62,6 +62,70 @@ class CustomException(Exception):
 
 
 class TestServiceMonitoringServiceClient(object):
+    def test_delete_service(self):
+        channel = ChannelStub()
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        with patch as create_channel:
+            create_channel.return_value = channel
+            client = monitoring_v3.ServiceMonitoringServiceClient()
+
+        # Setup Request
+        name = "name3373707"
+
+        client.delete_service(name)
+
+        assert len(channel.requests) == 1
+        expected_request = service_service_pb2.DeleteServiceRequest(name=name)
+        actual_request = channel.requests[0][1]
+        assert expected_request == actual_request
+
+    def test_delete_service_exception(self):
+        # Mock the API response
+        channel = ChannelStub(responses=[CustomException()])
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        with patch as create_channel:
+            create_channel.return_value = channel
+            client = monitoring_v3.ServiceMonitoringServiceClient()
+
+        # Setup request
+        name = "name3373707"
+
+        with pytest.raises(CustomException):
+            client.delete_service(name)
+
+    def test_delete_service_level_objective(self):
+        channel = ChannelStub()
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        with patch as create_channel:
+            create_channel.return_value = channel
+            client = monitoring_v3.ServiceMonitoringServiceClient()
+
+        # Setup Request
+        name = "name3373707"
+
+        client.delete_service_level_objective(name)
+
+        assert len(channel.requests) == 1
+        expected_request = service_service_pb2.DeleteServiceLevelObjectiveRequest(
+            name=name
+        )
+        actual_request = channel.requests[0][1]
+        assert expected_request == actual_request
+
+    def test_delete_service_level_objective_exception(self):
+        # Mock the API response
+        channel = ChannelStub(responses=[CustomException()])
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        with patch as create_channel:
+            create_channel.return_value = channel
+            client = monitoring_v3.ServiceMonitoringServiceClient()
+
+        # Setup request
+        name = "name3373707"
+
+        with pytest.raises(CustomException):
+            client.delete_service_level_objective(name)
+
     def test_create_service(self):
         # Setup Expected Response
         name = "name3373707"
@@ -77,7 +141,7 @@ class TestServiceMonitoringServiceClient(object):
             client = monitoring_v3.ServiceMonitoringServiceClient()
 
         # Setup Request
-        parent = client.project_path("[PROJECT]")
+        parent = "parent-995424086"
         service = {}
 
         response = client.create_service(parent, service)
@@ -99,7 +163,7 @@ class TestServiceMonitoringServiceClient(object):
             client = monitoring_v3.ServiceMonitoringServiceClient()
 
         # Setup request
-        parent = client.project_path("[PROJECT]")
+        parent = "parent-995424086"
         service = {}
 
         with pytest.raises(CustomException):
@@ -120,7 +184,7 @@ class TestServiceMonitoringServiceClient(object):
             client = monitoring_v3.ServiceMonitoringServiceClient()
 
         # Setup Request
-        name = client.service_path("[PROJECT]", "[SERVICE]")
+        name = "name3373707"
 
         response = client.get_service(name)
         assert expected_response == response
@@ -139,7 +203,7 @@ class TestServiceMonitoringServiceClient(object):
             client = monitoring_v3.ServiceMonitoringServiceClient()
 
         # Setup request
-        name = client.service_path("[PROJECT]", "[SERVICE]")
+        name = "name3373707"
 
         with pytest.raises(CustomException):
             client.get_service(name)
@@ -162,7 +226,7 @@ class TestServiceMonitoringServiceClient(object):
             client = monitoring_v3.ServiceMonitoringServiceClient()
 
         # Setup Request
-        parent = client.project_path("[PROJECT]")
+        parent = "parent-995424086"
 
         paged_list_response = client.list_services(parent)
         resources = list(paged_list_response)
@@ -183,7 +247,7 @@ class TestServiceMonitoringServiceClient(object):
             client = monitoring_v3.ServiceMonitoringServiceClient()
 
         # Setup request
-        parent = client.project_path("[PROJECT]")
+        parent = "parent-995424086"
 
         paged_list_response = client.list_services(parent)
         with pytest.raises(CustomException):
@@ -228,37 +292,6 @@ class TestServiceMonitoringServiceClient(object):
         with pytest.raises(CustomException):
             client.update_service(service)
 
-    def test_delete_service(self):
-        channel = ChannelStub()
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
-        with patch as create_channel:
-            create_channel.return_value = channel
-            client = monitoring_v3.ServiceMonitoringServiceClient()
-
-        # Setup Request
-        name = client.service_path("[PROJECT]", "[SERVICE]")
-
-        client.delete_service(name)
-
-        assert len(channel.requests) == 1
-        expected_request = service_service_pb2.DeleteServiceRequest(name=name)
-        actual_request = channel.requests[0][1]
-        assert expected_request == actual_request
-
-    def test_delete_service_exception(self):
-        # Mock the API response
-        channel = ChannelStub(responses=[CustomException()])
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
-        with patch as create_channel:
-            create_channel.return_value = channel
-            client = monitoring_v3.ServiceMonitoringServiceClient()
-
-        # Setup request
-        name = client.service_path("[PROJECT]", "[SERVICE]")
-
-        with pytest.raises(CustomException):
-            client.delete_service(name)
-
     def test_create_service_level_objective(self):
         # Setup Expected Response
         name = "name3373707"
@@ -275,7 +308,7 @@ class TestServiceMonitoringServiceClient(object):
             client = monitoring_v3.ServiceMonitoringServiceClient()
 
         # Setup Request
-        parent = client.service_path("[PROJECT]", "[SERVICE]")
+        parent = "parent-995424086"
         service_level_objective = {}
 
         response = client.create_service_level_objective(
@@ -299,7 +332,7 @@ class TestServiceMonitoringServiceClient(object):
             client = monitoring_v3.ServiceMonitoringServiceClient()
 
         # Setup request
-        parent = client.service_path("[PROJECT]", "[SERVICE]")
+        parent = "parent-995424086"
         service_level_objective = {}
 
         with pytest.raises(CustomException):
@@ -321,9 +354,7 @@ class TestServiceMonitoringServiceClient(object):
             client = monitoring_v3.ServiceMonitoringServiceClient()
 
         # Setup Request
-        name = client.service_level_objective_path(
-            "[PROJECT]", "[SERVICE]", "[SERVICE_LEVEL_OBJECTIVE]"
-        )
+        name = "name3373707"
 
         response = client.get_service_level_objective(name)
         assert expected_response == response
@@ -344,9 +375,7 @@ class TestServiceMonitoringServiceClient(object):
             client = monitoring_v3.ServiceMonitoringServiceClient()
 
         # Setup request
-        name = client.service_level_objective_path(
-            "[PROJECT]", "[SERVICE]", "[SERVICE_LEVEL_OBJECTIVE]"
-        )
+        name = "name3373707"
 
         with pytest.raises(CustomException):
             client.get_service_level_objective(name)
@@ -372,7 +401,7 @@ class TestServiceMonitoringServiceClient(object):
             client = monitoring_v3.ServiceMonitoringServiceClient()
 
         # Setup Request
-        parent = client.service_path("[PROJECT]", "[SERVICE]")
+        parent = "parent-995424086"
 
         paged_list_response = client.list_service_level_objectives(parent)
         resources = list(paged_list_response)
@@ -395,7 +424,7 @@ class TestServiceMonitoringServiceClient(object):
             client = monitoring_v3.ServiceMonitoringServiceClient()
 
         # Setup request
-        parent = client.service_path("[PROJECT]", "[SERVICE]")
+        parent = "parent-995424086"
 
         paged_list_response = client.list_service_level_objectives(parent)
         with pytest.raises(CustomException):
@@ -442,40 +471,3 @@ class TestServiceMonitoringServiceClient(object):
 
         with pytest.raises(CustomException):
             client.update_service_level_objective(service_level_objective)
-
-    def test_delete_service_level_objective(self):
-        channel = ChannelStub()
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
-        with patch as create_channel:
-            create_channel.return_value = channel
-            client = monitoring_v3.ServiceMonitoringServiceClient()
-
-        # Setup Request
-        name = client.service_level_objective_path(
-            "[PROJECT]", "[SERVICE]", "[SERVICE_LEVEL_OBJECTIVE]"
-        )
-
-        client.delete_service_level_objective(name)
-
-        assert len(channel.requests) == 1
-        expected_request = service_service_pb2.DeleteServiceLevelObjectiveRequest(
-            name=name
-        )
-        actual_request = channel.requests[0][1]
-        assert expected_request == actual_request
-
-    def test_delete_service_level_objective_exception(self):
-        # Mock the API response
-        channel = ChannelStub(responses=[CustomException()])
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
-        with patch as create_channel:
-            create_channel.return_value = channel
-            client = monitoring_v3.ServiceMonitoringServiceClient()
-
-        # Setup request
-        name = client.service_level_objective_path(
-            "[PROJECT]", "[SERVICE]", "[SERVICE_LEVEL_OBJECTIVE]"
-        )
-
-        with pytest.raises(CustomException):
-            client.delete_service_level_objective(name)

@@ -17,6 +17,11 @@ config = {
                 }
             },
             "methods": {
+                "DeleteAlertPolicy": {
+                    "timeout_millis": 60000,
+                    "retry_codes_name": "idempotent",
+                    "retry_params_name": "default",
+                },
                 "ListAlertPolicies": {
                     "timeout_millis": 60000,
                     "retry_codes_name": "idempotent",
@@ -30,11 +35,6 @@ config = {
                 "CreateAlertPolicy": {
                     "timeout_millis": 60000,
                     "retry_codes_name": "non_idempotent",
-                    "retry_params_name": "default",
-                },
-                "DeleteAlertPolicy": {
-                    "timeout_millis": 60000,
-                    "retry_codes_name": "idempotent",
                     "retry_params_name": "default",
                 },
                 "UpdateAlertPolicy": {

@@ -14,7 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
 import time
 
 from google.cloud import monitoring_v3
@@ -23,8 +22,8 @@ from google.cloud.monitoring_v3.proto import metric_service_pb2
 
 class TestSystemMetricService(object):
     def test_list_monitored_resource_descriptors(self):
-        project_id = os.environ["PROJECT_ID"]
 
         client = monitoring_v3.MetricServiceClient()
-        name = client.project_path(project_id)
+        # TODO: Initialize `name`:
+        name = ""
         response = client.list_monitored_resource_descriptors(name)

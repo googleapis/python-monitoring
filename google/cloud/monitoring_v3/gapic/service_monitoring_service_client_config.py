@@ -17,6 +17,16 @@ config = {
                 }
             },
             "methods": {
+                "DeleteService": {
+                    "timeout_millis": 60000,
+                    "retry_codes_name": "idempotent",
+                    "retry_params_name": "default",
+                },
+                "DeleteServiceLevelObjective": {
+                    "timeout_millis": 60000,
+                    "retry_codes_name": "idempotent",
+                    "retry_params_name": "default",
+                },
                 "CreateService": {
                     "timeout_millis": 60000,
                     "retry_codes_name": "non_idempotent",
@@ -37,11 +47,6 @@ config = {
                     "retry_codes_name": "non_idempotent",
                     "retry_params_name": "default",
                 },
-                "DeleteService": {
-                    "timeout_millis": 60000,
-                    "retry_codes_name": "idempotent",
-                    "retry_params_name": "default",
-                },
                 "CreateServiceLevelObjective": {
                     "timeout_millis": 60000,
                     "retry_codes_name": "non_idempotent",
@@ -60,11 +65,6 @@ config = {
                 "UpdateServiceLevelObjective": {
                     "timeout_millis": 60000,
                     "retry_codes_name": "non_idempotent",
-                    "retry_params_name": "default",
-                },
-                "DeleteServiceLevelObjective": {
-                    "timeout_millis": 60000,
-                    "retry_codes_name": "idempotent",
                     "retry_params_name": "default",
                 },
             },
