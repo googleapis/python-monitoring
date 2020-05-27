@@ -3,8 +3,8 @@
     {
       "git": {
         "name": ".",
-        "remote": "git@github.com:googleapis/python-monitoring",
-        "sha": "cdd09cd01428dbc43f45b538e1761f9f2529d153"
+        "remote": "https://github.com/googleapis/python-monitoring.git",
+        "sha": "c962b8f54d96ead41072b8e5252642b9164805b3"
       }
     },
     {
