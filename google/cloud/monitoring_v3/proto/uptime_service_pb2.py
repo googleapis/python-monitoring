@@ -554,8 +554,6 @@ ListUptimeCheckConfigsRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTUPTIMECHECKCONFIGSREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.uptime_service_pb2",
         "__doc__": """The protocol for the ``ListUptimeCheckConfigs`` request.
-  
-  
   Attributes:
       parent:
           Required. The project whose Uptime check configurations are
@@ -583,8 +581,6 @@ ListUptimeCheckConfigsResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTUPTIMECHECKCONFIGSRESPONSE,
         "__module__": "google.cloud.monitoring_v3.proto.uptime_service_pb2",
         "__doc__": """The protocol for the ``ListUptimeCheckConfigs`` response.
-  
-  
   Attributes:
       uptime_check_configs:
           The returned Uptime check configurations.
@@ -611,8 +607,6 @@ GetUptimeCheckConfigRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _GETUPTIMECHECKCONFIGREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.uptime_service_pb2",
         "__doc__": """The protocol for the ``GetUptimeCheckConfig`` request.
-  
-  
   Attributes:
       name:
           Required. The Uptime check configuration to retrieve. The
@@ -631,8 +625,6 @@ CreateUptimeCheckConfigRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _CREATEUPTIMECHECKCONFIGREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.uptime_service_pb2",
         "__doc__": """The protocol for the ``CreateUptimeCheckConfig`` request.
-  
-  
   Attributes:
       parent:
           Required. The project in which to create the Uptime check. The
@@ -652,8 +644,6 @@ UpdateUptimeCheckConfigRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _UPDATEUPTIMECHECKCONFIGREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.uptime_service_pb2",
         "__doc__": """The protocol for the ``UpdateUptimeCheckConfig`` request.
-  
-  
   Attributes:
       update_mask:
           Optional. If present, only the listed fields in the current
@@ -685,8 +675,6 @@ DeleteUptimeCheckConfigRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _DELETEUPTIMECHECKCONFIGREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.uptime_service_pb2",
         "__doc__": """The protocol for the ``DeleteUptimeCheckConfig`` request.
-  
-  
   Attributes:
       name:
           Required. The Uptime check configuration to delete. The format
@@ -705,8 +693,6 @@ ListUptimeCheckIpsRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTUPTIMECHECKIPSREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.uptime_service_pb2",
         "__doc__": """The protocol for the ``ListUptimeCheckIps`` request.
-  
-  
   Attributes:
       page_size:
           The maximum number of results to return in a single response.
@@ -733,8 +719,6 @@ ListUptimeCheckIpsResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTUPTIMECHECKIPSRESPONSE,
         "__module__": "google.cloud.monitoring_v3.proto.uptime_service_pb2",
         "__doc__": """The protocol for the ``ListUptimeCheckIps`` response.
-  
-  
   Attributes:
       uptime_check_ips:
           The returned list of IP addresses (including region and

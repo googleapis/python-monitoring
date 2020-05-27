@@ -936,10 +936,8 @@ AlertPolicy = _reflection.GeneratedProtocolMessageType(
             {
                 "DESCRIPTOR": _ALERTPOLICY_DOCUMENTATION,
                 "__module__": "google.cloud.monitoring_v3.proto.alert_pb2",
-                "__doc__": """A content string and a MIME type that describes the
-    content string’s format.
-    
-    
+                "__doc__": """A content string and a MIME type that describes the content string’s
+    format.
     Attributes:
         content:
             The text of the documentation, interpreted according to
@@ -965,11 +963,8 @@ AlertPolicy = _reflection.GeneratedProtocolMessageType(
                     {
                         "DESCRIPTOR": _ALERTPOLICY_CONDITION_TRIGGER,
                         "__module__": "google.cloud.monitoring_v3.proto.alert_pb2",
-                        "__doc__": """Specifies how many time series must fail a predicate to
-      trigger a condition. If not specified, then a ``{count: 1}`` trigger is
-      used.
-      
-      
+                        "__doc__": """Specifies how many time series must fail a predicate to trigger a
+      condition. If not specified, then a ``{count: 1}`` trigger is used.
       Attributes:
           type:
               A type of trigger.
@@ -989,10 +984,8 @@ AlertPolicy = _reflection.GeneratedProtocolMessageType(
                     {
                         "DESCRIPTOR": _ALERTPOLICY_CONDITION_METRICTHRESHOLD,
                         "__module__": "google.cloud.monitoring_v3.proto.alert_pb2",
-                        "__doc__": """A condition type that compares a collection of time series
-      against a threshold.
-      
-      
+                        "__doc__": """A condition type that compares a collection of time series against a
+      threshold.
       Attributes:
           filter:
               A `filter
@@ -1078,13 +1071,11 @@ AlertPolicy = _reflection.GeneratedProtocolMessageType(
                     {
                         "DESCRIPTOR": _ALERTPOLICY_CONDITION_METRICABSENCE,
                         "__module__": "google.cloud.monitoring_v3.proto.alert_pb2",
-                        "__doc__": """A condition type that checks that monitored resources are
-      reporting data. The configuration defines a metric and a set of
-      monitored resources. The predicate is considered in violation when a
-      time series for the specified metric of a monitored resource does not
-      include any data in the specified ``duration``.
-      
-      
+                        "__doc__": """A condition type that checks that monitored resources are reporting
+      data. The configuration defines a metric and a set of monitored
+      resources. The predicate is considered in violation when a time series
+      for the specified metric of a monitored resource does not include any
+      data in the specified ``duration``.
       Attributes:
           filter:
               A `filter
@@ -1128,11 +1119,9 @@ AlertPolicy = _reflection.GeneratedProtocolMessageType(
                 ),
                 "DESCRIPTOR": _ALERTPOLICY_CONDITION,
                 "__module__": "google.cloud.monitoring_v3.proto.alert_pb2",
-                "__doc__": """A condition is a true/false test that determines when an
-    alerting policy should open an incident. If a condition evaluates to
-    true, it signifies that something is wrong.
-    
-    
+                "__doc__": """A condition is a true/false test that determines when an alerting
+    policy should open an incident. If a condition evaluates to true, it
+    signifies that something is wrong.
     Attributes:
         name:
             Required if the condition exists. The unique resource name for
@@ -1182,13 +1171,11 @@ AlertPolicy = _reflection.GeneratedProtocolMessageType(
         ),
         "DESCRIPTOR": _ALERTPOLICY,
         "__module__": "google.cloud.monitoring_v3.proto.alert_pb2",
-        "__doc__": """A description of the conditions under which some aspect of
-  your system is considered to be “unhealthy” and the ways to notify
-  people or services about this state. For an overview of alert policies,
-  see `Introduction to
-  Alerting <https://cloud.google.com/monitoring/alerts/>`__.
-  
-  
+        "__doc__": """A description of the conditions under which some aspect of your system
+  is considered to be “unhealthy” and the ways to notify people or
+  services about this state. For an overview of alert policies, see
+  `Introduction to Alerting
+  <https://cloud.google.com/monitoring/alerts/>`__.
   Attributes:
       name:
           Required if the policy exists. The resource name for this

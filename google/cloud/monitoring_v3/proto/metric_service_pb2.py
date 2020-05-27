@@ -1391,8 +1391,6 @@ ListMonitoredResourceDescriptorsRequest = _reflection.GeneratedProtocolMessageTy
         "DESCRIPTOR": _LISTMONITOREDRESOURCEDESCRIPTORSREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.metric_service_pb2",
         "__doc__": """The ``ListMonitoredResourceDescriptors`` request.
-  
-  
   Attributes:
       name:
           Required. The project on which to execute the request. The
@@ -1427,8 +1425,6 @@ ListMonitoredResourceDescriptorsResponse = _reflection.GeneratedProtocolMessageT
         "DESCRIPTOR": _LISTMONITOREDRESOURCEDESCRIPTORSRESPONSE,
         "__module__": "google.cloud.monitoring_v3.proto.metric_service_pb2",
         "__doc__": """The ``ListMonitoredResourceDescriptors`` response.
-  
-  
   Attributes:
       resource_descriptors:
           The monitored resource descriptors that are available to this
@@ -1451,8 +1447,6 @@ GetMonitoredResourceDescriptorRequest = _reflection.GeneratedProtocolMessageType
         "DESCRIPTOR": _GETMONITOREDRESOURCEDESCRIPTORREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.metric_service_pb2",
         "__doc__": """The ``GetMonitoredResourceDescriptor`` request.
-  
-  
   Attributes:
       name:
           Required. The monitored resource descriptor to get. The format
@@ -1472,8 +1466,6 @@ ListMetricDescriptorsRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTMETRICDESCRIPTORSREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.metric_service_pb2",
         "__doc__": """The ``ListMetricDescriptors`` request.
-  
-  
   Attributes:
       name:
           Required. The project on which to execute the request. The
@@ -1507,8 +1499,6 @@ ListMetricDescriptorsResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTMETRICDESCRIPTORSRESPONSE,
         "__module__": "google.cloud.monitoring_v3.proto.metric_service_pb2",
         "__doc__": """The ``ListMetricDescriptors`` response.
-  
-  
   Attributes:
       metric_descriptors:
           The metric descriptors that are available to the project and
@@ -1531,8 +1521,6 @@ GetMetricDescriptorRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _GETMETRICDESCRIPTORREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.metric_service_pb2",
         "__doc__": """The ``GetMetricDescriptor`` request.
-  
-  
   Attributes:
       name:
           Required. The metric descriptor on which to execute the
@@ -1553,8 +1541,6 @@ CreateMetricDescriptorRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _CREATEMETRICDESCRIPTORREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.metric_service_pb2",
         "__doc__": """The ``CreateMetricDescriptor`` request.
-  
-  
   Attributes:
       name:
           Required. The project on which to execute the request. The
@@ -1576,8 +1562,6 @@ DeleteMetricDescriptorRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _DELETEMETRICDESCRIPTORREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.metric_service_pb2",
         "__doc__": """The ``DeleteMetricDescriptor`` request.
-  
-  
   Attributes:
       name:
           Required. The metric descriptor on which to execute the
@@ -1598,8 +1582,6 @@ ListTimeSeriesRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTTIMESERIESREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.metric_service_pb2",
         "__doc__": """The ``ListTimeSeries`` request.
-  
-  
   Attributes:
       name:
           Required. The project on which to execute the request. The
@@ -1653,8 +1635,6 @@ ListTimeSeriesResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTTIMESERIESRESPONSE,
         "__module__": "google.cloud.monitoring_v3.proto.metric_service_pb2",
         "__doc__": """The ``ListTimeSeries`` response.
-  
-  
   Attributes:
       time_series:
           One or more time series that match the filter included in the
@@ -1680,8 +1660,6 @@ CreateTimeSeriesRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _CREATETIMESERIESREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.metric_service_pb2",
         "__doc__": """The ``CreateTimeSeries`` request.
-  
-  
   Attributes:
       name:
           Required. The project on which to execute the request. The
@@ -1707,8 +1685,6 @@ CreateTimeSeriesError = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _CREATETIMESERIESERROR,
         "__module__": "google.cloud.monitoring_v3.proto.metric_service_pb2",
         "__doc__": """DEPRECATED. Used to hold per-time-series error status.
-  
-  
   Attributes:
       time_series:
           DEPRECATED. Time series ID that resulted in the ``status``
@@ -1733,8 +1709,6 @@ CreateTimeSeriesSummary = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _CREATETIMESERIESSUMMARY_ERROR,
                 "__module__": "google.cloud.monitoring_v3.proto.metric_service_pb2",
                 "__doc__": """Detailed information about an error category.
-    
-    
     Attributes:
         status:
             The status of the requested write operation.
@@ -1747,10 +1721,8 @@ CreateTimeSeriesSummary = _reflection.GeneratedProtocolMessageType(
         ),
         "DESCRIPTOR": _CREATETIMESERIESSUMMARY,
         "__module__": "google.cloud.monitoring_v3.proto.metric_service_pb2",
-        "__doc__": """Summary of the result of a failed request to write data to
-  a time series.
-  
-  
+        "__doc__": """Summary of the result of a failed request to write data to a time
+  series.
   Attributes:
       total_point_count:
           The number of points in the request.
@@ -1773,8 +1745,6 @@ QueryTimeSeriesRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _QUERYTIMESERIESREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.metric_service_pb2",
         "__doc__": """The ``QueryTimeSeries`` request.
-  
-  
   Attributes:
       name:
           Required. The project on which to execute the request. The
@@ -1803,8 +1773,6 @@ QueryTimeSeriesResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _QUERYTIMESERIESRESPONSE,
         "__module__": "google.cloud.monitoring_v3.proto.metric_service_pb2",
         "__doc__": """The ``QueryTimeSeries`` response.
-  
-  
   Attributes:
       time_series_descriptor:
           The descriptor for the time series data.
@@ -1831,10 +1799,8 @@ QueryErrorList = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _QUERYERRORLIST,
         "__module__": "google.cloud.monitoring_v3.proto.metric_service_pb2",
-        "__doc__": """This is an error detail intended to be used with
-  INVALID_ARGUMENT errors.
-  
-  
+        "__doc__": """This is an error detail intended to be used with INVALID_ARGUMENT
+  errors.
   Attributes:
       errors:
           Errors in parsing the time series query language text. The

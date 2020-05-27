@@ -1253,10 +1253,8 @@ InternalChecker = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _INTERNALCHECKER,
         "__module__": "google.cloud.monitoring_v3.proto.uptime_pb2",
-        "__doc__": """An internal checker allows Uptime checks to run on
-  private/internal GCP resources.
-  
-  
+        "__doc__": """An internal checker allows Uptime checks to run on private/internal
+  GCP resources.
   Attributes:
       name:
           A unique resource name for this InternalChecker. The format
@@ -1297,11 +1295,8 @@ UptimeCheckConfig = _reflection.GeneratedProtocolMessageType(
             {
                 "DESCRIPTOR": _UPTIMECHECKCONFIG_RESOURCEGROUP,
                 "__module__": "google.cloud.monitoring_v3.proto.uptime_pb2",
-                "__doc__": """The resource submessage for group checks. It can be used
-    instead of a monitored resource, when multiple resources are being
-    monitored.
-    
-    
+                "__doc__": """The resource submessage for group checks. It can be used instead of a
+    monitored resource, when multiple resources are being monitored.
     Attributes:
         group_id:
             The group of resources being monitored. Should be only the
@@ -1323,12 +1318,10 @@ UptimeCheckConfig = _reflection.GeneratedProtocolMessageType(
                     {
                         "DESCRIPTOR": _UPTIMECHECKCONFIG_HTTPCHECK_BASICAUTHENTICATION,
                         "__module__": "google.cloud.monitoring_v3.proto.uptime_pb2",
-                        "__doc__": """The authentication parameters to provide to the specified
-      resource or URL that requires a username and password. Currently, only
-      `Basic HTTP authentication <https://tools.ietf.org/html/rfc7617>`__ is
-      supported in Uptime checks.
-      
-      
+                        "__doc__": """The authentication parameters to provide to the specified resource or
+      URL that requires a username and password. Currently, only `Basic HTTP
+      authentication <https://tools.ietf.org/html/rfc7617>`__ is supported
+      in Uptime checks.
       Attributes:
           username:
               The username to use when authenticating with the HTTP server.
@@ -1349,10 +1342,7 @@ UptimeCheckConfig = _reflection.GeneratedProtocolMessageType(
                 ),
                 "DESCRIPTOR": _UPTIMECHECKCONFIG_HTTPCHECK,
                 "__module__": "google.cloud.monitoring_v3.proto.uptime_pb2",
-                "__doc__": """Information involved in an HTTP/HTTPS Uptime check
-    request.
-    
-    
+                "__doc__": """Information involved in an HTTP/HTTPS Uptime check request.
     Attributes:
         request_method:
             The HTTP request method to use for the check.
@@ -1417,8 +1407,6 @@ UptimeCheckConfig = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _UPTIMECHECKCONFIG_TCPCHECK,
                 "__module__": "google.cloud.monitoring_v3.proto.uptime_pb2",
                 "__doc__": """Information required for a TCP Uptime check request.
-    
-    
     Attributes:
         port:
             The TCP port on the server against which to run the check.
@@ -1434,13 +1422,11 @@ UptimeCheckConfig = _reflection.GeneratedProtocolMessageType(
             {
                 "DESCRIPTOR": _UPTIMECHECKCONFIG_CONTENTMATCHER,
                 "__module__": "google.cloud.monitoring_v3.proto.uptime_pb2",
-                "__doc__": """Optional. Used to perform content matching. This allows
-    matching based on substrings and regular expressions, together with
-    their negations. Only the first 4 MB of an HTTP or HTTPS check’s
-    response (and the first 1 MB of a TCP check’s response) are examined for
-    purposes of content matching.
-    
-    
+                "__doc__": """Optional. Used to perform content matching. This allows matching based
+    on substrings and regular expressions, together with their negations.
+    Only the first 4 MB of an HTTP or HTTPS check’s response (and the
+    first 1 MB of a TCP check’s response) are examined for purposes of
+    content matching.
     Attributes:
         content:
             String or regex content to match. Maximum 1024 bytes. An empty
@@ -1456,10 +1442,8 @@ UptimeCheckConfig = _reflection.GeneratedProtocolMessageType(
         ),
         "DESCRIPTOR": _UPTIMECHECKCONFIG,
         "__module__": "google.cloud.monitoring_v3.proto.uptime_pb2",
-        "__doc__": """This message configures which resources and services to
-  monitor for availability.
-  
-  
+        "__doc__": """This message configures which resources and services to monitor for
+  availability.
   Attributes:
       name:
           A unique resource name for this Uptime check configuration.
@@ -1541,10 +1525,8 @@ UptimeCheckIp = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _UPTIMECHECKIP,
         "__module__": "google.cloud.monitoring_v3.proto.uptime_pb2",
-        "__doc__": """Contains the region, location, and list of IP addresses
-  where checkers in the location run from.
-  
-  
+        "__doc__": """Contains the region, location, and list of IP addresses where checkers
+  in the location run from.
   Attributes:
       region:
           A broad region category in which the IP address is located.
