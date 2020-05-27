@@ -731,6 +731,7 @@ Aggregation = _reflection.GeneratedProtocolMessageType(
   series data is still available for later drilldown. For more details,
   see `Filtering and aggregation
   <https://cloud.google.com/monitoring/api/v3/aggregation>`__.
+  
   Attributes:
       alignment_period:
           The ``alignment_period`` specifies a time interval, in
