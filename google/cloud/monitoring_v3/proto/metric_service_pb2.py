@@ -39,6 +39,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.monitoring.v3",
     syntax="proto3",
     serialized_options=b"\n\030com.google.monitoring.v3B\022MetricServiceProtoP\001Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\252\002\032Google.Cloud.Monitoring.V3\312\002\032Google\\Cloud\\Monitoring\\V3\352\002\035Google::Cloud::Monitoring::V3\352A\360\001\n*monitoring.googleapis.com/MetricDescriptor\022;projects/{project}/metricDescriptors/{metric_descriptor=**}\022Eorganizations/{organization}/metricDescriptors/{metric_descriptor=**}\0229folders/{folder}/metricDescriptors/{metric_descriptor=**}\022\001* \001\352A\267\002\n5monitoring.googleapis.com/MonitoredResourceDescriptor\022Oprojects/{project}/monitoredResourceDescriptors/{monitored_resource_descriptor}\022Yorganizations/{organization}/monitoredResourceDescriptors/{monitored_resource_descriptor}\022Mfolders/{folder}/monitoredResourceDescriptors/{monitored_resource_descriptor}\022\001* \001",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n5google/cloud/monitoring_v3/proto/metric_service.proto\x12\x14google.monitoring.v3\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x17google/api/metric.proto\x1a#google/api/monitored_resource.proto\x1a\x19google/api/resource.proto\x1a,google/cloud/monitoring_v3/proto/alert.proto\x1a-google/cloud/monitoring_v3/proto/common.proto\x1a-google/cloud/monitoring_v3/proto/metric.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x17google/rpc/status.proto"\xad\x01\n\'ListMonitoredResourceDescriptorsRequest\x12K\n\x04name\x18\x05 \x01(\tB=\xe0\x41\x02\xfa\x41\x37\x12\x35monitoring.googleapis.com/MonitoredResourceDescriptor\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t"\x8a\x01\n(ListMonitoredResourceDescriptorsResponse\x12\x45\n\x14resource_descriptors\x18\x01 \x03(\x0b\x32\'.google.api.MonitoredResourceDescriptor\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t"t\n%GetMonitoredResourceDescriptorRequest\x12K\n\x04name\x18\x03 \x01(\tB=\xe0\x41\x02\xfa\x41\x37\n5monitoring.googleapis.com/MonitoredResourceDescriptor"\x97\x01\n\x1cListMetricDescriptorsRequest\x12@\n\x04name\x18\x05 \x01(\tB2\xe0\x41\x02\xfa\x41,\x12*monitoring.googleapis.com/MetricDescriptor\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t"r\n\x1dListMetricDescriptorsResponse\x12\x38\n\x12metric_descriptors\x18\x01 \x03(\x0b\x32\x1c.google.api.MetricDescriptor\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t"^\n\x1aGetMetricDescriptorRequest\x12@\n\x04name\x18\x03 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*monitoring.googleapis.com/MetricDescriptor"\x9f\x01\n\x1d\x43reateMetricDescriptorRequest\x12@\n\x04name\x18\x03 \x01(\tB2\xe0\x41\x02\xfa\x41,\x12*monitoring.googleapis.com/MetricDescriptor\x12<\n\x11metric_descriptor\x18\x02 \x01(\x0b\x32\x1c.google.api.MetricDescriptorB\x03\xe0\x41\x02"a\n\x1d\x44\x65leteMetricDescriptorRequest\x12@\n\x04name\x18\x03 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*monitoring.googleapis.com/MetricDescriptor"\x93\x03\n\x15ListTimeSeriesRequest\x12\x41\n\x04name\x18\n \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x13\n\x06\x66ilter\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x39\n\x08interval\x18\x04 \x01(\x0b\x32".google.monitoring.v3.TimeIntervalB\x03\xe0\x41\x02\x12\x36\n\x0b\x61ggregation\x18\x05 \x01(\x0b\x32!.google.monitoring.v3.Aggregation\x12\x10\n\x08order_by\x18\x06 \x01(\t\x12M\n\x04view\x18\x07 \x01(\x0e\x32:.google.monitoring.v3.ListTimeSeriesRequest.TimeSeriesViewB\x03\xe0\x41\x02\x12\x11\n\tpage_size\x18\x08 \x01(\x05\x12\x12\n\npage_token\x18\t \x01(\t"\'\n\x0eTimeSeriesView\x12\x08\n\x04\x46ULL\x10\x00\x12\x0b\n\x07HEADERS\x10\x01"\x96\x01\n\x16ListTimeSeriesResponse\x12\x35\n\x0btime_series\x18\x01 \x03(\x0b\x32 .google.monitoring.v3.TimeSeries\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12,\n\x10\x65xecution_errors\x18\x03 \x03(\x0b\x32\x12.google.rpc.Status"\x98\x01\n\x17\x43reateTimeSeriesRequest\x12\x41\n\x04name\x18\x03 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12:\n\x0btime_series\x18\x02 \x03(\x0b\x32 .google.monitoring.v3.TimeSeriesB\x03\xe0\x41\x02"z\n\x15\x43reateTimeSeriesError\x12\x39\n\x0btime_series\x18\x01 \x01(\x0b\x32 .google.monitoring.v3.TimeSeriesB\x02\x18\x01\x12&\n\x06status\x18\x02 \x01(\x0b\x32\x12.google.rpc.StatusB\x02\x18\x01"\xd8\x01\n\x17\x43reateTimeSeriesSummary\x12\x19\n\x11total_point_count\x18\x01 \x01(\x05\x12\x1b\n\x13success_point_count\x18\x02 \x01(\x05\x12\x43\n\x06\x65rrors\x18\x03 \x03(\x0b\x32\x33.google.monitoring.v3.CreateTimeSeriesSummary.Error\x1a@\n\x05\x45rror\x12"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\x13\n\x0bpoint_count\x18\x02 \x01(\x05"\\\n\x16QueryTimeSeriesRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05query\x18\x07 \x01(\t\x12\x11\n\tpage_size\x18\t \x01(\x05\x12\x12\n\npage_token\x18\n \x01(\t"\xea\x01\n\x17QueryTimeSeriesResponse\x12J\n\x16time_series_descriptor\x18\x08 \x01(\x0b\x32*.google.monitoring.v3.TimeSeriesDescriptor\x12>\n\x10time_series_data\x18\t \x03(\x0b\x32$.google.monitoring.v3.TimeSeriesData\x12\x17\n\x0fnext_page_token\x18\n \x01(\t\x12*\n\x0epartial_errors\x18\x0b \x03(\x0b\x32\x12.google.rpc.Status"Y\n\x0eQueryErrorList\x12\x30\n\x06\x65rrors\x18\x01 \x03(\x0b\x32 .google.monitoring.v3.QueryError\x12\x15\n\rerror_summary\x18\x02 \x01(\t2\xbe\r\n\rMetricService\x12\xe4\x01\n ListMonitoredResourceDescriptors\x12=.google.monitoring.v3.ListMonitoredResourceDescriptorsRequest\x1a>.google.monitoring.v3.ListMonitoredResourceDescriptorsResponse"A\x82\xd3\xe4\x93\x02\x34\x12\x32/v3/{name=projects/*}/monitoredResourceDescriptors\xda\x41\x04name\x12\xcc\x01\n\x1eGetMonitoredResourceDescriptor\x12;.google.monitoring.v3.GetMonitoredResourceDescriptorRequest\x1a\'.google.api.MonitoredResourceDescriptor"D\x82\xd3\xe4\x93\x02\x37\x12\x35/v3/{name=projects/*/monitoredResourceDescriptors/**}\xda\x41\x04name\x12\xb8\x01\n\x15ListMetricDescriptors\x12\x32.google.monitoring.v3.ListMetricDescriptorsRequest\x1a\x33.google.monitoring.v3.ListMetricDescriptorsResponse"6\x82\xd3\xe4\x93\x02)\x12\'/v3/{name=projects/*}/metricDescriptors\xda\x41\x04name\x12\xa0\x01\n\x13GetMetricDescriptor\x12\x30.google.monitoring.v3.GetMetricDescriptorRequest\x1a\x1c.google.api.MetricDescriptor"9\x82\xd3\xe4\x93\x02,\x12*/v3/{name=projects/*/metricDescriptors/**}\xda\x41\x04name\x12\xc8\x01\n\x16\x43reateMetricDescriptor\x12\x33.google.monitoring.v3.CreateMetricDescriptorRequest\x1a\x1c.google.api.MetricDescriptor"[\x82\xd3\xe4\x93\x02<"\'/v3/{name=projects/*}/metricDescriptors:\x11metric_descriptor\xda\x41\x16name,metric_descriptor\x12\xa0\x01\n\x16\x44\x65leteMetricDescriptor\x12\x33.google.monitoring.v3.DeleteMetricDescriptorRequest\x1a\x16.google.protobuf.Empty"9\x82\xd3\xe4\x93\x02,**/v3/{name=projects/*/metricDescriptors/**}\xda\x41\x04name\x12\xb1\x01\n\x0eListTimeSeries\x12+.google.monitoring.v3.ListTimeSeriesRequest\x1a,.google.monitoring.v3.ListTimeSeriesResponse"D\x82\xd3\xe4\x93\x02"\x12 /v3/{name=projects/*}/timeSeries\xda\x41\x19name,filter,interval,view\x12\x99\x01\n\x10\x43reateTimeSeries\x12-.google.monitoring.v3.CreateTimeSeriesRequest\x1a\x16.google.protobuf.Empty">\x82\xd3\xe4\x93\x02%" /v3/{name=projects/*}/timeSeries:\x01*\xda\x41\x10name,time_series\x1a\xda\x01\xca\x41\x19monitoring.googleapis.com\xd2\x41\xba\x01https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/monitoring,https://www.googleapis.com/auth/monitoring.read,https://www.googleapis.com/auth/monitoring.writeB\xf9\x05\n\x18\x63om.google.monitoring.v3B\x12MetricServiceProtoP\x01Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\xaa\x02\x1aGoogle.Cloud.Monitoring.V3\xca\x02\x1aGoogle\\Cloud\\Monitoring\\V3\xea\x02\x1dGoogle::Cloud::Monitoring::V3\xea\x41\xf0\x01\n*monitoring.googleapis.com/MetricDescriptor\x12;projects/{project}/metricDescriptors/{metric_descriptor=**}\x12\x45organizations/{organization}/metricDescriptors/{metric_descriptor=**}\x12\x39\x66olders/{folder}/metricDescriptors/{metric_descriptor=**}\x12\x01* \x01\xea\x41\xb7\x02\n5monitoring.googleapis.com/MonitoredResourceDescriptor\x12Oprojects/{project}/monitoredResourceDescriptors/{monitored_resource_descriptor}\x12Yorganizations/{organization}/monitoredResourceDescriptors/{monitored_resource_descriptor}\x12Mfolders/{folder}/monitoredResourceDescriptors/{monitored_resource_descriptor}\x12\x01* \x01\x62\x06proto3',
     dependencies=[
         google_dot_api_dot_annotations__pb2.DESCRIPTOR,
@@ -62,12 +63,23 @@ _LISTTIMESERIESREQUEST_TIMESERIESVIEW = _descriptor.EnumDescriptor(
     full_name="google.monitoring.v3.ListTimeSeriesRequest.TimeSeriesView",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
-            name="FULL", index=0, number=0, serialized_options=None, type=None
+            name="FULL",
+            index=0,
+            number=0,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="HEADERS", index=1, number=1, serialized_options=None, type=None
+            name="HEADERS",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -84,6 +96,7 @@ _LISTMONITOREDRESOURCEDESCRIPTORSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -102,6 +115,7 @@ _LISTMONITOREDRESOURCEDESCRIPTORSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A7\0225monitoring.googleapis.com/MonitoredResourceDescriptor",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="filter",
@@ -120,6 +134,7 @@ _LISTMONITOREDRESOURCEDESCRIPTORSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -138,6 +153,7 @@ _LISTMONITOREDRESOURCEDESCRIPTORSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -156,6 +172,7 @@ _LISTMONITOREDRESOURCEDESCRIPTORSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -177,6 +194,7 @@ _LISTMONITOREDRESOURCEDESCRIPTORSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="resource_descriptors",
@@ -195,6 +213,7 @@ _LISTMONITOREDRESOURCEDESCRIPTORSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -213,6 +232,7 @@ _LISTMONITOREDRESOURCEDESCRIPTORSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -234,6 +254,7 @@ _GETMONITOREDRESOURCEDESCRIPTORREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -252,6 +273,7 @@ _GETMONITOREDRESOURCEDESCRIPTORREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A7\n5monitoring.googleapis.com/MonitoredResourceDescriptor",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -273,6 +295,7 @@ _LISTMETRICDESCRIPTORSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -291,6 +314,7 @@ _LISTMETRICDESCRIPTORSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A,\022*monitoring.googleapis.com/MetricDescriptor",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="filter",
@@ -309,6 +333,7 @@ _LISTMETRICDESCRIPTORSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -327,6 +352,7 @@ _LISTMETRICDESCRIPTORSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -345,6 +371,7 @@ _LISTMETRICDESCRIPTORSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -366,6 +393,7 @@ _LISTMETRICDESCRIPTORSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="metric_descriptors",
@@ -384,6 +412,7 @@ _LISTMETRICDESCRIPTORSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -402,6 +431,7 @@ _LISTMETRICDESCRIPTORSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -423,6 +453,7 @@ _GETMETRICDESCRIPTORREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -441,6 +472,7 @@ _GETMETRICDESCRIPTORREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A,\n*monitoring.googleapis.com/MetricDescriptor",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -462,6 +494,7 @@ _CREATEMETRICDESCRIPTORREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -480,6 +513,7 @@ _CREATEMETRICDESCRIPTORREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A,\022*monitoring.googleapis.com/MetricDescriptor",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="metric_descriptor",
@@ -498,6 +532,7 @@ _CREATEMETRICDESCRIPTORREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -519,6 +554,7 @@ _DELETEMETRICDESCRIPTORREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -537,6 +573,7 @@ _DELETEMETRICDESCRIPTORREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A,\n*monitoring.googleapis.com/MetricDescriptor",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -558,6 +595,7 @@ _LISTTIMESERIESREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -576,6 +614,7 @@ _LISTTIMESERIESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\n+cloudresourcemanager.googleapis.com/Project",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="filter",
@@ -594,6 +633,7 @@ _LISTTIMESERIESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="interval",
@@ -612,6 +652,7 @@ _LISTTIMESERIESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="aggregation",
@@ -630,6 +671,7 @@ _LISTTIMESERIESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="order_by",
@@ -648,6 +690,7 @@ _LISTTIMESERIESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="view",
@@ -666,6 +709,7 @@ _LISTTIMESERIESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -684,6 +728,7 @@ _LISTTIMESERIESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -702,6 +747,7 @@ _LISTTIMESERIESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -723,6 +769,7 @@ _LISTTIMESERIESRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="time_series",
@@ -741,6 +788,7 @@ _LISTTIMESERIESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -759,6 +807,7 @@ _LISTTIMESERIESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="execution_errors",
@@ -777,6 +826,7 @@ _LISTTIMESERIESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -798,6 +848,7 @@ _CREATETIMESERIESREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -816,6 +867,7 @@ _CREATETIMESERIESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\n+cloudresourcemanager.googleapis.com/Project",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="time_series",
@@ -834,6 +886,7 @@ _CREATETIMESERIESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -855,6 +908,7 @@ _CREATETIMESERIESERROR = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="time_series",
@@ -873,6 +927,7 @@ _CREATETIMESERIESERROR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\030\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="status",
@@ -891,6 +946,7 @@ _CREATETIMESERIESERROR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\030\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -912,6 +968,7 @@ _CREATETIMESERIESSUMMARY_ERROR = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="status",
@@ -930,6 +987,7 @@ _CREATETIMESERIESSUMMARY_ERROR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="point_count",
@@ -948,6 +1006,7 @@ _CREATETIMESERIESSUMMARY_ERROR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -968,6 +1027,7 @@ _CREATETIMESERIESSUMMARY = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="total_point_count",
@@ -986,6 +1046,7 @@ _CREATETIMESERIESSUMMARY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="success_point_count",
@@ -1004,6 +1065,7 @@ _CREATETIMESERIESSUMMARY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="errors",
@@ -1022,6 +1084,7 @@ _CREATETIMESERIESSUMMARY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1043,6 +1106,7 @@ _QUERYTIMESERIESREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -1061,6 +1125,7 @@ _QUERYTIMESERIESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="query",
@@ -1079,6 +1144,7 @@ _QUERYTIMESERIESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -1097,6 +1163,7 @@ _QUERYTIMESERIESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -1115,6 +1182,7 @@ _QUERYTIMESERIESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1136,6 +1204,7 @@ _QUERYTIMESERIESRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="time_series_descriptor",
@@ -1154,6 +1223,7 @@ _QUERYTIMESERIESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="time_series_data",
@@ -1172,6 +1242,7 @@ _QUERYTIMESERIESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -1190,6 +1261,7 @@ _QUERYTIMESERIESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="partial_errors",
@@ -1208,6 +1280,7 @@ _QUERYTIMESERIESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1229,6 +1302,7 @@ _QUERYERRORLIST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="errors",
@@ -1247,6 +1321,7 @@ _QUERYERRORLIST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="error_summary",
@@ -1265,6 +1340,7 @@ _QUERYERRORLIST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1837,6 +1913,7 @@ _METRICSERVICE = _descriptor.ServiceDescriptor(
     file=DESCRIPTOR,
     index=0,
     serialized_options=b"\312A\031monitoring.googleapis.com\322A\272\001https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/monitoring,https://www.googleapis.com/auth/monitoring.read,https://www.googleapis.com/auth/monitoring.write",
+    create_key=_descriptor._internal_create_key,
     serialized_start=3024,
     serialized_end=4750,
     methods=[
@@ -1848,6 +1925,7 @@ _METRICSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTMONITOREDRESOURCEDESCRIPTORSREQUEST,
             output_type=_LISTMONITOREDRESOURCEDESCRIPTORSRESPONSE,
             serialized_options=b"\202\323\344\223\0024\0222/v3/{name=projects/*}/monitoredResourceDescriptors\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="GetMonitoredResourceDescriptor",
@@ -1857,6 +1935,7 @@ _METRICSERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETMONITOREDRESOURCEDESCRIPTORREQUEST,
             output_type=google_dot_api_dot_monitored__resource__pb2._MONITOREDRESOURCEDESCRIPTOR,
             serialized_options=b"\202\323\344\223\0027\0225/v3/{name=projects/*/monitoredResourceDescriptors/**}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ListMetricDescriptors",
@@ -1866,6 +1945,7 @@ _METRICSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTMETRICDESCRIPTORSREQUEST,
             output_type=_LISTMETRICDESCRIPTORSRESPONSE,
             serialized_options=b"\202\323\344\223\002)\022'/v3/{name=projects/*}/metricDescriptors\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="GetMetricDescriptor",
@@ -1875,6 +1955,7 @@ _METRICSERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETMETRICDESCRIPTORREQUEST,
             output_type=google_dot_api_dot_metric__pb2._METRICDESCRIPTOR,
             serialized_options=b"\202\323\344\223\002,\022*/v3/{name=projects/*/metricDescriptors/**}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="CreateMetricDescriptor",
@@ -1884,6 +1965,7 @@ _METRICSERVICE = _descriptor.ServiceDescriptor(
             input_type=_CREATEMETRICDESCRIPTORREQUEST,
             output_type=google_dot_api_dot_metric__pb2._METRICDESCRIPTOR,
             serialized_options=b"\202\323\344\223\002<\"'/v3/{name=projects/*}/metricDescriptors:\021metric_descriptor\332A\026name,metric_descriptor",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DeleteMetricDescriptor",
@@ -1893,6 +1975,7 @@ _METRICSERVICE = _descriptor.ServiceDescriptor(
             input_type=_DELETEMETRICDESCRIPTORREQUEST,
             output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
             serialized_options=b"\202\323\344\223\002,**/v3/{name=projects/*/metricDescriptors/**}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ListTimeSeries",
@@ -1902,6 +1985,7 @@ _METRICSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTTIMESERIESREQUEST,
             output_type=_LISTTIMESERIESRESPONSE,
             serialized_options=b'\202\323\344\223\002"\022 /v3/{name=projects/*}/timeSeries\332A\031name,filter,interval,view',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="CreateTimeSeries",
@@ -1911,6 +1995,7 @@ _METRICSERVICE = _descriptor.ServiceDescriptor(
             input_type=_CREATETIMESERIESREQUEST,
             output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
             serialized_options=b'\202\323\344\223\002%" /v3/{name=projects/*}/timeSeries:\001*\332A\020name,time_series',
+            create_key=_descriptor._internal_create_key,
         ),
     ],
 )

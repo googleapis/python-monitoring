@@ -28,6 +28,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.monitoring.v3",
     syntax="proto3",
     serialized_options=b"\n\030com.google.monitoring.v3B\035ServiceMonitoringServiceProtoP\001Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\252\002\032Google.Cloud.Monitoring.V3\312\002\032Google\\Cloud\\Monitoring\\V3\352\002\035Google::Cloud::Monitoring::V3",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n6google/cloud/monitoring_v3/proto/service_service.proto\x12\x14google.monitoring.v3\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a.google/cloud/monitoring_v3/proto/service.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto"\x9a\x01\n\x14\x43reateServiceRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\x12!monitoring.googleapis.com/Service\x12\x12\n\nservice_id\x18\x03 \x01(\t\x12\x33\n\x07service\x18\x02 \x01(\x0b\x32\x1d.google.monitoring.v3.ServiceB\x03\xe0\x41\x02"L\n\x11GetServiceRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!monitoring.googleapis.com/Service"\x87\x01\n\x13ListServicesRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\x12!monitoring.googleapis.com/Service\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t"`\n\x14ListServicesResponse\x12/\n\x08services\x18\x01 \x03(\x0b\x32\x1d.google.monitoring.v3.Service\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t"|\n\x14UpdateServiceRequest\x12\x33\n\x07service\x18\x01 \x01(\x0b\x32\x1d.google.monitoring.v3.ServiceB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask"O\n\x14\x44\x65leteServiceRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!monitoring.googleapis.com/Service"\xd6\x01\n"CreateServiceLevelObjectiveRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!monitoring.googleapis.com/Service\x12"\n\x1aservice_level_objective_id\x18\x03 \x01(\t\x12Q\n\x17service_level_objective\x18\x02 \x01(\x0b\x32+.google.monitoring.v3.ServiceLevelObjectiveB\x03\xe0\x41\x02"\xa8\x01\n\x1fGetServiceLevelObjectiveRequest\x12\x45\n\x04name\x18\x01 \x01(\tB7\xe0\x41\x02\xfa\x41\x31\n/monitoring.googleapis.com/ServiceLevelObjective\x12>\n\x04view\x18\x02 \x01(\x0e\x32\x30.google.monitoring.v3.ServiceLevelObjective.View"\xd5\x01\n!ListServiceLevelObjectivesRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!monitoring.googleapis.com/Service\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\x12>\n\x04view\x18\x05 \x01(\x0e\x32\x30.google.monitoring.v3.ServiceLevelObjective.View"\x8c\x01\n"ListServiceLevelObjectivesResponse\x12M\n\x18service_level_objectives\x18\x01 \x03(\x0b\x32+.google.monitoring.v3.ServiceLevelObjective\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t"\xa8\x01\n"UpdateServiceLevelObjectiveRequest\x12Q\n\x17service_level_objective\x18\x01 \x01(\x0b\x32+.google.monitoring.v3.ServiceLevelObjectiveB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask"k\n"DeleteServiceLevelObjectiveRequest\x12\x45\n\x04name\x18\x01 \x01(\tB7\xe0\x41\x02\xfa\x41\x31\n/monitoring.googleapis.com/ServiceLevelObjective2\xea\x0f\n\x18ServiceMonitoringService\x12\x97\x01\n\rCreateService\x12*.google.monitoring.v3.CreateServiceRequest\x1a\x1d.google.monitoring.v3.Service";\x82\xd3\xe4\x93\x02$"\x19/v3/{parent=*/*}/services:\x07service\xda\x41\x0eparent,service\x12~\n\nGetService\x12\'.google.monitoring.v3.GetServiceRequest\x1a\x1d.google.monitoring.v3.Service"(\x82\xd3\xe4\x93\x02\x1b\x12\x19/v3/{name=*/*/services/*}\xda\x41\x04name\x12\x91\x01\n\x0cListServices\x12).google.monitoring.v3.ListServicesRequest\x1a*.google.monitoring.v3.ListServicesResponse"*\x82\xd3\xe4\x93\x02\x1b\x12\x19/v3/{parent=*/*}/services\xda\x41\x06parent\x12\x98\x01\n\rUpdateService\x12*.google.monitoring.v3.UpdateServiceRequest\x1a\x1d.google.monitoring.v3.Service"<\x82\xd3\xe4\x93\x02,2!/v3/{service.name=*/*/services/*}:\x07service\xda\x41\x07service\x12}\n\rDeleteService\x12*.google.monitoring.v3.DeleteServiceRequest\x1a\x16.google.protobuf.Empty"(\x82\xd3\xe4\x93\x02\x1b*\x19/v3/{name=*/*/services/*}\xda\x41\x04name\x12\xfa\x01\n\x1b\x43reateServiceLevelObjective\x12\x38.google.monitoring.v3.CreateServiceLevelObjectiveRequest\x1a+.google.monitoring.v3.ServiceLevelObjective"t\x82\xd3\xe4\x93\x02M"2/v3/{parent=*/*/services/*}/serviceLevelObjectives:\x17service_level_objective\xda\x41\x1eparent,service_level_objective\x12\xc1\x01\n\x18GetServiceLevelObjective\x12\x35.google.monitoring.v3.GetServiceLevelObjectiveRequest\x1a+.google.monitoring.v3.ServiceLevelObjective"A\x82\xd3\xe4\x93\x02\x34\x12\x32/v3/{name=*/*/services/*/serviceLevelObjectives/*}\xda\x41\x04name\x12\xd4\x01\n\x1aListServiceLevelObjectives\x12\x37.google.monitoring.v3.ListServiceLevelObjectivesRequest\x1a\x38.google.monitoring.v3.ListServiceLevelObjectivesResponse"C\x82\xd3\xe4\x93\x02\x34\x12\x32/v3/{parent=*/*/services/*}/serviceLevelObjectives\xda\x41\x06parent\x12\x8c\x02\n\x1bUpdateServiceLevelObjective\x12\x38.google.monitoring.v3.UpdateServiceLevelObjectiveRequest\x1a+.google.monitoring.v3.ServiceLevelObjective"\x85\x01\x82\xd3\xe4\x93\x02\x65\x32J/v3/{service_level_objective.name=*/*/services/*/serviceLevelObjectives/*}:\x17service_level_objective\xda\x41\x17service_level_objective\x12\xb2\x01\n\x1b\x44\x65leteServiceLevelObjective\x12\x38.google.monitoring.v3.DeleteServiceLevelObjectiveRequest\x1a\x16.google.protobuf.Empty"A\x82\xd3\xe4\x93\x02\x34*2/v3/{name=*/*/services/*/serviceLevelObjectives/*}\xda\x41\x04name\x1a\xa9\x01\xca\x41\x19monitoring.googleapis.com\xd2\x41\x89\x01https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/monitoring,https://www.googleapis.com/auth/monitoring.readB\xd5\x01\n\x18\x63om.google.monitoring.v3B\x1dServiceMonitoringServiceProtoP\x01Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\xaa\x02\x1aGoogle.Cloud.Monitoring.V3\xca\x02\x1aGoogle\\Cloud\\Monitoring\\V3\xea\x02\x1dGoogle::Cloud::Monitoring::V3b\x06proto3',
     dependencies=[
         google_dot_api_dot_annotations__pb2.DESCRIPTOR,
@@ -47,6 +48,7 @@ _CREATESERVICEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -65,6 +67,7 @@ _CREATESERVICEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A#\022!monitoring.googleapis.com/Service",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="service_id",
@@ -83,6 +86,7 @@ _CREATESERVICEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="service",
@@ -101,6 +105,7 @@ _CREATESERVICEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -122,6 +127,7 @@ _GETSERVICEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -140,6 +146,7 @@ _GETSERVICEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A#\n!monitoring.googleapis.com/Service",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -161,6 +168,7 @@ _LISTSERVICESREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -179,6 +187,7 @@ _LISTSERVICESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A#\022!monitoring.googleapis.com/Service",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="filter",
@@ -197,6 +206,7 @@ _LISTSERVICESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -215,6 +225,7 @@ _LISTSERVICESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -233,6 +244,7 @@ _LISTSERVICESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -254,6 +266,7 @@ _LISTSERVICESRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="services",
@@ -272,6 +285,7 @@ _LISTSERVICESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -290,6 +304,7 @@ _LISTSERVICESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -311,6 +326,7 @@ _UPDATESERVICEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="service",
@@ -329,6 +345,7 @@ _UPDATESERVICEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="update_mask",
@@ -347,6 +364,7 @@ _UPDATESERVICEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -368,6 +386,7 @@ _DELETESERVICEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -386,6 +405,7 @@ _DELETESERVICEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A#\n!monitoring.googleapis.com/Service",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -407,6 +427,7 @@ _CREATESERVICELEVELOBJECTIVEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -425,6 +446,7 @@ _CREATESERVICELEVELOBJECTIVEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A#\n!monitoring.googleapis.com/Service",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="service_level_objective_id",
@@ -443,6 +465,7 @@ _CREATESERVICELEVELOBJECTIVEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="service_level_objective",
@@ -461,6 +484,7 @@ _CREATESERVICELEVELOBJECTIVEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -482,6 +506,7 @@ _GETSERVICELEVELOBJECTIVEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -500,6 +525,7 @@ _GETSERVICELEVELOBJECTIVEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A1\n/monitoring.googleapis.com/ServiceLevelObjective",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="view",
@@ -518,6 +544,7 @@ _GETSERVICELEVELOBJECTIVEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -539,6 +566,7 @@ _LISTSERVICELEVELOBJECTIVESREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -557,6 +585,7 @@ _LISTSERVICELEVELOBJECTIVESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A#\n!monitoring.googleapis.com/Service",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="filter",
@@ -575,6 +604,7 @@ _LISTSERVICELEVELOBJECTIVESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -593,6 +623,7 @@ _LISTSERVICELEVELOBJECTIVESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -611,6 +642,7 @@ _LISTSERVICELEVELOBJECTIVESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="view",
@@ -629,6 +661,7 @@ _LISTSERVICELEVELOBJECTIVESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -650,6 +683,7 @@ _LISTSERVICELEVELOBJECTIVESRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="service_level_objectives",
@@ -668,6 +702,7 @@ _LISTSERVICELEVELOBJECTIVESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -686,6 +721,7 @@ _LISTSERVICELEVELOBJECTIVESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -707,6 +743,7 @@ _UPDATESERVICELEVELOBJECTIVEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="service_level_objective",
@@ -725,6 +762,7 @@ _UPDATESERVICELEVELOBJECTIVEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="update_mask",
@@ -743,6 +781,7 @@ _UPDATESERVICELEVELOBJECTIVEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -764,6 +803,7 @@ _DELETESERVICELEVELOBJECTIVEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -782,6 +822,7 @@ _DELETESERVICELEVELOBJECTIVEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A1\n/monitoring.googleapis.com/ServiceLevelObjective",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -1175,6 +1216,7 @@ _SERVICEMONITORINGSERVICE = _descriptor.ServiceDescriptor(
     file=DESCRIPTOR,
     index=0,
     serialized_options=b"\312A\031monitoring.googleapis.com\322A\211\001https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/monitoring,https://www.googleapis.com/auth/monitoring.read",
+    create_key=_descriptor._internal_create_key,
     serialized_start=2012,
     serialized_end=4038,
     methods=[
@@ -1186,6 +1228,7 @@ _SERVICEMONITORINGSERVICE = _descriptor.ServiceDescriptor(
             input_type=_CREATESERVICEREQUEST,
             output_type=google_dot_cloud_dot_monitoring__v3_dot_proto_dot_service__pb2._SERVICE,
             serialized_options=b'\202\323\344\223\002$"\031/v3/{parent=*/*}/services:\007service\332A\016parent,service',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="GetService",
@@ -1195,6 +1238,7 @@ _SERVICEMONITORINGSERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETSERVICEREQUEST,
             output_type=google_dot_cloud_dot_monitoring__v3_dot_proto_dot_service__pb2._SERVICE,
             serialized_options=b"\202\323\344\223\002\033\022\031/v3/{name=*/*/services/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ListServices",
@@ -1204,6 +1248,7 @@ _SERVICEMONITORINGSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTSERVICESREQUEST,
             output_type=_LISTSERVICESRESPONSE,
             serialized_options=b"\202\323\344\223\002\033\022\031/v3/{parent=*/*}/services\332A\006parent",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="UpdateService",
@@ -1213,6 +1258,7 @@ _SERVICEMONITORINGSERVICE = _descriptor.ServiceDescriptor(
             input_type=_UPDATESERVICEREQUEST,
             output_type=google_dot_cloud_dot_monitoring__v3_dot_proto_dot_service__pb2._SERVICE,
             serialized_options=b"\202\323\344\223\002,2!/v3/{service.name=*/*/services/*}:\007service\332A\007service",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DeleteService",
@@ -1222,6 +1268,7 @@ _SERVICEMONITORINGSERVICE = _descriptor.ServiceDescriptor(
             input_type=_DELETESERVICEREQUEST,
             output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
             serialized_options=b"\202\323\344\223\002\033*\031/v3/{name=*/*/services/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="CreateServiceLevelObjective",
@@ -1231,6 +1278,7 @@ _SERVICEMONITORINGSERVICE = _descriptor.ServiceDescriptor(
             input_type=_CREATESERVICELEVELOBJECTIVEREQUEST,
             output_type=google_dot_cloud_dot_monitoring__v3_dot_proto_dot_service__pb2._SERVICELEVELOBJECTIVE,
             serialized_options=b'\202\323\344\223\002M"2/v3/{parent=*/*/services/*}/serviceLevelObjectives:\027service_level_objective\332A\036parent,service_level_objective',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="GetServiceLevelObjective",
@@ -1240,6 +1288,7 @@ _SERVICEMONITORINGSERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETSERVICELEVELOBJECTIVEREQUEST,
             output_type=google_dot_cloud_dot_monitoring__v3_dot_proto_dot_service__pb2._SERVICELEVELOBJECTIVE,
             serialized_options=b"\202\323\344\223\0024\0222/v3/{name=*/*/services/*/serviceLevelObjectives/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ListServiceLevelObjectives",
@@ -1249,6 +1298,7 @@ _SERVICEMONITORINGSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTSERVICELEVELOBJECTIVESREQUEST,
             output_type=_LISTSERVICELEVELOBJECTIVESRESPONSE,
             serialized_options=b"\202\323\344\223\0024\0222/v3/{parent=*/*/services/*}/serviceLevelObjectives\332A\006parent",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="UpdateServiceLevelObjective",
@@ -1258,6 +1308,7 @@ _SERVICEMONITORINGSERVICE = _descriptor.ServiceDescriptor(
             input_type=_UPDATESERVICELEVELOBJECTIVEREQUEST,
             output_type=google_dot_cloud_dot_monitoring__v3_dot_proto_dot_service__pb2._SERVICELEVELOBJECTIVE,
             serialized_options=b"\202\323\344\223\002e2J/v3/{service_level_objective.name=*/*/services/*/serviceLevelObjectives/*}:\027service_level_objective\332A\027service_level_objective",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DeleteServiceLevelObjective",
@@ -1267,6 +1318,7 @@ _SERVICEMONITORINGSERVICE = _descriptor.ServiceDescriptor(
             input_type=_DELETESERVICELEVELOBJECTIVEREQUEST,
             output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
             serialized_options=b"\202\323\344\223\0024*2/v3/{name=*/*/services/*/serviceLevelObjectives/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
     ],
 )

@@ -29,6 +29,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.monitoring.v3",
     syntax="proto3",
     serialized_options=b"\n\030com.google.monitoring.v3B\nAlertProtoP\001Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\252\002\032Google.Cloud.Monitoring.V3\312\002\032Google\\Cloud\\Monitoring\\V3\352\002\035Google::Cloud::Monitoring::V3",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n,google/cloud/monitoring_v3/proto/alert.proto\x12\x14google.monitoring.v3\x1a\x19google/api/resource.proto\x1a-google/cloud/monitoring_v3/proto/common.proto\x1a\x36google/cloud/monitoring_v3/proto/mutation_record.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x17google/rpc/status.proto"\xe9\x10\n\x0b\x41lertPolicy\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x46\n\rdocumentation\x18\r \x01(\x0b\x32/.google.monitoring.v3.AlertPolicy.Documentation\x12\x46\n\x0buser_labels\x18\x10 \x03(\x0b\x32\x31.google.monitoring.v3.AlertPolicy.UserLabelsEntry\x12?\n\nconditions\x18\x0c \x03(\x0b\x32+.google.monitoring.v3.AlertPolicy.Condition\x12I\n\x08\x63ombiner\x18\x06 \x01(\x0e\x32\x37.google.monitoring.v3.AlertPolicy.ConditionCombinerType\x12+\n\x07\x65nabled\x18\x11 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12$\n\x08validity\x18\x12 \x01(\x0b\x32\x12.google.rpc.Status\x12\x1d\n\x15notification_channels\x18\x0e \x03(\t\x12=\n\x0f\x63reation_record\x18\n \x01(\x0b\x32$.google.monitoring.v3.MutationRecord\x12=\n\x0fmutation_record\x18\x0b \x01(\x0b\x32$.google.monitoring.v3.MutationRecord\x1a\x33\n\rDocumentation\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\t\x12\x11\n\tmime_type\x18\x02 \x01(\t\x1a\x92\t\n\tCondition\x12\x0c\n\x04name\x18\x0c \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x06 \x01(\t\x12Z\n\x13\x63ondition_threshold\x18\x01 \x01(\x0b\x32;.google.monitoring.v3.AlertPolicy.Condition.MetricThresholdH\x00\x12U\n\x10\x63ondition_absent\x18\x02 \x01(\x0b\x32\x39.google.monitoring.v3.AlertPolicy.Condition.MetricAbsenceH\x00\x1a\x35\n\x07Trigger\x12\x0f\n\x05\x63ount\x18\x01 \x01(\x05H\x00\x12\x11\n\x07percent\x18\x02 \x01(\x01H\x00\x42\x06\n\x04type\x1a\x81\x03\n\x0fMetricThreshold\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x37\n\x0c\x61ggregations\x18\x08 \x03(\x0b\x32!.google.monitoring.v3.Aggregation\x12\x1a\n\x12\x64\x65nominator_filter\x18\t \x01(\t\x12\x43\n\x18\x64\x65nominator_aggregations\x18\n \x03(\x0b\x32!.google.monitoring.v3.Aggregation\x12\x38\n\ncomparison\x18\x04 \x01(\x0e\x32$.google.monitoring.v3.ComparisonType\x12\x17\n\x0fthreshold_value\x18\x05 \x01(\x01\x12+\n\x08\x64uration\x18\x06 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x44\n\x07trigger\x18\x07 \x01(\x0b\x32\x33.google.monitoring.v3.AlertPolicy.Condition.Trigger\x1a\xcb\x01\n\rMetricAbsence\x12\x0e\n\x06\x66ilter\x18\x01 \x01(\t\x12\x37\n\x0c\x61ggregations\x18\x05 \x03(\x0b\x32!.google.monitoring.v3.Aggregation\x12+\n\x08\x64uration\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x44\n\x07trigger\x18\x03 \x01(\x0b\x32\x33.google.monitoring.v3.AlertPolicy.Condition.Trigger:\x97\x02\xea\x41\x93\x02\n.monitoring.googleapis.com/AlertPolicyCondition\x12\x46projects/{project}/alertPolicies/{alert_policy}/conditions/{condition}\x12Porganizations/{organization}/alertPolicies/{alert_policy}/conditions/{condition}\x12\x44\x66olders/{folder}/alertPolicies/{alert_policy}/conditions/{condition}\x12\x01*B\x0b\n\tcondition\x1a\x31\n\x0fUserLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01"a\n\x15\x43onditionCombinerType\x12\x17\n\x13\x43OMBINE_UNSPECIFIED\x10\x00\x12\x07\n\x03\x41ND\x10\x01\x12\x06\n\x02OR\x10\x02\x12\x1e\n\x1a\x41ND_WITH_MATCHING_RESOURCE\x10\x03:\xc9\x01\xea\x41\xc5\x01\n%monitoring.googleapis.com/AlertPolicy\x12/projects/{project}/alertPolicies/{alert_policy}\x12\x39organizations/{organization}/alertPolicies/{alert_policy}\x12-folders/{folder}/alertPolicies/{alert_policy}\x12\x01*B\xc2\x01\n\x18\x63om.google.monitoring.v3B\nAlertProtoP\x01Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\xaa\x02\x1aGoogle.Cloud.Monitoring.V3\xca\x02\x1aGoogle\\Cloud\\Monitoring\\V3\xea\x02\x1dGoogle::Cloud::Monitoring::V3b\x06proto3',
     dependencies=[
         google_dot_api_dot_resource__pb2.DESCRIPTOR,
@@ -46,6 +47,7 @@ _ALERTPOLICY_CONDITIONCOMBINERTYPE = _descriptor.EnumDescriptor(
     full_name="google.monitoring.v3.AlertPolicy.ConditionCombinerType",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="COMBINE_UNSPECIFIED",
@@ -53,12 +55,23 @@ _ALERTPOLICY_CONDITIONCOMBINERTYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="AND", index=1, number=1, serialized_options=None, type=None
+            name="AND",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="OR", index=2, number=2, serialized_options=None, type=None
+            name="OR",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="AND_WITH_MATCHING_RESOURCE",
@@ -66,6 +79,7 @@ _ALERTPOLICY_CONDITIONCOMBINERTYPE = _descriptor.EnumDescriptor(
             number=3,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -82,6 +96,7 @@ _ALERTPOLICY_DOCUMENTATION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="content",
@@ -100,6 +115,7 @@ _ALERTPOLICY_DOCUMENTATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="mime_type",
@@ -118,6 +134,7 @@ _ALERTPOLICY_DOCUMENTATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -138,6 +155,7 @@ _ALERTPOLICY_CONDITION_TRIGGER = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="count",
@@ -156,6 +174,7 @@ _ALERTPOLICY_CONDITION_TRIGGER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="percent",
@@ -174,6 +193,7 @@ _ALERTPOLICY_CONDITION_TRIGGER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -189,6 +209,7 @@ _ALERTPOLICY_CONDITION_TRIGGER = _descriptor.Descriptor(
             full_name="google.monitoring.v3.AlertPolicy.Condition.Trigger.type",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -202,6 +223,7 @@ _ALERTPOLICY_CONDITION_METRICTHRESHOLD = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="filter",
@@ -220,6 +242,7 @@ _ALERTPOLICY_CONDITION_METRICTHRESHOLD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="aggregations",
@@ -238,6 +261,7 @@ _ALERTPOLICY_CONDITION_METRICTHRESHOLD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="denominator_filter",
@@ -256,6 +280,7 @@ _ALERTPOLICY_CONDITION_METRICTHRESHOLD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="denominator_aggregations",
@@ -274,6 +299,7 @@ _ALERTPOLICY_CONDITION_METRICTHRESHOLD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="comparison",
@@ -292,6 +318,7 @@ _ALERTPOLICY_CONDITION_METRICTHRESHOLD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="threshold_value",
@@ -310,6 +337,7 @@ _ALERTPOLICY_CONDITION_METRICTHRESHOLD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="duration",
@@ -328,6 +356,7 @@ _ALERTPOLICY_CONDITION_METRICTHRESHOLD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="trigger",
@@ -346,6 +375,7 @@ _ALERTPOLICY_CONDITION_METRICTHRESHOLD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -366,6 +396,7 @@ _ALERTPOLICY_CONDITION_METRICABSENCE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="filter",
@@ -384,6 +415,7 @@ _ALERTPOLICY_CONDITION_METRICABSENCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="aggregations",
@@ -402,6 +434,7 @@ _ALERTPOLICY_CONDITION_METRICABSENCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="duration",
@@ -420,6 +453,7 @@ _ALERTPOLICY_CONDITION_METRICABSENCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="trigger",
@@ -438,6 +472,7 @@ _ALERTPOLICY_CONDITION_METRICABSENCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -458,6 +493,7 @@ _ALERTPOLICY_CONDITION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -476,6 +512,7 @@ _ALERTPOLICY_CONDITION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="display_name",
@@ -494,6 +531,7 @@ _ALERTPOLICY_CONDITION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="condition_threshold",
@@ -512,6 +550,7 @@ _ALERTPOLICY_CONDITION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="condition_absent",
@@ -530,6 +569,7 @@ _ALERTPOLICY_CONDITION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -549,6 +589,7 @@ _ALERTPOLICY_CONDITION = _descriptor.Descriptor(
             full_name="google.monitoring.v3.AlertPolicy.Condition.condition",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -562,6 +603,7 @@ _ALERTPOLICY_USERLABELSENTRY = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="key",
@@ -580,6 +622,7 @@ _ALERTPOLICY_USERLABELSENTRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="value",
@@ -598,6 +641,7 @@ _ALERTPOLICY_USERLABELSENTRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -618,6 +662,7 @@ _ALERTPOLICY = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -636,6 +681,7 @@ _ALERTPOLICY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="display_name",
@@ -654,6 +700,7 @@ _ALERTPOLICY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="documentation",
@@ -672,6 +719,7 @@ _ALERTPOLICY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="user_labels",
@@ -690,6 +738,7 @@ _ALERTPOLICY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="conditions",
@@ -708,6 +757,7 @@ _ALERTPOLICY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="combiner",
@@ -726,6 +776,7 @@ _ALERTPOLICY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="enabled",
@@ -744,6 +795,7 @@ _ALERTPOLICY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="validity",
@@ -762,6 +814,7 @@ _ALERTPOLICY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="notification_channels",
@@ -780,6 +833,7 @@ _ALERTPOLICY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="creation_record",
@@ -798,6 +852,7 @@ _ALERTPOLICY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="mutation_record",
@@ -816,6 +871,7 @@ _ALERTPOLICY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
