@@ -868,8 +868,6 @@ Point = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _POINT,
         "__module__": "google.cloud.monitoring_v3.proto.metric_pb2",
         "__doc__": """A single data point in a time series.
-  
-  
   Attributes:
       interval:
           The time interval to which the data point applies. For
@@ -897,13 +895,10 @@ TimeSeries = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _TIMESERIES,
         "__module__": "google.cloud.monitoring_v3.proto.metric_pb2",
-        "__doc__": """A collection of data points that describes the
-  time-varying values of a metric. A time series is identified by a
-  combination of a fully-specified monitored resource and a
-  fully-specified metric. This type is used for both listing and creating
-  time series.
-  
-  
+        "__doc__": """A collection of data points that describes the time-varying values of
+  a metric. A time series is identified by a combination of a fully-
+  specified monitored resource and a fully-specified metric. This type
+  is used for both listing and creating time series.
   Attributes:
       metric:
           The associated metric. A fully-specified metric used to
@@ -959,8 +954,6 @@ TimeSeriesDescriptor = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _TIMESERIESDESCRIPTOR_VALUEDESCRIPTOR,
                 "__module__": "google.cloud.monitoring_v3.proto.metric_pb2",
                 "__doc__": """A descriptor for the value columns in a data point.
-    
-    
     Attributes:
         key:
             The value key.
@@ -975,8 +968,6 @@ TimeSeriesDescriptor = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _TIMESERIESDESCRIPTOR,
         "__module__": "google.cloud.monitoring_v3.proto.metric_pb2",
         "__doc__": """A descriptor for the labels and points in a timeseries.
-  
-  
   Attributes:
       label_descriptors:
           Descriptors for the labels.
@@ -999,12 +990,9 @@ TimeSeriesData = _reflection.GeneratedProtocolMessageType(
             {
                 "DESCRIPTOR": _TIMESERIESDATA_POINTDATA,
                 "__module__": "google.cloud.monitoring_v3.proto.metric_pb2",
-                "__doc__": """A point’s value columns and time interval. Each point has
-    one or more point values corresponding to the entries in
-    ``point_descriptors`` field in the TimeSeriesDescriptor associated with
-    this object.
-    
-    
+                "__doc__": """A point’s value columns and time interval. Each point has one or more
+    point values corresponding to the entries in ``point_descriptors``
+    field in the TimeSeriesDescriptor associated with this object.
     Attributes:
         values:
             The values that make up the point.
@@ -1018,8 +1006,6 @@ TimeSeriesData = _reflection.GeneratedProtocolMessageType(
         "__module__": "google.cloud.monitoring_v3.proto.metric_pb2",
         "__doc__": """Represents the values of a time series associated with a
   TimeSeriesDescriptor.
-  
-  
   Attributes:
       label_values:
           The values of the labels in the time series identifier, given
@@ -1043,8 +1029,6 @@ LabelValue = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LABELVALUE,
         "__module__": "google.cloud.monitoring_v3.proto.metric_pb2",
         "__doc__": """A label value.
-  
-  
   Attributes:
       value:
           The label value can be a bool, int64, or string.
@@ -1066,10 +1050,8 @@ QueryError = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _QUERYERROR,
         "__module__": "google.cloud.monitoring_v3.proto.metric_pb2",
-        "__doc__": """An error associated with a query in the time series query
-  language format.
-  
-  
+        "__doc__": """An error associated with a query in the time series query language
+  format.
   Attributes:
       locator:
           The location of the time series query language text that this
@@ -1093,8 +1075,6 @@ TextLocator = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _TEXTLOCATOR_POSITION,
                 "__module__": "google.cloud.monitoring_v3.proto.metric_pb2",
                 "__doc__": """The position of a byte within the text.
-    
-    
     Attributes:
         line:
             The line, starting with 1, where the byte is positioned.
@@ -1108,21 +1088,12 @@ TextLocator = _reflection.GeneratedProtocolMessageType(
         ),
         "DESCRIPTOR": _TEXTLOCATOR,
         "__module__": "google.cloud.monitoring_v3.proto.metric_pb2",
-        "__doc__": """A locator for text. Indicates a particular part of the
-  text of a request or of an object referenced in the request.
-  
-  For example, suppose the request field ``text`` contains:
-  
-  text: “The quick brown fox jumps over the lazy dog.”
-  
-  Then the locator:
-  
-  source: “text” start_position { line: 1 column: 17 } end_position {
-  line: 1 column: 19 }
-  
-  refers to the part of the text: “fox”.
-  
-  
+        "__doc__": """A locator for text. Indicates a particular part of the text of a
+  request or of an object referenced in the request.  For example,
+  suppose the request field ``text`` contains:  text: “The quick brown
+  fox jumps over the lazy dog.”  Then the locator:  source: “text”
+  start_position { line: 1 column: 17 } end_position { line: 1 column:
+  19 }  refers to the part of the text: “fox”.
   Attributes:
       source:
           The source of the text. The source may be a field in the

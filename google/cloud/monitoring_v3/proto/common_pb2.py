@@ -644,8 +644,6 @@ TypedValue = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _TYPEDVALUE,
         "__module__": "google.cloud.monitoring_v3.proto.common_pb2",
         "__doc__": """A single strongly-typed value.
-  
-  
   Attributes:
       value:
           The typed value field.
@@ -673,30 +671,23 @@ TimeInterval = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _TIMEINTERVAL,
         "__module__": "google.cloud.monitoring_v3.proto.common_pb2",
-        "__doc__": """A closed time interval. It extends from the start time to the end time,
-  and includes both: ``[startTime, endTime]``. Valid time intervals depend
-  on the
-  ```MetricKind`` </monitoring/api/ref_v3/rest/v3/projects.metricDescriptors#MetricKind>`__
-  of the metric value. In no case can the end time be earlier than the
-  start time.
-  
-  -  For a ``GAUGE`` metric, the ``startTime`` value is technically
-     optional; if no value is specified, the start time defaults to the
-     value of the end time, and the interval represents a single point in
-     time. If both start and end times are specified, they must be
-     identical. Such an interval is valid only for ``GAUGE`` metrics,
-     which are point-in-time measurements.
-  
-  -  For ``DELTA`` and ``CUMULATIVE`` metrics, the start time must be
-     earlier than the end time.
-  
-  -  In all cases, the start time of the next interval must be at least a
-     millisecond after the end time of the previous interval. Because the
-     interval is closed, if the start time of a new interval is the same
-     as the end time of the previous interval, data written at the new
-     start time could overwrite data written at the previous end time.
-  
-  
+        "__doc__": """A closed time interval. It extends from the start time to the end
+  time, and includes both: ``[startTime, endTime]``. Valid time
+  intervals depend on the ```MetricKind`` </monitoring/api/ref_v3/rest/v
+  3/projects.metricDescriptors#MetricKind>`__ of the metric value. In no
+  case can the end time be earlier than the start time.  -  For a
+  ``GAUGE`` metric, the ``startTime`` value is technically    optional;
+  if no value is specified, the start time defaults to the    value of
+  the end time, and the interval represents a single point in    time.
+  If both start and end times are specified, they must be    identical.
+  Such an interval is valid only for ``GAUGE`` metrics,    which are
+  point-in-time measurements.  -  For ``DELTA`` and ``CUMULATIVE``
+  metrics, the start time must be    earlier than the end time.  -  In
+  all cases, the start time of the next interval must be at least a
+  millisecond after the end time of the previous interval. Because the
+  interval is closed, if the start time of a new interval is the same
+  as the end time of the previous interval, data written at the new
+  start time could overwrite data written at the previous end time.
   Attributes:
       end_time:
           Required. The end of the time interval.
@@ -716,36 +707,30 @@ Aggregation = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _AGGREGATION,
         "__module__": "google.cloud.monitoring_v3.proto.common_pb2",
-        "__doc__": """Describes how to combine multiple time series to provide a
-  different view of the data. Aggregation of time series is done in two
-  steps. First, each time series in the set is *aligned* to the same time
-  interval boundaries, then the set of time series is optionally *reduced*
-  in number.
-  
-  Alignment consists of applying the ``per_series_aligner`` operation to
-  each time series after its data has been divided into regular
-  ``alignment_period`` time intervals. This process takes *all* of the
-  data points in an alignment period, applies a mathematical
-  transformation such as averaging, minimum, maximum, delta, etc., and
-  converts them into a single data point per period.
-  
-  Reduction is when the aligned and transformed time series can optionally
-  be combined, reducing the number of time series through similar
-  mathematical transformations. Reduction involves applying a
-  ``cross_series_reducer`` to all the time series, optionally sorting the
-  time series into subsets with ``group_by_fields``, and applying the
-  reducer to each subset.
-  
-  The raw time series data can contain a huge amount of information from
-  multiple sources. Alignment and reduction transforms this mass of data
-  into a more manageable and representative collection of data, for
-  example “the 95% latency across the average of all tasks in a cluster”.
-  This representative data can be more easily graphed and comprehended,
-  and the individual time series data is still available for later
-  drilldown. For more details, see `Filtering and
-  aggregation <https://cloud.google.com/monitoring/api/v3/aggregation>`__.
-  
-  
+        "__doc__": """Describes how to combine multiple time series to provide a different
+  view of the data. Aggregation of time series is done in two steps.
+  First, each time series in the set is *aligned* to the same time
+  interval boundaries, then the set of time series is optionally
+  *reduced* in number.  Alignment consists of applying the
+  ``per_series_aligner`` operation to each time series after its data
+  has been divided into regular ``alignment_period`` time intervals.
+  This process takes *all* of the data points in an alignment period,
+  applies a mathematical transformation such as averaging, minimum,
+  maximum, delta, etc., and converts them into a single data point per
+  period.  Reduction is when the aligned and transformed time series can
+  optionally be combined, reducing the number of time series through
+  similar mathematical transformations. Reduction involves applying a
+  ``cross_series_reducer`` to all the time series, optionally sorting
+  the time series into subsets with ``group_by_fields``, and applying
+  the reducer to each subset.  The raw time series data can contain a
+  huge amount of information from multiple sources. Alignment and
+  reduction transforms this mass of data into a more manageable and
+  representative collection of data, for example “the 95% latency across
+  the average of all tasks in a cluster”. This representative data can
+  be more easily graphed and comprehended, and the individual time
+  series data is still available for later drilldown. For more details,
+  see `Filtering and aggregation
+  <https://cloud.google.com/monitoring/api/v3/aggregation>`__.
   Attributes:
       alignment_period:
           The ``alignment_period`` specifies a time interval, in
