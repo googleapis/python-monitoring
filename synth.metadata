@@ -4,15 +4,15 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-monitoring.git",
-        "sha": "c962b8f54d96ead41072b8e5252642b9164805b3"
+        "sha": "78405b21878169378de8fb459eaf99d799f5cc27"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "c8e291e6a4d60771219205b653715d5aeec3e96b",
-        "internalRef": "311222505"
+        "sha": "123873dc7e2be35252d172205f67a375e70e9747",
+        "internalRef": "311581003"
       }
     },
     {

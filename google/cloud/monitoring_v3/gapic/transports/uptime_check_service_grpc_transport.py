@@ -115,6 +115,21 @@ class UptimeCheckServiceGrpcTransport(object):
         return self._channel
 
     @property
+    def delete_uptime_check_config(self):
+        """Return the gRPC stub for :meth:`UptimeCheckServiceClient.delete_uptime_check_config`.
+
+        Deletes an Uptime check configuration. Note that this method will fail
+        if the Uptime check configuration is referenced by an alert policy or
+        other dependent configs that would be rendered invalid by the deletion.
+
+        Returns:
+            Callable: A callable which accepts the appropriate
+                deserialized request object and returns a
+                deserialized response object.
+        """
+        return self._stubs["uptime_check_service_stub"].DeleteUptimeCheckConfig
+
+    @property
     def list_uptime_check_configs(self):
         """Return the gRPC stub for :meth:`UptimeCheckServiceClient.list_uptime_check_configs`.
 
@@ -169,21 +184,6 @@ class UptimeCheckServiceGrpcTransport(object):
                 deserialized response object.
         """
         return self._stubs["uptime_check_service_stub"].UpdateUptimeCheckConfig
-
-    @property
-    def delete_uptime_check_config(self):
-        """Return the gRPC stub for :meth:`UptimeCheckServiceClient.delete_uptime_check_config`.
-
-        Deletes an Uptime check configuration. Note that this method will fail
-        if the Uptime check configuration is referenced by an alert policy or
-        other dependent configs that would be rendered invalid by the deletion.
-
-        Returns:
-            Callable: A callable which accepts the appropriate
-                deserialized request object and returns a
-                deserialized response object.
-        """
-        return self._stubs["uptime_check_service_stub"].DeleteUptimeCheckConfig
 
     @property
     def list_uptime_check_ips(self):

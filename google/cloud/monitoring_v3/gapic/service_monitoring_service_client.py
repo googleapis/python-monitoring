@@ -100,13 +100,6 @@ class ServiceMonitoringServiceClient(object):
     from_service_account_json = from_service_account_file
 
     @classmethod
-    def project_path(cls, project):
-        """Return a fully-qualified project string."""
-        return google.api_core.path_template.expand(
-            "projects/{project}", project=project
-        )
-
-    @classmethod
     def service_path(cls, project, service):
         """Return a fully-qualified service string."""
         return google.api_core.path_template.expand(
@@ -236,6 +229,157 @@ class ServiceMonitoringServiceClient(object):
         self._inner_api_calls = {}
 
     # Service calls
+    def delete_service(
+        self,
+        name,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Soft delete this ``Service``.
+
+        Example:
+            >>> from google.cloud import monitoring_v3
+            >>>
+            >>> client = monitoring_v3.ServiceMonitoringServiceClient()
+            >>>
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
+            >>>
+            >>> client.delete_service(name)
+
+        Args:
+            name (str): Required. Resource name of the ``Service`` to delete. The format is:
+
+                ::
+
+                    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        # Wrap the transport method to add retry and timeout logic.
+        if "delete_service" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "delete_service"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.delete_service,
+                default_retry=self._method_configs["DeleteService"].retry,
+                default_timeout=self._method_configs["DeleteService"].timeout,
+                client_info=self._client_info,
+            )
+
+        request = service_service_pb2.DeleteServiceRequest(name=name)
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("name", name)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        self._inner_api_calls["delete_service"](
+            request, retry=retry, timeout=timeout, metadata=metadata
+        )
+
+    def delete_service_level_objective(
+        self,
+        name,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Delete the given ``ServiceLevelObjective``.
+
+        Example:
+            >>> from google.cloud import monitoring_v3
+            >>>
+            >>> client = monitoring_v3.ServiceMonitoringServiceClient()
+            >>>
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
+            >>>
+            >>> client.delete_service_level_objective(name)
+
+        Args:
+            name (str): Required. Resource name of the ``ServiceLevelObjective`` to delete.
+                The format is:
+
+                ::
+
+                    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        # Wrap the transport method to add retry and timeout logic.
+        if "delete_service_level_objective" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "delete_service_level_objective"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.delete_service_level_objective,
+                default_retry=self._method_configs["DeleteServiceLevelObjective"].retry,
+                default_timeout=self._method_configs[
+                    "DeleteServiceLevelObjective"
+                ].timeout,
+                client_info=self._client_info,
+            )
+
+        request = service_service_pb2.DeleteServiceLevelObjectiveRequest(name=name)
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("name", name)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        self._inner_api_calls["delete_service_level_objective"](
+            request, retry=retry, timeout=timeout, metadata=metadata
+        )
+
     def create_service(
         self,
         parent,
@@ -253,7 +397,8 @@ class ServiceMonitoringServiceClient(object):
             >>>
             >>> client = monitoring_v3.ServiceMonitoringServiceClient()
             >>>
-            >>> parent = client.project_path('[PROJECT]')
+            >>> # TODO: Initialize `parent`:
+            >>> parent = ''
             >>>
             >>> # TODO: Initialize `service`:
             >>> service = {}
@@ -340,7 +485,8 @@ class ServiceMonitoringServiceClient(object):
             >>>
             >>> client = monitoring_v3.ServiceMonitoringServiceClient()
             >>>
-            >>> name = client.service_path('[PROJECT]', '[SERVICE]')
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
             >>>
             >>> response = client.get_service(name)
 
@@ -418,7 +564,8 @@ class ServiceMonitoringServiceClient(object):
             >>>
             >>> client = monitoring_v3.ServiceMonitoringServiceClient()
             >>>
-            >>> parent = client.project_path('[PROJECT]')
+            >>> # TODO: Initialize `parent`:
+            >>> parent = ''
             >>>
             >>> # Iterate over all results
             >>> for element in client.list_services(parent):
@@ -615,79 +762,6 @@ class ServiceMonitoringServiceClient(object):
             request, retry=retry, timeout=timeout, metadata=metadata
         )
 
-    def delete_service(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Soft delete this ``Service``.
-
-        Example:
-            >>> from google.cloud import monitoring_v3
-            >>>
-            >>> client = monitoring_v3.ServiceMonitoringServiceClient()
-            >>>
-            >>> name = client.service_path('[PROJECT]', '[SERVICE]')
-            >>>
-            >>> client.delete_service(name)
-
-        Args:
-            name (str): Required. Resource name of the ``Service`` to delete. The format is:
-
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        # Wrap the transport method to add retry and timeout logic.
-        if "delete_service" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "delete_service"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.delete_service,
-                default_retry=self._method_configs["DeleteService"].retry,
-                default_timeout=self._method_configs["DeleteService"].timeout,
-                client_info=self._client_info,
-            )
-
-        request = service_service_pb2.DeleteServiceRequest(name=name)
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("name", name)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        self._inner_api_calls["delete_service"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
-
     def create_service_level_objective(
         self,
         parent,
@@ -705,7 +779,8 @@ class ServiceMonitoringServiceClient(object):
             >>>
             >>> client = monitoring_v3.ServiceMonitoringServiceClient()
             >>>
-            >>> parent = client.service_path('[PROJECT]', '[SERVICE]')
+            >>> # TODO: Initialize `parent`:
+            >>> parent = ''
             >>>
             >>> # TODO: Initialize `service_level_objective`:
             >>> service_level_objective = {}
@@ -800,7 +875,8 @@ class ServiceMonitoringServiceClient(object):
             >>>
             >>> client = monitoring_v3.ServiceMonitoringServiceClient()
             >>>
-            >>> name = client.service_level_objective_path('[PROJECT]', '[SERVICE]', '[SERVICE_LEVEL_OBJECTIVE]')
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
             >>>
             >>> response = client.get_service_level_objective(name)
 
@@ -889,7 +965,8 @@ class ServiceMonitoringServiceClient(object):
             >>>
             >>> client = monitoring_v3.ServiceMonitoringServiceClient()
             >>>
-            >>> parent = client.service_path('[PROJECT]', '[SERVICE]')
+            >>> # TODO: Initialize `parent`:
+            >>> parent = ''
             >>>
             >>> # Iterate over all results
             >>> for element in client.list_service_level_objectives(parent):
@@ -1078,81 +1155,5 @@ class ServiceMonitoringServiceClient(object):
             metadata.append(routing_metadata)
 
         return self._inner_api_calls["update_service_level_objective"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
-
-    def delete_service_level_objective(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Delete the given ``ServiceLevelObjective``.
-
-        Example:
-            >>> from google.cloud import monitoring_v3
-            >>>
-            >>> client = monitoring_v3.ServiceMonitoringServiceClient()
-            >>>
-            >>> name = client.service_level_objective_path('[PROJECT]', '[SERVICE]', '[SERVICE_LEVEL_OBJECTIVE]')
-            >>>
-            >>> client.delete_service_level_objective(name)
-
-        Args:
-            name (str): Required. Resource name of the ``ServiceLevelObjective`` to delete.
-                The format is:
-
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        # Wrap the transport method to add retry and timeout logic.
-        if "delete_service_level_objective" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "delete_service_level_objective"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.delete_service_level_objective,
-                default_retry=self._method_configs["DeleteServiceLevelObjective"].retry,
-                default_timeout=self._method_configs[
-                    "DeleteServiceLevelObjective"
-                ].timeout,
-                client_info=self._client_info,
-            )
-
-        request = service_service_pb2.DeleteServiceLevelObjectiveRequest(name=name)
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("name", name)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        self._inner_api_calls["delete_service_level_objective"](
             request, retry=retry, timeout=timeout, metadata=metadata
         )

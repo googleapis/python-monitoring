@@ -243,7 +243,8 @@ class MetricServiceClient(object):
             >>>
             >>> client = monitoring_v3.MetricServiceClient()
             >>>
-            >>> name = client.project_path('[PROJECT]')
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
             >>>
             >>> # Iterate over all results
             >>> for element in client.list_monitored_resource_descriptors(name):
@@ -366,7 +367,8 @@ class MetricServiceClient(object):
             >>>
             >>> client = monitoring_v3.MetricServiceClient()
             >>>
-            >>> name = client.monitored_resource_descriptor_path('[PROJECT]', '[MONITORED_RESOURCE_DESCRIPTOR]')
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
             >>>
             >>> response = client.get_monitored_resource_descriptor(name)
 
@@ -451,7 +453,8 @@ class MetricServiceClient(object):
             >>>
             >>> client = monitoring_v3.MetricServiceClient()
             >>>
-            >>> name = client.project_path('[PROJECT]')
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
             >>>
             >>> # Iterate over all results
             >>> for element in client.list_metric_descriptors(name):
@@ -571,7 +574,8 @@ class MetricServiceClient(object):
             >>>
             >>> client = monitoring_v3.MetricServiceClient()
             >>>
-            >>> name = client.metric_descriptor_path('[PROJECT]', '[METRIC_DESCRIPTOR]')
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
             >>>
             >>> response = client.get_metric_descriptor(name)
 
@@ -654,7 +658,8 @@ class MetricServiceClient(object):
             >>>
             >>> client = monitoring_v3.MetricServiceClient()
             >>>
-            >>> name = client.project_path('[PROJECT]')
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
             >>>
             >>> # TODO: Initialize `metric_descriptor`:
             >>> metric_descriptor = {}
@@ -744,7 +749,8 @@ class MetricServiceClient(object):
             >>>
             >>> client = monitoring_v3.MetricServiceClient()
             >>>
-            >>> name = client.metric_descriptor_path('[PROJECT]', '[METRIC_DESCRIPTOR]')
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
             >>>
             >>> client.delete_metric_descriptor(name)
 

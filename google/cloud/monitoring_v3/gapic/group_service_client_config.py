@@ -17,6 +17,16 @@ config = {
                 }
             },
             "methods": {
+                "UpdateGroup": {
+                    "timeout_millis": 60000,
+                    "retry_codes_name": "idempotent",
+                    "retry_params_name": "default",
+                },
+                "DeleteGroup": {
+                    "timeout_millis": 60000,
+                    "retry_codes_name": "idempotent",
+                    "retry_params_name": "default",
+                },
                 "ListGroups": {
                     "timeout_millis": 60000,
                     "retry_codes_name": "idempotent",
@@ -30,16 +40,6 @@ config = {
                 "CreateGroup": {
                     "timeout_millis": 60000,
                     "retry_codes_name": "non_idempotent",
-                    "retry_params_name": "default",
-                },
-                "UpdateGroup": {
-                    "timeout_millis": 60000,
-                    "retry_codes_name": "idempotent",
-                    "retry_params_name": "default",
-                },
-                "DeleteGroup": {
-                    "timeout_millis": 60000,
-                    "retry_codes_name": "idempotent",
                     "retry_params_name": "default",
                 },
                 "ListGroupMembers": {
