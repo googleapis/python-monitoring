@@ -435,8 +435,6 @@ CreateAlertPolicyRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _CREATEALERTPOLICYREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.alert_service_pb2",
         "__doc__": """The protocol for the ``CreateAlertPolicy`` request.
-  
-  
   Attributes:
       name:
           Required. The project in which to create the alerting policy.
@@ -465,8 +463,6 @@ GetAlertPolicyRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _GETALERTPOLICYREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.alert_service_pb2",
         "__doc__": """The protocol for the ``GetAlertPolicy`` request.
-  
-  
   Attributes:
       name:
           Required. The alerting policy to retrieve. The format is:  ::
@@ -485,8 +481,6 @@ ListAlertPoliciesRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTALERTPOLICIESREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.alert_service_pb2",
         "__doc__": """The protocol for the ``ListAlertPolicies`` request.
-  
-  
   Attributes:
       name:
           Required. The project whose alert policies are to be listed.
@@ -530,8 +524,6 @@ ListAlertPoliciesResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTALERTPOLICIESRESPONSE,
         "__module__": "google.cloud.monitoring_v3.proto.alert_service_pb2",
         "__doc__": """The protocol for the ``ListAlertPolicies`` response.
-  
-  
   Attributes:
       alert_policies:
           The returned alert policies.
@@ -553,8 +545,6 @@ UpdateAlertPolicyRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _UPDATEALERTPOLICYREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.alert_service_pb2",
         "__doc__": """The protocol for the ``UpdateAlertPolicy`` request.
-  
-  
   Attributes:
       update_mask:
           Optional. A list of alerting policy field names. If this field
@@ -595,8 +585,6 @@ DeleteAlertPolicyRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _DELETEALERTPOLICYREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.alert_service_pb2",
         "__doc__": """The protocol for the ``DeleteAlertPolicy`` request.
-  
-  
   Attributes:
       name:
           Required. The alerting policy to delete. The format is:  ::

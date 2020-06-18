@@ -94,8 +94,6 @@ MutationRecord = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _MUTATIONRECORD,
         "__module__": "google.cloud.monitoring_v3.proto.mutation_record_pb2",
         "__doc__": """Describes a change made to a configuration.
-  
-  
   Attributes:
       mutate_time:
           When the change occurred.

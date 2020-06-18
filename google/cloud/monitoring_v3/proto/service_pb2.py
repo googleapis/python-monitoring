@@ -1645,10 +1645,8 @@ Service = _reflection.GeneratedProtocolMessageType(
             {
                 "DESCRIPTOR": _SERVICE_CUSTOM,
                 "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
-                "__doc__": """Custom view of service telemetry. Currently a place-holder
-    pending final design.
-    
-    """,
+                "__doc__": """Custom view of service telemetry. Currently a place-holder pending
+    final design.""",
                 # @@protoc_insertion_point(class_scope:google.monitoring.v3.Service.Custom)
             },
         ),
@@ -1658,10 +1656,7 @@ Service = _reflection.GeneratedProtocolMessageType(
             {
                 "DESCRIPTOR": _SERVICE_APPENGINE,
                 "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
-                "__doc__": """App Engine service. Learn more at
-    https://cloud.google.com/appengine.
-    
-    
+                "__doc__": """App Engine service. Learn more at https://cloud.google.com/appengine.
     Attributes:
         module_id:
             The ID of the App Engine module underlying this service.
@@ -1680,8 +1675,6 @@ Service = _reflection.GeneratedProtocolMessageType(
                 "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
                 "__doc__": """Cloud Endpoints service. Learn more at
     https://cloud.google.com/endpoints.
-    
-    
     Attributes:
         service:
             The name of the Cloud Endpoints service underlying this
@@ -1698,10 +1691,8 @@ Service = _reflection.GeneratedProtocolMessageType(
             {
                 "DESCRIPTOR": _SERVICE_CLUSTERISTIO,
                 "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
-                "__doc__": """Istio service scoped to a single Kubernetes cluster. Learn
-    more at http://istio.io.
-    
-    
+                "__doc__": """Istio service scoped to a single Kubernetes cluster. Learn more at
+    http://istio.io.
     Attributes:
         location:
             The location of the Kubernetes cluster in which this Istio
@@ -1730,8 +1721,6 @@ Service = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _SERVICE_MESHISTIO,
                 "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
                 "__doc__": """Istio service scoped to an Istio mesh
-    
-    
     Attributes:
         mesh_uid:
             Identifier for the mesh in which this Istio service is
@@ -1756,8 +1745,6 @@ Service = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _SERVICE_TELEMETRY,
                 "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
                 "__doc__": """Configuration for how to query telemetry on a Service.
-    
-    
     Attributes:
         resource_name:
             The full name of the resource that defines this service.
@@ -1769,13 +1756,11 @@ Service = _reflection.GeneratedProtocolMessageType(
         ),
         "DESCRIPTOR": _SERVICE,
         "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
-        "__doc__": """A ``Service`` is a discrete, autonomous, and
-  network-accessible unit, designed to solve an individual concern
-  (`Wikipedia <https://en.wikipedia.org/wiki/Service-orientation>`__). In
-  Cloud Monitoring, a ``Service`` acts as the root resource under which
+        "__doc__": """A ``Service`` is a discrete, autonomous, and network-accessible unit,
+  designed to solve an individual concern (`Wikipedia
+  <https://en.wikipedia.org/wiki/Service-orientation>`__). In Cloud
+  Monitoring, a ``Service`` acts as the root resource under which
   operational aspects of the service are accessible.
-  
-  
   Attributes:
       name:
           Resource name for this Service. The format is:  ::
@@ -1816,15 +1801,13 @@ ServiceLevelObjective = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _SERVICELEVELOBJECTIVE,
         "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
-        "__doc__": """A Service-Level Objective (SLO) describes a level of
-  desired good service. It consists of a service-level indicator (SLI), a
-  performance goal, and a period over which the objective is to be
-  evaluated against that goal. The SLO can use SLIs defined in a number of
-  different manners. Typical SLOs might include “99% of requests in each
-  rolling week have latency below 200 milliseconds” or “99.5% of requests
-  in each calendar month return successfully.”
-  
-  
+        "__doc__": """A Service-Level Objective (SLO) describes a level of desired good
+  service. It consists of a service-level indicator (SLI), a performance
+  goal, and a period over which the objective is to be evaluated against
+  that goal. The SLO can use SLIs defined in a number of different
+  manners. Typical SLOs might include “99% of requests in each rolling
+  week have latency below 200 milliseconds” or “99.5% of requests in
+  each calendar month return successfully.”
   Attributes:
       name:
           Resource name for this ``ServiceLevelObjective``. The format
@@ -1860,22 +1843,20 @@ ServiceLevelIndicator = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _SERVICELEVELINDICATOR,
         "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
-        "__doc__": """A Service-Level Indicator (SLI) describes the
-  “performance” of a service. For some services, the SLI is well-defined.
-  In such cases, the SLI can be described easily by referencing the
-  well-known SLI and providing the needed parameters. Alternatively, a
-  “custom” SLI can be defined with a query to the underlying metric store.
-  An SLI is defined to be ``good_service / total_service`` over any
-  queried time interval. The value of performance always falls into the
-  range ``0 <= performance <= 1``. A custom SLI describes how to compute
-  this ratio, whether this is by dividing values from a pair of time
-  series, cutting a ``Distribution`` into good and bad counts, or counting
-  time windows in which the service complies with a criterion. For
-  separation of concerns, a single Service-Level Indicator measures
-  performance for only one aspect of service quality, such as fraction of
-  successful queries or fast-enough queries.
-  
-  
+        "__doc__": """A Service-Level Indicator (SLI) describes the “performance” of a
+  service. For some services, the SLI is well-defined. In such cases,
+  the SLI can be described easily by referencing the well-known SLI and
+  providing the needed parameters. Alternatively, a “custom” SLI can be
+  defined with a query to the underlying metric store. An SLI is defined
+  to be ``good_service / total_service`` over any queried time interval.
+  The value of performance always falls into the range ``0 <=
+  performance <= 1``. A custom SLI describes how to compute this ratio,
+  whether this is by dividing values from a pair of time series, cutting
+  a ``Distribution`` into good and bad counts, or counting time windows
+  in which the service complies with a criterion. For separation of
+  concerns, a single Service-Level Indicator measures performance for
+  only one aspect of service quality, such as fraction of successful
+  queries or fast-enough queries.
   Attributes:
       type:
           Service level indicators can be grouped by whether the “unit”
@@ -1903,9 +1884,7 @@ BasicSli = _reflection.GeneratedProtocolMessageType(
             {
                 "DESCRIPTOR": _BASICSLI_AVAILABILITYCRITERIA,
                 "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
-                "__doc__": """Future parameters for the availability SLI.
-    
-    """,
+                "__doc__": """Future parameters for the availability SLI.""",
                 # @@protoc_insertion_point(class_scope:google.monitoring.v3.BasicSli.AvailabilityCriteria)
             },
         ),
@@ -1916,8 +1895,6 @@ BasicSli = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _BASICSLI_LATENCYCRITERIA,
                 "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
                 "__doc__": """Parameters for a latency threshold SLI.
-    
-    
     Attributes:
         threshold:
             Good service is defined to be the count of requests made to
@@ -1928,14 +1905,12 @@ BasicSli = _reflection.GeneratedProtocolMessageType(
         ),
         "DESCRIPTOR": _BASICSLI,
         "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
-        "__doc__": """An SLI measuring performance on a well-known service type.
-  Performance will be computed on the basis of pre-defined metrics. The
-  type of the ``service_resource`` determines the metrics to use and the
-  ``service_resource.labels`` and ``metric_labels`` are used to construct
-  a monitoring filter to filter that metric down to just the data relevant
-  to this service.
-  
-  
+        "__doc__": """An SLI measuring performance on a well-known service type. Performance
+  will be computed on the basis of pre-defined metrics. The type of the
+  ``service_resource`` determines the metrics to use and the
+  ``service_resource.labels`` and ``metric_labels`` are used to
+  construct a monitoring filter to filter that metric down to just the
+  data relevant to this service.
   Attributes:
       method:
           OPTIONAL: The set of RPCs to which this SLI is relevant.
@@ -1982,12 +1957,10 @@ Range = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _RANGE,
         "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
-        "__doc__": """Range of numerical values, inclusive of ``min`` and
-  exclusive of ``max``. If the open range “< range.max” is desired, set
-  ``range.min = -infinity``. If the open range “>= range.min” is desired,
-  set ``range.max = infinity``.
-  
-  
+        "__doc__": """Range of numerical values, inclusive of ``min`` and exclusive of
+  ``max``. If the open range “< range.max” is desired, set ``range.min =
+  -infinity``. If the open range “>= range.min” is desired, set
+  ``range.max = infinity``.
   Attributes:
       min:
           Range minimum.
@@ -2005,10 +1978,8 @@ RequestBasedSli = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _REQUESTBASEDSLI,
         "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
-        "__doc__": """Service Level Indicators for which atomic units of service
-  are counted directly.
-  
-  
+        "__doc__": """Service Level Indicators for which atomic units of service are counted
+  directly.
   Attributes:
       method:
           The means to compute a ratio of ``good_service`` to
@@ -2034,15 +2005,13 @@ TimeSeriesRatio = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _TIMESERIESRATIO,
         "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
-        "__doc__": """A ``TimeSeriesRatio`` specifies two ``TimeSeries`` to use
-  for computing the ``good_service / total_service`` ratio. The specified
-  ``TimeSeries`` must have ``ValueType = DOUBLE`` or ``ValueType = INT64``
-  and must have ``MetricKind = DELTA`` or ``MetricKind = CUMULATIVE``. The
-  ``TimeSeriesRatio`` must specify exactly two of good, bad, and total,
-  and the relationship ``good_service + bad_service = total_service`` will
-  be assumed.
-  
-  
+        "__doc__": """A ``TimeSeriesRatio`` specifies two ``TimeSeries`` to use for
+  computing the ``good_service / total_service`` ratio. The specified
+  ``TimeSeries`` must have ``ValueType = DOUBLE`` or ``ValueType =
+  INT64`` and must have ``MetricKind = DELTA`` or ``MetricKind =
+  CUMULATIVE``. The ``TimeSeriesRatio`` must specify exactly two of
+  good, bad, and total, and the relationship ``good_service +
+  bad_service = total_service`` will be assumed.
   Attributes:
       good_service_filter:
           A `monitoring filter
@@ -2078,14 +2047,12 @@ DistributionCut = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _DISTRIBUTIONCUT,
         "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
-        "__doc__": """A ``DistributionCut`` defines a ``TimeSeries`` and
-  thresholds used for measuring good service and total service. The
-  ``TimeSeries`` must have ``ValueType = DISTRIBUTION`` and
-  ``MetricKind = DELTA`` or ``MetricKind = CUMULATIVE``. The computed
-  ``good_service`` will be the count of values x in the ``Distribution``
-  such that ``range.min <= x < range.max``.
-  
-  
+        "__doc__": """A ``DistributionCut`` defines a ``TimeSeries`` and thresholds used for
+  measuring good service and total service. The ``TimeSeries`` must have
+  ``ValueType = DISTRIBUTION`` and ``MetricKind = DELTA`` or
+  ``MetricKind = CUMULATIVE``. The computed ``good_service`` will be the
+  count of values x in the ``Distribution`` such that ``range.min <= x <
+  range.max``.
   Attributes:
       distribution_filter:
           A `monitoring filter
@@ -2112,10 +2079,8 @@ WindowsBasedSli = _reflection.GeneratedProtocolMessageType(
             {
                 "DESCRIPTOR": _WINDOWSBASEDSLI_PERFORMANCETHRESHOLD,
                 "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
-                "__doc__": """A ``PerformanceThreshold`` is used when each window is
-    good when that window has a sufficiently high ``performance``.
-    
-    
+                "__doc__": """A ``PerformanceThreshold`` is used when each window is good when that
+    window has a sufficiently high ``performance``.
     Attributes:
         type:
             The means, either a request-based SLI or a basic SLI, by which
@@ -2137,13 +2102,10 @@ WindowsBasedSli = _reflection.GeneratedProtocolMessageType(
             {
                 "DESCRIPTOR": _WINDOWSBASEDSLI_METRICRANGE,
                 "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
-                "__doc__": """A ``MetricRange`` is used when each window is good when
-    the value x of a single ``TimeSeries`` satisfies
-    ``range.min <= x < range.max``. The provided ``TimeSeries`` must have
-    ``ValueType = INT64`` or ``ValueType = DOUBLE`` and
-    ``MetricKind = GAUGE``.
-    
-    
+                "__doc__": """A ``MetricRange`` is used when each window is good when the value x of
+    a single ``TimeSeries`` satisfies ``range.min <= x < range.max``. The
+    provided ``TimeSeries`` must have ``ValueType = INT64`` or ``ValueType
+    = DOUBLE`` and ``MetricKind = GAUGE``.
     Attributes:
         time_series:
             A `monitoring filter
@@ -2159,12 +2121,10 @@ WindowsBasedSli = _reflection.GeneratedProtocolMessageType(
         ),
         "DESCRIPTOR": _WINDOWSBASEDSLI,
         "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
-        "__doc__": """A ``WindowsBasedSli`` defines ``good_service`` as the
-  count of time windows for which the provided service was of good
-  quality. Criteria for determining if service was good are embedded in
-  the ``window_criterion``.
-  
-  
+        "__doc__": """A ``WindowsBasedSli`` defines ``good_service`` as the count of time
+  windows for which the provided service was of good quality. Criteria
+  for determining if service was good are embedded in the
+  ``window_criterion``.
   Attributes:
       window_criterion:
           The criterion to use for evaluating window goodness.
