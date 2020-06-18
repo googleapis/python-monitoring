@@ -26,6 +26,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.monitoring.v3",
     syntax="proto3",
     serialized_options=b"\n\030com.google.monitoring.v3B\021NotificationProtoP\001Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\252\002\032Google.Cloud.Monitoring.V3\312\002\032Google\\Cloud\\Monitoring\\V3\352\002\035Google::Cloud::Monitoring::V3",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n3google/cloud/monitoring_v3/proto/notification.proto\x12\x14google.monitoring.v3\x1a\x16google/api/label.proto\x1a\x1dgoogle/api/launch_stage.proto\x1a\x19google/api/resource.proto\x1a-google/cloud/monitoring_v3/proto/common.proto\x1a\x1egoogle/protobuf/wrappers.proto"\xa5\x04\n\x1dNotificationChannelDescriptor\x12\x0c\n\x04name\x18\x06 \x01(\t\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12+\n\x06labels\x18\x04 \x03(\x0b\x32\x1b.google.api.LabelDescriptor\x12>\n\x0fsupported_tiers\x18\x05 \x03(\x0e\x32!.google.monitoring.v3.ServiceTierB\x02\x18\x01\x12-\n\x0claunch_stage\x18\x07 \x01(\x0e\x32\x17.google.api.LaunchStage:\xa0\x02\xea\x41\x9c\x02\n7monitoring.googleapis.com/NotificationChannelDescriptor\x12\x46projects/{project}/notificationChannelDescriptors/{channel_descriptor}\x12Porganizations/{organization}/notificationChannelDescriptors/{channel_descriptor}\x12\x44\x66olders/{folder}/notificationChannelDescriptors/{channel_descriptor}\x12\x01*"\xb7\x06\n\x13NotificationChannel\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x06 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12\x45\n\x06labels\x18\x05 \x03(\x0b\x32\x35.google.monitoring.v3.NotificationChannel.LabelsEntry\x12N\n\x0buser_labels\x18\x08 \x03(\x0b\x32\x39.google.monitoring.v3.NotificationChannel.UserLabelsEntry\x12Y\n\x13verification_status\x18\t \x01(\x0e\x32<.google.monitoring.v3.NotificationChannel.VerificationStatus\x12+\n\x07\x65nabled\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a\x31\n\x0fUserLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01"W\n\x12VerificationStatus\x12#\n\x1fVERIFICATION_STATUS_UNSPECIFIED\x10\x00\x12\x0e\n\nUNVERIFIED\x10\x01\x12\x0c\n\x08VERIFIED\x10\x02:\xfe\x01\xea\x41\xfa\x01\n-monitoring.googleapis.com/NotificationChannel\x12>projects/{project}/notificationChannels/{notification_channel}\x12Horganizations/{organization}/notificationChannels/{notification_channel}\x12<folders/{folder}/notificationChannels/{notification_channel}\x12\x01*B\xc9\x01\n\x18\x63om.google.monitoring.v3B\x11NotificationProtoP\x01Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\xaa\x02\x1aGoogle.Cloud.Monitoring.V3\xca\x02\x1aGoogle\\Cloud\\Monitoring\\V3\xea\x02\x1dGoogle::Cloud::Monitoring::V3b\x06proto3',
     dependencies=[
         google_dot_api_dot_label__pb2.DESCRIPTOR,
@@ -42,6 +43,7 @@ _NOTIFICATIONCHANNEL_VERIFICATIONSTATUS = _descriptor.EnumDescriptor(
     full_name="google.monitoring.v3.NotificationChannel.VerificationStatus",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="VERIFICATION_STATUS_UNSPECIFIED",
@@ -49,12 +51,23 @@ _NOTIFICATIONCHANNEL_VERIFICATIONSTATUS = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="UNVERIFIED", index=1, number=1, serialized_options=None, type=None
+            name="UNVERIFIED",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="VERIFIED", index=2, number=2, serialized_options=None, type=None
+            name="VERIFIED",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -71,6 +84,7 @@ _NOTIFICATIONCHANNELDESCRIPTOR = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -89,6 +103,7 @@ _NOTIFICATIONCHANNELDESCRIPTOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="type",
@@ -107,6 +122,7 @@ _NOTIFICATIONCHANNELDESCRIPTOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="display_name",
@@ -125,6 +141,7 @@ _NOTIFICATIONCHANNELDESCRIPTOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="description",
@@ -143,6 +160,7 @@ _NOTIFICATIONCHANNELDESCRIPTOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="labels",
@@ -161,6 +179,7 @@ _NOTIFICATIONCHANNELDESCRIPTOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="supported_tiers",
@@ -179,6 +198,7 @@ _NOTIFICATIONCHANNELDESCRIPTOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\030\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="launch_stage",
@@ -197,6 +217,7 @@ _NOTIFICATIONCHANNELDESCRIPTOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -218,6 +239,7 @@ _NOTIFICATIONCHANNEL_LABELSENTRY = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="key",
@@ -236,6 +258,7 @@ _NOTIFICATIONCHANNEL_LABELSENTRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="value",
@@ -254,6 +277,7 @@ _NOTIFICATIONCHANNEL_LABELSENTRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -274,6 +298,7 @@ _NOTIFICATIONCHANNEL_USERLABELSENTRY = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="key",
@@ -292,6 +317,7 @@ _NOTIFICATIONCHANNEL_USERLABELSENTRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="value",
@@ -310,6 +336,7 @@ _NOTIFICATIONCHANNEL_USERLABELSENTRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -330,6 +357,7 @@ _NOTIFICATIONCHANNEL = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="type",
@@ -348,6 +376,7 @@ _NOTIFICATIONCHANNEL = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="name",
@@ -366,6 +395,7 @@ _NOTIFICATIONCHANNEL = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="display_name",
@@ -384,6 +414,7 @@ _NOTIFICATIONCHANNEL = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="description",
@@ -402,6 +433,7 @@ _NOTIFICATIONCHANNEL = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="labels",
@@ -420,6 +452,7 @@ _NOTIFICATIONCHANNEL = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="user_labels",
@@ -438,6 +471,7 @@ _NOTIFICATIONCHANNEL = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="verification_status",
@@ -456,6 +490,7 @@ _NOTIFICATIONCHANNEL = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="enabled",
@@ -474,6 +509,7 @@ _NOTIFICATIONCHANNEL = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],

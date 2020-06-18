@@ -33,6 +33,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.monitoring.v3",
     syntax="proto3",
     serialized_options=b"\n\030com.google.monitoring.v3B\021GroupServiceProtoP\001Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\252\002\032Google.Cloud.Monitoring.V3\312\002\032Google\\Cloud\\Monitoring\\V3\352\002\035Google::Cloud::Monitoring::V3",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n4google/cloud/monitoring_v3/proto/group_service.proto\x12\x14google.monitoring.v3\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a#google/api/monitored_resource.proto\x1a\x19google/api/resource.proto\x1a-google/cloud/monitoring_v3/proto/common.proto\x1a,google/cloud/monitoring_v3/proto/group.proto\x1a\x1bgoogle/protobuf/empty.proto"\xc8\x02\n\x11ListGroupsRequest\x12\x35\n\x04name\x18\x07 \x01(\tB\'\xe0\x41\x02\xfa\x41!\x12\x1fmonitoring.googleapis.com/Group\x12\x41\n\x11\x63hildren_of_group\x18\x02 \x01(\tB$\xfa\x41!\n\x1fmonitoring.googleapis.com/GroupH\x00\x12\x42\n\x12\x61ncestors_of_group\x18\x03 \x01(\tB$\xfa\x41!\n\x1fmonitoring.googleapis.com/GroupH\x00\x12\x44\n\x14\x64\x65scendants_of_group\x18\x04 \x01(\tB$\xfa\x41!\n\x1fmonitoring.googleapis.com/GroupH\x00\x12\x11\n\tpage_size\x18\x05 \x01(\x05\x12\x12\n\npage_token\x18\x06 \x01(\tB\x08\n\x06\x66ilter"Y\n\x12ListGroupsResponse\x12*\n\x05group\x18\x01 \x03(\x0b\x32\x1b.google.monitoring.v3.Group\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t"H\n\x0fGetGroupRequest\x12\x35\n\x04name\x18\x03 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fmonitoring.googleapis.com/Group"\x93\x01\n\x12\x43reateGroupRequest\x12\x35\n\x04name\x18\x04 \x01(\tB\'\xe0\x41\x02\xfa\x41!\x12\x1fmonitoring.googleapis.com/Group\x12/\n\x05group\x18\x02 \x01(\x0b\x32\x1b.google.monitoring.v3.GroupB\x03\xe0\x41\x02\x12\x15\n\rvalidate_only\x18\x03 \x01(\x08"\\\n\x12UpdateGroupRequest\x12/\n\x05group\x18\x02 \x01(\x0b\x32\x1b.google.monitoring.v3.GroupB\x03\xe0\x41\x02\x12\x15\n\rvalidate_only\x18\x03 \x01(\x08"^\n\x12\x44\x65leteGroupRequest\x12\x35\n\x04name\x18\x03 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fmonitoring.googleapis.com/Group\x12\x11\n\trecursive\x18\x04 \x01(\x08"\xbd\x01\n\x17ListGroupMembersRequest\x12\x35\n\x04name\x18\x07 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fmonitoring.googleapis.com/Group\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x05 \x01(\t\x12\x34\n\x08interval\x18\x06 \x01(\x0b\x32".google.monitoring.v3.TimeInterval"w\n\x18ListGroupMembersResponse\x12.\n\x07members\x18\x01 \x03(\x0b\x32\x1d.google.api.MonitoredResource\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x12\n\ntotal_size\x18\x03 \x01(\x05\x32\x98\x08\n\x0cGroupService\x12\x8c\x01\n\nListGroups\x12\'.google.monitoring.v3.ListGroupsRequest\x1a(.google.monitoring.v3.ListGroupsResponse"+\x82\xd3\xe4\x93\x02\x1e\x12\x1c/v3/{name=projects/*}/groups\xda\x41\x04name\x12}\n\x08GetGroup\x12%.google.monitoring.v3.GetGroupRequest\x1a\x1b.google.monitoring.v3.Group"-\x82\xd3\xe4\x93\x02 \x12\x1e/v3/{name=projects/*/groups/*}\xda\x41\x04name\x12\x8e\x01\n\x0b\x43reateGroup\x12(.google.monitoring.v3.CreateGroupRequest\x1a\x1b.google.monitoring.v3.Group"8\x82\xd3\xe4\x93\x02%"\x1c/v3/{name=projects/*}/groups:\x05group\xda\x41\nname,group\x12\x91\x01\n\x0bUpdateGroup\x12(.google.monitoring.v3.UpdateGroupRequest\x1a\x1b.google.monitoring.v3.Group";\x82\xd3\xe4\x93\x02-\x1a$/v3/{group.name=projects/*/groups/*}:\x05group\xda\x41\x05group\x12~\n\x0b\x44\x65leteGroup\x12(.google.monitoring.v3.DeleteGroupRequest\x1a\x16.google.protobuf.Empty"-\x82\xd3\xe4\x93\x02 *\x1e/v3/{name=projects/*/groups/*}\xda\x41\x04name\x12\xa8\x01\n\x10ListGroupMembers\x12-.google.monitoring.v3.ListGroupMembersRequest\x1a..google.monitoring.v3.ListGroupMembersResponse"5\x82\xd3\xe4\x93\x02(\x12&/v3/{name=projects/*/groups/*}/members\xda\x41\x04name\x1a\xa9\x01\xca\x41\x19monitoring.googleapis.com\xd2\x41\x89\x01https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/monitoring,https://www.googleapis.com/auth/monitoring.readB\xc9\x01\n\x18\x63om.google.monitoring.v3B\x11GroupServiceProtoP\x01Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\xaa\x02\x1aGoogle.Cloud.Monitoring.V3\xca\x02\x1aGoogle\\Cloud\\Monitoring\\V3\xea\x02\x1dGoogle::Cloud::Monitoring::V3b\x06proto3',
     dependencies=[
         google_dot_api_dot_annotations__pb2.DESCRIPTOR,
@@ -53,6 +54,7 @@ _LISTGROUPSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -71,6 +73,7 @@ _LISTGROUPSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A!\022\037monitoring.googleapis.com/Group",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="children_of_group",
@@ -89,6 +92,7 @@ _LISTGROUPSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\372A!\n\037monitoring.googleapis.com/Group",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="ancestors_of_group",
@@ -107,6 +111,7 @@ _LISTGROUPSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\372A!\n\037monitoring.googleapis.com/Group",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="descendants_of_group",
@@ -125,6 +130,7 @@ _LISTGROUPSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\372A!\n\037monitoring.googleapis.com/Group",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -143,6 +149,7 @@ _LISTGROUPSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -161,6 +168,7 @@ _LISTGROUPSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -176,6 +184,7 @@ _LISTGROUPSREQUEST = _descriptor.Descriptor(
             full_name="google.monitoring.v3.ListGroupsRequest.filter",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -190,6 +199,7 @@ _LISTGROUPSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="group",
@@ -208,6 +218,7 @@ _LISTGROUPSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -226,6 +237,7 @@ _LISTGROUPSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -247,6 +259,7 @@ _GETGROUPREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -265,6 +278,7 @@ _GETGROUPREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A!\n\037monitoring.googleapis.com/Group",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -286,6 +300,7 @@ _CREATEGROUPREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -304,6 +319,7 @@ _CREATEGROUPREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A!\022\037monitoring.googleapis.com/Group",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="group",
@@ -322,6 +338,7 @@ _CREATEGROUPREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="validate_only",
@@ -340,6 +357,7 @@ _CREATEGROUPREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -361,6 +379,7 @@ _UPDATEGROUPREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="group",
@@ -379,6 +398,7 @@ _UPDATEGROUPREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="validate_only",
@@ -397,6 +417,7 @@ _UPDATEGROUPREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -418,6 +439,7 @@ _DELETEGROUPREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -436,6 +458,7 @@ _DELETEGROUPREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A!\n\037monitoring.googleapis.com/Group",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="recursive",
@@ -454,6 +477,7 @@ _DELETEGROUPREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -475,6 +499,7 @@ _LISTGROUPMEMBERSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -493,6 +518,7 @@ _LISTGROUPMEMBERSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A!\n\037monitoring.googleapis.com/Group",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -511,6 +537,7 @@ _LISTGROUPMEMBERSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -529,6 +556,7 @@ _LISTGROUPMEMBERSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="filter",
@@ -547,6 +575,7 @@ _LISTGROUPMEMBERSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="interval",
@@ -565,6 +594,7 @@ _LISTGROUPMEMBERSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -586,6 +616,7 @@ _LISTGROUPMEMBERSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="members",
@@ -604,6 +635,7 @@ _LISTGROUPMEMBERSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -622,6 +654,7 @@ _LISTGROUPMEMBERSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="total_size",
@@ -640,6 +673,7 @@ _LISTGROUPMEMBERSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -932,6 +966,7 @@ _GROUPSERVICE = _descriptor.ServiceDescriptor(
     file=DESCRIPTOR,
     index=0,
     serialized_options=b"\312A\031monitoring.googleapis.com\322A\211\001https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/monitoring,https://www.googleapis.com/auth/monitoring.read",
+    create_key=_descriptor._internal_create_key,
     serialized_start=1502,
     serialized_end=2550,
     methods=[
@@ -943,6 +978,7 @@ _GROUPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTGROUPSREQUEST,
             output_type=_LISTGROUPSRESPONSE,
             serialized_options=b"\202\323\344\223\002\036\022\034/v3/{name=projects/*}/groups\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="GetGroup",
@@ -952,6 +988,7 @@ _GROUPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETGROUPREQUEST,
             output_type=google_dot_cloud_dot_monitoring__v3_dot_proto_dot_group__pb2._GROUP,
             serialized_options=b"\202\323\344\223\002 \022\036/v3/{name=projects/*/groups/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="CreateGroup",
@@ -961,6 +998,7 @@ _GROUPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_CREATEGROUPREQUEST,
             output_type=google_dot_cloud_dot_monitoring__v3_dot_proto_dot_group__pb2._GROUP,
             serialized_options=b'\202\323\344\223\002%"\034/v3/{name=projects/*}/groups:\005group\332A\nname,group',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="UpdateGroup",
@@ -970,6 +1008,7 @@ _GROUPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_UPDATEGROUPREQUEST,
             output_type=google_dot_cloud_dot_monitoring__v3_dot_proto_dot_group__pb2._GROUP,
             serialized_options=b"\202\323\344\223\002-\032$/v3/{group.name=projects/*/groups/*}:\005group\332A\005group",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DeleteGroup",
@@ -979,6 +1018,7 @@ _GROUPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_DELETEGROUPREQUEST,
             output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
             serialized_options=b"\202\323\344\223\002 *\036/v3/{name=projects/*/groups/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ListGroupMembers",
@@ -988,6 +1028,7 @@ _GROUPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTGROUPMEMBERSREQUEST,
             output_type=_LISTGROUPMEMBERSRESPONSE,
             serialized_options=b"\202\323\344\223\002(\022&/v3/{name=projects/*/groups/*}/members\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
     ],
 )

@@ -26,6 +26,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.monitoring.v3",
     syntax="proto3",
     serialized_options=b"\n\030com.google.monitoring.v3B\026ServiceMonitoringProtoP\001Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\252\002\032Google.Cloud.Monitoring.V3\312\002\032Google\\Cloud\\Monitoring\\V3\352\002\035Google::Cloud::Monitoring::V3",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n.google/cloud/monitoring_v3/proto/service.proto\x12\x14google.monitoring.v3\x1a#google/api/monitored_resource.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a!google/type/calendar_period.proto"\x97\x07\n\x07Service\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x36\n\x06\x63ustom\x18\x06 \x01(\x0b\x32$.google.monitoring.v3.Service.CustomH\x00\x12=\n\napp_engine\x18\x07 \x01(\x0b\x32\'.google.monitoring.v3.Service.AppEngineH\x00\x12G\n\x0f\x63loud_endpoints\x18\x08 \x01(\x0b\x32,.google.monitoring.v3.Service.CloudEndpointsH\x00\x12G\n\rcluster_istio\x18\t \x01(\x0b\x32*.google.monitoring.v3.Service.ClusterIstioB\x02\x18\x01H\x00\x12=\n\nmesh_istio\x18\n \x01(\x0b\x32\'.google.monitoring.v3.Service.MeshIstioH\x00\x12:\n\ttelemetry\x18\r \x01(\x0b\x32\'.google.monitoring.v3.Service.Telemetry\x1a\x08\n\x06\x43ustom\x1a\x1e\n\tAppEngine\x12\x11\n\tmodule_id\x18\x01 \x01(\t\x1a!\n\x0e\x43loudEndpoints\x12\x0f\n\x07service\x18\x01 \x01(\t\x1ak\n\x0c\x43lusterIstio\x12\x10\n\x08location\x18\x01 \x01(\t\x12\x14\n\x0c\x63luster_name\x18\x02 \x01(\t\x12\x19\n\x11service_namespace\x18\x03 \x01(\t\x12\x14\n\x0cservice_name\x18\x04 \x01(\t:\x02\x18\x01\x1aN\n\tMeshIstio\x12\x10\n\x08mesh_uid\x18\x01 \x01(\t\x12\x19\n\x11service_namespace\x18\x03 \x01(\t\x12\x14\n\x0cservice_name\x18\x04 \x01(\t\x1a"\n\tTelemetry\x12\x15\n\rresource_name\x18\x01 \x01(\t:\xa7\x01\xea\x41\xa3\x01\n!monitoring.googleapis.com/Service\x12%projects/{project}/services/{service}\x12/organizations/{organization}/services/{service}\x12#folders/{folder}/services/{service}\x12\x01*B\x0c\n\nidentifier"\x91\x05\n\x15ServiceLevelObjective\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x0b \x01(\t\x12L\n\x17service_level_indicator\x18\x03 \x01(\x0b\x32+.google.monitoring.v3.ServiceLevelIndicator\x12\x0c\n\x04goal\x18\x04 \x01(\x01\x12\x33\n\x0erolling_period\x18\x05 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x12\x36\n\x0f\x63\x61lendar_period\x18\x06 \x01(\x0e\x32\x1b.google.type.CalendarPeriodH\x00"4\n\x04View\x12\x14\n\x10VIEW_UNSPECIFIED\x10\x00\x12\x08\n\x04\x46ULL\x10\x02\x12\x0c\n\x08\x45XPLICIT\x10\x01:\xca\x02\xea\x41\xc6\x02\n/monitoring.googleapis.com/ServiceLevelObjective\x12Vprojects/{project}/services/{service}/serviceLevelObjectives/{service_level_objective}\x12`organizations/{organization}/services/{service}/serviceLevelObjectives/{service_level_objective}\x12Tfolders/{folder}/services/{service}/serviceLevelObjectives/{service_level_objective}\x12\x01* \x01\x42\x08\n\x06period"\xd4\x01\n\x15ServiceLevelIndicator\x12\x33\n\tbasic_sli\x18\x04 \x01(\x0b\x32\x1e.google.monitoring.v3.BasicSliH\x00\x12>\n\rrequest_based\x18\x01 \x01(\x0b\x32%.google.monitoring.v3.RequestBasedSliH\x00\x12>\n\rwindows_based\x18\x02 \x01(\x0b\x32%.google.monitoring.v3.WindowsBasedSliH\x00\x42\x06\n\x04type"\xb6\x02\n\x08\x42\x61sicSli\x12\x0e\n\x06method\x18\x07 \x03(\t\x12\x10\n\x08location\x18\x08 \x03(\t\x12\x0f\n\x07version\x18\t \x03(\t\x12K\n\x0c\x61vailability\x18\x02 \x01(\x0b\x32\x33.google.monitoring.v3.BasicSli.AvailabilityCriteriaH\x00\x12\x41\n\x07latency\x18\x03 \x01(\x0b\x32..google.monitoring.v3.BasicSli.LatencyCriteriaH\x00\x1a\x16\n\x14\x41vailabilityCriteria\x1a?\n\x0fLatencyCriteria\x12,\n\tthreshold\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\x0e\n\x0csli_criteria"!\n\x05Range\x12\x0b\n\x03min\x18\x01 \x01(\x01\x12\x0b\n\x03max\x18\x02 \x01(\x01"\xa1\x01\n\x0fRequestBasedSli\x12\x41\n\x10good_total_ratio\x18\x01 \x01(\x0b\x32%.google.monitoring.v3.TimeSeriesRatioH\x00\x12\x41\n\x10\x64istribution_cut\x18\x03 \x01(\x0b\x32%.google.monitoring.v3.DistributionCutH\x00\x42\x08\n\x06method"h\n\x0fTimeSeriesRatio\x12\x1b\n\x13good_service_filter\x18\x04 \x01(\t\x12\x1a\n\x12\x62\x61\x64_service_filter\x18\x05 \x01(\t\x12\x1c\n\x14total_service_filter\x18\x06 \x01(\t"Z\n\x0f\x44istributionCut\x12\x1b\n\x13\x64istribution_filter\x18\x04 \x01(\t\x12*\n\x05range\x18\x05 \x01(\x0b\x32\x1b.google.monitoring.v3.Range"\x83\x05\n\x0fWindowsBasedSli\x12 \n\x16good_bad_metric_filter\x18\x05 \x01(\tH\x00\x12`\n\x1agood_total_ratio_threshold\x18\x02 \x01(\x0b\x32:.google.monitoring.v3.WindowsBasedSli.PerformanceThresholdH\x00\x12Q\n\x14metric_mean_in_range\x18\x06 \x01(\x0b\x32\x31.google.monitoring.v3.WindowsBasedSli.MetricRangeH\x00\x12P\n\x13metric_sum_in_range\x18\x07 \x01(\x0b\x32\x31.google.monitoring.v3.WindowsBasedSli.MetricRangeH\x00\x12\x30\n\rwindow_period\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x1a\xb0\x01\n\x14PerformanceThreshold\x12<\n\x0bperformance\x18\x01 \x01(\x0b\x32%.google.monitoring.v3.RequestBasedSliH\x00\x12?\n\x15\x62\x61sic_sli_performance\x18\x03 \x01(\x0b\x32\x1e.google.monitoring.v3.BasicSliH\x00\x12\x11\n\tthreshold\x18\x02 \x01(\x01\x42\x06\n\x04type\x1aN\n\x0bMetricRange\x12\x13\n\x0btime_series\x18\x01 \x01(\t\x12*\n\x05range\x18\x04 \x01(\x0b\x32\x1b.google.monitoring.v3.RangeB\x12\n\x10window_criterionB\xce\x01\n\x18\x63om.google.monitoring.v3B\x16ServiceMonitoringProtoP\x01Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\xaa\x02\x1aGoogle.Cloud.Monitoring.V3\xca\x02\x1aGoogle\\Cloud\\Monitoring\\V3\xea\x02\x1dGoogle::Cloud::Monitoring::V3b\x06proto3',
     dependencies=[
         google_dot_api_dot_monitored__resource__pb2.DESCRIPTOR,
@@ -42,6 +43,7 @@ _SERVICELEVELOBJECTIVE_VIEW = _descriptor.EnumDescriptor(
     full_name="google.monitoring.v3.ServiceLevelObjective.View",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="VIEW_UNSPECIFIED",
@@ -49,12 +51,23 @@ _SERVICELEVELOBJECTIVE_VIEW = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="FULL", index=1, number=2, serialized_options=None, type=None
+            name="FULL",
+            index=1,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="EXPLICIT", index=2, number=1, serialized_options=None, type=None
+            name="EXPLICIT",
+            index=2,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -71,6 +84,7 @@ _SERVICE_CUSTOM = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[],
     extensions=[],
     nested_types=[],
@@ -90,6 +104,7 @@ _SERVICE_APPENGINE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="module_id",
@@ -108,6 +123,7 @@ _SERVICE_APPENGINE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -128,6 +144,7 @@ _SERVICE_CLOUDENDPOINTS = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="service",
@@ -146,6 +163,7 @@ _SERVICE_CLOUDENDPOINTS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -166,6 +184,7 @@ _SERVICE_CLUSTERISTIO = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="location",
@@ -184,6 +203,7 @@ _SERVICE_CLUSTERISTIO = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="cluster_name",
@@ -202,6 +222,7 @@ _SERVICE_CLUSTERISTIO = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="service_namespace",
@@ -220,6 +241,7 @@ _SERVICE_CLUSTERISTIO = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="service_name",
@@ -238,6 +260,7 @@ _SERVICE_CLUSTERISTIO = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -258,6 +281,7 @@ _SERVICE_MESHISTIO = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="mesh_uid",
@@ -276,6 +300,7 @@ _SERVICE_MESHISTIO = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="service_namespace",
@@ -294,6 +319,7 @@ _SERVICE_MESHISTIO = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="service_name",
@@ -312,6 +338,7 @@ _SERVICE_MESHISTIO = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -332,6 +359,7 @@ _SERVICE_TELEMETRY = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="resource_name",
@@ -350,6 +378,7 @@ _SERVICE_TELEMETRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -370,6 +399,7 @@ _SERVICE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -388,6 +418,7 @@ _SERVICE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="display_name",
@@ -406,6 +437,7 @@ _SERVICE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="custom",
@@ -424,6 +456,7 @@ _SERVICE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="app_engine",
@@ -442,6 +475,7 @@ _SERVICE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="cloud_endpoints",
@@ -460,6 +494,7 @@ _SERVICE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="cluster_istio",
@@ -478,6 +513,7 @@ _SERVICE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\030\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="mesh_istio",
@@ -496,6 +532,7 @@ _SERVICE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="telemetry",
@@ -514,6 +551,7 @@ _SERVICE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -536,6 +574,7 @@ _SERVICE = _descriptor.Descriptor(
             full_name="google.monitoring.v3.Service.identifier",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -550,6 +589,7 @@ _SERVICELEVELOBJECTIVE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -568,6 +608,7 @@ _SERVICELEVELOBJECTIVE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="display_name",
@@ -586,6 +627,7 @@ _SERVICELEVELOBJECTIVE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="service_level_indicator",
@@ -604,6 +646,7 @@ _SERVICELEVELOBJECTIVE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="goal",
@@ -622,6 +665,7 @@ _SERVICELEVELOBJECTIVE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="rolling_period",
@@ -640,6 +684,7 @@ _SERVICELEVELOBJECTIVE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="calendar_period",
@@ -658,6 +703,7 @@ _SERVICELEVELOBJECTIVE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -673,6 +719,7 @@ _SERVICELEVELOBJECTIVE = _descriptor.Descriptor(
             full_name="google.monitoring.v3.ServiceLevelObjective.period",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -687,6 +734,7 @@ _SERVICELEVELINDICATOR = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="basic_sli",
@@ -705,6 +753,7 @@ _SERVICELEVELINDICATOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="request_based",
@@ -723,6 +772,7 @@ _SERVICELEVELINDICATOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="windows_based",
@@ -741,6 +791,7 @@ _SERVICELEVELINDICATOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -756,6 +807,7 @@ _SERVICELEVELINDICATOR = _descriptor.Descriptor(
             full_name="google.monitoring.v3.ServiceLevelIndicator.type",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -770,6 +822,7 @@ _BASICSLI_AVAILABILITYCRITERIA = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[],
     extensions=[],
     nested_types=[],
@@ -789,6 +842,7 @@ _BASICSLI_LATENCYCRITERIA = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="threshold",
@@ -807,6 +861,7 @@ _BASICSLI_LATENCYCRITERIA = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -827,6 +882,7 @@ _BASICSLI = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="method",
@@ -845,6 +901,7 @@ _BASICSLI = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="location",
@@ -863,6 +920,7 @@ _BASICSLI = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="version",
@@ -881,6 +939,7 @@ _BASICSLI = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="availability",
@@ -899,6 +958,7 @@ _BASICSLI = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="latency",
@@ -917,6 +977,7 @@ _BASICSLI = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -932,6 +993,7 @@ _BASICSLI = _descriptor.Descriptor(
             full_name="google.monitoring.v3.BasicSli.sli_criteria",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -946,6 +1008,7 @@ _RANGE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="min",
@@ -964,6 +1027,7 @@ _RANGE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="max",
@@ -982,6 +1046,7 @@ _RANGE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1003,6 +1068,7 @@ _REQUESTBASEDSLI = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="good_total_ratio",
@@ -1021,6 +1087,7 @@ _REQUESTBASEDSLI = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="distribution_cut",
@@ -1039,6 +1106,7 @@ _REQUESTBASEDSLI = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1054,6 +1122,7 @@ _REQUESTBASEDSLI = _descriptor.Descriptor(
             full_name="google.monitoring.v3.RequestBasedSli.method",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -1068,6 +1137,7 @@ _TIMESERIESRATIO = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="good_service_filter",
@@ -1086,6 +1156,7 @@ _TIMESERIESRATIO = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="bad_service_filter",
@@ -1104,6 +1175,7 @@ _TIMESERIESRATIO = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="total_service_filter",
@@ -1122,6 +1194,7 @@ _TIMESERIESRATIO = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1143,6 +1216,7 @@ _DISTRIBUTIONCUT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="distribution_filter",
@@ -1161,6 +1235,7 @@ _DISTRIBUTIONCUT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="range",
@@ -1179,6 +1254,7 @@ _DISTRIBUTIONCUT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1200,6 +1276,7 @@ _WINDOWSBASEDSLI_PERFORMANCETHRESHOLD = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="performance",
@@ -1218,6 +1295,7 @@ _WINDOWSBASEDSLI_PERFORMANCETHRESHOLD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="basic_sli_performance",
@@ -1236,6 +1314,7 @@ _WINDOWSBASEDSLI_PERFORMANCETHRESHOLD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="threshold",
@@ -1254,6 +1333,7 @@ _WINDOWSBASEDSLI_PERFORMANCETHRESHOLD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1269,6 +1349,7 @@ _WINDOWSBASEDSLI_PERFORMANCETHRESHOLD = _descriptor.Descriptor(
             full_name="google.monitoring.v3.WindowsBasedSli.PerformanceThreshold.type",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -1282,6 +1363,7 @@ _WINDOWSBASEDSLI_METRICRANGE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="time_series",
@@ -1300,6 +1382,7 @@ _WINDOWSBASEDSLI_METRICRANGE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="range",
@@ -1318,6 +1401,7 @@ _WINDOWSBASEDSLI_METRICRANGE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1338,6 +1422,7 @@ _WINDOWSBASEDSLI = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="good_bad_metric_filter",
@@ -1356,6 +1441,7 @@ _WINDOWSBASEDSLI = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="good_total_ratio_threshold",
@@ -1374,6 +1460,7 @@ _WINDOWSBASEDSLI = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="metric_mean_in_range",
@@ -1392,6 +1479,7 @@ _WINDOWSBASEDSLI = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="metric_sum_in_range",
@@ -1410,6 +1498,7 @@ _WINDOWSBASEDSLI = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="window_period",
@@ -1428,6 +1517,7 @@ _WINDOWSBASEDSLI = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1443,6 +1533,7 @@ _WINDOWSBASEDSLI = _descriptor.Descriptor(
             full_name="google.monitoring.v3.WindowsBasedSli.window_criterion",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
