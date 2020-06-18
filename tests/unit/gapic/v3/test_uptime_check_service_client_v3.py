@@ -62,6 +62,37 @@ class CustomException(Exception):
 
 
 class TestUptimeCheckServiceClient(object):
+    def test_delete_uptime_check_config(self):
+        channel = ChannelStub()
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        with patch as create_channel:
+            create_channel.return_value = channel
+            client = monitoring_v3.UptimeCheckServiceClient()
+
+        # Setup Request
+        name = "name3373707"
+
+        client.delete_uptime_check_config(name)
+
+        assert len(channel.requests) == 1
+        expected_request = uptime_service_pb2.DeleteUptimeCheckConfigRequest(name=name)
+        actual_request = channel.requests[0][1]
+        assert expected_request == actual_request
+
+    def test_delete_uptime_check_config_exception(self):
+        # Mock the API response
+        channel = ChannelStub(responses=[CustomException()])
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        with patch as create_channel:
+            create_channel.return_value = channel
+            client = monitoring_v3.UptimeCheckServiceClient()
+
+        # Setup request
+        name = "name3373707"
+
+        with pytest.raises(CustomException):
+            client.delete_uptime_check_config(name)
+
     def test_list_uptime_check_configs(self):
         # Setup Expected Response
         next_page_token = ""
@@ -85,7 +116,7 @@ class TestUptimeCheckServiceClient(object):
             client = monitoring_v3.UptimeCheckServiceClient()
 
         # Setup Request
-        parent = client.project_path("[PROJECT]")
+        parent = "parent-995424086"
 
         paged_list_response = client.list_uptime_check_configs(parent)
         resources = list(paged_list_response)
@@ -108,7 +139,7 @@ class TestUptimeCheckServiceClient(object):
             client = monitoring_v3.UptimeCheckServiceClient()
 
         # Setup request
-        parent = client.project_path("[PROJECT]")
+        parent = "parent-995424086"
 
         paged_list_response = client.list_uptime_check_configs(parent)
         with pytest.raises(CustomException):
@@ -134,7 +165,7 @@ class TestUptimeCheckServiceClient(object):
             client = monitoring_v3.UptimeCheckServiceClient()
 
         # Setup Request
-        name = client.uptime_check_config_path("[PROJECT]", "[UPTIME_CHECK_CONFIG]")
+        name = "name3373707"
 
         response = client.get_uptime_check_config(name)
         assert expected_response == response
@@ -153,7 +184,7 @@ class TestUptimeCheckServiceClient(object):
             client = monitoring_v3.UptimeCheckServiceClient()
 
         # Setup request
-        name = client.uptime_check_config_path("[PROJECT]", "[UPTIME_CHECK_CONFIG]")
+        name = "name3373707"
 
         with pytest.raises(CustomException):
             client.get_uptime_check_config(name)
@@ -178,7 +209,7 @@ class TestUptimeCheckServiceClient(object):
             client = monitoring_v3.UptimeCheckServiceClient()
 
         # Setup Request
-        parent = client.project_path("[PROJECT]")
+        parent = "parent-995424086"
         uptime_check_config = {}
 
         response = client.create_uptime_check_config(parent, uptime_check_config)
@@ -200,7 +231,7 @@ class TestUptimeCheckServiceClient(object):
             client = monitoring_v3.UptimeCheckServiceClient()
 
         # Setup request
-        parent = client.project_path("[PROJECT]")
+        parent = "parent-995424086"
         uptime_check_config = {}
 
         with pytest.raises(CustomException):
@@ -251,37 +282,6 @@ class TestUptimeCheckServiceClient(object):
 
         with pytest.raises(CustomException):
             client.update_uptime_check_config(uptime_check_config)
-
-    def test_delete_uptime_check_config(self):
-        channel = ChannelStub()
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
-        with patch as create_channel:
-            create_channel.return_value = channel
-            client = monitoring_v3.UptimeCheckServiceClient()
-
-        # Setup Request
-        name = client.uptime_check_config_path("[PROJECT]", "[UPTIME_CHECK_CONFIG]")
-
-        client.delete_uptime_check_config(name)
-
-        assert len(channel.requests) == 1
-        expected_request = uptime_service_pb2.DeleteUptimeCheckConfigRequest(name=name)
-        actual_request = channel.requests[0][1]
-        assert expected_request == actual_request
-
-    def test_delete_uptime_check_config_exception(self):
-        # Mock the API response
-        channel = ChannelStub(responses=[CustomException()])
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
-        with patch as create_channel:
-            create_channel.return_value = channel
-            client = monitoring_v3.UptimeCheckServiceClient()
-
-        # Setup request
-        name = client.uptime_check_config_path("[PROJECT]", "[UPTIME_CHECK_CONFIG]")
-
-        with pytest.raises(CustomException):
-            client.delete_uptime_check_config(name)
 
     def test_list_uptime_check_ips(self):
         # Setup Expected Response

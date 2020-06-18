@@ -97,23 +97,6 @@ class AlertPolicyServiceClient(object):
             alert_policy=alert_policy,
         )
 
-    @classmethod
-    def alert_policy_condition_path(cls, project, alert_policy, condition):
-        """Return a fully-qualified alert_policy_condition string."""
-        return google.api_core.path_template.expand(
-            "projects/{project}/alertPolicies/{alert_policy}/conditions/{condition}",
-            project=project,
-            alert_policy=alert_policy,
-            condition=condition,
-        )
-
-    @classmethod
-    def project_path(cls, project):
-        """Return a fully-qualified project string."""
-        return google.api_core.path_template.expand(
-            "projects/{project}", project=project
-        )
-
     def __init__(
         self,
         transport=None,
@@ -227,6 +210,80 @@ class AlertPolicyServiceClient(object):
         self._inner_api_calls = {}
 
     # Service calls
+    def delete_alert_policy(
+        self,
+        name,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Deletes an alerting policy.
+
+        Example:
+            >>> from google.cloud import monitoring_v3
+            >>>
+            >>> client = monitoring_v3.AlertPolicyServiceClient()
+            >>>
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
+            >>>
+            >>> client.delete_alert_policy(name)
+
+        Args:
+            name (str): Required. The alerting policy to delete. The format is:
+
+                    projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
+
+                For more information, see ``AlertPolicy``.
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        # Wrap the transport method to add retry and timeout logic.
+        if "delete_alert_policy" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "delete_alert_policy"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.delete_alert_policy,
+                default_retry=self._method_configs["DeleteAlertPolicy"].retry,
+                default_timeout=self._method_configs["DeleteAlertPolicy"].timeout,
+                client_info=self._client_info,
+            )
+
+        request = alert_service_pb2.DeleteAlertPolicyRequest(name=name)
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("name", name)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        self._inner_api_calls["delete_alert_policy"](
+            request, retry=retry, timeout=timeout, metadata=metadata
+        )
+
     def list_alert_policies(
         self,
         name,
@@ -245,7 +302,8 @@ class AlertPolicyServiceClient(object):
             >>>
             >>> client = monitoring_v3.AlertPolicyServiceClient()
             >>>
-            >>> name = client.project_path('[PROJECT]')
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
             >>>
             >>> # Iterate over all results
             >>> for element in client.list_alert_policies(name):
@@ -369,7 +427,8 @@ class AlertPolicyServiceClient(object):
             >>>
             >>> client = monitoring_v3.AlertPolicyServiceClient()
             >>>
-            >>> name = client.alert_policy_path('[PROJECT]', '[ALERT_POLICY]')
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
             >>>
             >>> response = client.get_alert_policy(name)
 
@@ -444,7 +503,8 @@ class AlertPolicyServiceClient(object):
             >>>
             >>> client = monitoring_v3.AlertPolicyServiceClient()
             >>>
-            >>> name = client.project_path('[PROJECT]')
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
             >>>
             >>> # TODO: Initialize `alert_policy`:
             >>> alert_policy = {}
@@ -519,79 +579,6 @@ class AlertPolicyServiceClient(object):
             metadata.append(routing_metadata)
 
         return self._inner_api_calls["create_alert_policy"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
-
-    def delete_alert_policy(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Deletes an alerting policy.
-
-        Example:
-            >>> from google.cloud import monitoring_v3
-            >>>
-            >>> client = monitoring_v3.AlertPolicyServiceClient()
-            >>>
-            >>> name = client.alert_policy_path('[PROJECT]', '[ALERT_POLICY]')
-            >>>
-            >>> client.delete_alert_policy(name)
-
-        Args:
-            name (str): Required. The alerting policy to delete. The format is:
-
-                    projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
-
-                For more information, see ``AlertPolicy``.
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        # Wrap the transport method to add retry and timeout logic.
-        if "delete_alert_policy" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "delete_alert_policy"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.delete_alert_policy,
-                default_retry=self._method_configs["DeleteAlertPolicy"].retry,
-                default_timeout=self._method_configs["DeleteAlertPolicy"].timeout,
-                client_info=self._client_info,
-            )
-
-        request = alert_service_pb2.DeleteAlertPolicyRequest(name=name)
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("name", name)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        self._inner_api_calls["delete_alert_policy"](
             request, retry=retry, timeout=timeout, metadata=metadata
         )
 

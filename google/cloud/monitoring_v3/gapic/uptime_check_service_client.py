@@ -107,13 +107,6 @@ class UptimeCheckServiceClient(object):
     from_service_account_json = from_service_account_file
 
     @classmethod
-    def project_path(cls, project):
-        """Return a fully-qualified project string."""
-        return google.api_core.path_template.expand(
-            "projects/{project}", project=project
-        )
-
-    @classmethod
     def uptime_check_config_path(cls, project, uptime_check_config):
         """Return a fully-qualified uptime_check_config string."""
         return google.api_core.path_template.expand(
@@ -235,6 +228,82 @@ class UptimeCheckServiceClient(object):
         self._inner_api_calls = {}
 
     # Service calls
+    def delete_uptime_check_config(
+        self,
+        name,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Deletes an Uptime check configuration. Note that this method will fail
+        if the Uptime check configuration is referenced by an alert policy or
+        other dependent configs that would be rendered invalid by the deletion.
+
+        Example:
+            >>> from google.cloud import monitoring_v3
+            >>>
+            >>> client = monitoring_v3.UptimeCheckServiceClient()
+            >>>
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
+            >>>
+            >>> client.delete_uptime_check_config(name)
+
+        Args:
+            name (str): Required. The Uptime check configuration to delete. The format is:
+
+                ::
+
+                    projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        # Wrap the transport method to add retry and timeout logic.
+        if "delete_uptime_check_config" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "delete_uptime_check_config"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.delete_uptime_check_config,
+                default_retry=self._method_configs["DeleteUptimeCheckConfig"].retry,
+                default_timeout=self._method_configs["DeleteUptimeCheckConfig"].timeout,
+                client_info=self._client_info,
+            )
+
+        request = uptime_service_pb2.DeleteUptimeCheckConfigRequest(name=name)
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("name", name)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        self._inner_api_calls["delete_uptime_check_config"](
+            request, retry=retry, timeout=timeout, metadata=metadata
+        )
+
     def list_uptime_check_configs(
         self,
         parent,
@@ -252,7 +321,8 @@ class UptimeCheckServiceClient(object):
             >>>
             >>> client = monitoring_v3.UptimeCheckServiceClient()
             >>>
-            >>> parent = client.project_path('[PROJECT]')
+            >>> # TODO: Initialize `parent`:
+            >>> parent = ''
             >>>
             >>> # Iterate over all results
             >>> for element in client.list_uptime_check_configs(parent):
@@ -362,7 +432,8 @@ class UptimeCheckServiceClient(object):
             >>>
             >>> client = monitoring_v3.UptimeCheckServiceClient()
             >>>
-            >>> name = client.uptime_check_config_path('[PROJECT]', '[UPTIME_CHECK_CONFIG]')
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
             >>>
             >>> response = client.get_uptime_check_config(name)
 
@@ -439,7 +510,8 @@ class UptimeCheckServiceClient(object):
             >>>
             >>> client = monitoring_v3.UptimeCheckServiceClient()
             >>>
-            >>> parent = client.project_path('[PROJECT]')
+            >>> # TODO: Initialize `parent`:
+            >>> parent = ''
             >>>
             >>> # TODO: Initialize `uptime_check_config`:
             >>> uptime_check_config = {}
@@ -606,81 +678,6 @@ class UptimeCheckServiceClient(object):
             metadata.append(routing_metadata)
 
         return self._inner_api_calls["update_uptime_check_config"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
-
-    def delete_uptime_check_config(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Deletes an Uptime check configuration. Note that this method will fail
-        if the Uptime check configuration is referenced by an alert policy or
-        other dependent configs that would be rendered invalid by the deletion.
-
-        Example:
-            >>> from google.cloud import monitoring_v3
-            >>>
-            >>> client = monitoring_v3.UptimeCheckServiceClient()
-            >>>
-            >>> name = client.uptime_check_config_path('[PROJECT]', '[UPTIME_CHECK_CONFIG]')
-            >>>
-            >>> client.delete_uptime_check_config(name)
-
-        Args:
-            name (str): Required. The Uptime check configuration to delete. The format is:
-
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        # Wrap the transport method to add retry and timeout logic.
-        if "delete_uptime_check_config" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "delete_uptime_check_config"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.delete_uptime_check_config,
-                default_retry=self._method_configs["DeleteUptimeCheckConfig"].retry,
-                default_timeout=self._method_configs["DeleteUptimeCheckConfig"].timeout,
-                client_info=self._client_info,
-            )
-
-        request = uptime_service_pb2.DeleteUptimeCheckConfigRequest(name=name)
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("name", name)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        self._inner_api_calls["delete_uptime_check_config"](
             request, retry=retry, timeout=timeout, metadata=metadata
         )
 

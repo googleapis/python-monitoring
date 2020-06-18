@@ -115,6 +115,19 @@ class AlertPolicyServiceGrpcTransport(object):
         return self._channel
 
     @property
+    def delete_alert_policy(self):
+        """Return the gRPC stub for :meth:`AlertPolicyServiceClient.delete_alert_policy`.
+
+        Deletes an alerting policy.
+
+        Returns:
+            Callable: A callable which accepts the appropriate
+                deserialized request object and returns a
+                deserialized response object.
+        """
+        return self._stubs["alert_policy_service_stub"].DeleteAlertPolicy
+
+    @property
     def list_alert_policies(self):
         """Return the gRPC stub for :meth:`AlertPolicyServiceClient.list_alert_policies`.
 
@@ -152,19 +165,6 @@ class AlertPolicyServiceGrpcTransport(object):
                 deserialized response object.
         """
         return self._stubs["alert_policy_service_stub"].CreateAlertPolicy
-
-    @property
-    def delete_alert_policy(self):
-        """Return the gRPC stub for :meth:`AlertPolicyServiceClient.delete_alert_policy`.
-
-        Deletes an alerting policy.
-
-        Returns:
-            Callable: A callable which accepts the appropriate
-                deserialized request object and returns a
-                deserialized response object.
-        """
-        return self._stubs["alert_policy_service_stub"].DeleteAlertPolicy
 
     @property
     def update_alert_policy(self):
