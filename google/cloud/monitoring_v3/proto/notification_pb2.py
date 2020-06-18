@@ -566,6 +566,7 @@ NotificationChannelDescriptor = _reflection.GeneratedProtocolMessageType(
         "__doc__": """A description of a notification channel. The descriptor includes the
   properties of the channel and the set of labels or fields that must be
   specified to configure channels of a given type.
+  
   Attributes:
       name:
           The full REST resource name for this descriptor. The format
@@ -626,6 +627,7 @@ NotificationChannel = _reflection.GeneratedProtocolMessageType(
   include email, SMS, and third-party messaging applications. Fields
   containing sensitive information like authentication tokens or contact
   info are only partially populated on retrieval.
+  
   Attributes:
       type:
           The type of the notification channel. This field matches the

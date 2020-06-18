@@ -910,6 +910,7 @@ CreateServiceRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _CREATESERVICEREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.service_service_pb2",
         "__doc__": """The ``CreateService`` request.
+  
   Attributes:
       parent:
           Required. Resource name of the parent workspace. The format
@@ -933,6 +934,7 @@ GetServiceRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _GETSERVICEREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.service_service_pb2",
         "__doc__": """The ``GetService`` request.
+  
   Attributes:
       name:
           Required. Resource name of the ``Service``. The format is:  ::
@@ -950,6 +952,7 @@ ListServicesRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTSERVICESREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.service_service_pb2",
         "__doc__": """The ``ListServices`` request.
+  
   Attributes:
       parent:
           Required. Resource name of the parent containing the listed
@@ -990,6 +993,7 @@ ListServicesResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTSERVICESRESPONSE,
         "__module__": "google.cloud.monitoring_v3.proto.service_service_pb2",
         "__doc__": """The ``ListServices`` response.
+  
   Attributes:
       services:
           The ``Service``\ s matching the specified filter.
@@ -1011,6 +1015,7 @@ UpdateServiceRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _UPDATESERVICEREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.service_service_pb2",
         "__doc__": """The ``UpdateService`` request.
+  
   Attributes:
       service:
           Required. The ``Service`` to draw updates from. The given
@@ -1031,6 +1036,7 @@ DeleteServiceRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _DELETESERVICEREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.service_service_pb2",
         "__doc__": """The ``DeleteService`` request.
+  
   Attributes:
       name:
           Required. Resource name of the ``Service`` to delete. The
@@ -1049,6 +1055,7 @@ CreateServiceLevelObjectiveRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _CREATESERVICELEVELOBJECTIVEREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.service_service_pb2",
         "__doc__": """The ``CreateServiceLevelObjective`` request.
+  
   Attributes:
       parent:
           Required. Resource name of the parent ``Service``. The format
@@ -1075,6 +1082,7 @@ GetServiceLevelObjectiveRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _GETSERVICELEVELOBJECTIVEREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.service_service_pb2",
         "__doc__": """The ``GetServiceLevelObjective`` request.
+  
   Attributes:
       name:
           Required. Resource name of the ``ServiceLevelObjective`` to
@@ -1100,6 +1108,7 @@ ListServiceLevelObjectivesRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTSERVICELEVELOBJECTIVESREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.service_service_pb2",
         "__doc__": """The ``ListServiceLevelObjectives`` request.
+  
   Attributes:
       parent:
           Required. Resource name of the parent containing the listed
@@ -1138,6 +1147,7 @@ ListServiceLevelObjectivesResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTSERVICELEVELOBJECTIVESRESPONSE,
         "__module__": "google.cloud.monitoring_v3.proto.service_service_pb2",
         "__doc__": """The ``ListServiceLevelObjectives`` response.
+  
   Attributes:
       service_level_objectives:
           The ``ServiceLevelObjective``\ s matching the specified
@@ -1160,6 +1170,7 @@ UpdateServiceLevelObjectiveRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _UPDATESERVICELEVELOBJECTIVEREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.service_service_pb2",
         "__doc__": """The ``UpdateServiceLevelObjective`` request.
+  
   Attributes:
       service_level_objective:
           Required. The ``ServiceLevelObjective`` to draw updates from.
@@ -1180,6 +1191,7 @@ DeleteServiceLevelObjectiveRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _DELETESERVICELEVELOBJECTIVEREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.service_service_pb2",
         "__doc__": """The ``DeleteServiceLevelObjective`` request.
+  
   Attributes:
       name:
           Required. Resource name of the ``ServiceLevelObjective`` to

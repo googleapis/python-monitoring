@@ -154,6 +154,7 @@ DroppedLabels = _reflection.GeneratedProtocolMessageType(
   to-exemplar and from distribution-to-distribution in the same stream,
   and there may be duplicates. It is up to clients to resolve any
   ambiguities.
+  
   Attributes:
       label:
           Map from label to its value, for all labels dropped in any

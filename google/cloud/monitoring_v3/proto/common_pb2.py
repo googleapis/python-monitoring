@@ -795,6 +795,7 @@ TypedValue = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _TYPEDVALUE,
         "__module__": "google.cloud.monitoring_v3.proto.common_pb2",
         "__doc__": """A single strongly-typed value.
+  
   Attributes:
       value:
           The typed value field.
@@ -840,6 +841,7 @@ TimeInterval = _reflection.GeneratedProtocolMessageType(
   time of a new interval is the same    as the end time of the previous
   interval, data written at the new    start time could overwrite data
   written at the previous end time.
+  
   Attributes:
       end_time:
           Required. The end of the time interval.
@@ -883,6 +885,7 @@ Aggregation = _reflection.GeneratedProtocolMessageType(
   series data is still available for later drilldown. For more details,
   see `Filtering and aggregation
   <https://cloud.google.com/monitoring/api/v3/aggregation>`__.
+  
   Attributes:
       alignment_period:
           The ``alignment_period`` specifies a time interval, in

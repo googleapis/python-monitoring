@@ -994,6 +994,7 @@ AlertPolicy = _reflection.GeneratedProtocolMessageType(
                 "__module__": "google.cloud.monitoring_v3.proto.alert_pb2",
                 "__doc__": """A content string and a MIME type that describes the content string’s
     format.
+    
     Attributes:
         content:
             The text of the documentation, interpreted according to
@@ -1021,6 +1022,7 @@ AlertPolicy = _reflection.GeneratedProtocolMessageType(
                         "__module__": "google.cloud.monitoring_v3.proto.alert_pb2",
                         "__doc__": """Specifies how many time series must fail a predicate to trigger a
       condition. If not specified, then a ``{count: 1}`` trigger is used.
+      
       Attributes:
           type:
               A type of trigger.
@@ -1042,6 +1044,7 @@ AlertPolicy = _reflection.GeneratedProtocolMessageType(
                         "__module__": "google.cloud.monitoring_v3.proto.alert_pb2",
                         "__doc__": """A condition type that compares a collection of time series against a
       threshold.
+      
       Attributes:
           filter:
               A `filter
@@ -1132,6 +1135,7 @@ AlertPolicy = _reflection.GeneratedProtocolMessageType(
       resources. The predicate is considered in violation when a time series
       for the specified metric of a monitored resource does not include any
       data in the specified ``duration``.
+      
       Attributes:
           filter:
               A `filter
@@ -1178,6 +1182,7 @@ AlertPolicy = _reflection.GeneratedProtocolMessageType(
                 "__doc__": """A condition is a true/false test that determines when an alerting
     policy should open an incident. If a condition evaluates to true, it
     signifies that something is wrong.
+    
     Attributes:
         name:
             Required if the condition exists. The unique resource name for
@@ -1232,6 +1237,7 @@ AlertPolicy = _reflection.GeneratedProtocolMessageType(
   services about this state. For an overview of alert policies, see
   `Introduction to Alerting
   <https://cloud.google.com/monitoring/alerts/>`__.
+  
   Attributes:
       name:
           Required if the policy exists. The resource name for this

@@ -1748,6 +1748,7 @@ Service = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _SERVICE_APPENGINE,
                 "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
                 "__doc__": """App Engine service. Learn more at https://cloud.google.com/appengine.
+    
     Attributes:
         module_id:
             The ID of the App Engine module underlying this service.
@@ -1766,6 +1767,7 @@ Service = _reflection.GeneratedProtocolMessageType(
                 "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
                 "__doc__": """Cloud Endpoints service. Learn more at
     https://cloud.google.com/endpoints.
+    
     Attributes:
         service:
             The name of the Cloud Endpoints service underlying this
@@ -1784,6 +1786,7 @@ Service = _reflection.GeneratedProtocolMessageType(
                 "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
                 "__doc__": """Istio service scoped to a single Kubernetes cluster. Learn more at
     http://istio.io.
+    
     Attributes:
         location:
             The location of the Kubernetes cluster in which this Istio
@@ -1812,6 +1815,7 @@ Service = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _SERVICE_MESHISTIO,
                 "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
                 "__doc__": """Istio service scoped to an Istio mesh
+    
     Attributes:
         mesh_uid:
             Identifier for the mesh in which this Istio service is
@@ -1836,6 +1840,7 @@ Service = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _SERVICE_TELEMETRY,
                 "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
                 "__doc__": """Configuration for how to query telemetry on a Service.
+    
     Attributes:
         resource_name:
             The full name of the resource that defines this service.
@@ -1852,6 +1857,7 @@ Service = _reflection.GeneratedProtocolMessageType(
   <https://en.wikipedia.org/wiki/Service-orientation>`__). In Cloud
   Monitoring, a ``Service`` acts as the root resource under which
   operational aspects of the service are accessible.
+  
   Attributes:
       name:
           Resource name for this Service. The format is:  ::
@@ -1899,6 +1905,7 @@ ServiceLevelObjective = _reflection.GeneratedProtocolMessageType(
   manners. Typical SLOs might include “99% of requests in each rolling
   week have latency below 200 milliseconds” or “99.5% of requests in
   each calendar month return successfully.”
+  
   Attributes:
       name:
           Resource name for this ``ServiceLevelObjective``. The format
@@ -1948,6 +1955,7 @@ ServiceLevelIndicator = _reflection.GeneratedProtocolMessageType(
   concerns, a single Service-Level Indicator measures performance for
   only one aspect of service quality, such as fraction of successful
   queries or fast-enough queries.
+  
   Attributes:
       type:
           Service level indicators can be grouped by whether the “unit”
@@ -1986,6 +1994,7 @@ BasicSli = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _BASICSLI_LATENCYCRITERIA,
                 "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
                 "__doc__": """Parameters for a latency threshold SLI.
+    
     Attributes:
         threshold:
             Good service is defined to be the count of requests made to
@@ -2002,6 +2011,7 @@ BasicSli = _reflection.GeneratedProtocolMessageType(
   ``service_resource.labels`` and ``metric_labels`` are used to
   construct a monitoring filter to filter that metric down to just the
   data relevant to this service.
+  
   Attributes:
       method:
           OPTIONAL: The set of RPCs to which this SLI is relevant.
@@ -2052,6 +2062,7 @@ Range = _reflection.GeneratedProtocolMessageType(
   ``max``. If the open range “< range.max” is desired, set ``range.min =
   -infinity``. If the open range “>= range.min” is desired, set
   ``range.max = infinity``.
+  
   Attributes:
       min:
           Range minimum.
@@ -2071,6 +2082,7 @@ RequestBasedSli = _reflection.GeneratedProtocolMessageType(
         "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
         "__doc__": """Service Level Indicators for which atomic units of service are counted
   directly.
+  
   Attributes:
       method:
           The means to compute a ratio of ``good_service`` to
@@ -2103,6 +2115,7 @@ TimeSeriesRatio = _reflection.GeneratedProtocolMessageType(
   CUMULATIVE``. The ``TimeSeriesRatio`` must specify exactly two of
   good, bad, and total, and the relationship ``good_service +
   bad_service = total_service`` will be assumed.
+  
   Attributes:
       good_service_filter:
           A `monitoring filter
@@ -2144,6 +2157,7 @@ DistributionCut = _reflection.GeneratedProtocolMessageType(
   ``MetricKind = CUMULATIVE``. The computed ``good_service`` will be the
   count of values x in the ``Distribution`` such that ``range.min <= x <
   range.max``.
+  
   Attributes:
       distribution_filter:
           A `monitoring filter
@@ -2172,6 +2186,7 @@ WindowsBasedSli = _reflection.GeneratedProtocolMessageType(
                 "__module__": "google.cloud.monitoring_v3.proto.service_pb2",
                 "__doc__": """A ``PerformanceThreshold`` is used when each window is good when that
     window has a sufficiently high ``performance``.
+    
     Attributes:
         type:
             The means, either a request-based SLI or a basic SLI, by which
@@ -2197,6 +2212,7 @@ WindowsBasedSli = _reflection.GeneratedProtocolMessageType(
     a single ``TimeSeries`` satisfies ``range.min <= x < range.max``. The
     provided ``TimeSeries`` must have ``ValueType = INT64`` or ``ValueType
     = DOUBLE`` and ``MetricKind = GAUGE``.
+    
     Attributes:
         time_series:
             A `monitoring filter
@@ -2216,6 +2232,7 @@ WindowsBasedSli = _reflection.GeneratedProtocolMessageType(
   windows for which the provided service was of good quality. Criteria
   for determining if service was good are embedded in the
   ``window_criterion``.
+  
   Attributes:
       window_criterion:
           The criterion to use for evaluating window goodness.
