@@ -177,7 +177,7 @@ _LISTGROUPSREQUEST = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=353,
     serialized_end=681,
@@ -265,7 +265,7 @@ _GETGROUPREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A!\n\037monitoring.googleapis.com/Group",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],

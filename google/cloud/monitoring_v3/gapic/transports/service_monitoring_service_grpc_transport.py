@@ -58,7 +58,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
         # exception (channels come with credentials baked in already).
         if channel is not None and credentials is not None:
             raise ValueError(
-                "The `channel` and `credentials` arguments are mutually " "exclusive."
+                "The `channel` and `credentials` arguments are mutually " "exclusive.",
             )
 
         # Create the channel.
@@ -79,7 +79,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
         self._stubs = {
             "service_monitoring_service_stub": service_service_pb2_grpc.ServiceMonitoringServiceStub(
                 channel
-            )
+            ),
         }
 
     @classmethod

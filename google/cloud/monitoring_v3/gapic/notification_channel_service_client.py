@@ -57,7 +57,7 @@ from google.protobuf import timestamp_pb2
 
 
 _GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution(
-    "google-cloud-monitoring"
+    "google-cloud-monitoring",
 ).version
 
 
@@ -116,7 +116,7 @@ class NotificationChannelServiceClient(object):
     def project_path(cls, project):
         """Return a fully-qualified project string."""
         return google.api_core.path_template.expand(
-            "projects/{project}", project=project
+            "projects/{project}", project=project,
         )
 
     def __init__(
@@ -206,12 +206,12 @@ class NotificationChannelServiceClient(object):
                 self.transport = transport
         else:
             self.transport = notification_channel_service_grpc_transport.NotificationChannelServiceGrpcTransport(
-                address=api_endpoint, channel=channel, credentials=credentials
+                address=api_endpoint, channel=channel, credentials=credentials,
             )
 
         if client_info is None:
             client_info = google.api_core.gapic_v1.client_info.ClientInfo(
-                gapic_version=_GAPIC_LIBRARY_VERSION
+                gapic_version=_GAPIC_LIBRARY_VERSION,
             )
         else:
             client_info.gapic_version = _GAPIC_LIBRARY_VERSION
@@ -222,7 +222,7 @@ class NotificationChannelServiceClient(object):
         # (Ordinarily, these are the defaults specified in the `*_config.py`
         # file next to this one.)
         self._method_configs = google.api_core.gapic_v1.config.parse_method_configs(
-            client_config["interfaces"][self._INTERFACE_NAME]
+            client_config["interfaces"][self._INTERFACE_NAME],
         )
 
         # Save a dictionary of cached API call functions.
@@ -322,7 +322,7 @@ class NotificationChannelServiceClient(object):
             )
 
         request = notification_service_pb2.ListNotificationChannelDescriptorsRequest(
-            name=name, page_size=page_size
+            name=name, page_size=page_size,
         )
         if metadata is None:
             metadata = []
@@ -417,7 +417,7 @@ class NotificationChannelServiceClient(object):
             )
 
         request = notification_service_pb2.GetNotificationChannelDescriptorRequest(
-            name=name
+            name=name,
         )
         if metadata is None:
             metadata = []
@@ -537,7 +537,7 @@ class NotificationChannelServiceClient(object):
             )
 
         request = notification_service_pb2.ListNotificationChannelsRequest(
-            name=name, filter=filter_, order_by=order_by, page_size=page_size
+            name=name, filter=filter_, order_by=order_by, page_size=page_size,
         )
         if metadata is None:
             metadata = []
@@ -630,7 +630,7 @@ class NotificationChannelServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = notification_service_pb2.GetNotificationChannelRequest(name=name)
+        request = notification_service_pb2.GetNotificationChannelRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -724,7 +724,7 @@ class NotificationChannelServiceClient(object):
             )
 
         request = notification_service_pb2.CreateNotificationChannelRequest(
-            name=name, notification_channel=notification_channel
+            name=name, notification_channel=notification_channel,
         )
         if metadata is None:
             metadata = []
@@ -813,7 +813,7 @@ class NotificationChannelServiceClient(object):
             )
 
         request = notification_service_pb2.UpdateNotificationChannelRequest(
-            notification_channel=notification_channel, update_mask=update_mask
+            notification_channel=notification_channel, update_mask=update_mask,
         )
         if metadata is None:
             metadata = []
@@ -896,7 +896,7 @@ class NotificationChannelServiceClient(object):
             )
 
         request = notification_service_pb2.DeleteNotificationChannelRequest(
-            name=name, force=force
+            name=name, force=force,
         )
         if metadata is None:
             metadata = []
@@ -973,7 +973,7 @@ class NotificationChannelServiceClient(object):
             )
 
         request = notification_service_pb2.SendNotificationChannelVerificationCodeRequest(
-            name=name
+            name=name,
         )
         if metadata is None:
             metadata = []
@@ -1086,7 +1086,7 @@ class NotificationChannelServiceClient(object):
             )
 
         request = notification_service_pb2.GetNotificationChannelVerificationCodeRequest(
-            name=name, expire_time=expire_time
+            name=name, expire_time=expire_time,
         )
         if metadata is None:
             metadata = []
@@ -1175,7 +1175,7 @@ class NotificationChannelServiceClient(object):
             )
 
         request = notification_service_pb2.VerifyNotificationChannelRequest(
-            name=name, code=code
+            name=name, code=code,
         )
         if metadata is None:
             metadata = []

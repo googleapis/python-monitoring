@@ -217,7 +217,7 @@ _GETUPTIMECHECKCONFIGREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\n+monitoring.googleapis.com/UptimeCheckConfig",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -370,7 +370,7 @@ _DELETEUPTIMECHECKCONFIGREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\n+monitoring.googleapis.com/UptimeCheckConfig",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
