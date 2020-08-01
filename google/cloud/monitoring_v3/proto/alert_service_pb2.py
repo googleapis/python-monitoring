@@ -28,6 +28,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.monitoring.v3",
     syntax="proto3",
     serialized_options=b"\n\030com.google.monitoring.v3B\021AlertServiceProtoP\001Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\252\002\032Google.Cloud.Monitoring.V3\312\002\032Google\\Cloud\\Monitoring\\V3\352\002\035Google::Cloud::Monitoring::V3",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n4google/cloud/monitoring_v3/proto/alert_service.proto\x12\x14google.monitoring.v3\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a,google/cloud/monitoring_v3/proto/alert.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto"\x95\x01\n\x18\x43reateAlertPolicyRequest\x12;\n\x04name\x18\x03 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%monitoring.googleapis.com/AlertPolicy\x12<\n\x0c\x61lert_policy\x18\x02 \x01(\x0b\x32!.google.monitoring.v3.AlertPolicyB\x03\xe0\x41\x02"T\n\x15GetAlertPolicyRequest\x12;\n\x04name\x18\x03 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%monitoring.googleapis.com/AlertPolicy"\xa0\x01\n\x18ListAlertPoliciesRequest\x12;\n\x04name\x18\x04 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%monitoring.googleapis.com/AlertPolicy\x12\x0e\n\x06\x66ilter\x18\x05 \x01(\t\x12\x10\n\x08order_by\x18\x06 \x01(\t\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t"o\n\x19ListAlertPoliciesResponse\x12\x39\n\x0e\x61lert_policies\x18\x03 \x03(\x0b\x32!.google.monitoring.v3.AlertPolicy\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t"\x89\x01\n\x18UpdateAlertPolicyRequest\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12<\n\x0c\x61lert_policy\x18\x03 \x01(\x0b\x32!.google.monitoring.v3.AlertPolicyB\x03\xe0\x41\x02"W\n\x18\x44\x65leteAlertPolicyRequest\x12;\n\x04name\x18\x03 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%monitoring.googleapis.com/AlertPolicy2\x9e\x08\n\x12\x41lertPolicyService\x12\xa8\x01\n\x11ListAlertPolicies\x12..google.monitoring.v3.ListAlertPoliciesRequest\x1a/.google.monitoring.v3.ListAlertPoliciesResponse"2\x82\xd3\xe4\x93\x02%\x12#/v3/{name=projects/*}/alertPolicies\xda\x41\x04name\x12\x96\x01\n\x0eGetAlertPolicy\x12+.google.monitoring.v3.GetAlertPolicyRequest\x1a!.google.monitoring.v3.AlertPolicy"4\x82\xd3\xe4\x93\x02\'\x12%/v3/{name=projects/*/alertPolicies/*}\xda\x41\x04name\x12\xb5\x01\n\x11\x43reateAlertPolicy\x12..google.monitoring.v3.CreateAlertPolicyRequest\x1a!.google.monitoring.v3.AlertPolicy"M\x82\xd3\xe4\x93\x02\x33"#/v3/{name=projects/*}/alertPolicies:\x0c\x61lert_policy\xda\x41\x11name,alert_policy\x12\x91\x01\n\x11\x44\x65leteAlertPolicy\x12..google.monitoring.v3.DeleteAlertPolicyRequest\x1a\x16.google.protobuf.Empty"4\x82\xd3\xe4\x93\x02\'*%/v3/{name=projects/*/alertPolicies/*}\xda\x41\x04name\x12\xcb\x01\n\x11UpdateAlertPolicy\x12..google.monitoring.v3.UpdateAlertPolicyRequest\x1a!.google.monitoring.v3.AlertPolicy"c\x82\xd3\xe4\x93\x02\x42\x32\x32/v3/{alert_policy.name=projects/*/alertPolicies/*}:\x0c\x61lert_policy\xda\x41\x18update_mask,alert_policy\x1a\xa9\x01\xca\x41\x19monitoring.googleapis.com\xd2\x41\x89\x01https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/monitoring,https://www.googleapis.com/auth/monitoring.readB\xc9\x01\n\x18\x63om.google.monitoring.v3B\x11\x41lertServiceProtoP\x01Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\xaa\x02\x1aGoogle.Cloud.Monitoring.V3\xca\x02\x1aGoogle\\Cloud\\Monitoring\\V3\xea\x02\x1dGoogle::Cloud::Monitoring::V3b\x06proto3',
     dependencies=[
         google_dot_api_dot_annotations__pb2.DESCRIPTOR,
@@ -47,6 +48,7 @@ _CREATEALERTPOLICYREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -65,6 +67,7 @@ _CREATEALERTPOLICYREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A'\022%monitoring.googleapis.com/AlertPolicy",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="alert_policy",
@@ -83,6 +86,7 @@ _CREATEALERTPOLICYREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -104,6 +108,7 @@ _GETALERTPOLICYREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -122,6 +127,7 @@ _GETALERTPOLICYREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A'\n%monitoring.googleapis.com/AlertPolicy",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -143,6 +149,7 @@ _LISTALERTPOLICIESREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -161,6 +168,7 @@ _LISTALERTPOLICIESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A'\022%monitoring.googleapis.com/AlertPolicy",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="filter",
@@ -179,6 +187,7 @@ _LISTALERTPOLICIESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="order_by",
@@ -197,6 +206,7 @@ _LISTALERTPOLICIESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -215,6 +225,7 @@ _LISTALERTPOLICIESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -233,6 +244,7 @@ _LISTALERTPOLICIESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -254,6 +266,7 @@ _LISTALERTPOLICIESRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="alert_policies",
@@ -272,6 +285,7 @@ _LISTALERTPOLICIESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -290,6 +304,7 @@ _LISTALERTPOLICIESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -311,6 +326,7 @@ _UPDATEALERTPOLICYREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="update_mask",
@@ -329,6 +345,7 @@ _UPDATEALERTPOLICYREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="alert_policy",
@@ -347,6 +364,7 @@ _UPDATEALERTPOLICYREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -368,6 +386,7 @@ _DELETEALERTPOLICYREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -386,6 +405,7 @@ _DELETEALERTPOLICYREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A'\n%monitoring.googleapis.com/AlertPolicy",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -612,6 +632,7 @@ _ALERTPOLICYSERVICE = _descriptor.ServiceDescriptor(
     file=DESCRIPTOR,
     index=0,
     serialized_options=b"\312A\031monitoring.googleapis.com\322A\211\001https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/monitoring,https://www.googleapis.com/auth/monitoring.read",
+    create_key=_descriptor._internal_create_key,
     serialized_start=1046,
     serialized_end=2100,
     methods=[
@@ -623,6 +644,7 @@ _ALERTPOLICYSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTALERTPOLICIESREQUEST,
             output_type=_LISTALERTPOLICIESRESPONSE,
             serialized_options=b"\202\323\344\223\002%\022#/v3/{name=projects/*}/alertPolicies\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="GetAlertPolicy",
@@ -632,6 +654,7 @@ _ALERTPOLICYSERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETALERTPOLICYREQUEST,
             output_type=google_dot_cloud_dot_monitoring__v3_dot_proto_dot_alert__pb2._ALERTPOLICY,
             serialized_options=b"\202\323\344\223\002'\022%/v3/{name=projects/*/alertPolicies/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="CreateAlertPolicy",
@@ -641,6 +664,7 @@ _ALERTPOLICYSERVICE = _descriptor.ServiceDescriptor(
             input_type=_CREATEALERTPOLICYREQUEST,
             output_type=google_dot_cloud_dot_monitoring__v3_dot_proto_dot_alert__pb2._ALERTPOLICY,
             serialized_options=b'\202\323\344\223\0023"#/v3/{name=projects/*}/alertPolicies:\014alert_policy\332A\021name,alert_policy',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DeleteAlertPolicy",
@@ -650,6 +674,7 @@ _ALERTPOLICYSERVICE = _descriptor.ServiceDescriptor(
             input_type=_DELETEALERTPOLICYREQUEST,
             output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
             serialized_options=b"\202\323\344\223\002'*%/v3/{name=projects/*/alertPolicies/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="UpdateAlertPolicy",
@@ -659,6 +684,7 @@ _ALERTPOLICYSERVICE = _descriptor.ServiceDescriptor(
             input_type=_UPDATEALERTPOLICYREQUEST,
             output_type=google_dot_cloud_dot_monitoring__v3_dot_proto_dot_alert__pb2._ALERTPOLICY,
             serialized_options=b"\202\323\344\223\002B22/v3/{alert_policy.name=projects/*/alertPolicies/*}:\014alert_policy\332A\030update_mask,alert_policy",
+            create_key=_descriptor._internal_create_key,
         ),
     ],
 )

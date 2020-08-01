@@ -29,6 +29,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.monitoring.v3",
     syntax="proto3",
     serialized_options=b"\n\030com.google.monitoring.v3B\013MetricProtoP\001Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\252\002\032Google.Cloud.Monitoring.V3\312\002\032Google\\Cloud\\Monitoring\\V3\352\002\035Google::Cloud::Monitoring::V3",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n-google/cloud/monitoring_v3/proto/metric.proto\x12\x14google.monitoring.v3\x1a\x1dgoogle/api/distribution.proto\x1a\x16google/api/label.proto\x1a\x17google/api/metric.proto\x1a#google/api/monitored_resource.proto\x1a-google/cloud/monitoring_v3/proto/common.proto\x1a\x1egoogle/protobuf/duration.proto"n\n\x05Point\x12\x34\n\x08interval\x18\x01 \x01(\x0b\x32".google.monitoring.v3.TimeInterval\x12/\n\x05value\x18\x02 \x01(\x0b\x32 .google.monitoring.v3.TypedValue"\xc1\x02\n\nTimeSeries\x12"\n\x06metric\x18\x01 \x01(\x0b\x32\x12.google.api.Metric\x12/\n\x08resource\x18\x02 \x01(\x0b\x32\x1d.google.api.MonitoredResource\x12\x37\n\x08metadata\x18\x07 \x01(\x0b\x32%.google.api.MonitoredResourceMetadata\x12<\n\x0bmetric_kind\x18\x03 \x01(\x0e\x32\'.google.api.MetricDescriptor.MetricKind\x12:\n\nvalue_type\x18\x04 \x01(\x0e\x32&.google.api.MetricDescriptor.ValueType\x12+\n\x06points\x18\x05 \x03(\x0b\x32\x1b.google.monitoring.v3.Point"\xc0\x02\n\x14TimeSeriesDescriptor\x12\x36\n\x11label_descriptors\x18\x01 \x03(\x0b\x32\x1b.google.api.LabelDescriptor\x12U\n\x11point_descriptors\x18\x05 \x03(\x0b\x32:.google.monitoring.v3.TimeSeriesDescriptor.ValueDescriptor\x1a\x98\x01\n\x0fValueDescriptor\x12\x0b\n\x03key\x18\x01 \x01(\t\x12:\n\nvalue_type\x18\x02 \x01(\x0e\x32&.google.api.MetricDescriptor.ValueType\x12<\n\x0bmetric_kind\x18\x03 \x01(\x0e\x32\'.google.api.MetricDescriptor.MetricKind"\x86\x02\n\x0eTimeSeriesData\x12\x36\n\x0clabel_values\x18\x01 \x03(\x0b\x32 .google.monitoring.v3.LabelValue\x12\x42\n\npoint_data\x18\x02 \x03(\x0b\x32..google.monitoring.v3.TimeSeriesData.PointData\x1ax\n\tPointData\x12\x30\n\x06values\x18\x01 \x03(\x0b\x32 .google.monitoring.v3.TypedValue\x12\x39\n\rtime_interval\x18\x02 \x01(\x0b\x32".google.monitoring.v3.TimeInterval"Z\n\nLabelValue\x12\x14\n\nbool_value\x18\x01 \x01(\x08H\x00\x12\x15\n\x0bint64_value\x18\x02 \x01(\x03H\x00\x12\x16\n\x0cstring_value\x18\x03 \x01(\tH\x00\x42\x07\n\x05value"Q\n\nQueryError\x12\x32\n\x07locator\x18\x01 \x01(\x0b\x32!.google.monitoring.v3.TextLocator\x12\x0f\n\x07message\x18\x02 \x01(\t"\xa0\x02\n\x0bTextLocator\x12\x0e\n\x06source\x18\x01 \x01(\t\x12\x42\n\x0estart_position\x18\x02 \x01(\x0b\x32*.google.monitoring.v3.TextLocator.Position\x12@\n\x0c\x65nd_position\x18\x03 \x01(\x0b\x32*.google.monitoring.v3.TextLocator.Position\x12\x39\n\x0enested_locator\x18\x04 \x01(\x0b\x32!.google.monitoring.v3.TextLocator\x12\x16\n\x0enesting_reason\x18\x05 \x01(\t\x1a(\n\x08Position\x12\x0c\n\x04line\x18\x01 \x01(\x05\x12\x0e\n\x06\x63olumn\x18\x02 \x01(\x05\x42\xc3\x01\n\x18\x63om.google.monitoring.v3B\x0bMetricProtoP\x01Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\xaa\x02\x1aGoogle.Cloud.Monitoring.V3\xca\x02\x1aGoogle\\Cloud\\Monitoring\\V3\xea\x02\x1dGoogle::Cloud::Monitoring::V3b\x06proto3',
     dependencies=[
         google_dot_api_dot_distribution__pb2.DESCRIPTOR,
@@ -47,6 +48,7 @@ _POINT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="interval",
@@ -65,6 +67,7 @@ _POINT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="value",
@@ -83,6 +86,7 @@ _POINT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -104,6 +108,7 @@ _TIMESERIES = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="metric",
@@ -122,6 +127,7 @@ _TIMESERIES = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="resource",
@@ -140,6 +146,7 @@ _TIMESERIES = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="metadata",
@@ -158,6 +165,7 @@ _TIMESERIES = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="metric_kind",
@@ -176,6 +184,7 @@ _TIMESERIES = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="value_type",
@@ -194,6 +203,7 @@ _TIMESERIES = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="points",
@@ -212,6 +222,7 @@ _TIMESERIES = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -233,6 +244,7 @@ _TIMESERIESDESCRIPTOR_VALUEDESCRIPTOR = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="key",
@@ -251,6 +263,7 @@ _TIMESERIESDESCRIPTOR_VALUEDESCRIPTOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="value_type",
@@ -269,6 +282,7 @@ _TIMESERIESDESCRIPTOR_VALUEDESCRIPTOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="metric_kind",
@@ -287,6 +301,7 @@ _TIMESERIESDESCRIPTOR_VALUEDESCRIPTOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -307,6 +322,7 @@ _TIMESERIESDESCRIPTOR = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="label_descriptors",
@@ -325,6 +341,7 @@ _TIMESERIESDESCRIPTOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="point_descriptors",
@@ -343,6 +360,7 @@ _TIMESERIESDESCRIPTOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -364,6 +382,7 @@ _TIMESERIESDATA_POINTDATA = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="values",
@@ -382,6 +401,7 @@ _TIMESERIESDATA_POINTDATA = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="time_interval",
@@ -400,6 +420,7 @@ _TIMESERIESDATA_POINTDATA = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -420,6 +441,7 @@ _TIMESERIESDATA = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="label_values",
@@ -438,6 +460,7 @@ _TIMESERIESDATA = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="point_data",
@@ -456,6 +479,7 @@ _TIMESERIESDATA = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -477,6 +501,7 @@ _LABELVALUE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="bool_value",
@@ -495,6 +520,7 @@ _LABELVALUE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="int64_value",
@@ -513,6 +539,7 @@ _LABELVALUE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="string_value",
@@ -531,6 +558,7 @@ _LABELVALUE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -546,6 +574,7 @@ _LABELVALUE = _descriptor.Descriptor(
             full_name="google.monitoring.v3.LabelValue.value",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -560,6 +589,7 @@ _QUERYERROR = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="locator",
@@ -578,6 +608,7 @@ _QUERYERROR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="message",
@@ -596,6 +627,7 @@ _QUERYERROR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -617,6 +649,7 @@ _TEXTLOCATOR_POSITION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="line",
@@ -635,6 +668,7 @@ _TEXTLOCATOR_POSITION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="column",
@@ -653,6 +687,7 @@ _TEXTLOCATOR_POSITION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -673,6 +708,7 @@ _TEXTLOCATOR = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="source",
@@ -691,6 +727,7 @@ _TEXTLOCATOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="start_position",
@@ -709,6 +746,7 @@ _TEXTLOCATOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="end_position",
@@ -727,6 +765,7 @@ _TEXTLOCATOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="nested_locator",
@@ -745,6 +784,7 @@ _TEXTLOCATOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="nesting_reason",
@@ -763,6 +803,7 @@ _TEXTLOCATOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],

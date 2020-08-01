@@ -17,6 +17,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.monitoring.v3",
     syntax="proto3",
     serialized_options=b"\n\030com.google.monitoring.v3B\020SpanContextProtoP\001Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\252\002\032Google.Cloud.Monitoring.V3\312\002\032Google\\Cloud\\Monitoring\\V3\352\002\035Google::Cloud::Monitoring::V3",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n3google/cloud/monitoring_v3/proto/span_context.proto\x12\x14google.monitoring.v3" \n\x0bSpanContext\x12\x11\n\tspan_name\x18\x01 \x01(\tB\xc8\x01\n\x18\x63om.google.monitoring.v3B\x10SpanContextProtoP\x01Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\xaa\x02\x1aGoogle.Cloud.Monitoring.V3\xca\x02\x1aGoogle\\Cloud\\Monitoring\\V3\xea\x02\x1dGoogle::Cloud::Monitoring::V3b\x06proto3',
 )
 
@@ -27,6 +28,7 @@ _SPANCONTEXT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="span_name",
@@ -45,6 +47,7 @@ _SPANCONTEXT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],

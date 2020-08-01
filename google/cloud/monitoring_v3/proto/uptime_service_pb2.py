@@ -29,6 +29,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.monitoring.v3",
     syntax="proto3",
     serialized_options=b"\n\030com.google.monitoring.v3B\022UptimeServiceProtoP\001Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\252\002\032Google.Cloud.Monitoring.V3\312\002\032Google\\Cloud\\Monitoring\\V3\352\002\035Google::Cloud::Monitoring::V3",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n5google/cloud/monitoring_v3/proto/uptime_service.proto\x12\x14google.monitoring.v3\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a-google/cloud/monitoring_v3/proto/uptime.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto"\x8b\x01\n\x1dListUptimeCheckConfigsRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+monitoring.googleapis.com/UptimeCheckConfig\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t"\x94\x01\n\x1eListUptimeCheckConfigsResponse\x12\x45\n\x14uptime_check_configs\x18\x01 \x03(\x0b\x32\'.google.monitoring.v3.UptimeCheckConfig\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x12\n\ntotal_size\x18\x03 \x01(\x05"`\n\x1bGetUptimeCheckConfigRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+monitoring.googleapis.com/UptimeCheckConfig"\xb0\x01\n\x1e\x43reateUptimeCheckConfigRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+monitoring.googleapis.com/UptimeCheckConfig\x12I\n\x13uptime_check_config\x18\x02 \x01(\x0b\x32\'.google.monitoring.v3.UptimeCheckConfigB\x03\xe0\x41\x02"\x9c\x01\n\x1eUpdateUptimeCheckConfigRequest\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12I\n\x13uptime_check_config\x18\x03 \x01(\x0b\x32\'.google.monitoring.v3.UptimeCheckConfigB\x03\xe0\x41\x02"c\n\x1e\x44\x65leteUptimeCheckConfigRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+monitoring.googleapis.com/UptimeCheckConfig"B\n\x19ListUptimeCheckIpsRequest\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t"t\n\x1aListUptimeCheckIpsResponse\x12=\n\x10uptime_check_ips\x18\x01 \x03(\x0b\x32#.google.monitoring.v3.UptimeCheckIp\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t2\xbd\n\n\x12UptimeCheckService\x12\xc0\x01\n\x16ListUptimeCheckConfigs\x12\x33.google.monitoring.v3.ListUptimeCheckConfigsRequest\x1a\x34.google.monitoring.v3.ListUptimeCheckConfigsResponse";\x82\xd3\xe4\x93\x02,\x12*/v3/{parent=projects/*}/uptimeCheckConfigs\xda\x41\x06parent\x12\xad\x01\n\x14GetUptimeCheckConfig\x12\x31.google.monitoring.v3.GetUptimeCheckConfigRequest\x1a\'.google.monitoring.v3.UptimeCheckConfig"9\x82\xd3\xe4\x93\x02,\x12*/v3/{name=projects/*/uptimeCheckConfigs/*}\xda\x41\x04name\x12\xde\x01\n\x17\x43reateUptimeCheckConfig\x12\x34.google.monitoring.v3.CreateUptimeCheckConfigRequest\x1a\'.google.monitoring.v3.UptimeCheckConfig"d\x82\xd3\xe4\x93\x02\x41"*/v3/{parent=projects/*}/uptimeCheckConfigs:\x13uptime_check_config\xda\x41\x1aparent,uptime_check_config\x12\xeb\x01\n\x17UpdateUptimeCheckConfig\x12\x34.google.monitoring.v3.UpdateUptimeCheckConfigRequest\x1a\'.google.monitoring.v3.UptimeCheckConfig"q\x82\xd3\xe4\x93\x02U2>/v3/{uptime_check_config.name=projects/*/uptimeCheckConfigs/*}:\x13uptime_check_config\xda\x41\x13uptime_check_config\x12\xa2\x01\n\x17\x44\x65leteUptimeCheckConfig\x12\x34.google.monitoring.v3.DeleteUptimeCheckConfigRequest\x1a\x16.google.protobuf.Empty"9\x82\xd3\xe4\x93\x02,**/v3/{name=projects/*/uptimeCheckConfigs/*}\xda\x41\x04name\x12\x93\x01\n\x12ListUptimeCheckIps\x12/.google.monitoring.v3.ListUptimeCheckIpsRequest\x1a\x30.google.monitoring.v3.ListUptimeCheckIpsResponse"\x1a\x82\xd3\xe4\x93\x02\x14\x12\x12/v3/uptimeCheckIps\x1a\xa9\x01\xca\x41\x19monitoring.googleapis.com\xd2\x41\x89\x01https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/monitoring,https://www.googleapis.com/auth/monitoring.readB\xca\x01\n\x18\x63om.google.monitoring.v3B\x12UptimeServiceProtoP\x01Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\xaa\x02\x1aGoogle.Cloud.Monitoring.V3\xca\x02\x1aGoogle\\Cloud\\Monitoring\\V3\xea\x02\x1dGoogle::Cloud::Monitoring::V3b\x06proto3',
     dependencies=[
         google_dot_api_dot_annotations__pb2.DESCRIPTOR,
@@ -49,6 +50,7 @@ _LISTUPTIMECHECKCONFIGSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -67,6 +69,7 @@ _LISTUPTIMECHECKCONFIGSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\022+monitoring.googleapis.com/UptimeCheckConfig",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -85,6 +88,7 @@ _LISTUPTIMECHECKCONFIGSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -103,6 +107,7 @@ _LISTUPTIMECHECKCONFIGSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -124,6 +129,7 @@ _LISTUPTIMECHECKCONFIGSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="uptime_check_configs",
@@ -142,6 +148,7 @@ _LISTUPTIMECHECKCONFIGSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -160,6 +167,7 @@ _LISTUPTIMECHECKCONFIGSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="total_size",
@@ -178,6 +186,7 @@ _LISTUPTIMECHECKCONFIGSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -199,6 +208,7 @@ _GETUPTIMECHECKCONFIGREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -217,6 +227,7 @@ _GETUPTIMECHECKCONFIGREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\n+monitoring.googleapis.com/UptimeCheckConfig",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -238,6 +249,7 @@ _CREATEUPTIMECHECKCONFIGREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -256,6 +268,7 @@ _CREATEUPTIMECHECKCONFIGREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\022+monitoring.googleapis.com/UptimeCheckConfig",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="uptime_check_config",
@@ -274,6 +287,7 @@ _CREATEUPTIMECHECKCONFIGREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -295,6 +309,7 @@ _UPDATEUPTIMECHECKCONFIGREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="update_mask",
@@ -313,6 +328,7 @@ _UPDATEUPTIMECHECKCONFIGREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="uptime_check_config",
@@ -331,6 +347,7 @@ _UPDATEUPTIMECHECKCONFIGREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -352,6 +369,7 @@ _DELETEUPTIMECHECKCONFIGREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -370,6 +388,7 @@ _DELETEUPTIMECHECKCONFIGREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\n+monitoring.googleapis.com/UptimeCheckConfig",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -391,6 +410,7 @@ _LISTUPTIMECHECKIPSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -409,6 +429,7 @@ _LISTUPTIMECHECKIPSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -427,6 +448,7 @@ _LISTUPTIMECHECKIPSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -448,6 +470,7 @@ _LISTUPTIMECHECKIPSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="uptime_check_ips",
@@ -466,6 +489,7 @@ _LISTUPTIMECHECKIPSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -484,6 +508,7 @@ _LISTUPTIMECHECKIPSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -751,6 +776,7 @@ _UPTIMECHECKSERVICE = _descriptor.ServiceDescriptor(
     file=DESCRIPTOR,
     index=0,
     serialized_options=b"\312A\031monitoring.googleapis.com\322A\211\001https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/monitoring,https://www.googleapis.com/auth/monitoring.read",
+    create_key=_descriptor._internal_create_key,
     serialized_start=1353,
     serialized_end=2694,
     methods=[
@@ -762,6 +788,7 @@ _UPTIMECHECKSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTUPTIMECHECKCONFIGSREQUEST,
             output_type=_LISTUPTIMECHECKCONFIGSRESPONSE,
             serialized_options=b"\202\323\344\223\002,\022*/v3/{parent=projects/*}/uptimeCheckConfigs\332A\006parent",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="GetUptimeCheckConfig",
@@ -771,6 +798,7 @@ _UPTIMECHECKSERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETUPTIMECHECKCONFIGREQUEST,
             output_type=google_dot_cloud_dot_monitoring__v3_dot_proto_dot_uptime__pb2._UPTIMECHECKCONFIG,
             serialized_options=b"\202\323\344\223\002,\022*/v3/{name=projects/*/uptimeCheckConfigs/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="CreateUptimeCheckConfig",
@@ -780,6 +808,7 @@ _UPTIMECHECKSERVICE = _descriptor.ServiceDescriptor(
             input_type=_CREATEUPTIMECHECKCONFIGREQUEST,
             output_type=google_dot_cloud_dot_monitoring__v3_dot_proto_dot_uptime__pb2._UPTIMECHECKCONFIG,
             serialized_options=b'\202\323\344\223\002A"*/v3/{parent=projects/*}/uptimeCheckConfigs:\023uptime_check_config\332A\032parent,uptime_check_config',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="UpdateUptimeCheckConfig",
@@ -789,6 +818,7 @@ _UPTIMECHECKSERVICE = _descriptor.ServiceDescriptor(
             input_type=_UPDATEUPTIMECHECKCONFIGREQUEST,
             output_type=google_dot_cloud_dot_monitoring__v3_dot_proto_dot_uptime__pb2._UPTIMECHECKCONFIG,
             serialized_options=b"\202\323\344\223\002U2>/v3/{uptime_check_config.name=projects/*/uptimeCheckConfigs/*}:\023uptime_check_config\332A\023uptime_check_config",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DeleteUptimeCheckConfig",
@@ -798,6 +828,7 @@ _UPTIMECHECKSERVICE = _descriptor.ServiceDescriptor(
             input_type=_DELETEUPTIMECHECKCONFIGREQUEST,
             output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
             serialized_options=b"\202\323\344\223\002,**/v3/{name=projects/*/uptimeCheckConfigs/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ListUptimeCheckIps",
@@ -807,6 +838,7 @@ _UPTIMECHECKSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTUPTIMECHECKIPSREQUEST,
             output_type=_LISTUPTIMECHECKIPSRESPONSE,
             serialized_options=b"\202\323\344\223\002\024\022\022/v3/uptimeCheckIps",
+            create_key=_descriptor._internal_create_key,
         ),
     ],
 )

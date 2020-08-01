@@ -25,6 +25,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.monitoring.v3",
     syntax="proto3",
     serialized_options=b"\n\030com.google.monitoring.v3B\013UptimeProtoP\001Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\252\002\032Google.Cloud.Monitoring.V3\312\002\032Google\\Cloud\\Monitoring\\V3\352\002\035Google::Cloud::Monitoring::V3",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n-google/cloud/monitoring_v3/proto/uptime.proto\x12\x14google.monitoring.v3\x1a#google/api/monitored_resource.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto"\xe6\x01\n\x0fInternalChecker\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x0f\n\x07network\x18\x03 \x01(\t\x12\x10\n\x08gcp_zone\x18\x04 \x01(\t\x12\x17\n\x0fpeer_project_id\x18\x06 \x01(\t\x12:\n\x05state\x18\x07 \x01(\x0e\x32+.google.monitoring.v3.InternalChecker.State"3\n\x05State\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\x0b\n\x07RUNNING\x10\x02:\x02\x18\x01"\xfb\x0f\n\x11UptimeCheckConfig\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12;\n\x12monitored_resource\x18\x03 \x01(\x0b\x32\x1d.google.api.MonitoredResourceH\x00\x12O\n\x0eresource_group\x18\x04 \x01(\x0b\x32\x35.google.monitoring.v3.UptimeCheckConfig.ResourceGroupH\x00\x12G\n\nhttp_check\x18\x05 \x01(\x0b\x32\x31.google.monitoring.v3.UptimeCheckConfig.HttpCheckH\x01\x12\x45\n\ttcp_check\x18\x06 \x01(\x0b\x32\x30.google.monitoring.v3.UptimeCheckConfig.TcpCheckH\x01\x12)\n\x06period\x18\x07 \x01(\x0b\x32\x19.google.protobuf.Duration\x12*\n\x07timeout\x18\x08 \x01(\x0b\x32\x19.google.protobuf.Duration\x12P\n\x10\x63ontent_matchers\x18\t \x03(\x0b\x32\x36.google.monitoring.v3.UptimeCheckConfig.ContentMatcher\x12\x41\n\x10selected_regions\x18\n \x03(\x0e\x32\'.google.monitoring.v3.UptimeCheckRegion\x12\x17\n\x0bis_internal\x18\x0f \x01(\x08\x42\x02\x18\x01\x12\x44\n\x11internal_checkers\x18\x0e \x03(\x0b\x32%.google.monitoring.v3.InternalCheckerB\x02\x18\x01\x1a\x61\n\rResourceGroup\x12\x10\n\x08group_id\x18\x01 \x01(\t\x12>\n\rresource_type\x18\x02 \x01(\x0e\x32\'.google.monitoring.v3.GroupResourceType\x1a\xa8\x05\n\tHttpCheck\x12W\n\x0erequest_method\x18\x08 \x01(\x0e\x32?.google.monitoring.v3.UptimeCheckConfig.HttpCheck.RequestMethod\x12\x0f\n\x07use_ssl\x18\x01 \x01(\x08\x12\x0c\n\x04path\x18\x02 \x01(\t\x12\x0c\n\x04port\x18\x03 \x01(\x05\x12X\n\tauth_info\x18\x04 \x01(\x0b\x32\x45.google.monitoring.v3.UptimeCheckConfig.HttpCheck.BasicAuthentication\x12\x14\n\x0cmask_headers\x18\x05 \x01(\x08\x12O\n\x07headers\x18\x06 \x03(\x0b\x32>.google.monitoring.v3.UptimeCheckConfig.HttpCheck.HeadersEntry\x12S\n\x0c\x63ontent_type\x18\t \x01(\x0e\x32=.google.monitoring.v3.UptimeCheckConfig.HttpCheck.ContentType\x12\x14\n\x0cvalidate_ssl\x18\x07 \x01(\x08\x12\x0c\n\x04\x62ody\x18\n \x01(\x0c\x1a\x39\n\x13\x42\x61sicAuthentication\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x1a.\n\x0cHeadersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01":\n\rRequestMethod\x12\x16\n\x12METHOD_UNSPECIFIED\x10\x00\x12\x07\n\x03GET\x10\x01\x12\x08\n\x04POST\x10\x02"4\n\x0b\x43ontentType\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x0f\n\x0bURL_ENCODED\x10\x01\x1a\x18\n\x08TcpCheck\x12\x0c\n\x04port\x18\x01 \x01(\x05\x1a\x98\x02\n\x0e\x43ontentMatcher\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\t\x12\\\n\x07matcher\x18\x02 \x01(\x0e\x32K.google.monitoring.v3.UptimeCheckConfig.ContentMatcher.ContentMatcherOption"\x96\x01\n\x14\x43ontentMatcherOption\x12&\n"CONTENT_MATCHER_OPTION_UNSPECIFIED\x10\x00\x12\x13\n\x0f\x43ONTAINS_STRING\x10\x01\x12\x17\n\x13NOT_CONTAINS_STRING\x10\x02\x12\x11\n\rMATCHES_REGEX\x10\x03\x12\x15\n\x11NOT_MATCHES_REGEX\x10\x04:\xf3\x01\xea\x41\xef\x01\n+monitoring.googleapis.com/UptimeCheckConfig\x12;projects/{project}/uptimeCheckConfigs/{uptime_check_config}\x12\x45organizations/{organization}/uptimeCheckConfigs/{uptime_check_config}\x12\x39\x66olders/{folder}/uptimeCheckConfigs/{uptime_check_config}\x12\x01*B\n\n\x08resourceB\x14\n\x12\x63heck_request_type"n\n\rUptimeCheckIp\x12\x37\n\x06region\x18\x01 \x01(\x0e\x32\'.google.monitoring.v3.UptimeCheckRegion\x12\x10\n\x08location\x18\x02 \x01(\t\x12\x12\n\nip_address\x18\x03 \x01(\t*e\n\x11UptimeCheckRegion\x12\x16\n\x12REGION_UNSPECIFIED\x10\x00\x12\x07\n\x03USA\x10\x01\x12\n\n\x06\x45UROPE\x10\x02\x12\x11\n\rSOUTH_AMERICA\x10\x03\x12\x10\n\x0c\x41SIA_PACIFIC\x10\x04*[\n\x11GroupResourceType\x12\x1d\n\x19RESOURCE_TYPE_UNSPECIFIED\x10\x00\x12\x0c\n\x08INSTANCE\x10\x01\x12\x19\n\x15\x41WS_ELB_LOAD_BALANCER\x10\x02\x42\xc3\x01\n\x18\x63om.google.monitoring.v3B\x0bUptimeProtoP\x01Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\xaa\x02\x1aGoogle.Cloud.Monitoring.V3\xca\x02\x1aGoogle\\Cloud\\Monitoring\\V3\xea\x02\x1dGoogle::Cloud::Monitoring::V3b\x06proto3',
     dependencies=[
         google_dot_api_dot_monitored__resource__pb2.DESCRIPTOR,
@@ -38,6 +39,7 @@ _UPTIMECHECKREGION = _descriptor.EnumDescriptor(
     full_name="google.monitoring.v3.UptimeCheckRegion",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="REGION_UNSPECIFIED",
@@ -45,18 +47,39 @@ _UPTIMECHECKREGION = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="USA", index=1, number=1, serialized_options=None, type=None
+            name="USA",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="EUROPE", index=2, number=2, serialized_options=None, type=None
+            name="EUROPE",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="SOUTH_AMERICA", index=3, number=3, serialized_options=None, type=None
+            name="SOUTH_AMERICA",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="ASIA_PACIFIC", index=4, number=4, serialized_options=None, type=None
+            name="ASIA_PACIFIC",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -72,6 +95,7 @@ _GROUPRESOURCETYPE = _descriptor.EnumDescriptor(
     full_name="google.monitoring.v3.GroupResourceType",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="RESOURCE_TYPE_UNSPECIFIED",
@@ -79,9 +103,15 @@ _GROUPRESOURCETYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="INSTANCE", index=1, number=1, serialized_options=None, type=None
+            name="INSTANCE",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="AWS_ELB_LOAD_BALANCER",
@@ -89,6 +119,7 @@ _GROUPRESOURCETYPE = _descriptor.EnumDescriptor(
             number=2,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -114,15 +145,31 @@ _INTERNALCHECKER_STATE = _descriptor.EnumDescriptor(
     full_name="google.monitoring.v3.InternalChecker.State",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
-            name="UNSPECIFIED", index=0, number=0, serialized_options=None, type=None
+            name="UNSPECIFIED",
+            index=0,
+            number=0,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="CREATING", index=1, number=1, serialized_options=None, type=None
+            name="CREATING",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="RUNNING", index=2, number=2, serialized_options=None, type=None
+            name="RUNNING",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -137,6 +184,7 @@ _UPTIMECHECKCONFIG_HTTPCHECK_REQUESTMETHOD = _descriptor.EnumDescriptor(
     full_name="google.monitoring.v3.UptimeCheckConfig.HttpCheck.RequestMethod",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="METHOD_UNSPECIFIED",
@@ -144,12 +192,23 @@ _UPTIMECHECKCONFIG_HTTPCHECK_REQUESTMETHOD = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="GET", index=1, number=1, serialized_options=None, type=None
+            name="GET",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="POST", index=2, number=2, serialized_options=None, type=None
+            name="POST",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -164,6 +223,7 @@ _UPTIMECHECKCONFIG_HTTPCHECK_CONTENTTYPE = _descriptor.EnumDescriptor(
     full_name="google.monitoring.v3.UptimeCheckConfig.HttpCheck.ContentType",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="TYPE_UNSPECIFIED",
@@ -171,9 +231,15 @@ _UPTIMECHECKCONFIG_HTTPCHECK_CONTENTTYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="URL_ENCODED", index=1, number=1, serialized_options=None, type=None
+            name="URL_ENCODED",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -188,6 +254,7 @@ _UPTIMECHECKCONFIG_CONTENTMATCHER_CONTENTMATCHEROPTION = _descriptor.EnumDescrip
     full_name="google.monitoring.v3.UptimeCheckConfig.ContentMatcher.ContentMatcherOption",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="CONTENT_MATCHER_OPTION_UNSPECIFIED",
@@ -195,6 +262,7 @@ _UPTIMECHECKCONFIG_CONTENTMATCHER_CONTENTMATCHEROPTION = _descriptor.EnumDescrip
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="CONTAINS_STRING",
@@ -202,6 +270,7 @@ _UPTIMECHECKCONFIG_CONTENTMATCHER_CONTENTMATCHEROPTION = _descriptor.EnumDescrip
             number=1,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="NOT_CONTAINS_STRING",
@@ -209,9 +278,15 @@ _UPTIMECHECKCONFIG_CONTENTMATCHER_CONTENTMATCHEROPTION = _descriptor.EnumDescrip
             number=2,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="MATCHES_REGEX", index=3, number=3, serialized_options=None, type=None
+            name="MATCHES_REGEX",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="NOT_MATCHES_REGEX",
@@ -219,6 +294,7 @@ _UPTIMECHECKCONFIG_CONTENTMATCHER_CONTENTMATCHEROPTION = _descriptor.EnumDescrip
             number=4,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -235,6 +311,7 @@ _INTERNALCHECKER = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -253,6 +330,7 @@ _INTERNALCHECKER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="display_name",
@@ -271,6 +349,7 @@ _INTERNALCHECKER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="network",
@@ -289,6 +368,7 @@ _INTERNALCHECKER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="gcp_zone",
@@ -307,6 +387,7 @@ _INTERNALCHECKER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="peer_project_id",
@@ -325,6 +406,7 @@ _INTERNALCHECKER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="state",
@@ -343,6 +425,7 @@ _INTERNALCHECKER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -364,6 +447,7 @@ _UPTIMECHECKCONFIG_RESOURCEGROUP = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="group_id",
@@ -382,6 +466,7 @@ _UPTIMECHECKCONFIG_RESOURCEGROUP = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="resource_type",
@@ -400,6 +485,7 @@ _UPTIMECHECKCONFIG_RESOURCEGROUP = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -420,6 +506,7 @@ _UPTIMECHECKCONFIG_HTTPCHECK_BASICAUTHENTICATION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="username",
@@ -438,6 +525,7 @@ _UPTIMECHECKCONFIG_HTTPCHECK_BASICAUTHENTICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="password",
@@ -456,6 +544,7 @@ _UPTIMECHECKCONFIG_HTTPCHECK_BASICAUTHENTICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -476,6 +565,7 @@ _UPTIMECHECKCONFIG_HTTPCHECK_HEADERSENTRY = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="key",
@@ -494,6 +584,7 @@ _UPTIMECHECKCONFIG_HTTPCHECK_HEADERSENTRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="value",
@@ -512,6 +603,7 @@ _UPTIMECHECKCONFIG_HTTPCHECK_HEADERSENTRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -532,6 +624,7 @@ _UPTIMECHECKCONFIG_HTTPCHECK = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="request_method",
@@ -550,6 +643,7 @@ _UPTIMECHECKCONFIG_HTTPCHECK = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="use_ssl",
@@ -568,6 +662,7 @@ _UPTIMECHECKCONFIG_HTTPCHECK = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="path",
@@ -586,6 +681,7 @@ _UPTIMECHECKCONFIG_HTTPCHECK = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="port",
@@ -604,6 +700,7 @@ _UPTIMECHECKCONFIG_HTTPCHECK = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="auth_info",
@@ -622,6 +719,7 @@ _UPTIMECHECKCONFIG_HTTPCHECK = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="mask_headers",
@@ -640,6 +738,7 @@ _UPTIMECHECKCONFIG_HTTPCHECK = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="headers",
@@ -658,6 +757,7 @@ _UPTIMECHECKCONFIG_HTTPCHECK = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="content_type",
@@ -676,6 +776,7 @@ _UPTIMECHECKCONFIG_HTTPCHECK = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="validate_ssl",
@@ -694,6 +795,7 @@ _UPTIMECHECKCONFIG_HTTPCHECK = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="body",
@@ -712,6 +814,7 @@ _UPTIMECHECKCONFIG_HTTPCHECK = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -738,6 +841,7 @@ _UPTIMECHECKCONFIG_TCPCHECK = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="port",
@@ -756,6 +860,7 @@ _UPTIMECHECKCONFIG_TCPCHECK = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -776,6 +881,7 @@ _UPTIMECHECKCONFIG_CONTENTMATCHER = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="content",
@@ -794,6 +900,7 @@ _UPTIMECHECKCONFIG_CONTENTMATCHER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="matcher",
@@ -812,6 +919,7 @@ _UPTIMECHECKCONFIG_CONTENTMATCHER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -832,6 +940,7 @@ _UPTIMECHECKCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -850,6 +959,7 @@ _UPTIMECHECKCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="display_name",
@@ -868,6 +978,7 @@ _UPTIMECHECKCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="monitored_resource",
@@ -886,6 +997,7 @@ _UPTIMECHECKCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="resource_group",
@@ -904,6 +1016,7 @@ _UPTIMECHECKCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="http_check",
@@ -922,6 +1035,7 @@ _UPTIMECHECKCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="tcp_check",
@@ -940,6 +1054,7 @@ _UPTIMECHECKCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="period",
@@ -958,6 +1073,7 @@ _UPTIMECHECKCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="timeout",
@@ -976,6 +1092,7 @@ _UPTIMECHECKCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="content_matchers",
@@ -994,6 +1111,7 @@ _UPTIMECHECKCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="selected_regions",
@@ -1012,6 +1130,7 @@ _UPTIMECHECKCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="is_internal",
@@ -1030,6 +1149,7 @@ _UPTIMECHECKCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\030\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="internal_checkers",
@@ -1048,6 +1168,7 @@ _UPTIMECHECKCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\030\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1068,6 +1189,7 @@ _UPTIMECHECKCONFIG = _descriptor.Descriptor(
             full_name="google.monitoring.v3.UptimeCheckConfig.resource",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         ),
         _descriptor.OneofDescriptor(
@@ -1075,6 +1197,7 @@ _UPTIMECHECKCONFIG = _descriptor.Descriptor(
             full_name="google.monitoring.v3.UptimeCheckConfig.check_request_type",
             index=1,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         ),
     ],
@@ -1089,6 +1212,7 @@ _UPTIMECHECKIP = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="region",
@@ -1107,6 +1231,7 @@ _UPTIMECHECKIP = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="location",
@@ -1125,6 +1250,7 @@ _UPTIMECHECKIP = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="ip_address",
@@ -1143,6 +1269,7 @@ _UPTIMECHECKIP = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
