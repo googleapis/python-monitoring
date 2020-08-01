@@ -921,6 +921,7 @@ ListNotificationChannelDescriptorsRequest = _reflection.GeneratedProtocolMessage
         "DESCRIPTOR": _LISTNOTIFICATIONCHANNELDESCRIPTORSREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.notification_service_pb2",
         "__doc__": """The ``ListNotificationChannelDescriptors`` request.
+  
   Attributes:
       name:
           Required. The REST resource name of the parent from which to
@@ -952,6 +953,7 @@ ListNotificationChannelDescriptorsResponse = _reflection.GeneratedProtocolMessag
         "DESCRIPTOR": _LISTNOTIFICATIONCHANNELDESCRIPTORSRESPONSE,
         "__module__": "google.cloud.monitoring_v3.proto.notification_service_pb2",
         "__doc__": """The ``ListNotificationChannelDescriptors`` response.
+  
   Attributes:
       channel_descriptors:
           The monitored resource descriptors supported for the specified
@@ -974,6 +976,7 @@ GetNotificationChannelDescriptorRequest = _reflection.GeneratedProtocolMessageTy
         "DESCRIPTOR": _GETNOTIFICATIONCHANNELDESCRIPTORREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.notification_service_pb2",
         "__doc__": """The ``GetNotificationChannelDescriptor`` response.
+  
   Attributes:
       name:
           Required. The channel type for which to execute the request.
@@ -992,6 +995,7 @@ CreateNotificationChannelRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _CREATENOTIFICATIONCHANNELREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.notification_service_pb2",
         "__doc__": """The ``CreateNotificationChannel`` request.
+  
   Attributes:
       name:
           Required. The project on which to execute the request. The
@@ -1017,6 +1021,7 @@ ListNotificationChannelsRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTNOTIFICATIONCHANNELSREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.notification_service_pb2",
         "__doc__": """The ``ListNotificationChannels`` request.
+  
   Attributes:
       name:
           Required. The project on which to execute the request. The
@@ -1060,6 +1065,7 @@ ListNotificationChannelsResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTNOTIFICATIONCHANNELSRESPONSE,
         "__module__": "google.cloud.monitoring_v3.proto.notification_service_pb2",
         "__doc__": """The ``ListNotificationChannels`` response.
+  
   Attributes:
       notification_channels:
           The notification channels defined for the specified project.
@@ -1081,6 +1087,7 @@ GetNotificationChannelRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _GETNOTIFICATIONCHANNELREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.notification_service_pb2",
         "__doc__": """The ``GetNotificationChannel`` request.
+  
   Attributes:
       name:
           Required. The channel for which to execute the request. The
@@ -1099,6 +1106,7 @@ UpdateNotificationChannelRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _UPDATENOTIFICATIONCHANNELREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.notification_service_pb2",
         "__doc__": """The ``UpdateNotificationChannel`` request.
+  
   Attributes:
       update_mask:
           The fields to update.
@@ -1120,6 +1128,7 @@ DeleteNotificationChannelRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _DELETENOTIFICATIONCHANNELREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.notification_service_pb2",
         "__doc__": """The ``DeleteNotificationChannel`` request.
+  
   Attributes:
       name:
           Required. The channel for which to execute the request. The
@@ -1144,6 +1153,7 @@ SendNotificationChannelVerificationCodeRequest = _reflection.GeneratedProtocolMe
         "DESCRIPTOR": _SENDNOTIFICATIONCHANNELVERIFICATIONCODEREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.notification_service_pb2",
         "__doc__": """The ``SendNotificationChannelVerificationCode`` request.
+  
   Attributes:
       name:
           Required. The notification channel to which to send a
@@ -1161,6 +1171,7 @@ GetNotificationChannelVerificationCodeRequest = _reflection.GeneratedProtocolMes
         "DESCRIPTOR": _GETNOTIFICATIONCHANNELVERIFICATIONCODEREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.notification_service_pb2",
         "__doc__": """The ``GetNotificationChannelVerificationCode`` request.
+  
   Attributes:
       name:
           Required. The notification channel for which a verification
@@ -1192,6 +1203,7 @@ GetNotificationChannelVerificationCodeResponse = _reflection.GeneratedProtocolMe
         "DESCRIPTOR": _GETNOTIFICATIONCHANNELVERIFICATIONCODERESPONSE,
         "__module__": "google.cloud.monitoring_v3.proto.notification_service_pb2",
         "__doc__": """The ``GetNotificationChannelVerificationCode`` request.
+  
   Attributes:
       code:
           The verification code, which may be used to verify other
@@ -1217,6 +1229,7 @@ VerifyNotificationChannelRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _VERIFYNOTIFICATIONCHANNELREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.notification_service_pb2",
         "__doc__": """The ``VerifyNotificationChannel`` request.
+  
   Attributes:
       name:
           Required. The notification channel to verify.

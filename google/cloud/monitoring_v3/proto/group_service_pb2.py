@@ -740,6 +740,7 @@ ListGroupsRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTGROUPSREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.group_service_pb2",
         "__doc__": """The ``ListGroup`` request.
+  
   Attributes:
       name:
           Required. The project whose groups are to be listed. The
@@ -788,6 +789,7 @@ ListGroupsResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTGROUPSRESPONSE,
         "__module__": "google.cloud.monitoring_v3.proto.group_service_pb2",
         "__doc__": """The ``ListGroups`` response.
+  
   Attributes:
       group:
           The groups that match the specified filters.
@@ -809,6 +811,7 @@ GetGroupRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _GETGROUPREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.group_service_pb2",
         "__doc__": """The ``GetGroup`` request.
+  
   Attributes:
       name:
           Required. The group to retrieve. The format is:  ::
@@ -826,6 +829,7 @@ CreateGroupRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _CREATEGROUPREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.group_service_pb2",
         "__doc__": """The ``CreateGroup`` request.
+  
   Attributes:
       name:
           Required. The project in which to create the group. The format
@@ -848,6 +852,7 @@ UpdateGroupRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _UPDATEGROUPREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.group_service_pb2",
         "__doc__": """The ``UpdateGroup`` request.
+  
   Attributes:
       group:
           Required. The new definition of the group. All fields of the
@@ -870,6 +875,7 @@ DeleteGroupRequest = _reflection.GeneratedProtocolMessageType(
         "__module__": "google.cloud.monitoring_v3.proto.group_service_pb2",
         "__doc__": """The ``DeleteGroup`` request. The default behavior is to be able to
   delete a single group without any descendants.
+  
   Attributes:
       name:
           Required. The group to delete. The format is:  ::
@@ -892,6 +898,7 @@ ListGroupMembersRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTGROUPMEMBERSREQUEST,
         "__module__": "google.cloud.monitoring_v3.proto.group_service_pb2",
         "__doc__": """The ``ListGroupMembers`` request.
+  
   Attributes:
       name:
           Required. The group whose members are listed. The format is:
@@ -931,6 +938,7 @@ ListGroupMembersResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTGROUPMEMBERSRESPONSE,
         "__module__": "google.cloud.monitoring_v3.proto.group_service_pb2",
         "__doc__": """The ``ListGroupMembers`` response.
+  
   Attributes:
       members:
           A set of monitored resources in the group.

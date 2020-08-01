@@ -173,6 +173,7 @@ Group = _reflection.GeneratedProtocolMessageType(
   the production environment.  The monitored resources contained in a
   group can change at any moment, depending on what resources exist and
   what filters are associated with the group and its ancestors.
+  
   Attributes:
       name:
           Output only. The name of this group. The format is:  ::

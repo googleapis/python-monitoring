@@ -76,6 +76,7 @@ SpanContext = _reflection.GeneratedProtocolMessageType(
   [Distribution][google.api.Distribution] values during aggregation.  It
   contains the name of a span with format:  ::
   projects/[PROJECT_ID_OR_NUMBER]/traces/[TRACE_ID]/spans/[SPAN_ID]
+  
   Attributes:
       span_name:
           The resource name of the span. The format is:  ::     projects
