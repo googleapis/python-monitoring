@@ -113,6 +113,33 @@ class GroupServiceGrpcTransport(object):
         return self._channel
 
     @property
+    def update_group(self):
+        """Return the gRPC stub for :meth:`GroupServiceClient.update_group`.
+
+        Updates an existing group. You can change any group attributes
+        except ``name``.
+
+        Returns:
+            Callable: A callable which accepts the appropriate
+                deserialized request object and returns a
+                deserialized response object.
+        """
+        return self._stubs["group_service_stub"].UpdateGroup
+
+    @property
+    def delete_group(self):
+        """Return the gRPC stub for :meth:`GroupServiceClient.delete_group`.
+
+        Deletes an existing group.
+
+        Returns:
+            Callable: A callable which accepts the appropriate
+                deserialized request object and returns a
+                deserialized response object.
+        """
+        return self._stubs["group_service_stub"].DeleteGroup
+
+    @property
     def list_groups(self):
         """Return the gRPC stub for :meth:`GroupServiceClient.list_groups`.
 
@@ -150,33 +177,6 @@ class GroupServiceGrpcTransport(object):
                 deserialized response object.
         """
         return self._stubs["group_service_stub"].CreateGroup
-
-    @property
-    def update_group(self):
-        """Return the gRPC stub for :meth:`GroupServiceClient.update_group`.
-
-        Updates an existing group. You can change any group attributes
-        except ``name``.
-
-        Returns:
-            Callable: A callable which accepts the appropriate
-                deserialized request object and returns a
-                deserialized response object.
-        """
-        return self._stubs["group_service_stub"].UpdateGroup
-
-    @property
-    def delete_group(self):
-        """Return the gRPC stub for :meth:`GroupServiceClient.delete_group`.
-
-        Deletes an existing group.
-
-        Returns:
-            Callable: A callable which accepts the appropriate
-                deserialized request object and returns a
-                deserialized response object.
-        """
-        return self._stubs["group_service_stub"].DeleteGroup
 
     @property
     def list_group_members(self):

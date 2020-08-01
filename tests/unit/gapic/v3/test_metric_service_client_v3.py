@@ -87,7 +87,7 @@ class TestMetricServiceClient(object):
             client = monitoring_v3.MetricServiceClient()
 
         # Setup Request
-        name = client.project_path("[PROJECT]")
+        name = "name3373707"
 
         paged_list_response = client.list_monitored_resource_descriptors(name)
         resources = list(paged_list_response)
@@ -110,7 +110,7 @@ class TestMetricServiceClient(object):
             client = monitoring_v3.MetricServiceClient()
 
         # Setup request
-        name = client.project_path("[PROJECT]")
+        name = "name3373707"
 
         paged_list_response = client.list_monitored_resource_descriptors(name)
         with pytest.raises(CustomException):
@@ -140,9 +140,7 @@ class TestMetricServiceClient(object):
             client = monitoring_v3.MetricServiceClient()
 
         # Setup Request
-        name = client.monitored_resource_descriptor_path(
-            "[PROJECT]", "[MONITORED_RESOURCE_DESCRIPTOR]"
-        )
+        name = "name3373707"
 
         response = client.get_monitored_resource_descriptor(name)
         assert expected_response == response
@@ -163,9 +161,7 @@ class TestMetricServiceClient(object):
             client = monitoring_v3.MetricServiceClient()
 
         # Setup request
-        name = client.monitored_resource_descriptor_path(
-            "[PROJECT]", "[MONITORED_RESOURCE_DESCRIPTOR]"
-        )
+        name = "name3373707"
 
         with pytest.raises(CustomException):
             client.get_monitored_resource_descriptor(name)
@@ -191,7 +187,7 @@ class TestMetricServiceClient(object):
             client = monitoring_v3.MetricServiceClient()
 
         # Setup Request
-        name = client.project_path("[PROJECT]")
+        name = "name3373707"
 
         paged_list_response = client.list_metric_descriptors(name)
         resources = list(paged_list_response)
@@ -212,7 +208,7 @@ class TestMetricServiceClient(object):
             client = monitoring_v3.MetricServiceClient()
 
         # Setup request
-        name = client.project_path("[PROJECT]")
+        name = "name3373707"
 
         paged_list_response = client.list_metric_descriptors(name)
         with pytest.raises(CustomException):
@@ -242,7 +238,7 @@ class TestMetricServiceClient(object):
             client = monitoring_v3.MetricServiceClient()
 
         # Setup Request
-        name = client.metric_descriptor_path("[PROJECT]", "[METRIC_DESCRIPTOR]")
+        name = "name3373707"
 
         response = client.get_metric_descriptor(name)
         assert expected_response == response
@@ -261,7 +257,7 @@ class TestMetricServiceClient(object):
             client = monitoring_v3.MetricServiceClient()
 
         # Setup request
-        name = client.metric_descriptor_path("[PROJECT]", "[METRIC_DESCRIPTOR]")
+        name = "name3373707"
 
         with pytest.raises(CustomException):
             client.get_metric_descriptor(name)
@@ -290,7 +286,7 @@ class TestMetricServiceClient(object):
             client = monitoring_v3.MetricServiceClient()
 
         # Setup Request
-        name = client.project_path("[PROJECT]")
+        name = "name3373707"
         metric_descriptor = {}
 
         response = client.create_metric_descriptor(name, metric_descriptor)
@@ -312,7 +308,7 @@ class TestMetricServiceClient(object):
             client = monitoring_v3.MetricServiceClient()
 
         # Setup request
-        name = client.project_path("[PROJECT]")
+        name = "name3373707"
         metric_descriptor = {}
 
         with pytest.raises(CustomException):
@@ -326,7 +322,7 @@ class TestMetricServiceClient(object):
             client = monitoring_v3.MetricServiceClient()
 
         # Setup Request
-        name = client.metric_descriptor_path("[PROJECT]", "[METRIC_DESCRIPTOR]")
+        name = "name3373707"
 
         client.delete_metric_descriptor(name)
 
@@ -344,7 +340,7 @@ class TestMetricServiceClient(object):
             client = monitoring_v3.MetricServiceClient()
 
         # Setup request
-        name = client.metric_descriptor_path("[PROJECT]", "[METRIC_DESCRIPTOR]")
+        name = "name3373707"
 
         with pytest.raises(CustomException):
             client.delete_metric_descriptor(name)

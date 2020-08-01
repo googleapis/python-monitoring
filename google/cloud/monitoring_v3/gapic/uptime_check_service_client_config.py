@@ -17,6 +17,11 @@ config = {
                 }
             },
             "methods": {
+                "DeleteUptimeCheckConfig": {
+                    "timeout_millis": 60000,
+                    "retry_codes_name": "idempotent",
+                    "retry_params_name": "default",
+                },
                 "ListUptimeCheckConfigs": {
                     "timeout_millis": 60000,
                     "retry_codes_name": "idempotent",
@@ -35,11 +40,6 @@ config = {
                 "UpdateUptimeCheckConfig": {
                     "timeout_millis": 60000,
                     "retry_codes_name": "non_idempotent",
-                    "retry_params_name": "default",
-                },
-                "DeleteUptimeCheckConfig": {
-                    "timeout_millis": 60000,
-                    "retry_codes_name": "idempotent",
                     "retry_params_name": "default",
                 },
                 "ListUptimeCheckIps": {
