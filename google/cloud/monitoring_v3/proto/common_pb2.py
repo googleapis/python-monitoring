@@ -824,21 +824,22 @@ TimeInterval = _reflection.GeneratedProtocolMessageType(
         "__module__": "google.cloud.monitoring_v3.proto.common_pb2",
         "__doc__": """A closed time interval. It extends from the start time to the end
   time, and includes both: ``[startTime, endTime]``. Valid time
-  intervals depend on the ```MetricKind`` </monitoring/api/ref_v3/rest/v
-  3/projects.metricDescriptors#MetricKind>`__ of the metric value. In no
-  case can the end time be earlier than the start time.  -  For a
-  ``GAUGE`` metric, the ``startTime`` value is technically    optional;
-  if no value is specified, the start time defaults to the    value of
-  the end time, and the interval represents a single point in    time.
-  If both start and end times are specified, they must be    identical.
-  Such an interval is valid only for ``GAUGE`` metrics,    which are
-  point-in-time measurements.  -  For ``DELTA`` and ``CUMULATIVE``
-  metrics, the start time must be    earlier than the end time.  -  In
-  all cases, the start time of the next interval must be at least a
-  millisecond after the end time of the previous interval. Because the
-  interval is closed, if the start time of a new interval is the same
-  as the end time of the previous interval, data written at the new
-  start time could overwrite data written at the previous end time.
+  intervals depend on the ```MetricKind`` <https://cloud.google.com/moni
+  toring/api/ref_v3/rest/v3/projects.metricDescriptors#MetricKind>`__ of
+  the metric value. In no case can the end time be earlier than the
+  start time.  -  For a ``GAUGE`` metric, the ``startTime`` value is
+  technically    optional; if no value is specified, the start time
+  defaults to the    value of the end time, and the interval represents
+  a single point in    time. If both start and end times are specified,
+  they must be    identical. Such an interval is valid only for
+  ``GAUGE`` metrics,    which are point-in-time measurements.  -  For
+  ``DELTA`` and ``CUMULATIVE`` metrics, the start time must be
+  earlier than the end time.  -  In all cases, the start time of the
+  next interval must be at least a    millisecond after the end time of
+  the previous interval. Because the    interval is closed, if the start
+  time of a new interval is the same    as the end time of the previous
+  interval, data written at the new    start time could overwrite data
+  written at the previous end time.
   Attributes:
       end_time:
           Required. The end of the time interval.
