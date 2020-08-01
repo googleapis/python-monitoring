@@ -481,7 +481,7 @@ _NOTIFICATIONCHANNEL = _descriptor.Descriptor(
         _NOTIFICATIONCHANNEL_LABELSENTRY,
         _NOTIFICATIONCHANNEL_USERLABELSENTRY,
     ],
-    enum_types=[_NOTIFICATIONCHANNEL_VERIFICATIONSTATUS],
+    enum_types=[_NOTIFICATIONCHANNEL_VERIFICATIONSTATUS,],
     serialized_options=b"\352A\372\001\n-monitoring.googleapis.com/NotificationChannel\022>projects/{project}/notificationChannels/{notification_channel}\022Horganizations/{organization}/notificationChannels/{notification_channel}\022<folders/{folder}/notificationChannels/{notification_channel}\022\001*",
     is_extendable=False,
     syntax="proto3",

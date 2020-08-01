@@ -140,7 +140,7 @@ _GETSERVICEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A#\n!monitoring.googleapis.com/Service",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -386,7 +386,7 @@ _DELETESERVICEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A#\n!monitoring.googleapis.com/Service",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -782,7 +782,7 @@ _DELETESERVICELEVELOBJECTIVEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A1\n/monitoring.googleapis.com/ServiceLevelObjective",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],

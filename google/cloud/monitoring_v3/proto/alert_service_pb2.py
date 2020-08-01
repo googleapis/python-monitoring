@@ -122,7 +122,7 @@ _GETALERTPOLICYREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A'\n%monitoring.googleapis.com/AlertPolicy",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -386,7 +386,7 @@ _DELETEALERTPOLICYREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A'\n%monitoring.googleapis.com/AlertPolicy",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],

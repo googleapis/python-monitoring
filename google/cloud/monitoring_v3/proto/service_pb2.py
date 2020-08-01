@@ -108,7 +108,7 @@ _SERVICE_APPENGINE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -146,7 +146,7 @@ _SERVICE_CLOUDENDPOINTS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -350,7 +350,7 @@ _SERVICE_TELEMETRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -537,7 +537,7 @@ _SERVICE = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=237,
     serialized_end=1156,
@@ -662,7 +662,7 @@ _SERVICELEVELOBJECTIVE = _descriptor.Descriptor(
     ],
     extensions=[],
     nested_types=[],
-    enum_types=[_SERVICELEVELOBJECTIVE_VIEW],
+    enum_types=[_SERVICELEVELOBJECTIVE_VIEW,],
     serialized_options=b"\352A\306\002\n/monitoring.googleapis.com/ServiceLevelObjective\022Vprojects/{project}/services/{service}/serviceLevelObjectives/{service_level_objective}\022`organizations/{organization}/services/{service}/serviceLevelObjectives/{service_level_objective}\022Tfolders/{folder}/services/{service}/serviceLevelObjectives/{service_level_objective}\022\001* \001",
     is_extendable=False,
     syntax="proto3",
@@ -674,7 +674,7 @@ _SERVICELEVELOBJECTIVE = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=1159,
     serialized_end=1816,
@@ -757,7 +757,7 @@ _SERVICELEVELINDICATOR = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=1819,
     serialized_end=2031,
@@ -807,7 +807,7 @@ _BASICSLI_LATENCYCRITERIA = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -920,7 +920,7 @@ _BASICSLI = _descriptor.Descriptor(
         ),
     ],
     extensions=[],
-    nested_types=[_BASICSLI_AVAILABILITYCRITERIA, _BASICSLI_LATENCYCRITERIA],
+    nested_types=[_BASICSLI_AVAILABILITYCRITERIA, _BASICSLI_LATENCYCRITERIA,],
     enum_types=[],
     serialized_options=None,
     is_extendable=False,
@@ -933,7 +933,7 @@ _BASICSLI = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=2034,
     serialized_end=2344,
@@ -1055,7 +1055,7 @@ _REQUESTBASEDSLI = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=2382,
     serialized_end=2543,
@@ -1270,7 +1270,7 @@ _WINDOWSBASEDSLI_PERFORMANCETHRESHOLD = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=3111,
     serialized_end=3287,
@@ -1431,7 +1431,7 @@ _WINDOWSBASEDSLI = _descriptor.Descriptor(
         ),
     ],
     extensions=[],
-    nested_types=[_WINDOWSBASEDSLI_PERFORMANCETHRESHOLD, _WINDOWSBASEDSLI_METRICRANGE],
+    nested_types=[_WINDOWSBASEDSLI_PERFORMANCETHRESHOLD, _WINDOWSBASEDSLI_METRICRANGE,],
     enum_types=[],
     serialized_options=None,
     is_extendable=False,
@@ -1444,7 +1444,7 @@ _WINDOWSBASEDSLI = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=2744,
     serialized_end=3387,

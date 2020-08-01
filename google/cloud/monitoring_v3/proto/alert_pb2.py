@@ -190,7 +190,7 @@ _ALERTPOLICY_CONDITION_TRIGGER = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=1147,
     serialized_end=1200,
@@ -550,7 +550,7 @@ _ALERTPOLICY_CONDITION = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=919,
     serialized_end=2089,
@@ -824,7 +824,7 @@ _ALERTPOLICY = _descriptor.Descriptor(
         _ALERTPOLICY_CONDITION,
         _ALERTPOLICY_USERLABELSENTRY,
     ],
-    enum_types=[_ALERTPOLICY_CONDITIONCOMBINERTYPE],
+    enum_types=[_ALERTPOLICY_CONDITIONCOMBINERTYPE,],
     serialized_options=b"\352A\305\001\n%monitoring.googleapis.com/AlertPolicy\022/projects/{project}/alertPolicies/{alert_policy}\0229organizations/{organization}/alertPolicies/{alert_policy}\022-folders/{folder}/alertPolicies/{alert_policy}\022\001*",
     is_extendable=False,
     syntax="proto3",

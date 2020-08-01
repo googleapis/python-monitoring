@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     syntax="proto3",
     serialized_options=b"\n\030com.google.monitoring.v3B\nGroupProtoP\001Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\252\002\032Google.Cloud.Monitoring.V3\312\002\032Google\\Cloud\\Monitoring\\V3\352\002\035Google::Cloud::Monitoring::V3",
     serialized_pb=b'\n,google/cloud/monitoring_v3/proto/group.proto\x12\x14google.monitoring.v3\x1a\x19google/api/resource.proto"\x80\x02\n\x05Group\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x13\n\x0bparent_name\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x05 \x01(\t\x12\x12\n\nis_cluster\x18\x06 \x01(\x08:\x99\x01\xea\x41\x95\x01\n\x1fmonitoring.googleapis.com/Group\x12!projects/{project}/groups/{group}\x12+organizations/{organization}/groups/{group}\x12\x1f\x66olders/{folder}/groups/{group}\x12\x01*B\xc2\x01\n\x18\x63om.google.monitoring.v3B\nGroupProtoP\x01Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\xaa\x02\x1aGoogle.Cloud.Monitoring.V3\xca\x02\x1aGoogle\\Cloud\\Monitoring\\V3\xea\x02\x1dGoogle::Cloud::Monitoring::V3b\x06proto3',
-    dependencies=[google_dot_api_dot_resource__pb2.DESCRIPTOR],
+    dependencies=[google_dot_api_dot_resource__pb2.DESCRIPTOR,],
 )
 
 

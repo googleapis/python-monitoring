@@ -201,7 +201,7 @@ _GETNOTIFICATIONCHANNELDESCRIPTORREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A9\n7monitoring.googleapis.com/NotificationChannelDescriptor",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -465,7 +465,7 @@ _GETNOTIFICATIONCHANNELREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A/\n-monitoring.googleapis.com/NotificationChannel",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -618,7 +618,7 @@ _SENDNOTIFICATIONCHANNELVERIFICATIONCODEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A/\n-monitoring.googleapis.com/NotificationChannel",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
