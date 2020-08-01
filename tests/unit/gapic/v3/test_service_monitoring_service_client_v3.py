@@ -62,70 +62,6 @@ class CustomException(Exception):
 
 
 class TestServiceMonitoringServiceClient(object):
-    def test_delete_service(self):
-        channel = ChannelStub()
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
-        with patch as create_channel:
-            create_channel.return_value = channel
-            client = monitoring_v3.ServiceMonitoringServiceClient()
-
-        # Setup Request
-        name = "name3373707"
-
-        client.delete_service(name)
-
-        assert len(channel.requests) == 1
-        expected_request = service_service_pb2.DeleteServiceRequest(name=name)
-        actual_request = channel.requests[0][1]
-        assert expected_request == actual_request
-
-    def test_delete_service_exception(self):
-        # Mock the API response
-        channel = ChannelStub(responses=[CustomException()])
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
-        with patch as create_channel:
-            create_channel.return_value = channel
-            client = monitoring_v3.ServiceMonitoringServiceClient()
-
-        # Setup request
-        name = "name3373707"
-
-        with pytest.raises(CustomException):
-            client.delete_service(name)
-
-    def test_delete_service_level_objective(self):
-        channel = ChannelStub()
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
-        with patch as create_channel:
-            create_channel.return_value = channel
-            client = monitoring_v3.ServiceMonitoringServiceClient()
-
-        # Setup Request
-        name = "name3373707"
-
-        client.delete_service_level_objective(name)
-
-        assert len(channel.requests) == 1
-        expected_request = service_service_pb2.DeleteServiceLevelObjectiveRequest(
-            name=name
-        )
-        actual_request = channel.requests[0][1]
-        assert expected_request == actual_request
-
-    def test_delete_service_level_objective_exception(self):
-        # Mock the API response
-        channel = ChannelStub(responses=[CustomException()])
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
-        with patch as create_channel:
-            create_channel.return_value = channel
-            client = monitoring_v3.ServiceMonitoringServiceClient()
-
-        # Setup request
-        name = "name3373707"
-
-        with pytest.raises(CustomException):
-            client.delete_service_level_objective(name)
-
     def test_create_service(self):
         # Setup Expected Response
         name = "name3373707"
@@ -291,6 +227,37 @@ class TestServiceMonitoringServiceClient(object):
 
         with pytest.raises(CustomException):
             client.update_service(service)
+
+    def test_delete_service(self):
+        channel = ChannelStub()
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        with patch as create_channel:
+            create_channel.return_value = channel
+            client = monitoring_v3.ServiceMonitoringServiceClient()
+
+        # Setup Request
+        name = "name3373707"
+
+        client.delete_service(name)
+
+        assert len(channel.requests) == 1
+        expected_request = service_service_pb2.DeleteServiceRequest(name=name)
+        actual_request = channel.requests[0][1]
+        assert expected_request == actual_request
+
+    def test_delete_service_exception(self):
+        # Mock the API response
+        channel = ChannelStub(responses=[CustomException()])
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        with patch as create_channel:
+            create_channel.return_value = channel
+            client = monitoring_v3.ServiceMonitoringServiceClient()
+
+        # Setup request
+        name = "name3373707"
+
+        with pytest.raises(CustomException):
+            client.delete_service(name)
 
     def test_create_service_level_objective(self):
         # Setup Expected Response
@@ -471,3 +438,36 @@ class TestServiceMonitoringServiceClient(object):
 
         with pytest.raises(CustomException):
             client.update_service_level_objective(service_level_objective)
+
+    def test_delete_service_level_objective(self):
+        channel = ChannelStub()
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        with patch as create_channel:
+            create_channel.return_value = channel
+            client = monitoring_v3.ServiceMonitoringServiceClient()
+
+        # Setup Request
+        name = "name3373707"
+
+        client.delete_service_level_objective(name)
+
+        assert len(channel.requests) == 1
+        expected_request = service_service_pb2.DeleteServiceLevelObjectiveRequest(
+            name=name
+        )
+        actual_request = channel.requests[0][1]
+        assert expected_request == actual_request
+
+    def test_delete_service_level_objective_exception(self):
+        # Mock the API response
+        channel = ChannelStub(responses=[CustomException()])
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        with patch as create_channel:
+            create_channel.return_value = channel
+            client = monitoring_v3.ServiceMonitoringServiceClient()
+
+        # Setup request
+        name = "name3373707"
+
+        with pytest.raises(CustomException):
+            client.delete_service_level_objective(name)

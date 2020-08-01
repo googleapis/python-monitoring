@@ -62,37 +62,6 @@ class CustomException(Exception):
 
 
 class TestAlertPolicyServiceClient(object):
-    def test_delete_alert_policy(self):
-        channel = ChannelStub()
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
-        with patch as create_channel:
-            create_channel.return_value = channel
-            client = monitoring_v3.AlertPolicyServiceClient()
-
-        # Setup Request
-        name = "name3373707"
-
-        client.delete_alert_policy(name)
-
-        assert len(channel.requests) == 1
-        expected_request = alert_service_pb2.DeleteAlertPolicyRequest(name=name)
-        actual_request = channel.requests[0][1]
-        assert expected_request == actual_request
-
-    def test_delete_alert_policy_exception(self):
-        # Mock the API response
-        channel = ChannelStub(responses=[CustomException()])
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
-        with patch as create_channel:
-            create_channel.return_value = channel
-            client = monitoring_v3.AlertPolicyServiceClient()
-
-        # Setup request
-        name = "name3373707"
-
-        with pytest.raises(CustomException):
-            client.delete_alert_policy(name)
-
     def test_list_alert_policies(self):
         # Setup Expected Response
         next_page_token = ""
@@ -222,6 +191,37 @@ class TestAlertPolicyServiceClient(object):
 
         with pytest.raises(CustomException):
             client.create_alert_policy(name, alert_policy)
+
+    def test_delete_alert_policy(self):
+        channel = ChannelStub()
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        with patch as create_channel:
+            create_channel.return_value = channel
+            client = monitoring_v3.AlertPolicyServiceClient()
+
+        # Setup Request
+        name = "name3373707"
+
+        client.delete_alert_policy(name)
+
+        assert len(channel.requests) == 1
+        expected_request = alert_service_pb2.DeleteAlertPolicyRequest(name=name)
+        actual_request = channel.requests[0][1]
+        assert expected_request == actual_request
+
+    def test_delete_alert_policy_exception(self):
+        # Mock the API response
+        channel = ChannelStub(responses=[CustomException()])
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        with patch as create_channel:
+            create_channel.return_value = channel
+            client = monitoring_v3.AlertPolicyServiceClient()
+
+        # Setup request
+        name = "name3373707"
+
+        with pytest.raises(CustomException):
+            client.delete_alert_policy(name)
 
     def test_update_alert_policy(self):
         # Setup Expected Response

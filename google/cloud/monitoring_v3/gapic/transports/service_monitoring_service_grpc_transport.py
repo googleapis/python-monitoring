@@ -115,34 +115,6 @@ class ServiceMonitoringServiceGrpcTransport(object):
         return self._channel
 
     @property
-    def delete_service(self):
-        """Return the gRPC stub for :meth:`ServiceMonitoringServiceClient.delete_service`.
-
-        Soft delete this ``Service``.
-
-        Returns:
-            Callable: A callable which accepts the appropriate
-                deserialized request object and returns a
-                deserialized response object.
-        """
-        return self._stubs["service_monitoring_service_stub"].DeleteService
-
-    @property
-    def delete_service_level_objective(self):
-        """Return the gRPC stub for :meth:`ServiceMonitoringServiceClient.delete_service_level_objective`.
-
-        Delete the given ``ServiceLevelObjective``.
-
-        Returns:
-            Callable: A callable which accepts the appropriate
-                deserialized request object and returns a
-                deserialized response object.
-        """
-        return self._stubs[
-            "service_monitoring_service_stub"
-        ].DeleteServiceLevelObjective
-
-    @property
     def create_service(self):
         """Return the gRPC stub for :meth:`ServiceMonitoringServiceClient.create_service`.
 
@@ -193,6 +165,19 @@ class ServiceMonitoringServiceGrpcTransport(object):
                 deserialized response object.
         """
         return self._stubs["service_monitoring_service_stub"].UpdateService
+
+    @property
+    def delete_service(self):
+        """Return the gRPC stub for :meth:`ServiceMonitoringServiceClient.delete_service`.
+
+        Soft delete this ``Service``.
+
+        Returns:
+            Callable: A callable which accepts the appropriate
+                deserialized request object and returns a
+                deserialized response object.
+        """
+        return self._stubs["service_monitoring_service_stub"].DeleteService
 
     @property
     def create_service_level_objective(self):
@@ -249,3 +234,18 @@ class ServiceMonitoringServiceGrpcTransport(object):
         return self._stubs[
             "service_monitoring_service_stub"
         ].UpdateServiceLevelObjective
+
+    @property
+    def delete_service_level_objective(self):
+        """Return the gRPC stub for :meth:`ServiceMonitoringServiceClient.delete_service_level_objective`.
+
+        Delete the given ``ServiceLevelObjective``.
+
+        Returns:
+            Callable: A callable which accepts the appropriate
+                deserialized request object and returns a
+                deserialized response object.
+        """
+        return self._stubs[
+            "service_monitoring_service_stub"
+        ].DeleteServiceLevelObjective

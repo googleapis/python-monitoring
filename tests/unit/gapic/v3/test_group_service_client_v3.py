@@ -63,85 +63,6 @@ class CustomException(Exception):
 
 
 class TestGroupServiceClient(object):
-    def test_update_group(self):
-        # Setup Expected Response
-        name = "name3373707"
-        display_name = "displayName1615086568"
-        parent_name = "parentName1015022848"
-        filter_ = "filter-1274492040"
-        is_cluster = False
-        expected_response = {
-            "name": name,
-            "display_name": display_name,
-            "parent_name": parent_name,
-            "filter": filter_,
-            "is_cluster": is_cluster,
-        }
-        expected_response = group_pb2.Group(**expected_response)
-
-        # Mock the API response
-        channel = ChannelStub(responses=[expected_response])
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
-        with patch as create_channel:
-            create_channel.return_value = channel
-            client = monitoring_v3.GroupServiceClient()
-
-        # Setup Request
-        group = {}
-
-        response = client.update_group(group)
-        assert expected_response == response
-
-        assert len(channel.requests) == 1
-        expected_request = group_service_pb2.UpdateGroupRequest(group=group)
-        actual_request = channel.requests[0][1]
-        assert expected_request == actual_request
-
-    def test_update_group_exception(self):
-        # Mock the API response
-        channel = ChannelStub(responses=[CustomException()])
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
-        with patch as create_channel:
-            create_channel.return_value = channel
-            client = monitoring_v3.GroupServiceClient()
-
-        # Setup request
-        group = {}
-
-        with pytest.raises(CustomException):
-            client.update_group(group)
-
-    def test_delete_group(self):
-        channel = ChannelStub()
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
-        with patch as create_channel:
-            create_channel.return_value = channel
-            client = monitoring_v3.GroupServiceClient()
-
-        # Setup Request
-        name = "name3373707"
-
-        client.delete_group(name)
-
-        assert len(channel.requests) == 1
-        expected_request = group_service_pb2.DeleteGroupRequest(name=name)
-        actual_request = channel.requests[0][1]
-        assert expected_request == actual_request
-
-    def test_delete_group_exception(self):
-        # Mock the API response
-        channel = ChannelStub(responses=[CustomException()])
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
-        with patch as create_channel:
-            create_channel.return_value = channel
-            client = monitoring_v3.GroupServiceClient()
-
-        # Setup request
-        name = "name3373707"
-
-        with pytest.raises(CustomException):
-            client.delete_group(name)
-
     def test_list_groups(self):
         # Setup Expected Response
         next_page_token = ""
@@ -282,6 +203,85 @@ class TestGroupServiceClient(object):
 
         with pytest.raises(CustomException):
             client.create_group(name, group)
+
+    def test_update_group(self):
+        # Setup Expected Response
+        name = "name3373707"
+        display_name = "displayName1615086568"
+        parent_name = "parentName1015022848"
+        filter_ = "filter-1274492040"
+        is_cluster = False
+        expected_response = {
+            "name": name,
+            "display_name": display_name,
+            "parent_name": parent_name,
+            "filter": filter_,
+            "is_cluster": is_cluster,
+        }
+        expected_response = group_pb2.Group(**expected_response)
+
+        # Mock the API response
+        channel = ChannelStub(responses=[expected_response])
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        with patch as create_channel:
+            create_channel.return_value = channel
+            client = monitoring_v3.GroupServiceClient()
+
+        # Setup Request
+        group = {}
+
+        response = client.update_group(group)
+        assert expected_response == response
+
+        assert len(channel.requests) == 1
+        expected_request = group_service_pb2.UpdateGroupRequest(group=group)
+        actual_request = channel.requests[0][1]
+        assert expected_request == actual_request
+
+    def test_update_group_exception(self):
+        # Mock the API response
+        channel = ChannelStub(responses=[CustomException()])
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        with patch as create_channel:
+            create_channel.return_value = channel
+            client = monitoring_v3.GroupServiceClient()
+
+        # Setup request
+        group = {}
+
+        with pytest.raises(CustomException):
+            client.update_group(group)
+
+    def test_delete_group(self):
+        channel = ChannelStub()
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        with patch as create_channel:
+            create_channel.return_value = channel
+            client = monitoring_v3.GroupServiceClient()
+
+        # Setup Request
+        name = "name3373707"
+
+        client.delete_group(name)
+
+        assert len(channel.requests) == 1
+        expected_request = group_service_pb2.DeleteGroupRequest(name=name)
+        actual_request = channel.requests[0][1]
+        assert expected_request == actual_request
+
+    def test_delete_group_exception(self):
+        # Mock the API response
+        channel = ChannelStub(responses=[CustomException()])
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        with patch as create_channel:
+            create_channel.return_value = channel
+            client = monitoring_v3.GroupServiceClient()
+
+        # Setup request
+        name = "name3373707"
+
+        with pytest.raises(CustomException):
+            client.delete_group(name)
 
     def test_list_group_members(self):
         # Setup Expected Response

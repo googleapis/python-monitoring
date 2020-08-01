@@ -213,167 +213,6 @@ class GroupServiceClient(object):
         self._inner_api_calls = {}
 
     # Service calls
-    def update_group(
-        self,
-        group,
-        validate_only=None,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Updates an existing group. You can change any group attributes
-        except ``name``.
-
-        Example:
-            >>> from google.cloud import monitoring_v3
-            >>>
-            >>> client = monitoring_v3.GroupServiceClient()
-            >>>
-            >>> # TODO: Initialize `group`:
-            >>> group = {}
-            >>>
-            >>> response = client.update_group(group)
-
-        Args:
-            group (Union[dict, ~google.cloud.monitoring_v3.types.Group]): Required. The new definition of the group. All fields of the
-                existing group, excepting ``name``, are replaced with the corresponding
-                fields of this group.
-
-                If a dict is provided, it must be of the same form as the protobuf
-                message :class:`~google.cloud.monitoring_v3.types.Group`
-            validate_only (bool): If true, validate this request but do not update the existing group.
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Returns:
-            A :class:`~google.cloud.monitoring_v3.types.Group` instance.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        # Wrap the transport method to add retry and timeout logic.
-        if "update_group" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "update_group"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.update_group,
-                default_retry=self._method_configs["UpdateGroup"].retry,
-                default_timeout=self._method_configs["UpdateGroup"].timeout,
-                client_info=self._client_info,
-            )
-
-        request = group_service_pb2.UpdateGroupRequest(
-            group=group, validate_only=validate_only
-        )
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("group.name", group.name)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        return self._inner_api_calls["update_group"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
-
-    def delete_group(
-        self,
-        name,
-        recursive=None,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Deletes an existing group.
-
-        Example:
-            >>> from google.cloud import monitoring_v3
-            >>>
-            >>> client = monitoring_v3.GroupServiceClient()
-            >>>
-            >>> # TODO: Initialize `name`:
-            >>> name = ''
-            >>>
-            >>> client.delete_group(name)
-
-        Args:
-            name (str): Required. The group to delete. The format is:
-
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
-            recursive (bool): If this field is true, then the request means to delete a group with all
-                its descendants. Otherwise, the request means to delete a group only when
-                it has no descendants. The default value is false.
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        # Wrap the transport method to add retry and timeout logic.
-        if "delete_group" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "delete_group"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.delete_group,
-                default_retry=self._method_configs["DeleteGroup"].retry,
-                default_timeout=self._method_configs["DeleteGroup"].timeout,
-                client_info=self._client_info,
-            )
-
-        request = group_service_pb2.DeleteGroupRequest(name=name, recursive=recursive)
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("name", name)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        self._inner_api_calls["delete_group"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
-
     def list_groups(
         self,
         name,
@@ -691,6 +530,167 @@ class GroupServiceClient(object):
             metadata.append(routing_metadata)
 
         return self._inner_api_calls["create_group"](
+            request, retry=retry, timeout=timeout, metadata=metadata
+        )
+
+    def update_group(
+        self,
+        group,
+        validate_only=None,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Updates an existing group. You can change any group attributes
+        except ``name``.
+
+        Example:
+            >>> from google.cloud import monitoring_v3
+            >>>
+            >>> client = monitoring_v3.GroupServiceClient()
+            >>>
+            >>> # TODO: Initialize `group`:
+            >>> group = {}
+            >>>
+            >>> response = client.update_group(group)
+
+        Args:
+            group (Union[dict, ~google.cloud.monitoring_v3.types.Group]): Required. The new definition of the group. All fields of the
+                existing group, excepting ``name``, are replaced with the corresponding
+                fields of this group.
+
+                If a dict is provided, it must be of the same form as the protobuf
+                message :class:`~google.cloud.monitoring_v3.types.Group`
+            validate_only (bool): If true, validate this request but do not update the existing group.
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Returns:
+            A :class:`~google.cloud.monitoring_v3.types.Group` instance.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        # Wrap the transport method to add retry and timeout logic.
+        if "update_group" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "update_group"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.update_group,
+                default_retry=self._method_configs["UpdateGroup"].retry,
+                default_timeout=self._method_configs["UpdateGroup"].timeout,
+                client_info=self._client_info,
+            )
+
+        request = group_service_pb2.UpdateGroupRequest(
+            group=group, validate_only=validate_only
+        )
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("group.name", group.name)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        return self._inner_api_calls["update_group"](
+            request, retry=retry, timeout=timeout, metadata=metadata
+        )
+
+    def delete_group(
+        self,
+        name,
+        recursive=None,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Deletes an existing group.
+
+        Example:
+            >>> from google.cloud import monitoring_v3
+            >>>
+            >>> client = monitoring_v3.GroupServiceClient()
+            >>>
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
+            >>>
+            >>> client.delete_group(name)
+
+        Args:
+            name (str): Required. The group to delete. The format is:
+
+                ::
+
+                    projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+            recursive (bool): If this field is true, then the request means to delete a group with all
+                its descendants. Otherwise, the request means to delete a group only when
+                it has no descendants. The default value is false.
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        # Wrap the transport method to add retry and timeout logic.
+        if "delete_group" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "delete_group"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.delete_group,
+                default_retry=self._method_configs["DeleteGroup"].retry,
+                default_timeout=self._method_configs["DeleteGroup"].timeout,
+                client_info=self._client_info,
+            )
+
+        request = group_service_pb2.DeleteGroupRequest(name=name, recursive=recursive)
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("name", name)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        self._inner_api_calls["delete_group"](
             request, retry=retry, timeout=timeout, metadata=metadata
         )
 
