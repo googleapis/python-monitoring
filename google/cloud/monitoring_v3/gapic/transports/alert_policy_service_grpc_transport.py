@@ -28,17 +28,19 @@ class AlertPolicyServiceGrpcTransport(object):
     which can be used to take advantage of advanced
     features of gRPC.
     """
+
     # The scopes needed to make gRPC calls to all of the methods defined
     # in this service.
     _OAUTH_SCOPES = (
-        'https://www.googleapis.com/auth/cloud-platform',
-        'https://www.googleapis.com/auth/monitoring',
-        'https://www.googleapis.com/auth/monitoring.read',
-        'https://www.googleapis.com/auth/monitoring.write',
+        "https://www.googleapis.com/auth/cloud-platform",
+        "https://www.googleapis.com/auth/monitoring",
+        "https://www.googleapis.com/auth/monitoring.read",
+        "https://www.googleapis.com/auth/monitoring.write",
     )
 
-    def __init__(self, channel=None, credentials=None,
-                 address='monitoring.googleapis.com:443'):
+    def __init__(
+        self, channel=None, credentials=None, address="monitoring.googleapis.com:443"
+    ):
         """Instantiate the transport class.
 
         Args:
@@ -56,8 +58,7 @@ class AlertPolicyServiceGrpcTransport(object):
         # exception (channels come with credentials baked in already).
         if channel is not None and credentials is not None:
             raise ValueError(
-                'The `channel` and `credentials` arguments are mutually '
-                'exclusive.',
+                "The `channel` and `credentials` arguments are mutually " "exclusive.",
             )
 
         # Create the channel.
@@ -66,8 +67,8 @@ class AlertPolicyServiceGrpcTransport(object):
                 address=address,
                 credentials=credentials,
                 options={
-                    'grpc.max_send_message_length': -1,
-                    'grpc.max_receive_message_length': -1,
+                    "grpc.max_send_message_length": -1,
+                    "grpc.max_receive_message_length": -1,
                 }.items(),
             )
 
@@ -76,16 +77,15 @@ class AlertPolicyServiceGrpcTransport(object):
         # gRPC uses objects called "stubs" that are bound to the
         # channel and provide a basic method for each RPC.
         self._stubs = {
-            'alert_policy_service_stub': alert_service_pb2_grpc.AlertPolicyServiceStub(channel),
+            "alert_policy_service_stub": alert_service_pb2_grpc.AlertPolicyServiceStub(
+                channel
+            ),
         }
-
 
     @classmethod
     def create_channel(
-                cls,
-                address='monitoring.googleapis.com:443',
-                credentials=None,
-                **kwargs):
+        cls, address="monitoring.googleapis.com:443", credentials=None, **kwargs
+    ):
         """Create and return a gRPC channel object.
 
         Args:
@@ -102,10 +102,7 @@ class AlertPolicyServiceGrpcTransport(object):
             grpc.Channel: A gRPC channel object.
         """
         return google.api_core.grpc_helpers.create_channel(
-            address,
-            credentials=credentials,
-            scopes=cls._OAUTH_SCOPES,
-            **kwargs
+            address, credentials=credentials, scopes=cls._OAUTH_SCOPES, **kwargs
         )
 
     @property
@@ -128,7 +125,7 @@ class AlertPolicyServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['alert_policy_service_stub'].ListAlertPolicies
+        return self._stubs["alert_policy_service_stub"].ListAlertPolicies
 
     @property
     def get_alert_policy(self):
@@ -141,7 +138,7 @@ class AlertPolicyServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['alert_policy_service_stub'].GetAlertPolicy
+        return self._stubs["alert_policy_service_stub"].GetAlertPolicy
 
     @property
     def create_alert_policy(self):
@@ -154,7 +151,7 @@ class AlertPolicyServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['alert_policy_service_stub'].CreateAlertPolicy
+        return self._stubs["alert_policy_service_stub"].CreateAlertPolicy
 
     @property
     def delete_alert_policy(self):
@@ -167,7 +164,7 @@ class AlertPolicyServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['alert_policy_service_stub'].DeleteAlertPolicy
+        return self._stubs["alert_policy_service_stub"].DeleteAlertPolicy
 
     @property
     def update_alert_policy(self):
@@ -183,4 +180,4 @@ class AlertPolicyServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['alert_policy_service_stub'].UpdateAlertPolicy
+        return self._stubs["alert_policy_service_stub"].UpdateAlertPolicy

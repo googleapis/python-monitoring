@@ -28,12 +28,12 @@ from google.cloud.monitoring_v3 import types
 
 
 __all__ = (
-    'enums',
-    'types',
-    'AlertPolicyServiceClient',
-    'GroupServiceClient',
-    'MetricServiceClient',
-    'NotificationChannelServiceClient',
-    'ServiceMonitoringServiceClient',
-    'UptimeCheckServiceClient',
+    "enums",
+    "types",
+    "AlertPolicyServiceClient",
+    "GroupServiceClient",
+    "MetricServiceClient",
+    "NotificationChannelServiceClient",
+    "ServiceMonitoringServiceClient",
+    "UptimeCheckServiceClient",
 )

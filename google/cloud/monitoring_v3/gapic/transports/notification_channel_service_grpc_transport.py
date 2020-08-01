@@ -28,17 +28,19 @@ class NotificationChannelServiceGrpcTransport(object):
     which can be used to take advantage of advanced
     features of gRPC.
     """
+
     # The scopes needed to make gRPC calls to all of the methods defined
     # in this service.
     _OAUTH_SCOPES = (
-        'https://www.googleapis.com/auth/cloud-platform',
-        'https://www.googleapis.com/auth/monitoring',
-        'https://www.googleapis.com/auth/monitoring.read',
-        'https://www.googleapis.com/auth/monitoring.write',
+        "https://www.googleapis.com/auth/cloud-platform",
+        "https://www.googleapis.com/auth/monitoring",
+        "https://www.googleapis.com/auth/monitoring.read",
+        "https://www.googleapis.com/auth/monitoring.write",
     )
 
-    def __init__(self, channel=None, credentials=None,
-                 address='monitoring.googleapis.com:443'):
+    def __init__(
+        self, channel=None, credentials=None, address="monitoring.googleapis.com:443"
+    ):
         """Instantiate the transport class.
 
         Args:
@@ -56,8 +58,7 @@ class NotificationChannelServiceGrpcTransport(object):
         # exception (channels come with credentials baked in already).
         if channel is not None and credentials is not None:
             raise ValueError(
-                'The `channel` and `credentials` arguments are mutually '
-                'exclusive.',
+                "The `channel` and `credentials` arguments are mutually " "exclusive.",
             )
 
         # Create the channel.
@@ -66,8 +67,8 @@ class NotificationChannelServiceGrpcTransport(object):
                 address=address,
                 credentials=credentials,
                 options={
-                    'grpc.max_send_message_length': -1,
-                    'grpc.max_receive_message_length': -1,
+                    "grpc.max_send_message_length": -1,
+                    "grpc.max_receive_message_length": -1,
                 }.items(),
             )
 
@@ -76,16 +77,15 @@ class NotificationChannelServiceGrpcTransport(object):
         # gRPC uses objects called "stubs" that are bound to the
         # channel and provide a basic method for each RPC.
         self._stubs = {
-            'notification_channel_service_stub': notification_service_pb2_grpc.NotificationChannelServiceStub(channel),
+            "notification_channel_service_stub": notification_service_pb2_grpc.NotificationChannelServiceStub(
+                channel
+            ),
         }
-
 
     @classmethod
     def create_channel(
-                cls,
-                address='monitoring.googleapis.com:443',
-                credentials=None,
-                **kwargs):
+        cls, address="monitoring.googleapis.com:443", credentials=None, **kwargs
+    ):
         """Create and return a gRPC channel object.
 
         Args:
@@ -102,10 +102,7 @@ class NotificationChannelServiceGrpcTransport(object):
             grpc.Channel: A gRPC channel object.
         """
         return google.api_core.grpc_helpers.create_channel(
-            address,
-            credentials=credentials,
-            scopes=cls._OAUTH_SCOPES,
-            **kwargs
+            address, credentials=credentials, scopes=cls._OAUTH_SCOPES, **kwargs
         )
 
     @property
@@ -129,7 +126,9 @@ class NotificationChannelServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['notification_channel_service_stub'].ListNotificationChannelDescriptors
+        return self._stubs[
+            "notification_channel_service_stub"
+        ].ListNotificationChannelDescriptors
 
     @property
     def get_notification_channel_descriptor(self):
@@ -143,7 +142,9 @@ class NotificationChannelServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['notification_channel_service_stub'].GetNotificationChannelDescriptor
+        return self._stubs[
+            "notification_channel_service_stub"
+        ].GetNotificationChannelDescriptor
 
     @property
     def list_notification_channels(self):
@@ -156,7 +157,7 @@ class NotificationChannelServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['notification_channel_service_stub'].ListNotificationChannels
+        return self._stubs["notification_channel_service_stub"].ListNotificationChannels
 
     @property
     def get_notification_channel(self):
@@ -173,7 +174,7 @@ class NotificationChannelServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['notification_channel_service_stub'].GetNotificationChannel
+        return self._stubs["notification_channel_service_stub"].GetNotificationChannel
 
     @property
     def create_notification_channel(self):
@@ -187,7 +188,9 @@ class NotificationChannelServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['notification_channel_service_stub'].CreateNotificationChannel
+        return self._stubs[
+            "notification_channel_service_stub"
+        ].CreateNotificationChannel
 
     @property
     def update_notification_channel(self):
@@ -201,7 +204,9 @@ class NotificationChannelServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['notification_channel_service_stub'].UpdateNotificationChannel
+        return self._stubs[
+            "notification_channel_service_stub"
+        ].UpdateNotificationChannel
 
     @property
     def delete_notification_channel(self):
@@ -214,7 +219,9 @@ class NotificationChannelServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['notification_channel_service_stub'].DeleteNotificationChannel
+        return self._stubs[
+            "notification_channel_service_stub"
+        ].DeleteNotificationChannel
 
     @property
     def send_notification_channel_verification_code(self):
@@ -229,7 +236,9 @@ class NotificationChannelServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['notification_channel_service_stub'].SendNotificationChannelVerificationCode
+        return self._stubs[
+            "notification_channel_service_stub"
+        ].SendNotificationChannelVerificationCode
 
     @property
     def get_notification_channel_verification_code(self):
@@ -262,7 +271,9 @@ class NotificationChannelServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['notification_channel_service_stub'].GetNotificationChannelVerificationCode
+        return self._stubs[
+            "notification_channel_service_stub"
+        ].GetNotificationChannelVerificationCode
 
     @property
     def verify_notification_channel(self):
@@ -277,4 +288,6 @@ class NotificationChannelServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['notification_channel_service_stub'].VerifyNotificationChannel
+        return self._stubs[
+            "notification_channel_service_stub"
+        ].VerifyNotificationChannel
