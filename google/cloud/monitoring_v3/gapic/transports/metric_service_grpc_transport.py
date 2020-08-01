@@ -28,19 +28,17 @@ class MetricServiceGrpcTransport(object):
     which can be used to take advantage of advanced
     features of gRPC.
     """
-
     # The scopes needed to make gRPC calls to all of the methods defined
     # in this service.
     _OAUTH_SCOPES = (
-        "https://www.googleapis.com/auth/cloud-platform",
-        "https://www.googleapis.com/auth/monitoring",
-        "https://www.googleapis.com/auth/monitoring.read",
-        "https://www.googleapis.com/auth/monitoring.write",
+        'https://www.googleapis.com/auth/cloud-platform',
+        'https://www.googleapis.com/auth/monitoring',
+        'https://www.googleapis.com/auth/monitoring.read',
+        'https://www.googleapis.com/auth/monitoring.write',
     )
 
-    def __init__(
-        self, channel=None, credentials=None, address="monitoring.googleapis.com:443"
-    ):
+    def __init__(self, channel=None, credentials=None,
+                 address='monitoring.googleapis.com:443'):
         """Instantiate the transport class.
 
         Args:
@@ -58,7 +56,8 @@ class MetricServiceGrpcTransport(object):
         # exception (channels come with credentials baked in already).
         if channel is not None and credentials is not None:
             raise ValueError(
-                "The `channel` and `credentials` arguments are mutually " "exclusive.",
+                'The `channel` and `credentials` arguments are mutually '
+                'exclusive.',
             )
 
         # Create the channel.
@@ -67,8 +66,8 @@ class MetricServiceGrpcTransport(object):
                 address=address,
                 credentials=credentials,
                 options={
-                    "grpc.max_send_message_length": -1,
-                    "grpc.max_receive_message_length": -1,
+                    'grpc.max_send_message_length': -1,
+                    'grpc.max_receive_message_length': -1,
                 }.items(),
             )
 
@@ -77,13 +76,16 @@ class MetricServiceGrpcTransport(object):
         # gRPC uses objects called "stubs" that are bound to the
         # channel and provide a basic method for each RPC.
         self._stubs = {
-            "metric_service_stub": metric_service_pb2_grpc.MetricServiceStub(channel),
+            'metric_service_stub': metric_service_pb2_grpc.MetricServiceStub(channel),
         }
+
 
     @classmethod
     def create_channel(
-        cls, address="monitoring.googleapis.com:443", credentials=None, **kwargs
-    ):
+                cls,
+                address='monitoring.googleapis.com:443',
+                credentials=None,
+                **kwargs):
         """Create and return a gRPC channel object.
 
         Args:
@@ -100,7 +102,10 @@ class MetricServiceGrpcTransport(object):
             grpc.Channel: A gRPC channel object.
         """
         return google.api_core.grpc_helpers.create_channel(
-            address, credentials=credentials, scopes=cls._OAUTH_SCOPES, **kwargs
+            address,
+            credentials=credentials,
+            scopes=cls._OAUTH_SCOPES,
+            **kwargs
         )
 
     @property
@@ -123,7 +128,7 @@ class MetricServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs["metric_service_stub"].ListMonitoredResourceDescriptors
+        return self._stubs['metric_service_stub'].ListMonitoredResourceDescriptors
 
     @property
     def get_monitored_resource_descriptor(self):
@@ -136,7 +141,7 @@ class MetricServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs["metric_service_stub"].GetMonitoredResourceDescriptor
+        return self._stubs['metric_service_stub'].GetMonitoredResourceDescriptor
 
     @property
     def list_metric_descriptors(self):
@@ -149,7 +154,7 @@ class MetricServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs["metric_service_stub"].ListMetricDescriptors
+        return self._stubs['metric_service_stub'].ListMetricDescriptors
 
     @property
     def get_metric_descriptor(self):
@@ -162,7 +167,7 @@ class MetricServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs["metric_service_stub"].GetMetricDescriptor
+        return self._stubs['metric_service_stub'].GetMetricDescriptor
 
     @property
     def create_metric_descriptor(self):
@@ -177,7 +182,7 @@ class MetricServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs["metric_service_stub"].CreateMetricDescriptor
+        return self._stubs['metric_service_stub'].CreateMetricDescriptor
 
     @property
     def delete_metric_descriptor(self):
@@ -192,7 +197,7 @@ class MetricServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs["metric_service_stub"].DeleteMetricDescriptor
+        return self._stubs['metric_service_stub'].DeleteMetricDescriptor
 
     @property
     def list_time_series(self):
@@ -205,7 +210,7 @@ class MetricServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs["metric_service_stub"].ListTimeSeries
+        return self._stubs['metric_service_stub'].ListTimeSeries
 
     @property
     def create_time_series(self):
@@ -221,4 +226,4 @@ class MetricServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs["metric_service_stub"].CreateTimeSeries
+        return self._stubs['metric_service_stub'].CreateTimeSeries

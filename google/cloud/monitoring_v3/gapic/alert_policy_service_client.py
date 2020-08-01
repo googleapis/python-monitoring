@@ -33,9 +33,7 @@ import grpc
 
 from google.cloud.monitoring_v3.gapic import alert_policy_service_client_config
 from google.cloud.monitoring_v3.gapic import enums
-from google.cloud.monitoring_v3.gapic.transports import (
-    alert_policy_service_grpc_transport,
-)
+from google.cloud.monitoring_v3.gapic.transports import alert_policy_service_grpc_transport
 from google.cloud.monitoring_v3.proto import alert_pb2
 from google.cloud.monitoring_v3.proto import alert_service_pb2
 from google.cloud.monitoring_v3.proto import alert_service_pb2_grpc
@@ -43,8 +41,9 @@ from google.protobuf import empty_pb2
 from google.protobuf import field_mask_pb2
 
 
+
 _GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution(
-    "google-cloud-monitoring",
+    'google-cloud-monitoring',
 ).version
 
 
@@ -61,12 +60,13 @@ class AlertPolicyServiceClient(object):
     Console <https://console.cloud.google.com/>`__.
     """
 
-    SERVICE_ADDRESS = "monitoring.googleapis.com:443"
+    SERVICE_ADDRESS = 'monitoring.googleapis.com:443'
     """The default address of the service."""
 
     # The name of the interface for this client. This is the key used to
     # find the method configuration in the client_config dictionary.
-    _INTERFACE_NAME = "google.monitoring.v3.AlertPolicyService"
+    _INTERFACE_NAME = 'google.monitoring.v3.AlertPolicyService'
+
 
     @classmethod
     def from_service_account_file(cls, filename, *args, **kwargs):
@@ -82,17 +82,19 @@ class AlertPolicyServiceClient(object):
         Returns:
             AlertPolicyServiceClient: The constructed client.
         """
-        credentials = service_account.Credentials.from_service_account_file(filename)
-        kwargs["credentials"] = credentials
+        credentials = service_account.Credentials.from_service_account_file(
+            filename)
+        kwargs['credentials'] = credentials
         return cls(*args, **kwargs)
 
     from_service_account_json = from_service_account_file
+
 
     @classmethod
     def alert_policy_path(cls, project, alert_policy):
         """Return a fully-qualified alert_policy string."""
         return google.api_core.path_template.expand(
-            "projects/{project}/alertPolicies/{alert_policy}",
+            'projects/{project}/alertPolicies/{alert_policy}',
             project=project,
             alert_policy=alert_policy,
         )
@@ -101,7 +103,7 @@ class AlertPolicyServiceClient(object):
     def alert_policy_condition_path(cls, project, alert_policy, condition):
         """Return a fully-qualified alert_policy_condition string."""
         return google.api_core.path_template.expand(
-            "projects/{project}/alertPolicies/{alert_policy}/conditions/{condition}",
+            'projects/{project}/alertPolicies/{alert_policy}/conditions/{condition}',
             project=project,
             alert_policy=alert_policy,
             condition=condition,
@@ -111,18 +113,12 @@ class AlertPolicyServiceClient(object):
     def project_path(cls, project):
         """Return a fully-qualified project string."""
         return google.api_core.path_template.expand(
-            "projects/{project}", project=project,
+            'projects/{project}',
+            project=project,
         )
 
-    def __init__(
-        self,
-        transport=None,
-        channel=None,
-        credentials=None,
-        client_config=None,
-        client_info=None,
-        client_options=None,
-    ):
+    def __init__(self, transport=None, channel=None, credentials=None,
+            client_config=None, client_info=None, client_options=None):
         """Constructor.
 
         Args:
@@ -158,27 +154,20 @@ class AlertPolicyServiceClient(object):
         """
         # Raise deprecation warnings for things we want to go away.
         if client_config is not None:
-            warnings.warn(
-                "The `client_config` argument is deprecated.",
-                PendingDeprecationWarning,
-                stacklevel=2,
-            )
+            warnings.warn('The `client_config` argument is deprecated.',
+                          PendingDeprecationWarning, stacklevel=2)
         else:
             client_config = alert_policy_service_client_config.config
 
         if channel:
-            warnings.warn(
-                "The `channel` argument is deprecated; use " "`transport` instead.",
-                PendingDeprecationWarning,
-                stacklevel=2,
-            )
+            warnings.warn('The `channel` argument is deprecated; use '
+                          '`transport` instead.',
+                          PendingDeprecationWarning, stacklevel=2)
 
         api_endpoint = self.SERVICE_ADDRESS
         if client_options:
             if type(client_options) == dict:
-                client_options = google.api_core.client_options.from_dict(
-                    client_options
-                )
+                client_options = google.api_core.client_options.from_dict(client_options)
             if client_options.api_endpoint:
                 api_endpoint = client_options.api_endpoint
 
@@ -195,13 +184,15 @@ class AlertPolicyServiceClient(object):
             else:
                 if credentials:
                     raise ValueError(
-                        "Received both a transport instance and "
-                        "credentials; these are mutually exclusive."
+                        'Received both a transport instance and '
+                        'credentials; these are mutually exclusive.'
                     )
                 self.transport = transport
         else:
             self.transport = alert_policy_service_grpc_transport.AlertPolicyServiceGrpcTransport(
-                address=api_endpoint, channel=channel, credentials=credentials,
+                address=api_endpoint,
+                channel=channel,
+                credentials=credentials,
             )
 
         if client_info is None:
@@ -217,7 +208,7 @@ class AlertPolicyServiceClient(object):
         # (Ordinarily, these are the defaults specified in the `*_config.py`
         # file next to this one.)
         self._method_configs = google.api_core.gapic_v1.config.parse_method_configs(
-            client_config["interfaces"][self._INTERFACE_NAME],
+            client_config['interfaces'][self._INTERFACE_NAME],
         )
 
         # Save a dictionary of cached API call functions.
@@ -228,15 +219,14 @@ class AlertPolicyServiceClient(object):
 
     # Service calls
     def list_alert_policies(
-        self,
-        name,
-        filter_=None,
-        order_by=None,
-        page_size=None,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            name,
+            filter_=None,
+            order_by=None,
+            page_size=None,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Lists the existing alerting policies for the project.
 
@@ -313,54 +303,47 @@ class AlertPolicyServiceClient(object):
             metadata = []
         metadata = list(metadata)
         # Wrap the transport method to add retry and timeout logic.
-        if "list_alert_policies" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "list_alert_policies"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'list_alert_policies' not in self._inner_api_calls:
+            self._inner_api_calls['list_alert_policies'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.list_alert_policies,
-                default_retry=self._method_configs["ListAlertPolicies"].retry,
-                default_timeout=self._method_configs["ListAlertPolicies"].timeout,
+                default_retry=self._method_configs['ListAlertPolicies'].retry,
+                default_timeout=self._method_configs['ListAlertPolicies'].timeout,
                 client_info=self._client_info,
             )
 
         request = alert_service_pb2.ListAlertPoliciesRequest(
-            name=name, filter=filter_, order_by=order_by, page_size=page_size,
+            name=name,
+            filter=filter_,
+            order_by=order_by,
+            page_size=page_size,
         )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("name", name)]
+            routing_header = [('name', name)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
         iterator = google.api_core.page_iterator.GRPCIterator(
             client=None,
-            method=functools.partial(
-                self._inner_api_calls["list_alert_policies"],
-                retry=retry,
-                timeout=timeout,
-                metadata=metadata,
-            ),
+            method=functools.partial(self._inner_api_calls['list_alert_policies'], retry=retry, timeout=timeout, metadata=metadata),
             request=request,
-            items_field="alert_policies",
-            request_token_field="page_token",
-            response_token_field="next_page_token",
+            items_field='alert_policies',
+            request_token_field='page_token',
+            response_token_field='next_page_token',
         )
         return iterator
 
     def get_alert_policy(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            name,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Gets a single alerting policy.
 
@@ -400,42 +383,37 @@ class AlertPolicyServiceClient(object):
             metadata = []
         metadata = list(metadata)
         # Wrap the transport method to add retry and timeout logic.
-        if "get_alert_policy" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "get_alert_policy"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'get_alert_policy' not in self._inner_api_calls:
+            self._inner_api_calls['get_alert_policy'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.get_alert_policy,
-                default_retry=self._method_configs["GetAlertPolicy"].retry,
-                default_timeout=self._method_configs["GetAlertPolicy"].timeout,
+                default_retry=self._method_configs['GetAlertPolicy'].retry,
+                default_timeout=self._method_configs['GetAlertPolicy'].timeout,
                 client_info=self._client_info,
             )
 
-        request = alert_service_pb2.GetAlertPolicyRequest(name=name,)
+        request = alert_service_pb2.GetAlertPolicyRequest(
+            name=name,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("name", name)]
+            routing_header = [('name', name)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
-        return self._inner_api_calls["get_alert_policy"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
+        return self._inner_api_calls['get_alert_policy'](request, retry=retry, timeout=timeout, metadata=metadata)
 
     def create_alert_policy(
-        self,
-        name,
-        alert_policy,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            name,
+            alert_policy,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Creates a new alerting policy.
 
@@ -492,43 +470,37 @@ class AlertPolicyServiceClient(object):
             metadata = []
         metadata = list(metadata)
         # Wrap the transport method to add retry and timeout logic.
-        if "create_alert_policy" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "create_alert_policy"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'create_alert_policy' not in self._inner_api_calls:
+            self._inner_api_calls['create_alert_policy'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.create_alert_policy,
-                default_retry=self._method_configs["CreateAlertPolicy"].retry,
-                default_timeout=self._method_configs["CreateAlertPolicy"].timeout,
+                default_retry=self._method_configs['CreateAlertPolicy'].retry,
+                default_timeout=self._method_configs['CreateAlertPolicy'].timeout,
                 client_info=self._client_info,
             )
 
         request = alert_service_pb2.CreateAlertPolicyRequest(
-            name=name, alert_policy=alert_policy,
+            name=name,
+            alert_policy=alert_policy,
         )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("name", name)]
+            routing_header = [('name', name)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
-        return self._inner_api_calls["create_alert_policy"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
+        return self._inner_api_calls['create_alert_policy'](request, retry=retry, timeout=timeout, metadata=metadata)
 
     def delete_alert_policy(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            name,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Deletes an alerting policy.
 
@@ -567,42 +539,37 @@ class AlertPolicyServiceClient(object):
             metadata = []
         metadata = list(metadata)
         # Wrap the transport method to add retry and timeout logic.
-        if "delete_alert_policy" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "delete_alert_policy"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'delete_alert_policy' not in self._inner_api_calls:
+            self._inner_api_calls['delete_alert_policy'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.delete_alert_policy,
-                default_retry=self._method_configs["DeleteAlertPolicy"].retry,
-                default_timeout=self._method_configs["DeleteAlertPolicy"].timeout,
+                default_retry=self._method_configs['DeleteAlertPolicy'].retry,
+                default_timeout=self._method_configs['DeleteAlertPolicy'].timeout,
                 client_info=self._client_info,
             )
 
-        request = alert_service_pb2.DeleteAlertPolicyRequest(name=name,)
+        request = alert_service_pb2.DeleteAlertPolicyRequest(
+            name=name,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("name", name)]
+            routing_header = [('name', name)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
-        self._inner_api_calls["delete_alert_policy"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
+        self._inner_api_calls['delete_alert_policy'](request, retry=retry, timeout=timeout, metadata=metadata)
 
     def update_alert_policy(
-        self,
-        alert_policy,
-        update_mask=None,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            alert_policy,
+            update_mask=None,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Updates an alerting policy. You can either replace the entire policy
         with a new one or replace only certain fields in the current alerting
@@ -675,32 +642,27 @@ class AlertPolicyServiceClient(object):
             metadata = []
         metadata = list(metadata)
         # Wrap the transport method to add retry and timeout logic.
-        if "update_alert_policy" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "update_alert_policy"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'update_alert_policy' not in self._inner_api_calls:
+            self._inner_api_calls['update_alert_policy'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.update_alert_policy,
-                default_retry=self._method_configs["UpdateAlertPolicy"].retry,
-                default_timeout=self._method_configs["UpdateAlertPolicy"].timeout,
+                default_retry=self._method_configs['UpdateAlertPolicy'].retry,
+                default_timeout=self._method_configs['UpdateAlertPolicy'].timeout,
                 client_info=self._client_info,
             )
 
         request = alert_service_pb2.UpdateAlertPolicyRequest(
-            alert_policy=alert_policy, update_mask=update_mask,
+            alert_policy=alert_policy,
+            update_mask=update_mask,
         )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("alert_policy.name", alert_policy.name)]
+            routing_header = [('alert_policy.name', alert_policy.name)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
-        return self._inner_api_calls["update_alert_policy"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
+        return self._inner_api_calls['update_alert_policy'](request, retry=retry, timeout=timeout, metadata=metadata)

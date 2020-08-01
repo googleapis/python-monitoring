@@ -25,49 +25,38 @@ from google.cloud.monitoring_v3.gapic import enums
 from google.cloud.monitoring_v3.gapic import group_service_client
 from google.cloud.monitoring_v3.gapic import metric_service_client
 from google.cloud.monitoring_v3.gapic import (
-    notification_channel_service_client as notification_client,
-)
+    notification_channel_service_client as notification_client)
 from google.cloud.monitoring_v3.gapic import service_monitoring_service_client
 from google.cloud.monitoring_v3.gapic import uptime_check_service_client
 
 
 if sys.version_info[:2] == (2, 7):
     message = (
-        "A future version of this library will drop support for Python 2.7."
-        "More details about Python 2 support for Google Cloud Client Libraries"
-        "can be found at https://cloud.google.com/python/docs/python2-sunset/"
+        'A future version of this library will drop support for Python 2.7.'
+        'More details about Python 2 support for Google Cloud Client Libraries'
+        'can be found at https://cloud.google.com/python/docs/python2-sunset/'
     )
     warnings.warn(message, DeprecationWarning)
-
 
 class AlertPolicyServiceClient(alert_policy_service_client.AlertPolicyServiceClient):
     __doc__ = alert_policy_service_client.AlertPolicyServiceClient.__doc__
     enums = enums
 
-
 class GroupServiceClient(group_service_client.GroupServiceClient):
     __doc__ = group_service_client.GroupServiceClient.__doc__
     enums = enums
-
 
 class MetricServiceClient(metric_service_client.MetricServiceClient):
     __doc__ = metric_service_client.MetricServiceClient.__doc__
     enums = enums
 
-
-class NotificationChannelServiceClient(
-    notification_client.NotificationChannelServiceClient
-):
+class NotificationChannelServiceClient(notification_client.NotificationChannelServiceClient):
     __doc__ = notification_client.NotificationChannelServiceClient.__doc__
     enums = enums
 
-
-class ServiceMonitoringServiceClient(
-    service_monitoring_service_client.ServiceMonitoringServiceClient
-):
+class ServiceMonitoringServiceClient(service_monitoring_service_client.ServiceMonitoringServiceClient):
     __doc__ = service_monitoring_service_client.ServiceMonitoringServiceClient.__doc__
     enums = enums
-
 
 class UptimeCheckServiceClient(uptime_check_service_client.UptimeCheckServiceClient):
     __doc__ = uptime_check_service_client.UptimeCheckServiceClient.__doc__
@@ -75,12 +64,12 @@ class UptimeCheckServiceClient(uptime_check_service_client.UptimeCheckServiceCli
 
 
 __all__ = (
-    "enums",
-    "types",
-    "AlertPolicyServiceClient",
-    "GroupServiceClient",
-    "MetricServiceClient",
-    "NotificationChannelServiceClient",
-    "ServiceMonitoringServiceClient",
-    "UptimeCheckServiceClient",
+    'enums',
+    'types',
+    'AlertPolicyServiceClient',
+    'GroupServiceClient',
+    'MetricServiceClient',
+    'NotificationChannelServiceClient',
+    'ServiceMonitoringServiceClient',
+    'UptimeCheckServiceClient',
 )

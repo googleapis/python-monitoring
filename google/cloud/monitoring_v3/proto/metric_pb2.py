@@ -6,7 +6,6 @@ from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
-
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
@@ -15,859 +14,511 @@ _sym_db = _symbol_database.Default()
 from google.api import distribution_pb2 as google_dot_api_dot_distribution__pb2
 from google.api import label_pb2 as google_dot_api_dot_label__pb2
 from google.api import metric_pb2 as google_dot_api_dot_metric__pb2
-from google.api import (
-    monitored_resource_pb2 as google_dot_api_dot_monitored__resource__pb2,
-)
-from google.cloud.monitoring_v3.proto import (
-    common_pb2 as google_dot_cloud_dot_monitoring__v3_dot_proto_dot_common__pb2,
-)
+from google.api import monitored_resource_pb2 as google_dot_api_dot_monitored__resource__pb2
+from google.cloud.monitoring_v3.proto import common_pb2 as google_dot_cloud_dot_monitoring__v3_dot_proto_dot_common__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
-    name="google/cloud/monitoring_v3/proto/metric.proto",
-    package="google.monitoring.v3",
-    syntax="proto3",
-    serialized_options=b"\n\030com.google.monitoring.v3B\013MetricProtoP\001Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\252\002\032Google.Cloud.Monitoring.V3\312\002\032Google\\Cloud\\Monitoring\\V3\352\002\035Google::Cloud::Monitoring::V3",
-    serialized_pb=b'\n-google/cloud/monitoring_v3/proto/metric.proto\x12\x14google.monitoring.v3\x1a\x1dgoogle/api/distribution.proto\x1a\x16google/api/label.proto\x1a\x17google/api/metric.proto\x1a#google/api/monitored_resource.proto\x1a-google/cloud/monitoring_v3/proto/common.proto\x1a\x1egoogle/protobuf/duration.proto"n\n\x05Point\x12\x34\n\x08interval\x18\x01 \x01(\x0b\x32".google.monitoring.v3.TimeInterval\x12/\n\x05value\x18\x02 \x01(\x0b\x32 .google.monitoring.v3.TypedValue"\xc1\x02\n\nTimeSeries\x12"\n\x06metric\x18\x01 \x01(\x0b\x32\x12.google.api.Metric\x12/\n\x08resource\x18\x02 \x01(\x0b\x32\x1d.google.api.MonitoredResource\x12\x37\n\x08metadata\x18\x07 \x01(\x0b\x32%.google.api.MonitoredResourceMetadata\x12<\n\x0bmetric_kind\x18\x03 \x01(\x0e\x32\'.google.api.MetricDescriptor.MetricKind\x12:\n\nvalue_type\x18\x04 \x01(\x0e\x32&.google.api.MetricDescriptor.ValueType\x12+\n\x06points\x18\x05 \x03(\x0b\x32\x1b.google.monitoring.v3.Point"\xc0\x02\n\x14TimeSeriesDescriptor\x12\x36\n\x11label_descriptors\x18\x01 \x03(\x0b\x32\x1b.google.api.LabelDescriptor\x12U\n\x11point_descriptors\x18\x05 \x03(\x0b\x32:.google.monitoring.v3.TimeSeriesDescriptor.ValueDescriptor\x1a\x98\x01\n\x0fValueDescriptor\x12\x0b\n\x03key\x18\x01 \x01(\t\x12:\n\nvalue_type\x18\x02 \x01(\x0e\x32&.google.api.MetricDescriptor.ValueType\x12<\n\x0bmetric_kind\x18\x03 \x01(\x0e\x32\'.google.api.MetricDescriptor.MetricKind"\x86\x02\n\x0eTimeSeriesData\x12\x36\n\x0clabel_values\x18\x01 \x03(\x0b\x32 .google.monitoring.v3.LabelValue\x12\x42\n\npoint_data\x18\x02 \x03(\x0b\x32..google.monitoring.v3.TimeSeriesData.PointData\x1ax\n\tPointData\x12\x30\n\x06values\x18\x01 \x03(\x0b\x32 .google.monitoring.v3.TypedValue\x12\x39\n\rtime_interval\x18\x02 \x01(\x0b\x32".google.monitoring.v3.TimeInterval"Z\n\nLabelValue\x12\x14\n\nbool_value\x18\x01 \x01(\x08H\x00\x12\x15\n\x0bint64_value\x18\x02 \x01(\x03H\x00\x12\x16\n\x0cstring_value\x18\x03 \x01(\tH\x00\x42\x07\n\x05value"Q\n\nQueryError\x12\x32\n\x07locator\x18\x01 \x01(\x0b\x32!.google.monitoring.v3.TextLocator\x12\x0f\n\x07message\x18\x02 \x01(\t"\xa0\x02\n\x0bTextLocator\x12\x0e\n\x06source\x18\x01 \x01(\t\x12\x42\n\x0estart_position\x18\x02 \x01(\x0b\x32*.google.monitoring.v3.TextLocator.Position\x12@\n\x0c\x65nd_position\x18\x03 \x01(\x0b\x32*.google.monitoring.v3.TextLocator.Position\x12\x39\n\x0enested_locator\x18\x04 \x01(\x0b\x32!.google.monitoring.v3.TextLocator\x12\x16\n\x0enesting_reason\x18\x05 \x01(\t\x1a(\n\x08Position\x12\x0c\n\x04line\x18\x01 \x01(\x05\x12\x0e\n\x06\x63olumn\x18\x02 \x01(\x05\x42\xc3\x01\n\x18\x63om.google.monitoring.v3B\x0bMetricProtoP\x01Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\xaa\x02\x1aGoogle.Cloud.Monitoring.V3\xca\x02\x1aGoogle\\Cloud\\Monitoring\\V3\xea\x02\x1dGoogle::Cloud::Monitoring::V3b\x06proto3',
-    dependencies=[
-        google_dot_api_dot_distribution__pb2.DESCRIPTOR,
-        google_dot_api_dot_label__pb2.DESCRIPTOR,
-        google_dot_api_dot_metric__pb2.DESCRIPTOR,
-        google_dot_api_dot_monitored__resource__pb2.DESCRIPTOR,
-        google_dot_cloud_dot_monitoring__v3_dot_proto_dot_common__pb2.DESCRIPTOR,
-        google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,
-    ],
-)
+  name='google/cloud/monitoring_v3/proto/metric.proto',
+  package='google.monitoring.v3',
+  syntax='proto3',
+  serialized_options=b'\n\030com.google.monitoring.v3B\013MetricProtoP\001Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\252\002\032Google.Cloud.Monitoring.V3\312\002\032Google\\Cloud\\Monitoring\\V3\352\002\035Google::Cloud::Monitoring::V3',
+  serialized_pb=b'\n-google/cloud/monitoring_v3/proto/metric.proto\x12\x14google.monitoring.v3\x1a\x1dgoogle/api/distribution.proto\x1a\x16google/api/label.proto\x1a\x17google/api/metric.proto\x1a#google/api/monitored_resource.proto\x1a-google/cloud/monitoring_v3/proto/common.proto\x1a\x1egoogle/protobuf/duration.proto\"n\n\x05Point\x12\x34\n\x08interval\x18\x01 \x01(\x0b\x32\".google.monitoring.v3.TimeInterval\x12/\n\x05value\x18\x02 \x01(\x0b\x32 .google.monitoring.v3.TypedValue\"\xc1\x02\n\nTimeSeries\x12\"\n\x06metric\x18\x01 \x01(\x0b\x32\x12.google.api.Metric\x12/\n\x08resource\x18\x02 \x01(\x0b\x32\x1d.google.api.MonitoredResource\x12\x37\n\x08metadata\x18\x07 \x01(\x0b\x32%.google.api.MonitoredResourceMetadata\x12<\n\x0bmetric_kind\x18\x03 \x01(\x0e\x32\'.google.api.MetricDescriptor.MetricKind\x12:\n\nvalue_type\x18\x04 \x01(\x0e\x32&.google.api.MetricDescriptor.ValueType\x12+\n\x06points\x18\x05 \x03(\x0b\x32\x1b.google.monitoring.v3.Point\"\xc0\x02\n\x14TimeSeriesDescriptor\x12\x36\n\x11label_descriptors\x18\x01 \x03(\x0b\x32\x1b.google.api.LabelDescriptor\x12U\n\x11point_descriptors\x18\x05 \x03(\x0b\x32:.google.monitoring.v3.TimeSeriesDescriptor.ValueDescriptor\x1a\x98\x01\n\x0fValueDescriptor\x12\x0b\n\x03key\x18\x01 \x01(\t\x12:\n\nvalue_type\x18\x02 \x01(\x0e\x32&.google.api.MetricDescriptor.ValueType\x12<\n\x0bmetric_kind\x18\x03 \x01(\x0e\x32\'.google.api.MetricDescriptor.MetricKind\"\x86\x02\n\x0eTimeSeriesData\x12\x36\n\x0clabel_values\x18\x01 \x03(\x0b\x32 .google.monitoring.v3.LabelValue\x12\x42\n\npoint_data\x18\x02 \x03(\x0b\x32..google.monitoring.v3.TimeSeriesData.PointData\x1ax\n\tPointData\x12\x30\n\x06values\x18\x01 \x03(\x0b\x32 .google.monitoring.v3.TypedValue\x12\x39\n\rtime_interval\x18\x02 \x01(\x0b\x32\".google.monitoring.v3.TimeInterval\"Z\n\nLabelValue\x12\x14\n\nbool_value\x18\x01 \x01(\x08H\x00\x12\x15\n\x0bint64_value\x18\x02 \x01(\x03H\x00\x12\x16\n\x0cstring_value\x18\x03 \x01(\tH\x00\x42\x07\n\x05value\"Q\n\nQueryError\x12\x32\n\x07locator\x18\x01 \x01(\x0b\x32!.google.monitoring.v3.TextLocator\x12\x0f\n\x07message\x18\x02 \x01(\t\"\xa0\x02\n\x0bTextLocator\x12\x0e\n\x06source\x18\x01 \x01(\t\x12\x42\n\x0estart_position\x18\x02 \x01(\x0b\x32*.google.monitoring.v3.TextLocator.Position\x12@\n\x0c\x65nd_position\x18\x03 \x01(\x0b\x32*.google.monitoring.v3.TextLocator.Position\x12\x39\n\x0enested_locator\x18\x04 \x01(\x0b\x32!.google.monitoring.v3.TextLocator\x12\x16\n\x0enesting_reason\x18\x05 \x01(\t\x1a(\n\x08Position\x12\x0c\n\x04line\x18\x01 \x01(\x05\x12\x0e\n\x06\x63olumn\x18\x02 \x01(\x05\x42\xc3\x01\n\x18\x63om.google.monitoring.v3B\x0bMetricProtoP\x01Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\xaa\x02\x1aGoogle.Cloud.Monitoring.V3\xca\x02\x1aGoogle\\Cloud\\Monitoring\\V3\xea\x02\x1dGoogle::Cloud::Monitoring::V3b\x06proto3'
+  ,
+  dependencies=[google_dot_api_dot_distribution__pb2.DESCRIPTOR,google_dot_api_dot_label__pb2.DESCRIPTOR,google_dot_api_dot_metric__pb2.DESCRIPTOR,google_dot_api_dot_monitored__resource__pb2.DESCRIPTOR,google_dot_cloud_dot_monitoring__v3_dot_proto_dot_common__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,])
+
+
 
 
 _POINT = _descriptor.Descriptor(
-    name="Point",
-    full_name="google.monitoring.v3.Point",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="interval",
-            full_name="google.monitoring.v3.Point.interval",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-        _descriptor.FieldDescriptor(
-            name="value",
-            full_name="google.monitoring.v3.Point.value",
-            index=1,
-            number=2,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=267,
-    serialized_end=377,
+  name='Point',
+  full_name='google.monitoring.v3.Point',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='interval', full_name='google.monitoring.v3.Point.interval', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='google.monitoring.v3.Point.value', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=267,
+  serialized_end=377,
 )
 
 
 _TIMESERIES = _descriptor.Descriptor(
-    name="TimeSeries",
-    full_name="google.monitoring.v3.TimeSeries",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="metric",
-            full_name="google.monitoring.v3.TimeSeries.metric",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-        _descriptor.FieldDescriptor(
-            name="resource",
-            full_name="google.monitoring.v3.TimeSeries.resource",
-            index=1,
-            number=2,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-        _descriptor.FieldDescriptor(
-            name="metadata",
-            full_name="google.monitoring.v3.TimeSeries.metadata",
-            index=2,
-            number=7,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-        _descriptor.FieldDescriptor(
-            name="metric_kind",
-            full_name="google.monitoring.v3.TimeSeries.metric_kind",
-            index=3,
-            number=3,
-            type=14,
-            cpp_type=8,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-        _descriptor.FieldDescriptor(
-            name="value_type",
-            full_name="google.monitoring.v3.TimeSeries.value_type",
-            index=4,
-            number=4,
-            type=14,
-            cpp_type=8,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-        _descriptor.FieldDescriptor(
-            name="points",
-            full_name="google.monitoring.v3.TimeSeries.points",
-            index=5,
-            number=5,
-            type=11,
-            cpp_type=10,
-            label=3,
-            has_default_value=False,
-            default_value=[],
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=380,
-    serialized_end=701,
+  name='TimeSeries',
+  full_name='google.monitoring.v3.TimeSeries',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='metric', full_name='google.monitoring.v3.TimeSeries.metric', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='resource', full_name='google.monitoring.v3.TimeSeries.resource', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='metadata', full_name='google.monitoring.v3.TimeSeries.metadata', index=2,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='metric_kind', full_name='google.monitoring.v3.TimeSeries.metric_kind', index=3,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='value_type', full_name='google.monitoring.v3.TimeSeries.value_type', index=4,
+      number=4, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='points', full_name='google.monitoring.v3.TimeSeries.points', index=5,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=380,
+  serialized_end=701,
 )
 
 
 _TIMESERIESDESCRIPTOR_VALUEDESCRIPTOR = _descriptor.Descriptor(
-    name="ValueDescriptor",
-    full_name="google.monitoring.v3.TimeSeriesDescriptor.ValueDescriptor",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="key",
-            full_name="google.monitoring.v3.TimeSeriesDescriptor.ValueDescriptor.key",
-            index=0,
-            number=1,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-        _descriptor.FieldDescriptor(
-            name="value_type",
-            full_name="google.monitoring.v3.TimeSeriesDescriptor.ValueDescriptor.value_type",
-            index=1,
-            number=2,
-            type=14,
-            cpp_type=8,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-        _descriptor.FieldDescriptor(
-            name="metric_kind",
-            full_name="google.monitoring.v3.TimeSeriesDescriptor.ValueDescriptor.metric_kind",
-            index=2,
-            number=3,
-            type=14,
-            cpp_type=8,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=872,
-    serialized_end=1024,
+  name='ValueDescriptor',
+  full_name='google.monitoring.v3.TimeSeriesDescriptor.ValueDescriptor',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='google.monitoring.v3.TimeSeriesDescriptor.ValueDescriptor.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='value_type', full_name='google.monitoring.v3.TimeSeriesDescriptor.ValueDescriptor.value_type', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='metric_kind', full_name='google.monitoring.v3.TimeSeriesDescriptor.ValueDescriptor.metric_kind', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=872,
+  serialized_end=1024,
 )
 
 _TIMESERIESDESCRIPTOR = _descriptor.Descriptor(
-    name="TimeSeriesDescriptor",
-    full_name="google.monitoring.v3.TimeSeriesDescriptor",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="label_descriptors",
-            full_name="google.monitoring.v3.TimeSeriesDescriptor.label_descriptors",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=3,
-            has_default_value=False,
-            default_value=[],
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-        _descriptor.FieldDescriptor(
-            name="point_descriptors",
-            full_name="google.monitoring.v3.TimeSeriesDescriptor.point_descriptors",
-            index=1,
-            number=5,
-            type=11,
-            cpp_type=10,
-            label=3,
-            has_default_value=False,
-            default_value=[],
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-    ],
-    extensions=[],
-    nested_types=[_TIMESERIESDESCRIPTOR_VALUEDESCRIPTOR,],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=704,
-    serialized_end=1024,
+  name='TimeSeriesDescriptor',
+  full_name='google.monitoring.v3.TimeSeriesDescriptor',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='label_descriptors', full_name='google.monitoring.v3.TimeSeriesDescriptor.label_descriptors', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='point_descriptors', full_name='google.monitoring.v3.TimeSeriesDescriptor.point_descriptors', index=1,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_TIMESERIESDESCRIPTOR_VALUEDESCRIPTOR, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=704,
+  serialized_end=1024,
 )
 
 
 _TIMESERIESDATA_POINTDATA = _descriptor.Descriptor(
-    name="PointData",
-    full_name="google.monitoring.v3.TimeSeriesData.PointData",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="values",
-            full_name="google.monitoring.v3.TimeSeriesData.PointData.values",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=3,
-            has_default_value=False,
-            default_value=[],
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-        _descriptor.FieldDescriptor(
-            name="time_interval",
-            full_name="google.monitoring.v3.TimeSeriesData.PointData.time_interval",
-            index=1,
-            number=2,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1169,
-    serialized_end=1289,
+  name='PointData',
+  full_name='google.monitoring.v3.TimeSeriesData.PointData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='google.monitoring.v3.TimeSeriesData.PointData.values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='time_interval', full_name='google.monitoring.v3.TimeSeriesData.PointData.time_interval', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1169,
+  serialized_end=1289,
 )
 
 _TIMESERIESDATA = _descriptor.Descriptor(
-    name="TimeSeriesData",
-    full_name="google.monitoring.v3.TimeSeriesData",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="label_values",
-            full_name="google.monitoring.v3.TimeSeriesData.label_values",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=3,
-            has_default_value=False,
-            default_value=[],
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-        _descriptor.FieldDescriptor(
-            name="point_data",
-            full_name="google.monitoring.v3.TimeSeriesData.point_data",
-            index=1,
-            number=2,
-            type=11,
-            cpp_type=10,
-            label=3,
-            has_default_value=False,
-            default_value=[],
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-    ],
-    extensions=[],
-    nested_types=[_TIMESERIESDATA_POINTDATA,],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1027,
-    serialized_end=1289,
+  name='TimeSeriesData',
+  full_name='google.monitoring.v3.TimeSeriesData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='label_values', full_name='google.monitoring.v3.TimeSeriesData.label_values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='point_data', full_name='google.monitoring.v3.TimeSeriesData.point_data', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_TIMESERIESDATA_POINTDATA, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1027,
+  serialized_end=1289,
 )
 
 
 _LABELVALUE = _descriptor.Descriptor(
-    name="LabelValue",
-    full_name="google.monitoring.v3.LabelValue",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="bool_value",
-            full_name="google.monitoring.v3.LabelValue.bool_value",
-            index=0,
-            number=1,
-            type=8,
-            cpp_type=7,
-            label=1,
-            has_default_value=False,
-            default_value=False,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-        _descriptor.FieldDescriptor(
-            name="int64_value",
-            full_name="google.monitoring.v3.LabelValue.int64_value",
-            index=1,
-            number=2,
-            type=3,
-            cpp_type=2,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-        _descriptor.FieldDescriptor(
-            name="string_value",
-            full_name="google.monitoring.v3.LabelValue.string_value",
-            index=2,
-            number=3,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[
-        _descriptor.OneofDescriptor(
-            name="value",
-            full_name="google.monitoring.v3.LabelValue.value",
-            index=0,
-            containing_type=None,
-            fields=[],
-        ),
-    ],
-    serialized_start=1291,
-    serialized_end=1381,
+  name='LabelValue',
+  full_name='google.monitoring.v3.LabelValue',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='bool_value', full_name='google.monitoring.v3.LabelValue.bool_value', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='int64_value', full_name='google.monitoring.v3.LabelValue.int64_value', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='string_value', full_name='google.monitoring.v3.LabelValue.string_value', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='value', full_name='google.monitoring.v3.LabelValue.value',
+      index=0, containing_type=None, fields=[]),
+  ],
+  serialized_start=1291,
+  serialized_end=1381,
 )
 
 
 _QUERYERROR = _descriptor.Descriptor(
-    name="QueryError",
-    full_name="google.monitoring.v3.QueryError",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="locator",
-            full_name="google.monitoring.v3.QueryError.locator",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-        _descriptor.FieldDescriptor(
-            name="message",
-            full_name="google.monitoring.v3.QueryError.message",
-            index=1,
-            number=2,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1383,
-    serialized_end=1464,
+  name='QueryError',
+  full_name='google.monitoring.v3.QueryError',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='locator', full_name='google.monitoring.v3.QueryError.locator', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='message', full_name='google.monitoring.v3.QueryError.message', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1383,
+  serialized_end=1464,
 )
 
 
 _TEXTLOCATOR_POSITION = _descriptor.Descriptor(
-    name="Position",
-    full_name="google.monitoring.v3.TextLocator.Position",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="line",
-            full_name="google.monitoring.v3.TextLocator.Position.line",
-            index=0,
-            number=1,
-            type=5,
-            cpp_type=1,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-        _descriptor.FieldDescriptor(
-            name="column",
-            full_name="google.monitoring.v3.TextLocator.Position.column",
-            index=1,
-            number=2,
-            type=5,
-            cpp_type=1,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1715,
-    serialized_end=1755,
+  name='Position',
+  full_name='google.monitoring.v3.TextLocator.Position',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='line', full_name='google.monitoring.v3.TextLocator.Position.line', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='column', full_name='google.monitoring.v3.TextLocator.Position.column', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1715,
+  serialized_end=1755,
 )
 
 _TEXTLOCATOR = _descriptor.Descriptor(
-    name="TextLocator",
-    full_name="google.monitoring.v3.TextLocator",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="source",
-            full_name="google.monitoring.v3.TextLocator.source",
-            index=0,
-            number=1,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-        _descriptor.FieldDescriptor(
-            name="start_position",
-            full_name="google.monitoring.v3.TextLocator.start_position",
-            index=1,
-            number=2,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-        _descriptor.FieldDescriptor(
-            name="end_position",
-            full_name="google.monitoring.v3.TextLocator.end_position",
-            index=2,
-            number=3,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-        _descriptor.FieldDescriptor(
-            name="nested_locator",
-            full_name="google.monitoring.v3.TextLocator.nested_locator",
-            index=3,
-            number=4,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-        _descriptor.FieldDescriptor(
-            name="nesting_reason",
-            full_name="google.monitoring.v3.TextLocator.nesting_reason",
-            index=4,
-            number=5,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-        ),
-    ],
-    extensions=[],
-    nested_types=[_TEXTLOCATOR_POSITION,],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1467,
-    serialized_end=1755,
+  name='TextLocator',
+  full_name='google.monitoring.v3.TextLocator',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='source', full_name='google.monitoring.v3.TextLocator.source', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='start_position', full_name='google.monitoring.v3.TextLocator.start_position', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='end_position', full_name='google.monitoring.v3.TextLocator.end_position', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='nested_locator', full_name='google.monitoring.v3.TextLocator.nested_locator', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='nesting_reason', full_name='google.monitoring.v3.TextLocator.nesting_reason', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_TEXTLOCATOR_POSITION, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1467,
+  serialized_end=1755,
 )
 
-_POINT.fields_by_name[
-    "interval"
-].message_type = (
-    google_dot_cloud_dot_monitoring__v3_dot_proto_dot_common__pb2._TIMEINTERVAL
-)
-_POINT.fields_by_name[
-    "value"
-].message_type = (
-    google_dot_cloud_dot_monitoring__v3_dot_proto_dot_common__pb2._TYPEDVALUE
-)
-_TIMESERIES.fields_by_name[
-    "metric"
-].message_type = google_dot_api_dot_metric__pb2._METRIC
-_TIMESERIES.fields_by_name[
-    "resource"
-].message_type = google_dot_api_dot_monitored__resource__pb2._MONITOREDRESOURCE
-_TIMESERIES.fields_by_name[
-    "metadata"
-].message_type = google_dot_api_dot_monitored__resource__pb2._MONITOREDRESOURCEMETADATA
-_TIMESERIES.fields_by_name[
-    "metric_kind"
-].enum_type = google_dot_api_dot_metric__pb2._METRICDESCRIPTOR_METRICKIND
-_TIMESERIES.fields_by_name[
-    "value_type"
-].enum_type = google_dot_api_dot_metric__pb2._METRICDESCRIPTOR_VALUETYPE
-_TIMESERIES.fields_by_name["points"].message_type = _POINT
-_TIMESERIESDESCRIPTOR_VALUEDESCRIPTOR.fields_by_name[
-    "value_type"
-].enum_type = google_dot_api_dot_metric__pb2._METRICDESCRIPTOR_VALUETYPE
-_TIMESERIESDESCRIPTOR_VALUEDESCRIPTOR.fields_by_name[
-    "metric_kind"
-].enum_type = google_dot_api_dot_metric__pb2._METRICDESCRIPTOR_METRICKIND
+_POINT.fields_by_name['interval'].message_type = google_dot_cloud_dot_monitoring__v3_dot_proto_dot_common__pb2._TIMEINTERVAL
+_POINT.fields_by_name['value'].message_type = google_dot_cloud_dot_monitoring__v3_dot_proto_dot_common__pb2._TYPEDVALUE
+_TIMESERIES.fields_by_name['metric'].message_type = google_dot_api_dot_metric__pb2._METRIC
+_TIMESERIES.fields_by_name['resource'].message_type = google_dot_api_dot_monitored__resource__pb2._MONITOREDRESOURCE
+_TIMESERIES.fields_by_name['metadata'].message_type = google_dot_api_dot_monitored__resource__pb2._MONITOREDRESOURCEMETADATA
+_TIMESERIES.fields_by_name['metric_kind'].enum_type = google_dot_api_dot_metric__pb2._METRICDESCRIPTOR_METRICKIND
+_TIMESERIES.fields_by_name['value_type'].enum_type = google_dot_api_dot_metric__pb2._METRICDESCRIPTOR_VALUETYPE
+_TIMESERIES.fields_by_name['points'].message_type = _POINT
+_TIMESERIESDESCRIPTOR_VALUEDESCRIPTOR.fields_by_name['value_type'].enum_type = google_dot_api_dot_metric__pb2._METRICDESCRIPTOR_VALUETYPE
+_TIMESERIESDESCRIPTOR_VALUEDESCRIPTOR.fields_by_name['metric_kind'].enum_type = google_dot_api_dot_metric__pb2._METRICDESCRIPTOR_METRICKIND
 _TIMESERIESDESCRIPTOR_VALUEDESCRIPTOR.containing_type = _TIMESERIESDESCRIPTOR
-_TIMESERIESDESCRIPTOR.fields_by_name[
-    "label_descriptors"
-].message_type = google_dot_api_dot_label__pb2._LABELDESCRIPTOR
-_TIMESERIESDESCRIPTOR.fields_by_name[
-    "point_descriptors"
-].message_type = _TIMESERIESDESCRIPTOR_VALUEDESCRIPTOR
-_TIMESERIESDATA_POINTDATA.fields_by_name[
-    "values"
-].message_type = (
-    google_dot_cloud_dot_monitoring__v3_dot_proto_dot_common__pb2._TYPEDVALUE
-)
-_TIMESERIESDATA_POINTDATA.fields_by_name[
-    "time_interval"
-].message_type = (
-    google_dot_cloud_dot_monitoring__v3_dot_proto_dot_common__pb2._TIMEINTERVAL
-)
+_TIMESERIESDESCRIPTOR.fields_by_name['label_descriptors'].message_type = google_dot_api_dot_label__pb2._LABELDESCRIPTOR
+_TIMESERIESDESCRIPTOR.fields_by_name['point_descriptors'].message_type = _TIMESERIESDESCRIPTOR_VALUEDESCRIPTOR
+_TIMESERIESDATA_POINTDATA.fields_by_name['values'].message_type = google_dot_cloud_dot_monitoring__v3_dot_proto_dot_common__pb2._TYPEDVALUE
+_TIMESERIESDATA_POINTDATA.fields_by_name['time_interval'].message_type = google_dot_cloud_dot_monitoring__v3_dot_proto_dot_common__pb2._TIMEINTERVAL
 _TIMESERIESDATA_POINTDATA.containing_type = _TIMESERIESDATA
-_TIMESERIESDATA.fields_by_name["label_values"].message_type = _LABELVALUE
-_TIMESERIESDATA.fields_by_name["point_data"].message_type = _TIMESERIESDATA_POINTDATA
-_LABELVALUE.oneofs_by_name["value"].fields.append(
-    _LABELVALUE.fields_by_name["bool_value"]
-)
-_LABELVALUE.fields_by_name["bool_value"].containing_oneof = _LABELVALUE.oneofs_by_name[
-    "value"
-]
-_LABELVALUE.oneofs_by_name["value"].fields.append(
-    _LABELVALUE.fields_by_name["int64_value"]
-)
-_LABELVALUE.fields_by_name["int64_value"].containing_oneof = _LABELVALUE.oneofs_by_name[
-    "value"
-]
-_LABELVALUE.oneofs_by_name["value"].fields.append(
-    _LABELVALUE.fields_by_name["string_value"]
-)
-_LABELVALUE.fields_by_name[
-    "string_value"
-].containing_oneof = _LABELVALUE.oneofs_by_name["value"]
-_QUERYERROR.fields_by_name["locator"].message_type = _TEXTLOCATOR
+_TIMESERIESDATA.fields_by_name['label_values'].message_type = _LABELVALUE
+_TIMESERIESDATA.fields_by_name['point_data'].message_type = _TIMESERIESDATA_POINTDATA
+_LABELVALUE.oneofs_by_name['value'].fields.append(
+  _LABELVALUE.fields_by_name['bool_value'])
+_LABELVALUE.fields_by_name['bool_value'].containing_oneof = _LABELVALUE.oneofs_by_name['value']
+_LABELVALUE.oneofs_by_name['value'].fields.append(
+  _LABELVALUE.fields_by_name['int64_value'])
+_LABELVALUE.fields_by_name['int64_value'].containing_oneof = _LABELVALUE.oneofs_by_name['value']
+_LABELVALUE.oneofs_by_name['value'].fields.append(
+  _LABELVALUE.fields_by_name['string_value'])
+_LABELVALUE.fields_by_name['string_value'].containing_oneof = _LABELVALUE.oneofs_by_name['value']
+_QUERYERROR.fields_by_name['locator'].message_type = _TEXTLOCATOR
 _TEXTLOCATOR_POSITION.containing_type = _TEXTLOCATOR
-_TEXTLOCATOR.fields_by_name["start_position"].message_type = _TEXTLOCATOR_POSITION
-_TEXTLOCATOR.fields_by_name["end_position"].message_type = _TEXTLOCATOR_POSITION
-_TEXTLOCATOR.fields_by_name["nested_locator"].message_type = _TEXTLOCATOR
-DESCRIPTOR.message_types_by_name["Point"] = _POINT
-DESCRIPTOR.message_types_by_name["TimeSeries"] = _TIMESERIES
-DESCRIPTOR.message_types_by_name["TimeSeriesDescriptor"] = _TIMESERIESDESCRIPTOR
-DESCRIPTOR.message_types_by_name["TimeSeriesData"] = _TIMESERIESDATA
-DESCRIPTOR.message_types_by_name["LabelValue"] = _LABELVALUE
-DESCRIPTOR.message_types_by_name["QueryError"] = _QUERYERROR
-DESCRIPTOR.message_types_by_name["TextLocator"] = _TEXTLOCATOR
+_TEXTLOCATOR.fields_by_name['start_position'].message_type = _TEXTLOCATOR_POSITION
+_TEXTLOCATOR.fields_by_name['end_position'].message_type = _TEXTLOCATOR_POSITION
+_TEXTLOCATOR.fields_by_name['nested_locator'].message_type = _TEXTLOCATOR
+DESCRIPTOR.message_types_by_name['Point'] = _POINT
+DESCRIPTOR.message_types_by_name['TimeSeries'] = _TIMESERIES
+DESCRIPTOR.message_types_by_name['TimeSeriesDescriptor'] = _TIMESERIESDESCRIPTOR
+DESCRIPTOR.message_types_by_name['TimeSeriesData'] = _TIMESERIESDATA
+DESCRIPTOR.message_types_by_name['LabelValue'] = _LABELVALUE
+DESCRIPTOR.message_types_by_name['QueryError'] = _QUERYERROR
+DESCRIPTOR.message_types_by_name['TextLocator'] = _TEXTLOCATOR
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-Point = _reflection.GeneratedProtocolMessageType(
-    "Point",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _POINT,
-        "__module__": "google.cloud.monitoring_v3.proto.metric_pb2",
-        "__doc__": """A single data point in a time series.
+Point = _reflection.GeneratedProtocolMessageType('Point', (_message.Message,), {
+  'DESCRIPTOR' : _POINT,
+  '__module__' : 'google.cloud.monitoring_v3.proto.metric_pb2'
+  ,
+  '__doc__': """A single data point in a time series.
   
   
   Attributes:
@@ -886,18 +537,15 @@ Point = _reflection.GeneratedProtocolMessageType(
       value:
           The value of the data point.
   """,
-        # @@protoc_insertion_point(class_scope:google.monitoring.v3.Point)
-    },
-)
+  # @@protoc_insertion_point(class_scope:google.monitoring.v3.Point)
+  })
 _sym_db.RegisterMessage(Point)
 
-TimeSeries = _reflection.GeneratedProtocolMessageType(
-    "TimeSeries",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _TIMESERIES,
-        "__module__": "google.cloud.monitoring_v3.proto.metric_pb2",
-        "__doc__": """A collection of data points that describes the
+TimeSeries = _reflection.GeneratedProtocolMessageType('TimeSeries', (_message.Message,), {
+  'DESCRIPTOR' : _TIMESERIES,
+  '__module__' : 'google.cloud.monitoring_v3.proto.metric_pb2'
+  ,
+  '__doc__': """A collection of data points that describes the
   time-varying values of a metric. A time series is identified by a
   combination of a fully-specified monitored resource and a
   fully-specified metric. This type is used for both listing and creating
@@ -943,22 +591,17 @@ TimeSeries = _reflection.GeneratedProtocolMessageType(
           determined by the point’s type, which must be ``BOOL``,
           ``INT64``, ``DOUBLE``, or ``DISTRIBUTION``.
   """,
-        # @@protoc_insertion_point(class_scope:google.monitoring.v3.TimeSeries)
-    },
-)
+  # @@protoc_insertion_point(class_scope:google.monitoring.v3.TimeSeries)
+  })
 _sym_db.RegisterMessage(TimeSeries)
 
-TimeSeriesDescriptor = _reflection.GeneratedProtocolMessageType(
-    "TimeSeriesDescriptor",
-    (_message.Message,),
-    {
-        "ValueDescriptor": _reflection.GeneratedProtocolMessageType(
-            "ValueDescriptor",
-            (_message.Message,),
-            {
-                "DESCRIPTOR": _TIMESERIESDESCRIPTOR_VALUEDESCRIPTOR,
-                "__module__": "google.cloud.monitoring_v3.proto.metric_pb2",
-                "__doc__": """A descriptor for the value columns in a data point.
+TimeSeriesDescriptor = _reflection.GeneratedProtocolMessageType('TimeSeriesDescriptor', (_message.Message,), {
+
+  'ValueDescriptor' : _reflection.GeneratedProtocolMessageType('ValueDescriptor', (_message.Message,), {
+    'DESCRIPTOR' : _TIMESERIESDESCRIPTOR_VALUEDESCRIPTOR,
+    '__module__' : 'google.cloud.monitoring_v3.proto.metric_pb2'
+    ,
+    '__doc__': """A descriptor for the value columns in a data point.
     
     
     Attributes:
@@ -969,12 +612,13 @@ TimeSeriesDescriptor = _reflection.GeneratedProtocolMessageType(
         metric_kind:
             The value stream kind.
     """,
-                # @@protoc_insertion_point(class_scope:google.monitoring.v3.TimeSeriesDescriptor.ValueDescriptor)
-            },
-        ),
-        "DESCRIPTOR": _TIMESERIESDESCRIPTOR,
-        "__module__": "google.cloud.monitoring_v3.proto.metric_pb2",
-        "__doc__": """A descriptor for the labels and points in a timeseries.
+    # @@protoc_insertion_point(class_scope:google.monitoring.v3.TimeSeriesDescriptor.ValueDescriptor)
+    })
+  ,
+  'DESCRIPTOR' : _TIMESERIESDESCRIPTOR,
+  '__module__' : 'google.cloud.monitoring_v3.proto.metric_pb2'
+  ,
+  '__doc__': """A descriptor for the labels and points in a timeseries.
   
   
   Attributes:
@@ -983,23 +627,18 @@ TimeSeriesDescriptor = _reflection.GeneratedProtocolMessageType(
       point_descriptors:
           Descriptors for the point data value columns.
   """,
-        # @@protoc_insertion_point(class_scope:google.monitoring.v3.TimeSeriesDescriptor)
-    },
-)
+  # @@protoc_insertion_point(class_scope:google.monitoring.v3.TimeSeriesDescriptor)
+  })
 _sym_db.RegisterMessage(TimeSeriesDescriptor)
 _sym_db.RegisterMessage(TimeSeriesDescriptor.ValueDescriptor)
 
-TimeSeriesData = _reflection.GeneratedProtocolMessageType(
-    "TimeSeriesData",
-    (_message.Message,),
-    {
-        "PointData": _reflection.GeneratedProtocolMessageType(
-            "PointData",
-            (_message.Message,),
-            {
-                "DESCRIPTOR": _TIMESERIESDATA_POINTDATA,
-                "__module__": "google.cloud.monitoring_v3.proto.metric_pb2",
-                "__doc__": """A point’s value columns and time interval. Each point has
+TimeSeriesData = _reflection.GeneratedProtocolMessageType('TimeSeriesData', (_message.Message,), {
+
+  'PointData' : _reflection.GeneratedProtocolMessageType('PointData', (_message.Message,), {
+    'DESCRIPTOR' : _TIMESERIESDATA_POINTDATA,
+    '__module__' : 'google.cloud.monitoring_v3.proto.metric_pb2'
+    ,
+    '__doc__': """A point’s value columns and time interval. Each point has
     one or more point values corresponding to the entries in
     ``point_descriptors`` field in the TimeSeriesDescriptor associated with
     this object.
@@ -1011,12 +650,13 @@ TimeSeriesData = _reflection.GeneratedProtocolMessageType(
         time_interval:
             The time interval associated with the point.
     """,
-                # @@protoc_insertion_point(class_scope:google.monitoring.v3.TimeSeriesData.PointData)
-            },
-        ),
-        "DESCRIPTOR": _TIMESERIESDATA,
-        "__module__": "google.cloud.monitoring_v3.proto.metric_pb2",
-        "__doc__": """Represents the values of a time series associated with a
+    # @@protoc_insertion_point(class_scope:google.monitoring.v3.TimeSeriesData.PointData)
+    })
+  ,
+  'DESCRIPTOR' : _TIMESERIESDATA,
+  '__module__' : 'google.cloud.monitoring_v3.proto.metric_pb2'
+  ,
+  '__doc__': """Represents the values of a time series associated with a
   TimeSeriesDescriptor.
   
   
@@ -1030,19 +670,16 @@ TimeSeriesData = _reflection.GeneratedProtocolMessageType(
       point_data:
           The points in the time series.
   """,
-        # @@protoc_insertion_point(class_scope:google.monitoring.v3.TimeSeriesData)
-    },
-)
+  # @@protoc_insertion_point(class_scope:google.monitoring.v3.TimeSeriesData)
+  })
 _sym_db.RegisterMessage(TimeSeriesData)
 _sym_db.RegisterMessage(TimeSeriesData.PointData)
 
-LabelValue = _reflection.GeneratedProtocolMessageType(
-    "LabelValue",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _LABELVALUE,
-        "__module__": "google.cloud.monitoring_v3.proto.metric_pb2",
-        "__doc__": """A label value.
+LabelValue = _reflection.GeneratedProtocolMessageType('LabelValue', (_message.Message,), {
+  'DESCRIPTOR' : _LABELVALUE,
+  '__module__' : 'google.cloud.monitoring_v3.proto.metric_pb2'
+  ,
+  '__doc__': """A label value.
   
   
   Attributes:
@@ -1055,18 +692,15 @@ LabelValue = _reflection.GeneratedProtocolMessageType(
       string_value:
           A string label value.
   """,
-        # @@protoc_insertion_point(class_scope:google.monitoring.v3.LabelValue)
-    },
-)
+  # @@protoc_insertion_point(class_scope:google.monitoring.v3.LabelValue)
+  })
 _sym_db.RegisterMessage(LabelValue)
 
-QueryError = _reflection.GeneratedProtocolMessageType(
-    "QueryError",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _QUERYERROR,
-        "__module__": "google.cloud.monitoring_v3.proto.metric_pb2",
-        "__doc__": """An error associated with a query in the time series query
+QueryError = _reflection.GeneratedProtocolMessageType('QueryError', (_message.Message,), {
+  'DESCRIPTOR' : _QUERYERROR,
+  '__module__' : 'google.cloud.monitoring_v3.proto.metric_pb2'
+  ,
+  '__doc__': """An error associated with a query in the time series query
   language format.
   
   
@@ -1077,22 +711,17 @@ QueryError = _reflection.GeneratedProtocolMessageType(
       message:
           The error message.
   """,
-        # @@protoc_insertion_point(class_scope:google.monitoring.v3.QueryError)
-    },
-)
+  # @@protoc_insertion_point(class_scope:google.monitoring.v3.QueryError)
+  })
 _sym_db.RegisterMessage(QueryError)
 
-TextLocator = _reflection.GeneratedProtocolMessageType(
-    "TextLocator",
-    (_message.Message,),
-    {
-        "Position": _reflection.GeneratedProtocolMessageType(
-            "Position",
-            (_message.Message,),
-            {
-                "DESCRIPTOR": _TEXTLOCATOR_POSITION,
-                "__module__": "google.cloud.monitoring_v3.proto.metric_pb2",
-                "__doc__": """The position of a byte within the text.
+TextLocator = _reflection.GeneratedProtocolMessageType('TextLocator', (_message.Message,), {
+
+  'Position' : _reflection.GeneratedProtocolMessageType('Position', (_message.Message,), {
+    'DESCRIPTOR' : _TEXTLOCATOR_POSITION,
+    '__module__' : 'google.cloud.monitoring_v3.proto.metric_pb2'
+    ,
+    '__doc__': """The position of a byte within the text.
     
     
     Attributes:
@@ -1103,12 +732,13 @@ TextLocator = _reflection.GeneratedProtocolMessageType(
             positioned. This is a byte index even though the text is
             UTF-8.
     """,
-                # @@protoc_insertion_point(class_scope:google.monitoring.v3.TextLocator.Position)
-            },
-        ),
-        "DESCRIPTOR": _TEXTLOCATOR,
-        "__module__": "google.cloud.monitoring_v3.proto.metric_pb2",
-        "__doc__": """A locator for text. Indicates a particular part of the
+    # @@protoc_insertion_point(class_scope:google.monitoring.v3.TextLocator.Position)
+    })
+  ,
+  'DESCRIPTOR' : _TEXTLOCATOR,
+  '__module__' : 'google.cloud.monitoring_v3.proto.metric_pb2'
+  ,
+  '__doc__': """A locator for text. Indicates a particular part of the
   text of a request or of an object referenced in the request.
   
   For example, suppose the request field ``text`` contains:
@@ -1152,9 +782,8 @@ TextLocator = _reflection.GeneratedProtocolMessageType(
           of the macro argument inside the macro body that got
           substituted away.
   """,
-        # @@protoc_insertion_point(class_scope:google.monitoring.v3.TextLocator)
-    },
-)
+  # @@protoc_insertion_point(class_scope:google.monitoring.v3.TextLocator)
+  })
 _sym_db.RegisterMessage(TextLocator)
 _sym_db.RegisterMessage(TextLocator.Position)
 

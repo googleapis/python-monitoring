@@ -28,19 +28,17 @@ class ServiceMonitoringServiceGrpcTransport(object):
     which can be used to take advantage of advanced
     features of gRPC.
     """
-
     # The scopes needed to make gRPC calls to all of the methods defined
     # in this service.
     _OAUTH_SCOPES = (
-        "https://www.googleapis.com/auth/cloud-platform",
-        "https://www.googleapis.com/auth/monitoring",
-        "https://www.googleapis.com/auth/monitoring.read",
-        "https://www.googleapis.com/auth/monitoring.write",
+        'https://www.googleapis.com/auth/cloud-platform',
+        'https://www.googleapis.com/auth/monitoring',
+        'https://www.googleapis.com/auth/monitoring.read',
+        'https://www.googleapis.com/auth/monitoring.write',
     )
 
-    def __init__(
-        self, channel=None, credentials=None, address="monitoring.googleapis.com:443"
-    ):
+    def __init__(self, channel=None, credentials=None,
+                 address='monitoring.googleapis.com:443'):
         """Instantiate the transport class.
 
         Args:
@@ -58,7 +56,8 @@ class ServiceMonitoringServiceGrpcTransport(object):
         # exception (channels come with credentials baked in already).
         if channel is not None and credentials is not None:
             raise ValueError(
-                "The `channel` and `credentials` arguments are mutually " "exclusive.",
+                'The `channel` and `credentials` arguments are mutually '
+                'exclusive.',
             )
 
         # Create the channel.
@@ -67,8 +66,8 @@ class ServiceMonitoringServiceGrpcTransport(object):
                 address=address,
                 credentials=credentials,
                 options={
-                    "grpc.max_send_message_length": -1,
-                    "grpc.max_receive_message_length": -1,
+                    'grpc.max_send_message_length': -1,
+                    'grpc.max_receive_message_length': -1,
                 }.items(),
             )
 
@@ -77,15 +76,16 @@ class ServiceMonitoringServiceGrpcTransport(object):
         # gRPC uses objects called "stubs" that are bound to the
         # channel and provide a basic method for each RPC.
         self._stubs = {
-            "service_monitoring_service_stub": service_service_pb2_grpc.ServiceMonitoringServiceStub(
-                channel
-            ),
+            'service_monitoring_service_stub': service_service_pb2_grpc.ServiceMonitoringServiceStub(channel),
         }
+
 
     @classmethod
     def create_channel(
-        cls, address="monitoring.googleapis.com:443", credentials=None, **kwargs
-    ):
+                cls,
+                address='monitoring.googleapis.com:443',
+                credentials=None,
+                **kwargs):
         """Create and return a gRPC channel object.
 
         Args:
@@ -102,7 +102,10 @@ class ServiceMonitoringServiceGrpcTransport(object):
             grpc.Channel: A gRPC channel object.
         """
         return google.api_core.grpc_helpers.create_channel(
-            address, credentials=credentials, scopes=cls._OAUTH_SCOPES, **kwargs
+            address,
+            credentials=credentials,
+            scopes=cls._OAUTH_SCOPES,
+            **kwargs
         )
 
     @property
@@ -125,7 +128,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs["service_monitoring_service_stub"].CreateService
+        return self._stubs['service_monitoring_service_stub'].CreateService
 
     @property
     def get_service(self):
@@ -138,7 +141,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs["service_monitoring_service_stub"].GetService
+        return self._stubs['service_monitoring_service_stub'].GetService
 
     @property
     def list_services(self):
@@ -151,7 +154,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs["service_monitoring_service_stub"].ListServices
+        return self._stubs['service_monitoring_service_stub'].ListServices
 
     @property
     def update_service(self):
@@ -164,7 +167,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs["service_monitoring_service_stub"].UpdateService
+        return self._stubs['service_monitoring_service_stub'].UpdateService
 
     @property
     def delete_service(self):
@@ -177,7 +180,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs["service_monitoring_service_stub"].DeleteService
+        return self._stubs['service_monitoring_service_stub'].DeleteService
 
     @property
     def create_service_level_objective(self):
@@ -190,9 +193,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs[
-            "service_monitoring_service_stub"
-        ].CreateServiceLevelObjective
+        return self._stubs['service_monitoring_service_stub'].CreateServiceLevelObjective
 
     @property
     def get_service_level_objective(self):
@@ -205,7 +206,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs["service_monitoring_service_stub"].GetServiceLevelObjective
+        return self._stubs['service_monitoring_service_stub'].GetServiceLevelObjective
 
     @property
     def list_service_level_objectives(self):
@@ -218,7 +219,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs["service_monitoring_service_stub"].ListServiceLevelObjectives
+        return self._stubs['service_monitoring_service_stub'].ListServiceLevelObjectives
 
     @property
     def update_service_level_objective(self):
@@ -231,9 +232,7 @@ class ServiceMonitoringServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs[
-            "service_monitoring_service_stub"
-        ].UpdateServiceLevelObjective
+        return self._stubs['service_monitoring_service_stub'].UpdateServiceLevelObjective
 
     @property
     def delete_service_level_objective(self):
@@ -246,6 +245,4 @@ class ServiceMonitoringServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs[
-            "service_monitoring_service_stub"
-        ].DeleteServiceLevelObjective
+        return self._stubs['service_monitoring_service_stub'].DeleteServiceLevelObjective

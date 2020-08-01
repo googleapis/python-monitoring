@@ -25,9 +25,9 @@ from google.cloud.monitoring_v3.proto import alert_service_pb2
 from google.protobuf import empty_pb2
 
 
+
 class MultiCallableStub(object):
     """Stub for the grpc.UnaryUnaryMultiCallable interface."""
-
     def __init__(self, method, channel_stub):
         self.method = method
         self.channel_stub = channel_stub
@@ -48,12 +48,12 @@ class MultiCallableStub(object):
 
 class ChannelStub(object):
     """Stub for the grpc.Channel interface."""
-
-    def __init__(self, responses=[]):
+    def __init__(self, responses = []):
         self.responses = responses
         self.requests = []
 
-    def unary_unary(self, method, request_serializer=None, response_deserializer=None):
+    def unary_unary(
+            self, method, request_serializer=None, response_deserializer=None):
         return MultiCallableStub(method, self)
 
 
@@ -62,28 +62,24 @@ class CustomException(Exception):
 
 
 class TestAlertPolicyServiceClient(object):
+
     def test_list_alert_policies(self):
         # Setup Expected Response
-        next_page_token = ""
+        next_page_token = ''
         alert_policies_element = {}
         alert_policies = [alert_policies_element]
-        expected_response = {
-            "next_page_token": next_page_token,
-            "alert_policies": alert_policies,
-        }
-        expected_response = alert_service_pb2.ListAlertPoliciesResponse(
-            **expected_response
-        )
+        expected_response = {'next_page_token': next_page_token, 'alert_policies': alert_policies}
+        expected_response = alert_service_pb2.ListAlertPoliciesResponse(**expected_response)
 
         # Mock the API response
-        channel = ChannelStub(responses=[expected_response])
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        channel = ChannelStub(responses = [expected_response])
+        patch = mock.patch('google.api_core.grpc_helpers.create_channel')
         with patch as create_channel:
             create_channel.return_value = channel
             client = monitoring_v3.AlertPolicyServiceClient()
 
         # Setup Request
-        name = client.project_path("[PROJECT]")
+        name = client.project_path('[PROJECT]')
 
         paged_list_response = client.list_alert_policies(name)
         resources = list(paged_list_response)
@@ -97,14 +93,14 @@ class TestAlertPolicyServiceClient(object):
         assert expected_request == actual_request
 
     def test_list_alert_policies_exception(self):
-        channel = ChannelStub(responses=[CustomException()])
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        channel = ChannelStub(responses = [CustomException()])
+        patch = mock.patch('google.api_core.grpc_helpers.create_channel')
         with patch as create_channel:
             create_channel.return_value = channel
             client = monitoring_v3.AlertPolicyServiceClient()
 
         # Setup request
-        name = client.project_path("[PROJECT]")
+        name = client.project_path('[PROJECT]')
 
         paged_list_response = client.list_alert_policies(name)
         with pytest.raises(CustomException):
@@ -112,20 +108,20 @@ class TestAlertPolicyServiceClient(object):
 
     def test_get_alert_policy(self):
         # Setup Expected Response
-        name_2 = "name2-1052831874"
-        display_name = "displayName1615086568"
-        expected_response = {"name": name_2, "display_name": display_name}
+        name_2 = 'name2-1052831874'
+        display_name = 'displayName1615086568'
+        expected_response = {'name': name_2, 'display_name': display_name}
         expected_response = alert_pb2.AlertPolicy(**expected_response)
 
         # Mock the API response
-        channel = ChannelStub(responses=[expected_response])
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        channel = ChannelStub(responses = [expected_response])
+        patch = mock.patch('google.api_core.grpc_helpers.create_channel')
         with patch as create_channel:
             create_channel.return_value = channel
             client = monitoring_v3.AlertPolicyServiceClient()
 
         # Setup Request
-        name = client.alert_policy_path("[PROJECT]", "[ALERT_POLICY]")
+        name = client.alert_policy_path('[PROJECT]', '[ALERT_POLICY]')
 
         response = client.get_alert_policy(name)
         assert expected_response == response
@@ -137,56 +133,54 @@ class TestAlertPolicyServiceClient(object):
 
     def test_get_alert_policy_exception(self):
         # Mock the API response
-        channel = ChannelStub(responses=[CustomException()])
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        channel = ChannelStub(responses = [CustomException()])
+        patch = mock.patch('google.api_core.grpc_helpers.create_channel')
         with patch as create_channel:
             create_channel.return_value = channel
             client = monitoring_v3.AlertPolicyServiceClient()
 
         # Setup request
-        name = client.alert_policy_path("[PROJECT]", "[ALERT_POLICY]")
+        name = client.alert_policy_path('[PROJECT]', '[ALERT_POLICY]')
 
         with pytest.raises(CustomException):
             client.get_alert_policy(name)
 
     def test_create_alert_policy(self):
         # Setup Expected Response
-        name_2 = "name2-1052831874"
-        display_name = "displayName1615086568"
-        expected_response = {"name": name_2, "display_name": display_name}
+        name_2 = 'name2-1052831874'
+        display_name = 'displayName1615086568'
+        expected_response = {'name': name_2, 'display_name': display_name}
         expected_response = alert_pb2.AlertPolicy(**expected_response)
 
         # Mock the API response
-        channel = ChannelStub(responses=[expected_response])
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        channel = ChannelStub(responses = [expected_response])
+        patch = mock.patch('google.api_core.grpc_helpers.create_channel')
         with patch as create_channel:
             create_channel.return_value = channel
             client = monitoring_v3.AlertPolicyServiceClient()
 
         # Setup Request
-        name = client.project_path("[PROJECT]")
+        name = client.project_path('[PROJECT]')
         alert_policy = {}
 
         response = client.create_alert_policy(name, alert_policy)
         assert expected_response == response
 
         assert len(channel.requests) == 1
-        expected_request = alert_service_pb2.CreateAlertPolicyRequest(
-            name=name, alert_policy=alert_policy
-        )
+        expected_request = alert_service_pb2.CreateAlertPolicyRequest(name=name, alert_policy=alert_policy)
         actual_request = channel.requests[0][1]
         assert expected_request == actual_request
 
     def test_create_alert_policy_exception(self):
         # Mock the API response
-        channel = ChannelStub(responses=[CustomException()])
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        channel = ChannelStub(responses = [CustomException()])
+        patch = mock.patch('google.api_core.grpc_helpers.create_channel')
         with patch as create_channel:
             create_channel.return_value = channel
             client = monitoring_v3.AlertPolicyServiceClient()
 
         # Setup request
-        name = client.project_path("[PROJECT]")
+        name = client.project_path('[PROJECT]')
         alert_policy = {}
 
         with pytest.raises(CustomException):
@@ -194,13 +188,13 @@ class TestAlertPolicyServiceClient(object):
 
     def test_delete_alert_policy(self):
         channel = ChannelStub()
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        patch = mock.patch('google.api_core.grpc_helpers.create_channel')
         with patch as create_channel:
             create_channel.return_value = channel
             client = monitoring_v3.AlertPolicyServiceClient()
 
         # Setup Request
-        name = client.alert_policy_path("[PROJECT]", "[ALERT_POLICY]")
+        name = client.alert_policy_path('[PROJECT]', '[ALERT_POLICY]')
 
         client.delete_alert_policy(name)
 
@@ -211,28 +205,28 @@ class TestAlertPolicyServiceClient(object):
 
     def test_delete_alert_policy_exception(self):
         # Mock the API response
-        channel = ChannelStub(responses=[CustomException()])
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        channel = ChannelStub(responses = [CustomException()])
+        patch = mock.patch('google.api_core.grpc_helpers.create_channel')
         with patch as create_channel:
             create_channel.return_value = channel
             client = monitoring_v3.AlertPolicyServiceClient()
 
         # Setup request
-        name = client.alert_policy_path("[PROJECT]", "[ALERT_POLICY]")
+        name = client.alert_policy_path('[PROJECT]', '[ALERT_POLICY]')
 
         with pytest.raises(CustomException):
             client.delete_alert_policy(name)
 
     def test_update_alert_policy(self):
         # Setup Expected Response
-        name = "name3373707"
-        display_name = "displayName1615086568"
-        expected_response = {"name": name, "display_name": display_name}
+        name = 'name3373707'
+        display_name = 'displayName1615086568'
+        expected_response = {'name': name, 'display_name': display_name}
         expected_response = alert_pb2.AlertPolicy(**expected_response)
 
         # Mock the API response
-        channel = ChannelStub(responses=[expected_response])
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        channel = ChannelStub(responses = [expected_response])
+        patch = mock.patch('google.api_core.grpc_helpers.create_channel')
         with patch as create_channel:
             create_channel.return_value = channel
             client = monitoring_v3.AlertPolicyServiceClient()
@@ -244,16 +238,14 @@ class TestAlertPolicyServiceClient(object):
         assert expected_response == response
 
         assert len(channel.requests) == 1
-        expected_request = alert_service_pb2.UpdateAlertPolicyRequest(
-            alert_policy=alert_policy
-        )
+        expected_request = alert_service_pb2.UpdateAlertPolicyRequest(alert_policy=alert_policy)
         actual_request = channel.requests[0][1]
         assert expected_request == actual_request
 
     def test_update_alert_policy_exception(self):
         # Mock the API response
-        channel = ChannelStub(responses=[CustomException()])
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        channel = ChannelStub(responses = [CustomException()])
+        patch = mock.patch('google.api_core.grpc_helpers.create_channel')
         with patch as create_channel:
             create_channel.return_value = channel
             client = monitoring_v3.AlertPolicyServiceClient()
