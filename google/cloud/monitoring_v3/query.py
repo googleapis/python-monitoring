@@ -604,7 +604,15 @@ def _build_label_filter(category, *args, **kwargs):
 
         suffix = None
         if key.endswith(
-            ("_prefix", "_suffix", "_greater", "_greaterequal", "_less", "_lessequal", "_notequal")
+            (
+                "_prefix",
+                "_suffix",
+                "_greater",
+                "_greaterequal",
+                "_less",
+                "_lessequal",
+                "_notequal",
+            )
         ):
             key, suffix = key.rsplit("_", 1)
 
