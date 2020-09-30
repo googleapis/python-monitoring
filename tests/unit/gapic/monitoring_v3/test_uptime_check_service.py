@@ -861,9 +861,7 @@ def test_get_uptime_check_config(
             display_name="display_name_value",
             selected_regions=[uptime.UptimeCheckRegion.USA],
             is_internal=True,
-            monitored_resource=monitored_resource.MonitoredResource(
-                type_="type__value"
-            ),
+            monitored_resource=monitored_resource.MonitoredResource(type="type_value"),
             http_check=uptime.UptimeCheckConfig.HttpCheck(
                 request_method=uptime.UptimeCheckConfig.HttpCheck.RequestMethod.GET
             ),
@@ -1090,9 +1088,7 @@ def test_create_uptime_check_config(
             display_name="display_name_value",
             selected_regions=[uptime.UptimeCheckRegion.USA],
             is_internal=True,
-            monitored_resource=monitored_resource.MonitoredResource(
-                type_="type__value"
-            ),
+            monitored_resource=monitored_resource.MonitoredResource(type="type_value"),
             http_check=uptime.UptimeCheckConfig.HttpCheck(
                 request_method=uptime.UptimeCheckConfig.HttpCheck.RequestMethod.GET
             ),
@@ -1337,9 +1333,7 @@ def test_update_uptime_check_config(
             display_name="display_name_value",
             selected_regions=[uptime.UptimeCheckRegion.USA],
             is_internal=True,
-            monitored_resource=monitored_resource.MonitoredResource(
-                type_="type__value"
-            ),
+            monitored_resource=monitored_resource.MonitoredResource(type="type_value"),
             http_check=uptime.UptimeCheckConfig.HttpCheck(
                 request_method=uptime.UptimeCheckConfig.HttpCheck.RequestMethod.GET
             ),

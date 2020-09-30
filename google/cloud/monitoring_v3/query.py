@@ -24,9 +24,9 @@ import datetime
 
 import six
 
+import google.cloud.monitoring_v3 as monitoring_v3
 from google.cloud.monitoring_v3 import _dataframe
 from google.cloud.monitoring_v3 import types
-from google.cloud.monitoring_v3.gapic import enums
 
 _UTCNOW = datetime.datetime.utcnow  # To be replaced by tests.
 
@@ -334,20 +334,20 @@ class Query(object):
 
         Example::
 
-            from google.cloud.monitoring import enums
+            import google.cloud.monitoring as monitoring
             query = query.align(
-                enums.Aggregation.Aligner.ALIGN_MEAN, minutes=5)
+                monitoring.Aggregation.Aligner.ALIGN_MEAN, minutes=5)
 
         It is also possible to specify the aligner as a literal string::
 
             query = query.align('ALIGN_MEAN', minutes=5)
 
         :type per_series_aligner: str or
-            :class:`~google.cloud.monitoring_v3.gapic.enums.Aggregation.Aligner`
+            :class:`~google.cloud.monitoring_v3.Aggregation.Aligner`
         :param per_series_aligner: The approach to be used to align
             individual time series. For example: :data:`Aligner.ALIGN_MEAN`.
             See
-            :class:`~google.cloud.monitoring_v3.gapic.enums.Aggregation.Aligner`
+            :class:`~google.cloud.monitoring_v3.Aggregation.Aligner`
             and the descriptions of the `supported aligners`_.
 
         :type seconds: int
@@ -380,16 +380,16 @@ class Query(object):
         For example, you could request an aggregated time series for each
         combination of project and zone as follows::
 
-            from google.cloud.monitoring import enums
-            query = query.reduce(enums.Aggregation.Reducer.REDUCE_MEAN,
+            import google.cloud.monitoring as monitoring
+            query = query.reduce(monitoring.Aggregation.Reducer.REDUCE_MEAN,
                                  'resource.project_id', 'resource.zone')
 
         :type cross_series_reducer: str or
-            :class:`~google.cloud.monitoring_v3.gapic.enums.Aggregation.Reducer`
+            :class:`~google.cloud.monitoring_v3.Aggregation.Reducer`
         :param cross_series_reducer:
             The approach to be used to combine time series. For example:
             :data:`Reducer.REDUCE_MEAN`. See
-            :class:`~google.cloud.monitoring_v3.gapic.enums.Aggregation.Reducer`
+            :class:`~google.cloud.monitoring_v3.Aggregation.Reducer`
             and the descriptions of the `supported reducers`_.
 
         :type group_by_fields: strs
@@ -481,9 +481,9 @@ class Query(object):
             )
 
         if headers_only:
-            params["view"] = enums.ListTimeSeriesRequest.TimeSeriesView.HEADERS
+            params["view"] = monitoring_v3.ListTimeSeriesRequest.TimeSeriesView.HEADERS
         else:
-            params["view"] = enums.ListTimeSeriesRequest.TimeSeriesView.FULL
+            params["view"] = monitoring_v3.ListTimeSeriesRequest.TimeSeriesView.FULL
 
         if page_size is not None:
             params["page_size"] = page_size

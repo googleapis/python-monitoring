@@ -41,12 +41,32 @@ v3_library = gapic.py_library(
 excludes = ["nox.py", "setup.py", "README.rst", "docs/index.rst"]
 s.move(v3_library, excludes=excludes)
 
+# Synth hack due to googleapis and python-api-common-protos out of sync.
+for pattern in [
+    "monitored_resource_types=\['monitored_resource_types_value'\],",
+    "assert response.monitored_resource_types == \['monitored_resource_types_value'\]",
+    "launch_stage=launch_stage.LaunchStage.UNIMPLEMENTED,",
+    "assert response.launch_stage == launch_stage.LaunchStage.UNIMPLEMENTED",
+]:
+    s.replace(
+        "tests/unit/gapic/monitoring_v3/test_*.py",
+        pattern,
+        ""
+    )
+
 s.replace(
     "google/cloud/**/*.py",
     "google.monitoring",
     "google.cloud.monitoring"
 )
 
+# Synth hack due to microgenerator uses "type_" while api-common-protos uses "type".
+for file in ["test_uptime_check_service.py", "test_metric_service.py"]:
+    s.replace(
+        f"tests/unit/gapic/monitoring_v3/{file}",
+        "type_",
+        "type"
+    )
 
 # ----------------------------------------------------------------------------
 # Add templated files

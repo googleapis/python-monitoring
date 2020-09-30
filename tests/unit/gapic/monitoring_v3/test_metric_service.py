@@ -856,10 +856,9 @@ def test_get_monitored_resource_descriptor(
         # Designate an appropriate return value for the call.
         call.return_value = monitored_resource.MonitoredResourceDescriptor(
             name="name_value",
-            type_="type__value",
+            type="type_value",
             display_name="display_name_value",
             description="description_value",
-            launch_stage=launch_stage.LaunchStage.UNIMPLEMENTED,
         )
 
         response = client.get_monitored_resource_descriptor(request)
@@ -875,13 +874,11 @@ def test_get_monitored_resource_descriptor(
 
     assert response.name == "name_value"
 
-    assert response.type_ == "type__value"
+    assert response.type == "type_value"
 
     assert response.display_name == "display_name_value"
 
     assert response.description == "description_value"
-
-    assert response.launch_stage == launch_stage.LaunchStage.UNIMPLEMENTED
 
 
 def test_get_monitored_resource_descriptor_from_dict():
@@ -906,10 +903,9 @@ async def test_get_monitored_resource_descriptor_async(transport: str = "grpc_as
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             monitored_resource.MonitoredResourceDescriptor(
                 name="name_value",
-                type_="type__value",
+                type="type_value",
                 display_name="display_name_value",
                 description="description_value",
-                launch_stage=launch_stage.LaunchStage.UNIMPLEMENTED,
             )
         )
 
@@ -926,13 +922,11 @@ async def test_get_monitored_resource_descriptor_async(transport: str = "grpc_as
 
     assert response.name == "name_value"
 
-    assert response.type_ == "type__value"
+    assert response.type == "type_value"
 
     assert response.display_name == "display_name_value"
 
     assert response.description == "description_value"
-
-    assert response.launch_stage == launch_stage.LaunchStage.UNIMPLEMENTED
 
 
 def test_get_monitored_resource_descriptor_field_headers():
@@ -1448,14 +1442,12 @@ def test_get_metric_descriptor(
         # Designate an appropriate return value for the call.
         call.return_value = ga_metric.MetricDescriptor(
             name="name_value",
-            type_="type__value",
+            type="type_value",
             metric_kind=ga_metric.MetricDescriptor.MetricKind.GAUGE,
             value_type=ga_metric.MetricDescriptor.ValueType.BOOL,
             unit="unit_value",
             description="description_value",
             display_name="display_name_value",
-            launch_stage=launch_stage.LaunchStage.UNIMPLEMENTED,
-            monitored_resource_types=["monitored_resource_types_value"],
         )
 
         response = client.get_metric_descriptor(request)
@@ -1471,7 +1463,7 @@ def test_get_metric_descriptor(
 
     assert response.name == "name_value"
 
-    assert response.type_ == "type__value"
+    assert response.type == "type_value"
 
     assert response.metric_kind == ga_metric.MetricDescriptor.MetricKind.GAUGE
 
@@ -1482,10 +1474,6 @@ def test_get_metric_descriptor(
     assert response.description == "description_value"
 
     assert response.display_name == "display_name_value"
-
-    assert response.launch_stage == launch_stage.LaunchStage.UNIMPLEMENTED
-
-    assert response.monitored_resource_types == ["monitored_resource_types_value"]
 
 
 def test_get_metric_descriptor_from_dict():
@@ -1510,14 +1498,12 @@ async def test_get_metric_descriptor_async(transport: str = "grpc_asyncio"):
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             ga_metric.MetricDescriptor(
                 name="name_value",
-                type_="type__value",
+                type="type_value",
                 metric_kind=ga_metric.MetricDescriptor.MetricKind.GAUGE,
                 value_type=ga_metric.MetricDescriptor.ValueType.BOOL,
                 unit="unit_value",
                 description="description_value",
                 display_name="display_name_value",
-                launch_stage=launch_stage.LaunchStage.UNIMPLEMENTED,
-                monitored_resource_types=["monitored_resource_types_value"],
             )
         )
 
@@ -1534,7 +1520,7 @@ async def test_get_metric_descriptor_async(transport: str = "grpc_asyncio"):
 
     assert response.name == "name_value"
 
-    assert response.type_ == "type__value"
+    assert response.type == "type_value"
 
     assert response.metric_kind == ga_metric.MetricDescriptor.MetricKind.GAUGE
 
@@ -1545,10 +1531,6 @@ async def test_get_metric_descriptor_async(transport: str = "grpc_asyncio"):
     assert response.description == "description_value"
 
     assert response.display_name == "display_name_value"
-
-    assert response.launch_stage == launch_stage.LaunchStage.UNIMPLEMENTED
-
-    assert response.monitored_resource_types == ["monitored_resource_types_value"]
 
 
 def test_get_metric_descriptor_field_headers():
@@ -1695,14 +1677,12 @@ def test_create_metric_descriptor(
         # Designate an appropriate return value for the call.
         call.return_value = ga_metric.MetricDescriptor(
             name="name_value",
-            type_="type__value",
+            type="type_value",
             metric_kind=ga_metric.MetricDescriptor.MetricKind.GAUGE,
             value_type=ga_metric.MetricDescriptor.ValueType.BOOL,
             unit="unit_value",
             description="description_value",
             display_name="display_name_value",
-            launch_stage=launch_stage.LaunchStage.UNIMPLEMENTED,
-            monitored_resource_types=["monitored_resource_types_value"],
         )
 
         response = client.create_metric_descriptor(request)
@@ -1718,7 +1698,7 @@ def test_create_metric_descriptor(
 
     assert response.name == "name_value"
 
-    assert response.type_ == "type__value"
+    assert response.type == "type_value"
 
     assert response.metric_kind == ga_metric.MetricDescriptor.MetricKind.GAUGE
 
@@ -1729,10 +1709,6 @@ def test_create_metric_descriptor(
     assert response.description == "description_value"
 
     assert response.display_name == "display_name_value"
-
-    assert response.launch_stage == launch_stage.LaunchStage.UNIMPLEMENTED
-
-    assert response.monitored_resource_types == ["monitored_resource_types_value"]
 
 
 def test_create_metric_descriptor_from_dict():
@@ -1757,14 +1733,12 @@ async def test_create_metric_descriptor_async(transport: str = "grpc_asyncio"):
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             ga_metric.MetricDescriptor(
                 name="name_value",
-                type_="type__value",
+                type="type_value",
                 metric_kind=ga_metric.MetricDescriptor.MetricKind.GAUGE,
                 value_type=ga_metric.MetricDescriptor.ValueType.BOOL,
                 unit="unit_value",
                 description="description_value",
                 display_name="display_name_value",
-                launch_stage=launch_stage.LaunchStage.UNIMPLEMENTED,
-                monitored_resource_types=["monitored_resource_types_value"],
             )
         )
 
@@ -1781,7 +1755,7 @@ async def test_create_metric_descriptor_async(transport: str = "grpc_asyncio"):
 
     assert response.name == "name_value"
 
-    assert response.type_ == "type__value"
+    assert response.type == "type_value"
 
     assert response.metric_kind == ga_metric.MetricDescriptor.MetricKind.GAUGE
 
@@ -1792,10 +1766,6 @@ async def test_create_metric_descriptor_async(transport: str = "grpc_asyncio"):
     assert response.description == "description_value"
 
     assert response.display_name == "display_name_value"
-
-    assert response.launch_stage == launch_stage.LaunchStage.UNIMPLEMENTED
-
-    assert response.monitored_resource_types == ["monitored_resource_types_value"]
 
 
 def test_create_metric_descriptor_field_headers():
@@ -2649,7 +2619,7 @@ def test_create_time_series_flattened():
         client.create_time_series(
             name="name_value",
             time_series=[
-                gm_metric.TimeSeries(metric=ga_metric.Metric(type_="type__value"))
+                gm_metric.TimeSeries(metric=ga_metric.Metric(type="type_value"))
             ],
         )
 
@@ -2661,7 +2631,7 @@ def test_create_time_series_flattened():
         assert args[0].name == "name_value"
 
         assert args[0].time_series == [
-            gm_metric.TimeSeries(metric=ga_metric.Metric(type_="type__value"))
+            gm_metric.TimeSeries(metric=ga_metric.Metric(type="type_value"))
         ]
 
 
@@ -2675,7 +2645,7 @@ def test_create_time_series_flattened_error():
             metric_service.CreateTimeSeriesRequest(),
             name="name_value",
             time_series=[
-                gm_metric.TimeSeries(metric=ga_metric.Metric(type_="type__value"))
+                gm_metric.TimeSeries(metric=ga_metric.Metric(type="type_value"))
             ],
         )
 
@@ -2697,7 +2667,7 @@ async def test_create_time_series_flattened_async():
         response = await client.create_time_series(
             name="name_value",
             time_series=[
-                gm_metric.TimeSeries(metric=ga_metric.Metric(type_="type__value"))
+                gm_metric.TimeSeries(metric=ga_metric.Metric(type="type_value"))
             ],
         )
 
@@ -2709,7 +2679,7 @@ async def test_create_time_series_flattened_async():
         assert args[0].name == "name_value"
 
         assert args[0].time_series == [
-            gm_metric.TimeSeries(metric=ga_metric.Metric(type_="type__value"))
+            gm_metric.TimeSeries(metric=ga_metric.Metric(type="type_value"))
         ]
 
 
@@ -2724,7 +2694,7 @@ async def test_create_time_series_flattened_error_async():
             metric_service.CreateTimeSeriesRequest(),
             name="name_value",
             time_series=[
-                gm_metric.TimeSeries(metric=ga_metric.Metric(type_="type__value"))
+                gm_metric.TimeSeries(metric=ga_metric.Metric(type="type_value"))
             ],
         )
 

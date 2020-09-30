@@ -914,7 +914,6 @@ def test_get_notification_channel_descriptor(
             display_name="display_name_value",
             description="description_value",
             supported_tiers=[common.ServiceTier.SERVICE_TIER_BASIC],
-            launch_stage=launch_stage.LaunchStage.UNIMPLEMENTED,
         )
 
         response = client.get_notification_channel_descriptor(request)
@@ -937,8 +936,6 @@ def test_get_notification_channel_descriptor(
     assert response.description == "description_value"
 
     assert response.supported_tiers == [common.ServiceTier.SERVICE_TIER_BASIC]
-
-    assert response.launch_stage == launch_stage.LaunchStage.UNIMPLEMENTED
 
 
 def test_get_notification_channel_descriptor_from_dict():
@@ -969,7 +966,6 @@ async def test_get_notification_channel_descriptor_async(
                 display_name="display_name_value",
                 description="description_value",
                 supported_tiers=[common.ServiceTier.SERVICE_TIER_BASIC],
-                launch_stage=launch_stage.LaunchStage.UNIMPLEMENTED,
             )
         )
 
@@ -993,8 +989,6 @@ async def test_get_notification_channel_descriptor_async(
     assert response.description == "description_value"
 
     assert response.supported_tiers == [common.ServiceTier.SERVICE_TIER_BASIC]
-
-    assert response.launch_stage == launch_stage.LaunchStage.UNIMPLEMENTED
 
 
 def test_get_notification_channel_descriptor_field_headers():
