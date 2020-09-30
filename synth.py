@@ -34,87 +34,31 @@ v3_library = gapic.py_library(
     version="v3",
     bazel_target="//google/monitoring/v3:monitoring-v3-py",
     include_protos=True,
+    proto_output_path="google/cloud/monitoring_v3/proto"
 )
 
 # don't copy nox.py, setup.py, README.rst, docs/index.rst
 excludes = ["nox.py", "setup.py", "README.rst", "docs/index.rst"]
 s.move(v3_library, excludes=excludes)
 
-# metadata in tests in none but should be empty list.
-# https://github.com/googleapis/gapic-generator/issues/2014
 s.replace(
-    "google/cloud/*/gapic/*_client.py",
-    'def .*\(([^\)]+)\n.*metadata=None\):\n\s+"""(.*\n)*?\s+"""\n',
-    "\g<0>"
-    "        if metadata is None:\n"
-    "            metadata = []\n"
-    "        metadata = list(metadata)\n",
-)
-
-# Issues exist where python files should defined the source encoding
-# https://github.com/googleapis/gapic-generator/issues/2097
-files = ["google/cloud/monitoring_v3/proto/common_pb2.py"]
-for f in files:
-    s.replace(f, r"(^.*$\n)*", r"# -*- coding: utf-8 -*-\n\g<0>")
-
-# GAPIC-Generator is mangling some docstrings
-# Missing blank line after bulleted list
-s.replace(
-    "google/cloud/monitoring_v3/gapic/alert_policy_service_client.py",
-    "then a new `\[CONDITION_ID\]` is created.\n",
-    "\g<0>\n",
-)
-
-s.replace(
-    "google/cloud/monitoring_v3/gapic/alert_policy_service_client.py",
-    "                ::\n\n",
-    "",
-)
-
-
-s.replace(
-    "google/cloud/**/service_pb2.py",
-    """is:  ::     projects/\[PROJECT_ID_OR_NUMBER\]/services/\[SERVICE_
-          ID\]/serviceLevelObjectives/\[SLO_NAME\]""",
-    """is:  ::     projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]"""
-)
-
-s.replace(
-    "google/cloud/**/metric_service_pb2.py",
-    """::     resource\.type =
-          starts_with\("gce_"\) AND resource\.label:id""",
-    """::     
-          
-              resource.type = starts_with("gce_") AND resource.label:id"""
-)
-
-s.replace(
-    "google/cloud/**/alert_pb2.py",
-    """::     projects/\[PROJECT_ID_
-          OR_NUMBER\]/notificationChannels/\[CHANNEL_ID\]""",
-    """projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]"""
-)
-
-# Deal with long lines due to long proto name
-s.replace(
-    ["google/cloud/monitoring_v3/__init__.py"],
-    "from google.cloud.monitoring_v3.gapic import "
-    "notification_channel_service_client\n",
-    "from google.cloud.monitoring_v3.gapic import (\n"
-    "    notification_channel_service_client as notification_client)\n",
-)
-s.replace(
-    ["google/cloud/monitoring_v3/__init__.py"],
-    "notification_channel_service_client.NotificationChannelServiceClient",
-    "notification_client.NotificationChannelServiceClient",
+    "google/cloud/**/*.py",
+    "google.monitoring",
+    "google.cloud.monitoring"
 )
 
 
 # ----------------------------------------------------------------------------
 # Add templated files
 # ----------------------------------------------------------------------------
-templated_files = common.py_library(cov_level=92, samples=True)
-s.move(templated_files)
+# ----------------------------------------------------------------------------
+# Add templated files
+# ----------------------------------------------------------------------------
+templated_files = common.py_library(
+    samples=True,  # set to True only if there are samples
+    microgenerator=True,
+)
+s.move(templated_files, excludes=[".coveragerc"])  # microgenerator has a good .coveragerc file
 
 # ----------------------------------------------------------------------------
 # Samples templates
