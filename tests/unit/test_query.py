@@ -295,30 +295,30 @@ class TestQuery(unittest.TestCase):
         VALUE1 = 60  # seconds
         VALUE2 = 60.001  # seconds
 
-        SERIES1 = {
+        # Currently cannot create from a list of dict for repeated fields due to
+        # https://github.com/googleapis/proto-plus-python/issues/135
+        POINT1 = monitoring_v3.Point({"interval": INTERVAL2, "value": {"double_value": VALUE1}})
+        POINT2 = monitoring_v3.Point({"interval": INTERVAL1, "value": {"double_value": VALUE1}})
+        POINT3 = monitoring_v3.Point({"interval": INTERVAL2, "value": {"double_value": VALUE2}})
+        POINT4 = monitoring_v3.Point({"interval": INTERVAL1, "value": {"double_value": VALUE2}})
+        SERIES1 = monitoring_v3.TimeSeries({
             "metric": {"type": METRIC_TYPE, "labels": METRIC_LABELS},
             "resource": {"type": RESOURCE_TYPE, "labels": RESOURCE_LABELS},
             "metric_kind": METRIC_KIND,
             "value_type": VALUE_TYPE,
-            "points": [
-                {"interval": INTERVAL2, "value": {"double_value": VALUE1}},
-                {"interval": INTERVAL1, "value": {"double_value": VALUE1}},
-            ],
-        }
-        SERIES2 = {
+            "points": [POINT1, POINT2]
+        })
+        SERIES2 = monitoring_v3.TimeSeries({
             "metric": {"type": METRIC_TYPE, "labels": METRIC_LABELS2},
             "resource": {"type": RESOURCE_TYPE, "labels": RESOURCE_LABELS2},
             "metric_kind": METRIC_KIND,
             "value_type": VALUE_TYPE,
-            "points": [
-                {"interval": INTERVAL2, "value": {"double_value": VALUE2}},
-                {"interval": INTERVAL1, "value": {"double_value": VALUE2}},
-            ],
-        }
+            "points": [POINT3, POINT4]
+        })
 
         RESPONSE = {"time_series": [SERIES1, SERIES2], "next_page_token": ""}
 
-        channel = ChannelStub()
+        channel = ChannelStub(responses=[RESPONSE])
         client = self._create_client(channel)
         query = self._make_one(client, PROJECT, METRIC_TYPE)
         query = query.select_interval(start_time=T0, end_time=T1)
