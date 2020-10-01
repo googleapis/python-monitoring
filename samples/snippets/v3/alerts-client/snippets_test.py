@@ -70,12 +70,11 @@ class PochanFixture:
                retry_on_exception=retry_on_exceptions)
         def setup():
             # Create a policy.
-            policy = monitoring_v3.AlertPolicy()
             json = open('test_alert_policy.json').read()
-            google.protobuf.json_format.Parse(json, policy)
+            policy = monitoring_v3.AlertPolicy.from_json(json)
             policy.display_name = 'snippets-test-' + random_name(10)
             self.alert_policy = self.alert_policy_client.create_alert_policy(
-                self.project_name, policy)
+                name=self.project_name, alert_policy=policy)
             # Create a notification channel.
             notification_channel = (
                 monitoring_v3.NotificationChannel())
