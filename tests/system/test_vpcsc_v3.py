@@ -24,7 +24,6 @@ import pytest
 
 from google.api_core import exceptions
 from google.cloud import monitoring_v3
-from google.cloud.monitoring_v3 import enums
 from test_utils.vpcsc_config import vpcsc_config
 
 
@@ -38,12 +37,12 @@ def aps_client():
 
 @pytest.fixture(scope="module")
 def name_inside(aps_client):
-    return aps_client.project_path(vpcsc_config.project_inside)
+    return f"projects/{vpcsc_config.project_inside}"
 
 
 @pytest.fixture(scope="module")
 def name_outside(aps_client):
-    return aps_client.project_path(vpcsc_config.project_outside)
+    return f"projects/{vpcsc_config.project_outside}"
 
 
 @pytest.fixture(scope="module")
@@ -303,7 +302,7 @@ class TestCRUDTimeSeries(object):
         with pytest.raises(exceptions.InvalidArgument):  # no perms issue
             list(
                 ms_client.list_time_series(
-                    name_inside, "", {}, enums.ListTimeSeriesRequest.TimeSeriesView.FULL
+                    name_inside, "", {}, monitoring_v3.ListTimeSeriesRequest.TimeSeriesView.FULL
                 )
             )
 
@@ -315,7 +314,7 @@ class TestCRUDTimeSeries(object):
                     name_outside,
                     "",
                     {},
-                    enums.ListTimeSeriesRequest.TimeSeriesView.FULL,
+                    monitoring_v3.ListTimeSeriesRequest.TimeSeriesView.FULL,
                 )
             )
 
