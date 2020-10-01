@@ -62,59 +62,59 @@ class TestCRUDAlertPolicies(object):
     @staticmethod
     def test_create_alert_policy_inside(aps_client, name_inside):
         with pytest.raises(exceptions.InvalidArgument):  # no perms issue
-            aps_client.create_alert_policy(name_inside, {})
+            aps_client.create_alert_policy(request={"name": name_inside, "alert_policy": {}})
 
     @staticmethod
     def test_create_alert_policy_outside(aps_client, name_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            aps_client.create_alert_policy(name_outside, {})
+            aps_client.create_alert_policy(request={"name": name_outside, "alert_policy": {}})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
     @staticmethod
     def test_list_alert_policies_inside(aps_client, name_inside):
-        list(aps_client.list_alert_policies(name_inside))
+        list(aps_client.list_alert_policies(request={"name": name_inside}))
 
     @staticmethod
     def test_list_alert_policies_outside(aps_client, name_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            list(aps_client.list_alert_policies(name_outside))
+            list(aps_client.list_alert_policies(request={"name": name_outside}))
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
     @staticmethod
     def test_get_alert_policy_inside(aps_client, alert_policy_path_inside):
         with pytest.raises(exceptions.NotFound):  # no perms issue
-            aps_client.get_alert_policy(alert_policy_path_inside)
+            aps_client.get_alert_policy(request={"name": alert_policy_path_inside})
 
     @staticmethod
     def test_get_alert_policy_outside(aps_client, alert_policy_path_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            aps_client.get_alert_policy(alert_policy_path_outside)
+            aps_client.get_alert_policy(request={"name": alert_policy_path_outside})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
     @staticmethod
     def test_update_alert_policy_inside(aps_client, alert_policy_path_inside):
         with pytest.raises(exceptions.InvalidArgument):  # no perms issue
-            aps_client.update_alert_policy({"name": alert_policy_path_inside})
+            aps_client.update_alert_policy(request={"alert_policy": {"name": alert_policy_path_inside}})
 
     @staticmethod
     def test_update_alert_policy_outside(aps_client, alert_policy_path_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            aps_client.update_alert_policy({"name": alert_policy_path_outside})
+            aps_client.update_alert_policy(request={"alert_policy": {"name": alert_policy_path_outside}})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
     @staticmethod
     def test_delete_alert_policy_inside(aps_client, alert_policy_path_inside):
         with pytest.raises(exceptions.NotFound):  # no perms issue
-            aps_client.delete_alert_policy(alert_policy_path_inside)
+            aps_client.delete_alert_policy(request={"name": alert_policy_path_inside})
 
     @staticmethod
     def test_delete_alert_policy_outside(aps_client, alert_policy_path_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            aps_client.delete_alert_policy(alert_policy_path_outside)
+            aps_client.delete_alert_policy(request={"name": alert_policy_path_outside})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
@@ -141,71 +141,71 @@ class TestCRUDGroups(object):
     @staticmethod
     def test_create_group_inside(gs_client, name_inside):
         with pytest.raises(exceptions.InvalidArgument):  # no perms issue
-            gs_client.create_group(name_inside, {})
+            gs_client.create_group(request={"name": name_inside, "group": {}})
 
     @staticmethod
     def test_create_group_outside(gs_client, name_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            gs_client.create_group(name_outside, {})
+            gs_client.create_group(request={"name": name_outside, "group": {}})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
     @staticmethod
     def test_list_groups_inside(gs_client, name_inside):
-        list(gs_client.list_groups(name_inside))
+        list(gs_client.list_groups(request={"name": name_inside}))
 
     @staticmethod
     def test_list_groups_outside(gs_client, name_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            list(gs_client.list_groups(name_outside))
+            list(gs_client.list_groups(request={"name": name_outside}))
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
     @staticmethod
     def test_get_group_inside(gs_client, group_path_inside):
         with pytest.raises(exceptions.InvalidArgument):  # no perms issue
-            gs_client.get_group(group_path_inside)
+            gs_client.get_group(request={"name": group_path_inside})
 
     @staticmethod
     def test_get_group_outside(gs_client, group_path_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            gs_client.get_group(group_path_outside)
+            gs_client.get_group(request={"name": group_path_outside})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
     @staticmethod
     def test_list_group_members_inside(gs_client, group_path_inside):
         with pytest.raises(exceptions.InvalidArgument):  # no perms issue
-            list(gs_client.list_group_members(group_path_inside))
+            list(gs_client.list_group_members(request={"name": group_path_inside}))
 
     @staticmethod
     def test_list_group_members_outside(gs_client, group_path_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            list(gs_client.list_group_members(group_path_outside))
+            list(gs_client.list_group_members(request={"name": group_path_outside}))
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
     @staticmethod
     def test_update_group_inside(gs_client, group_path_inside):
         with pytest.raises(exceptions.InvalidArgument):  # no perms issue
-            gs_client.update_group({"name": group_path_inside})
+            gs_client.update_group(request={"group": {"name": group_path_inside}})
 
     @staticmethod
     def test_update_group_outside(gs_client, group_path_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            gs_client.update_group({"name": group_path_outside})
+            gs_client.update_group(request={"group": {"name": group_path_outside}})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
     @staticmethod
     def test_delete_group_inside(gs_client, group_path_inside):
         with pytest.raises(exceptions.InvalidArgument):  # no perms issue
-            gs_client.delete_group(group_path_inside)
+            gs_client.delete_group(request={"name": group_path_inside})
 
     @staticmethod
     def test_delete_group_outside(gs_client, group_path_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            gs_client.delete_group(group_path_outside)
+            gs_client.delete_group(request={"name": group_path_outside})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
@@ -236,49 +236,49 @@ class TestCRUDMetricDescriptors(object):
     @staticmethod
     def test_create_metric_descriptor_inside(ms_client, name_inside):
         with pytest.raises(exceptions.InvalidArgument):  # no perms issue
-            ms_client.create_metric_descriptor(name_inside, {})
+            ms_client.create_metric_descriptor(request={"name": name_inside, "metric_descriptor": {}})
 
     @staticmethod
     def test_create_metric_descriptor_outside(ms_client, name_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            ms_client.create_metric_descriptor(name_outside, {})
+            ms_client.create_metric_descriptor(request={"name": name_outside, "metric_descriptor": {}})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
     @staticmethod
     def test_list_metric_descriptors_inside(ms_client, name_inside):
-        list(ms_client.list_metric_descriptors(name_inside))
+        list(ms_client.list_metric_descriptors(request={"name": name_inside}))
 
     @staticmethod
     def test_list_metric_descriptors_outside(ms_client, name_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            list(ms_client.list_metric_descriptors(name_outside))
+            list(ms_client.list_metric_descriptors(request={"name": name_outside}))
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
     @staticmethod
     def test_get_metric_descriptor_inside(ms_client, metric_descriptor_path_inside):
         with pytest.raises(exceptions.NotFound):  # no perms issue
-            ms_client.get_metric_descriptor(metric_descriptor_path_inside)
+            ms_client.get_metric_descriptor(request={"name": metric_descriptor_path_inside})
 
     @staticmethod
     def test_get_metric_descriptor_outside(ms_client, metric_descriptor_path_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            ms_client.get_metric_descriptor(metric_descriptor_path_outside)
+            ms_client.get_metric_descriptor(request={"name": metric_descriptor_path_outside})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
     @staticmethod
     def test_delete_metric_descriptor_inside(ms_client, metric_descriptor_path_inside):
         with pytest.raises(exceptions.InvalidArgument):  # no perms issue
-            ms_client.delete_metric_descriptor(metric_descriptor_path_inside)
+            ms_client.delete_metric_descriptor(request={"name": metric_descriptor_path_inside})
 
     @staticmethod
     def test_delete_metric_descriptor_outside(
         ms_client, metric_descriptor_path_outside
     ):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            ms_client.delete_metric_descriptor(metric_descriptor_path_outside)
+            ms_client.delete_metric_descriptor(request={"name": metric_descriptor_path_outside})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
@@ -288,12 +288,12 @@ class TestCRUDTimeSeries(object):
     @staticmethod
     def test_create_time_series_inside(ms_client, name_inside):
         with pytest.raises(exceptions.InvalidArgument):  # no perms issue
-            ms_client.create_time_series(name_inside, {})
+            ms_client.create_time_series(request={"name": name_inside, "time_series": {}})
 
     @staticmethod
     def test_create_time_series_outside(ms_client, name_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            ms_client.create_time_series(name_outside, {})
+            ms_client.create_time_series(request={"name": name_outside, "time_series": {}})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
@@ -302,8 +302,7 @@ class TestCRUDTimeSeries(object):
         with pytest.raises(exceptions.InvalidArgument):  # no perms issue
             list(
                 ms_client.list_time_series(
-                    name_inside, "", {}, monitoring_v3.ListTimeSeriesRequest.TimeSeriesView.FULL
-                )
+                    request={"name": name_inside, "filter": "", "interval": {}, "view": monitoring_v3.ListTimeSeriesRequest.TimeSeriesView.FULL})
             )
 
     @staticmethod
@@ -311,11 +310,7 @@ class TestCRUDTimeSeries(object):
         with pytest.raises(exceptions.PermissionDenied) as exc:
             list(
                 ms_client.list_time_series(
-                    name_outside,
-                    "",
-                    {},
-                    monitoring_v3.ListTimeSeriesRequest.TimeSeriesView.FULL,
-                )
+                    request={"name": name_outside, "filter": "", "interval": {}, "view": monitoring_v3.ListTimeSeriesRequest.TimeSeriesView.FULL})
             )
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
@@ -341,12 +336,12 @@ def monitored_resource_descriptor_path_outside(ms_client):
 class TestCRUDMonitoredResourceDescriptor(object):
     @staticmethod
     def test_list_monitored_resource_descriptors_inside(ms_client, name_inside):
-        list(ms_client.list_monitored_resource_descriptors(name_inside))
+        list(ms_client.list_monitored_resource_descriptors(request={"name": name_inside}))
 
     @staticmethod
     def test_list_monitored_resource_descriptors_outside(ms_client, name_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            list(ms_client.list_monitored_resource_descriptors(name_outside))
+            list(ms_client.list_monitored_resource_descriptors(request={"name": name_outside}))
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
@@ -356,8 +351,7 @@ class TestCRUDMonitoredResourceDescriptor(object):
     ):
         with pytest.raises(exceptions.NotFound):  # no perms issue
             ms_client.get_monitored_resource_descriptor(
-                monitored_resource_descriptor_path_inside
-            )
+                request={"name": monitored_resource_descriptor_path_inside})
 
     @staticmethod
     def test_get_monitored_resource_descriptor_outside(
@@ -365,8 +359,7 @@ class TestCRUDMonitoredResourceDescriptor(object):
     ):
         with pytest.raises(exceptions.PermissionDenied) as exc:
             ms_client.get_monitored_resource_descriptor(
-                monitored_resource_descriptor_path_outside
-            )
+                request={"name": monitored_resource_descriptor_path_outside})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
@@ -413,23 +406,23 @@ class TestCRUDNotificationChannels(object):
     @staticmethod
     def test_create_notification_channel_inside(ncs_client, name_inside):
         with pytest.raises(exceptions.InvalidArgument):  # no perms issue
-            ncs_client.create_notification_channel(name_inside, {})
+            ncs_client.create_notification_channel(request={"name": name_inside, "notification_channel": {}})
 
     @staticmethod
     def test_create_notification_channel_outside(ncs_client, name_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            ncs_client.create_notification_channel(name_outside, {})
+            ncs_client.create_notification_channel(request={"name": name_outside, "notification_channel": {}})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
     @staticmethod
     def test_list_notification_channels_inside(ncs_client, name_inside):
-        list(ncs_client.list_notification_channels(name_inside))
+        list(ncs_client.list_notification_channels(request={"name": name_inside}))
 
     @staticmethod
     def test_list_notification_channels_outside(ncs_client, name_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            list(ncs_client.list_notification_channels(name_outside))
+            list(ncs_client.list_notification_channels(request={"name": name_outside}))
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
@@ -438,14 +431,14 @@ class TestCRUDNotificationChannels(object):
         ncs_client, notification_channel_path_inside
     ):
         with pytest.raises(exceptions.NotFound):  # no perms issue
-            ncs_client.get_notification_channel(notification_channel_path_inside)
+            ncs_client.get_notification_channel(request={"name": notification_channel_path_inside})
 
     @staticmethod
     def test_get_notification_channel_outside(
         ncs_client, notification_channel_path_outside
     ):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            ncs_client.get_notification_channel(notification_channel_path_outside)
+            ncs_client.get_notification_channel(request={"name": notification_channel_path_outside})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
@@ -455,8 +448,7 @@ class TestCRUDNotificationChannels(object):
     ):
         with pytest.raises(exceptions.NotFound):  # no perms issue
             ncs_client.get_notification_channel_verification_code(
-                notification_channel_path_inside
-            )
+                request={"name": notification_channel_path_inside})
 
     @staticmethod
     def test_get_notification_channel_verification_code_outside(
@@ -464,8 +456,7 @@ class TestCRUDNotificationChannels(object):
     ):
         with pytest.raises(exceptions.PermissionDenied) as exc:
             ncs_client.get_notification_channel_verification_code(
-                notification_channel_path_outside
-            )
+                request={"name": notification_channel_path_outside})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
@@ -475,8 +466,7 @@ class TestCRUDNotificationChannels(object):
     ):
         with pytest.raises(exceptions.NotFound):  # no perms issue
             ncs_client.send_notification_channel_verification_code(
-                notification_channel_path_inside
-            )
+                request={"name": notification_channel_path_inside})
 
     @staticmethod
     def test_send_notification_channel_verification_code_outside(
@@ -484,8 +474,7 @@ class TestCRUDNotificationChannels(object):
     ):
         with pytest.raises(exceptions.PermissionDenied) as exc:
             ncs_client.send_notification_channel_verification_code(
-                notification_channel_path_outside
-            )
+                request={"name": notification_channel_path_outside})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
@@ -494,7 +483,7 @@ class TestCRUDNotificationChannels(object):
         ncs_client, notification_channel_path_inside
     ):
         with pytest.raises(exceptions.NotFound):  # no perms issue
-            ncs_client.verify_notification_channel(notification_channel_path_inside, "")
+            ncs_client.verify_notification_channel(request={"name": notification_channel_path_inside, "code": ""})
 
     @staticmethod
     def test_verify_notification_channel_outside(
@@ -502,8 +491,7 @@ class TestCRUDNotificationChannels(object):
     ):
         with pytest.raises(exceptions.PermissionDenied) as exc:
             ncs_client.verify_notification_channel(
-                notification_channel_path_outside, ""
-            )
+                request={"name": notification_channel_path_outside, "code": ""})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
@@ -513,8 +501,7 @@ class TestCRUDNotificationChannels(object):
     ):
         with pytest.raises(exceptions.InvalidArgument):  # no perms issue
             ncs_client.update_notification_channel(
-                {"name": notification_channel_path_inside}
-            )
+                request={"notification_channel": {"name": notification_channel_path_inside}})
 
     @staticmethod
     def test_update_notification_channel_outside(
@@ -522,8 +509,7 @@ class TestCRUDNotificationChannels(object):
     ):
         with pytest.raises(exceptions.PermissionDenied) as exc:
             ncs_client.update_notification_channel(
-                {"name": notification_channel_path_outside}
-            )
+                request={"notification_channel": {"name": notification_channel_path_outside}})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
@@ -532,25 +518,25 @@ class TestCRUDNotificationChannels(object):
         ncs_client, notification_channel_path_inside
     ):
         with pytest.raises(exceptions.NotFound):  # no perms issue
-            ncs_client.delete_notification_channel(notification_channel_path_inside)
+            ncs_client.delete_notification_channel(request={"name": notification_channel_path_inside})
 
     @staticmethod
     def test_delete_notification_channel_outside(
         ncs_client, notification_channel_path_outside
     ):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            ncs_client.delete_notification_channel(notification_channel_path_outside)
+            ncs_client.delete_notification_channel(request={"name": notification_channel_path_outside})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
     @staticmethod
     def test_list_notification_channel_descriptors_inside(ncs_client, name_inside):
-        list(ncs_client.list_notification_channel_descriptors(name_inside))
+        list(ncs_client.list_notification_channel_descriptors(request={"name": name_inside}))
 
     @staticmethod
     def test_list_notification_channel_descriptors_outside(ncs_client, name_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            list(ncs_client.list_notification_channel_descriptors(name_outside))
+            list(ncs_client.list_notification_channel_descriptors(request={"name": name_outside}))
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
@@ -560,8 +546,7 @@ class TestCRUDNotificationChannels(object):
     ):
         with pytest.raises(exceptions.NotFound):  # no perms issue
             ncs_client.get_notification_channel_descriptor(
-                notification_channel_descriptor_path_inside
-            )
+                request={"name": notification_channel_descriptor_path_inside})
 
     @staticmethod
     def test_get_notification_channel_descriptor_outside(
@@ -569,8 +554,7 @@ class TestCRUDNotificationChannels(object):
     ):
         with pytest.raises(exceptions.PermissionDenied) as exc:
             ncs_client.get_notification_channel_descriptor(
-                notification_channel_descriptor_path_outside
-            )
+                request={"name": notification_channel_descriptor_path_outside})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
@@ -601,23 +585,23 @@ class TestCRUDUptimeCheckConfigs(object):
     @staticmethod
     def test_create_uptime_check_config_inside(ucc_client, name_inside):
         with pytest.raises(exceptions.InvalidArgument):  # no perms issue
-            ucc_client.create_uptime_check_config(name_inside, {})
+            ucc_client.create_uptime_check_config(request={"parent": name_inside, "uptime_check_config": {}})
 
     @staticmethod
     def test_create_uptime_check_config_outside(ucc_client, name_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            ucc_client.create_uptime_check_config(name_outside, {})
+            ucc_client.create_uptime_check_config(request={"parent": name_outside, "uptime_check_config": {}})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
     @staticmethod
     def test_list_uptime_check_configs_inside(ucc_client, name_inside):
-        list(ucc_client.list_uptime_check_configs(name_inside))
+        list(ucc_client.list_uptime_check_configs(request={"parent": name_inside}))
 
     @staticmethod
     def test_list_uptime_check_configs_outside(ucc_client, name_outside):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            list(ucc_client.list_uptime_check_configs(name_outside))
+            list(ucc_client.list_uptime_check_configs(request={"parent": name_outside}))
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
@@ -626,14 +610,14 @@ class TestCRUDUptimeCheckConfigs(object):
         ucc_client, uptime_check_config_path_inside
     ):
         with pytest.raises(exceptions.NotFound):  # no perms issue
-            ucc_client.get_uptime_check_config(uptime_check_config_path_inside)
+            ucc_client.get_uptime_check_config(request={"name": uptime_check_config_path_inside})
 
     @staticmethod
     def test_get_uptime_check_config_outside(
         ucc_client, uptime_check_config_path_outside
     ):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            ucc_client.get_uptime_check_config(uptime_check_config_path_outside)
+            ucc_client.get_uptime_check_config(request={"name": uptime_check_config_path_outside})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
@@ -643,8 +627,7 @@ class TestCRUDUptimeCheckConfigs(object):
     ):
         with pytest.raises(exceptions.NotFound):  # no perms issue
             ucc_client.update_uptime_check_config(
-                {"name": uptime_check_config_path_inside}
-            )
+                request={"uptime_check_config": {"name": uptime_check_config_path_inside}})
 
     @staticmethod
     def test_update_uptime_check_config_outside(
@@ -652,8 +635,7 @@ class TestCRUDUptimeCheckConfigs(object):
     ):
         with pytest.raises(exceptions.PermissionDenied) as exc:
             ucc_client.update_uptime_check_config(
-                {"name": uptime_check_config_path_outside}
-            )
+                request={"uptime_check_config": {"name": uptime_check_config_path_outside}})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
@@ -662,13 +644,13 @@ class TestCRUDUptimeCheckConfigs(object):
         ucc_client, uptime_check_config_path_inside
     ):
         with pytest.raises(exceptions.NotFound):  # no perms issue
-            ucc_client.delete_uptime_check_config(uptime_check_config_path_inside)
+            ucc_client.delete_uptime_check_config(request={"name": uptime_check_config_path_inside})
 
     @staticmethod
     def test_delete_uptime_check_config_outside(
         ucc_client, uptime_check_config_path_outside
     ):
         with pytest.raises(exceptions.PermissionDenied) as exc:
-            ucc_client.delete_uptime_check_config(uptime_check_config_path_outside)
+            ucc_client.delete_uptime_check_config(request={"name": uptime_check_config_path_outside})
 
         assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
