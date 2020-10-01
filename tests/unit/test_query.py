@@ -21,6 +21,7 @@ import mock
 from google.cloud import monitoring_v3 as monitoring_v3
 from google.cloud.monitoring_v3 import MetricServiceClient
 from google.cloud.monitoring_v3.services.metric_service.transports import MetricServiceGrpcTransport
+from google.protobuf import timestamp_pb2 as timestamp
 
 
 PROJECT = "my-project"
@@ -98,9 +99,13 @@ class TestQuery(unittest.TestCase):
     @staticmethod
     def _make_interval(end_time, start_time=None):
         interval = monitoring_v3.TimeInterval()
-        interval.end_time.FromDatetime(end_time)
+        end_timestamp = timestamp.Timestamp()
+        end_timestamp.FromDatetime(end_time)
+        interval.end_time = end_timestamp
         if start_time is not None:
-            interval.start_time.FromDatetime(start_time)
+            start_timestamp = timestamp.Timestamp()
+            start_timestamp.FromDatetime(start_time)
+            interval.start_time = start_timestamp
         return interval
     
     @staticmethod
@@ -241,7 +246,7 @@ class TestQuery(unittest.TestCase):
         actual = query._build_query_params()
         expected = {
             "name": u"projects/{}".format(PROJECT),
-            "filter_": 'metric.type = "{type}"'.format(type=METRIC_TYPE),
+            "filter": 'metric.type = "{type}"'.format(type=METRIC_TYPE),
             "interval": self._make_interval(T1),
             "view": monitoring_v3.ListTimeSeriesRequest.TimeSeriesView.FULL,
         }
@@ -267,7 +272,7 @@ class TestQuery(unittest.TestCase):
         actual = query._build_query_params(headers_only=True, page_size=PAGE_SIZE)
         expected = {
             "name": "projects/%s" % PROJECT,
-            "filter_": 'metric.type = "{type}"'.format(type=METRIC_TYPE),
+            "filter": 'metric.type = "{type}"'.format(type=METRIC_TYPE),
             "interval": self._make_interval(T1, T0),
             "aggregation": monitoring_v3.Aggregation(
                 per_series_aligner=ALIGNER,

@@ -27,6 +27,7 @@ import six
 import google.cloud.monitoring_v3 as monitoring_v3
 from google.cloud.monitoring_v3 import _dataframe
 from google.cloud.monitoring_v3 import types
+from google.protobuf import timestamp_pb2 as timestamp
 
 _UTCNOW = datetime.datetime.utcnow  # To be replaced by tests.
 
@@ -460,12 +461,16 @@ class Query(object):
             from this request. Non-positive values are ignored. Defaults
             to a sensible value set by the API.
         """
-        params = {"name": self._project_path, "filter_": self.filter}
+        params = {"name": self._project_path, "filter": self.filter}
 
+        end_timestamp = timestamp.Timestamp()
+        end_timestamp.FromDatetime(self._end_time)
         params["interval"] = types.TimeInterval()
-        params["interval"].end_time.FromDatetime(self._end_time)
+        params["interval"].end_time = end_timestamp
         if self._start_time:
-            params["interval"].start_time.FromDatetime(self._start_time)
+            start_timestamp = timestamp.Timestamp()
+            start_timestamp.FromDatetime(self._start_time)
+            params["interval"].start_time = start_timestamp
 
         if (
             self._per_series_aligner
