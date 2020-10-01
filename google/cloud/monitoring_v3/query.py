@@ -103,7 +103,7 @@ class Query(object):
             raise ValueError("Non-zero duration required for time interval.")
 
         self._client = client
-        self._project_path = self._client.project_path(project)
+        self._project_path = f"projects/{project}"
         self._end_time = end_time
         self._start_time = start_time
         self._filter = _Filter(metric_type)
