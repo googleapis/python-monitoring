@@ -22,7 +22,7 @@ from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
 
 
 __protobuf__ = proto.module(
-    package="google.cloud.monitoring.v3", manifest={"MutationRecord",},
+    package="google.monitoring.v3", manifest={"MutationRecord",},
 )
 
 

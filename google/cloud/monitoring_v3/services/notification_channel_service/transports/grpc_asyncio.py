@@ -262,7 +262,7 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
             self._stubs[
                 "list_notification_channel_descriptors"
             ] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.NotificationChannelService/ListNotificationChannelDescriptors",
+                "/google.monitoring.v3.NotificationChannelService/ListNotificationChannelDescriptors",
                 request_serializer=notification_service.ListNotificationChannelDescriptorsRequest.serialize,
                 response_deserializer=notification_service.ListNotificationChannelDescriptorsResponse.deserialize,
             )
@@ -296,7 +296,7 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
             self._stubs[
                 "get_notification_channel_descriptor"
             ] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.NotificationChannelService/GetNotificationChannelDescriptor",
+                "/google.monitoring.v3.NotificationChannelService/GetNotificationChannelDescriptor",
                 request_serializer=notification_service.GetNotificationChannelDescriptorRequest.serialize,
                 response_deserializer=notification.NotificationChannelDescriptor.deserialize,
             )
@@ -326,7 +326,7 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
         # to pass in the functions for each.
         if "list_notification_channels" not in self._stubs:
             self._stubs["list_notification_channels"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.NotificationChannelService/ListNotificationChannels",
+                "/google.monitoring.v3.NotificationChannelService/ListNotificationChannels",
                 request_serializer=notification_service.ListNotificationChannelsRequest.serialize,
                 response_deserializer=notification_service.ListNotificationChannelsResponse.deserialize,
             )
@@ -361,7 +361,7 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
         # to pass in the functions for each.
         if "get_notification_channel" not in self._stubs:
             self._stubs["get_notification_channel"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.NotificationChannelService/GetNotificationChannel",
+                "/google.monitoring.v3.NotificationChannelService/GetNotificationChannel",
                 request_serializer=notification_service.GetNotificationChannelRequest.serialize,
                 response_deserializer=notification.NotificationChannel.deserialize,
             )
@@ -392,7 +392,7 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
         # to pass in the functions for each.
         if "create_notification_channel" not in self._stubs:
             self._stubs["create_notification_channel"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.NotificationChannelService/CreateNotificationChannel",
+                "/google.monitoring.v3.NotificationChannelService/CreateNotificationChannel",
                 request_serializer=notification_service.CreateNotificationChannelRequest.serialize,
                 response_deserializer=notification.NotificationChannel.deserialize,
             )
@@ -422,7 +422,7 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
         # to pass in the functions for each.
         if "update_notification_channel" not in self._stubs:
             self._stubs["update_notification_channel"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.NotificationChannelService/UpdateNotificationChannel",
+                "/google.monitoring.v3.NotificationChannelService/UpdateNotificationChannel",
                 request_serializer=notification_service.UpdateNotificationChannelRequest.serialize,
                 response_deserializer=notification.NotificationChannel.deserialize,
             )
@@ -450,7 +450,7 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
         # to pass in the functions for each.
         if "delete_notification_channel" not in self._stubs:
             self._stubs["delete_notification_channel"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.NotificationChannelService/DeleteNotificationChannel",
+                "/google.monitoring.v3.NotificationChannelService/DeleteNotificationChannel",
                 request_serializer=notification_service.DeleteNotificationChannelRequest.serialize,
                 response_deserializer=empty.Empty.FromString,
             )
@@ -484,7 +484,7 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
             self._stubs[
                 "send_notification_channel_verification_code"
             ] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.NotificationChannelService/SendNotificationChannelVerificationCode",
+                "/google.monitoring.v3.NotificationChannelService/SendNotificationChannelVerificationCode",
                 request_serializer=notification_service.SendNotificationChannelVerificationCodeRequest.serialize,
                 response_deserializer=empty.Empty.FromString,
             )
@@ -543,7 +543,7 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
             self._stubs[
                 "get_notification_channel_verification_code"
             ] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.NotificationChannelService/GetNotificationChannelVerificationCode",
+                "/google.monitoring.v3.NotificationChannelService/GetNotificationChannelVerificationCode",
                 request_serializer=notification_service.GetNotificationChannelVerificationCodeRequest.serialize,
                 response_deserializer=notification_service.GetNotificationChannelVerificationCodeResponse.deserialize,
             )
@@ -574,7 +574,7 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
         # to pass in the functions for each.
         if "verify_notification_channel" not in self._stubs:
             self._stubs["verify_notification_channel"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.NotificationChannelService/VerifyNotificationChannel",
+                "/google.monitoring.v3.NotificationChannelService/VerifyNotificationChannel",
                 request_serializer=notification_service.VerifyNotificationChannelRequest.serialize,
                 response_deserializer=notification.NotificationChannel.deserialize,
             )

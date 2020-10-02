@@ -3543,6 +3543,138 @@ def test_parse_notification_channel_path():
     assert expected == actual
 
 
+def test_notification_channel_descriptor_path():
+    project = "oyster"
+    channel_descriptor = "nudibranch"
+
+    expected = "projects/{project}/notificationChannelDescriptors/{channel_descriptor}".format(
+        project=project, channel_descriptor=channel_descriptor,
+    )
+    actual = NotificationChannelServiceClient.notification_channel_descriptor_path(
+        project, channel_descriptor
+    )
+    assert expected == actual
+
+
+def test_parse_notification_channel_descriptor_path():
+    expected = {
+        "project": "cuttlefish",
+        "channel_descriptor": "mussel",
+    }
+    path = NotificationChannelServiceClient.notification_channel_descriptor_path(
+        **expected
+    )
+
+    # Check that the path construction is reversible.
+    actual = NotificationChannelServiceClient.parse_notification_channel_descriptor_path(
+        path
+    )
+    assert expected == actual
+
+
+def test_common_project_path():
+    project = "winkle"
+
+    expected = "projects/{project}".format(project=project,)
+    actual = NotificationChannelServiceClient.common_project_path(project)
+    assert expected == actual
+
+
+def test_parse_common_project_path():
+    expected = {
+        "project": "nautilus",
+    }
+    path = NotificationChannelServiceClient.common_project_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = NotificationChannelServiceClient.parse_common_project_path(path)
+    assert expected == actual
+
+
+def test_common_organization_path():
+    organization = "scallop"
+
+    expected = "organizations/{organization}".format(organization=organization,)
+    actual = NotificationChannelServiceClient.common_organization_path(organization)
+    assert expected == actual
+
+
+def test_parse_common_organization_path():
+    expected = {
+        "organization": "abalone",
+    }
+    path = NotificationChannelServiceClient.common_organization_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = NotificationChannelServiceClient.parse_common_organization_path(path)
+    assert expected == actual
+
+
+def test_common_folder_path():
+    folder = "squid"
+
+    expected = "folders/{folder}".format(folder=folder,)
+    actual = NotificationChannelServiceClient.common_folder_path(folder)
+    assert expected == actual
+
+
+def test_parse_common_folder_path():
+    expected = {
+        "folder": "clam",
+    }
+    path = NotificationChannelServiceClient.common_folder_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = NotificationChannelServiceClient.parse_common_folder_path(path)
+    assert expected == actual
+
+
+def test_common_billing_account_path():
+    billing_account = "whelk"
+
+    expected = "billingAccounts/{billing_account}".format(
+        billing_account=billing_account,
+    )
+    actual = NotificationChannelServiceClient.common_billing_account_path(
+        billing_account
+    )
+    assert expected == actual
+
+
+def test_parse_common_billing_account_path():
+    expected = {
+        "billing_account": "octopus",
+    }
+    path = NotificationChannelServiceClient.common_billing_account_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = NotificationChannelServiceClient.parse_common_billing_account_path(path)
+    assert expected == actual
+
+
+def test_common_location_path():
+    project = "oyster"
+    location = "nudibranch"
+
+    expected = "projects/{project}/locations/{location}".format(
+        project=project, location=location,
+    )
+    actual = NotificationChannelServiceClient.common_location_path(project, location)
+    assert expected == actual
+
+
+def test_parse_common_location_path():
+    expected = {
+        "project": "cuttlefish",
+        "location": "mussel",
+    }
+    path = NotificationChannelServiceClient.common_location_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = NotificationChannelServiceClient.parse_common_location_path(path)
+    assert expected == actual
+
+
 def test_client_withDEFAULT_CLIENT_INFO():
     client_info = gapic_v1.client_info.ClientInfo()
 

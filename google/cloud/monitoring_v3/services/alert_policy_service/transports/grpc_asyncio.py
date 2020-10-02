@@ -262,7 +262,7 @@ class AlertPolicyServiceGrpcAsyncIOTransport(AlertPolicyServiceTransport):
         # to pass in the functions for each.
         if "list_alert_policies" not in self._stubs:
             self._stubs["list_alert_policies"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.AlertPolicyService/ListAlertPolicies",
+                "/google.monitoring.v3.AlertPolicyService/ListAlertPolicies",
                 request_serializer=alert_service.ListAlertPoliciesRequest.serialize,
                 response_deserializer=alert_service.ListAlertPoliciesResponse.deserialize,
             )
@@ -288,7 +288,7 @@ class AlertPolicyServiceGrpcAsyncIOTransport(AlertPolicyServiceTransport):
         # to pass in the functions for each.
         if "get_alert_policy" not in self._stubs:
             self._stubs["get_alert_policy"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.AlertPolicyService/GetAlertPolicy",
+                "/google.monitoring.v3.AlertPolicyService/GetAlertPolicy",
                 request_serializer=alert_service.GetAlertPolicyRequest.serialize,
                 response_deserializer=alert.AlertPolicy.deserialize,
             )
@@ -316,7 +316,7 @@ class AlertPolicyServiceGrpcAsyncIOTransport(AlertPolicyServiceTransport):
         # to pass in the functions for each.
         if "create_alert_policy" not in self._stubs:
             self._stubs["create_alert_policy"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.AlertPolicyService/CreateAlertPolicy",
+                "/google.monitoring.v3.AlertPolicyService/CreateAlertPolicy",
                 request_serializer=alert_service.CreateAlertPolicyRequest.serialize,
                 response_deserializer=alert.AlertPolicy.deserialize,
             )
@@ -342,7 +342,7 @@ class AlertPolicyServiceGrpcAsyncIOTransport(AlertPolicyServiceTransport):
         # to pass in the functions for each.
         if "delete_alert_policy" not in self._stubs:
             self._stubs["delete_alert_policy"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.AlertPolicyService/DeleteAlertPolicy",
+                "/google.monitoring.v3.AlertPolicyService/DeleteAlertPolicy",
                 request_serializer=alert_service.DeleteAlertPolicyRequest.serialize,
                 response_deserializer=empty.Empty.FromString,
             )
@@ -373,7 +373,7 @@ class AlertPolicyServiceGrpcAsyncIOTransport(AlertPolicyServiceTransport):
         # to pass in the functions for each.
         if "update_alert_policy" not in self._stubs:
             self._stubs["update_alert_policy"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.AlertPolicyService/UpdateAlertPolicy",
+                "/google.monitoring.v3.AlertPolicyService/UpdateAlertPolicy",
                 request_serializer=alert_service.UpdateAlertPolicyRequest.serialize,
                 response_deserializer=alert.AlertPolicy.deserialize,
             )

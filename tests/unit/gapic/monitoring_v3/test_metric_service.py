@@ -3017,6 +3017,107 @@ def test_metric_service_transport_channel_mtls_with_adc(transport_class):
             assert transport.grpc_channel == mock_grpc_channel
 
 
+def test_common_project_path():
+    project = "squid"
+
+    expected = "projects/{project}".format(project=project,)
+    actual = MetricServiceClient.common_project_path(project)
+    assert expected == actual
+
+
+def test_parse_common_project_path():
+    expected = {
+        "project": "clam",
+    }
+    path = MetricServiceClient.common_project_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = MetricServiceClient.parse_common_project_path(path)
+    assert expected == actual
+
+
+def test_common_organization_path():
+    organization = "whelk"
+
+    expected = "organizations/{organization}".format(organization=organization,)
+    actual = MetricServiceClient.common_organization_path(organization)
+    assert expected == actual
+
+
+def test_parse_common_organization_path():
+    expected = {
+        "organization": "octopus",
+    }
+    path = MetricServiceClient.common_organization_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = MetricServiceClient.parse_common_organization_path(path)
+    assert expected == actual
+
+
+def test_common_folder_path():
+    folder = "oyster"
+
+    expected = "folders/{folder}".format(folder=folder,)
+    actual = MetricServiceClient.common_folder_path(folder)
+    assert expected == actual
+
+
+def test_parse_common_folder_path():
+    expected = {
+        "folder": "nudibranch",
+    }
+    path = MetricServiceClient.common_folder_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = MetricServiceClient.parse_common_folder_path(path)
+    assert expected == actual
+
+
+def test_common_billing_account_path():
+    billing_account = "cuttlefish"
+
+    expected = "billingAccounts/{billing_account}".format(
+        billing_account=billing_account,
+    )
+    actual = MetricServiceClient.common_billing_account_path(billing_account)
+    assert expected == actual
+
+
+def test_parse_common_billing_account_path():
+    expected = {
+        "billing_account": "mussel",
+    }
+    path = MetricServiceClient.common_billing_account_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = MetricServiceClient.parse_common_billing_account_path(path)
+    assert expected == actual
+
+
+def test_common_location_path():
+    project = "winkle"
+    location = "nautilus"
+
+    expected = "projects/{project}/locations/{location}".format(
+        project=project, location=location,
+    )
+    actual = MetricServiceClient.common_location_path(project, location)
+    assert expected == actual
+
+
+def test_parse_common_location_path():
+    expected = {
+        "project": "scallop",
+        "location": "abalone",
+    }
+    path = MetricServiceClient.common_location_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = MetricServiceClient.parse_common_location_path(path)
+    assert expected == actual
+
+
 def test_client_withDEFAULT_CLIENT_INFO():
     client_info = gapic_v1.client_info.ClientInfo()
 

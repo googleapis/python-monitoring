@@ -59,6 +59,47 @@ class NotificationChannelServiceAsyncClient:
     parse_notification_channel_path = staticmethod(
         NotificationChannelServiceClient.parse_notification_channel_path
     )
+    notification_channel_descriptor_path = staticmethod(
+        NotificationChannelServiceClient.notification_channel_descriptor_path
+    )
+    parse_notification_channel_descriptor_path = staticmethod(
+        NotificationChannelServiceClient.parse_notification_channel_descriptor_path
+    )
+
+    common_project_path = staticmethod(
+        NotificationChannelServiceClient.common_project_path
+    )
+    parse_common_project_path = staticmethod(
+        NotificationChannelServiceClient.parse_common_project_path
+    )
+
+    common_organization_path = staticmethod(
+        NotificationChannelServiceClient.common_organization_path
+    )
+    parse_common_organization_path = staticmethod(
+        NotificationChannelServiceClient.parse_common_organization_path
+    )
+
+    common_folder_path = staticmethod(
+        NotificationChannelServiceClient.common_folder_path
+    )
+    parse_common_folder_path = staticmethod(
+        NotificationChannelServiceClient.parse_common_folder_path
+    )
+
+    common_billing_account_path = staticmethod(
+        NotificationChannelServiceClient.common_billing_account_path
+    )
+    parse_common_billing_account_path = staticmethod(
+        NotificationChannelServiceClient.parse_common_billing_account_path
+    )
+
+    common_location_path = staticmethod(
+        NotificationChannelServiceClient.common_location_path
+    )
+    parse_common_location_path = staticmethod(
+        NotificationChannelServiceClient.parse_common_location_path
+    )
 
     from_service_account_file = (
         NotificationChannelServiceClient.from_service_account_file
@@ -147,7 +188,7 @@ class NotificationChannelServiceAsyncClient:
                 Note that this names the parent container in which to
                 look for the descriptors; to retrieve a single
                 descriptor by name, use the
-                [GetNotificationChannelDescriptor][google.cloud.monitoring.v3.NotificationChannelService.GetNotificationChannelDescriptor]
+                [GetNotificationChannelDescriptor][google.monitoring.v3.NotificationChannelService.GetNotificationChannelDescriptor]
                 operation, instead.
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -336,7 +377,7 @@ class NotificationChannelServiceAsyncClient:
                 notification channels; it does not name a specific
                 channel. To query a specific channel by REST resource
                 name, use the
-                [``GetNotificationChannel``][google.cloud.monitoring.v3.NotificationChannelService.GetNotificationChannel]
+                [``GetNotificationChannel``][google.monitoring.v3.NotificationChannelService.GetNotificationChannel]
                 operation.
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this

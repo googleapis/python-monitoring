@@ -24,7 +24,7 @@ from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
 
 
 __protobuf__ = proto.module(
-    package="google.cloud.monitoring.v3",
+    package="google.monitoring.v3",
     manifest={
         "ListNotificationChannelDescriptorsRequest",
         "ListNotificationChannelDescriptorsResponse",
@@ -59,7 +59,7 @@ class ListNotificationChannelDescriptorsRequest(proto.Message):
             Note that this names the parent container in which to look
             for the descriptors; to retrieve a single descriptor by
             name, use the
-            [GetNotificationChannelDescriptor][google.cloud.monitoring.v3.NotificationChannelService.GetNotificationChannelDescriptor]
+            [GetNotificationChannelDescriptor][google.monitoring.v3.NotificationChannelService.GetNotificationChannelDescriptor]
             operation, instead.
         page_size (int):
             The maximum number of results to return in a
@@ -165,7 +165,7 @@ class ListNotificationChannelsRequest(proto.Message):
             This names the container in which to look for the
             notification channels; it does not name a specific channel.
             To query a specific channel by REST resource name, use the
-            [``GetNotificationChannel``][google.cloud.monitoring.v3.NotificationChannelService.GetNotificationChannel]
+            [``GetNotificationChannel``][google.monitoring.v3.NotificationChannelService.GetNotificationChannel]
             operation.
         filter (str):
             If provided, this field specifies the criteria that must be

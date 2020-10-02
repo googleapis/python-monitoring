@@ -18,9 +18,7 @@
 import proto  # type: ignore
 
 
-__protobuf__ = proto.module(
-    package="google.cloud.monitoring.v3", manifest={"SpanContext",},
-)
+__protobuf__ = proto.module(package="google.monitoring.v3", manifest={"SpanContext",},)
 
 
 class SpanContext(proto.Message):

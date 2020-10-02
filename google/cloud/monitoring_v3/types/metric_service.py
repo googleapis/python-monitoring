@@ -26,7 +26,7 @@ from google.rpc import status_pb2 as gr_status  # type: ignore
 
 
 __protobuf__ = proto.module(
-    package="google.cloud.monitoring.v3",
+    package="google.monitoring.v3",
     manifest={
         "ListMonitoredResourceDescriptorsRequest",
         "ListMonitoredResourceDescriptorsResponse",

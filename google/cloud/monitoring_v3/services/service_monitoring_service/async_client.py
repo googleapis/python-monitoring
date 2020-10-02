@@ -61,6 +61,39 @@ class ServiceMonitoringServiceAsyncClient:
         ServiceMonitoringServiceClient.parse_service_level_objective_path
     )
 
+    common_project_path = staticmethod(
+        ServiceMonitoringServiceClient.common_project_path
+    )
+    parse_common_project_path = staticmethod(
+        ServiceMonitoringServiceClient.parse_common_project_path
+    )
+
+    common_organization_path = staticmethod(
+        ServiceMonitoringServiceClient.common_organization_path
+    )
+    parse_common_organization_path = staticmethod(
+        ServiceMonitoringServiceClient.parse_common_organization_path
+    )
+
+    common_folder_path = staticmethod(ServiceMonitoringServiceClient.common_folder_path)
+    parse_common_folder_path = staticmethod(
+        ServiceMonitoringServiceClient.parse_common_folder_path
+    )
+
+    common_billing_account_path = staticmethod(
+        ServiceMonitoringServiceClient.common_billing_account_path
+    )
+    parse_common_billing_account_path = staticmethod(
+        ServiceMonitoringServiceClient.parse_common_billing_account_path
+    )
+
+    common_location_path = staticmethod(
+        ServiceMonitoringServiceClient.common_location_path
+    )
+    parse_common_location_path = staticmethod(
+        ServiceMonitoringServiceClient.parse_common_location_path
+    )
+
     from_service_account_file = ServiceMonitoringServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
 

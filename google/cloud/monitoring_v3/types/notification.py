@@ -25,7 +25,7 @@ from google.protobuf import wrappers_pb2 as wrappers  # type: ignore
 
 
 __protobuf__ = proto.module(
-    package="google.cloud.monitoring.v3",
+    package="google.monitoring.v3",
     manifest={"NotificationChannelDescriptor", "NotificationChannel",},
 )
 
@@ -103,7 +103,7 @@ class NotificationChannel(proto.Message):
         type_ (str):
             The type of the notification channel. This field matches the
             value of the
-            [NotificationChannelDescriptor.type][google.cloud.monitoring.v3.NotificationChannelDescriptor.type]
+            [NotificationChannelDescriptor.type][google.monitoring.v3.NotificationChannelDescriptor.type]
             field.
         name (str):
             The full REST resource name for this channel. The format is:
@@ -132,7 +132,7 @@ class NotificationChannel(proto.Message):
             Configuration fields that define the channel and its
             behavior. The permissible and required labels are specified
             in the
-            [NotificationChannelDescriptor.labels][google.cloud.monitoring.v3.NotificationChannelDescriptor.labels]
+            [NotificationChannelDescriptor.labels][google.monitoring.v3.NotificationChannelDescriptor.labels]
             of the ``NotificationChannelDescriptor`` corresponding to
             the ``type`` field.
         user_labels (Sequence[~.notification.NotificationChannel.UserLabelsEntry]):
@@ -150,9 +150,9 @@ class NotificationChannel(proto.Message):
         verification_status (~.notification.NotificationChannel.VerificationStatus):
             Indicates whether this channel has been verified or not. On
             a
-            [``ListNotificationChannels``][google.cloud.monitoring.v3.NotificationChannelService.ListNotificationChannels]
+            [``ListNotificationChannels``][google.monitoring.v3.NotificationChannelService.ListNotificationChannels]
             or
-            [``GetNotificationChannel``][google.cloud.monitoring.v3.NotificationChannelService.GetNotificationChannel]
+            [``GetNotificationChannel``][google.monitoring.v3.NotificationChannelService.GetNotificationChannel]
             operation, this field is expected to be populated.
 
             If the value is ``UNVERIFIED``, then it indicates that the
@@ -167,9 +167,9 @@ class NotificationChannel(proto.Message):
             verification being required for channels of this type.
 
             This field cannot be modified using a standard
-            [``UpdateNotificationChannel``][google.cloud.monitoring.v3.NotificationChannelService.UpdateNotificationChannel]
+            [``UpdateNotificationChannel``][google.monitoring.v3.NotificationChannelService.UpdateNotificationChannel]
             operation. To change the value of this field, you must call
-            [``VerifyNotificationChannel``][google.cloud.monitoring.v3.NotificationChannelService.VerifyNotificationChannel].
+            [``VerifyNotificationChannel``][google.monitoring.v3.NotificationChannelService.VerifyNotificationChannel].
         enabled (~.wrappers.BoolValue):
             Whether notifications are forwarded to the
             described channel. This makes it possible to
@@ -186,9 +186,9 @@ class NotificationChannel(proto.Message):
     class VerificationStatus(proto.Enum):
         r"""Indicates whether the channel has been verified or not. It is
         illegal to specify this field in a
-        [``CreateNotificationChannel``][google.cloud.monitoring.v3.NotificationChannelService.CreateNotificationChannel]
+        [``CreateNotificationChannel``][google.monitoring.v3.NotificationChannelService.CreateNotificationChannel]
         or an
-        [``UpdateNotificationChannel``][google.cloud.monitoring.v3.NotificationChannelService.UpdateNotificationChannel]
+        [``UpdateNotificationChannel``][google.monitoring.v3.NotificationChannelService.UpdateNotificationChannel]
         operation.
         """
         VERIFICATION_STATUS_UNSPECIFIED = 0

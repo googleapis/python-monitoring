@@ -38,7 +38,7 @@ class GroupServiceGrpcTransport(GroupServiceTransport):
     """gRPC backend transport for GroupService.
 
     The Group API lets you inspect and manage your
-    `groups <#google.cloud.monitoring.v3.Group>`__.
+    `groups <#google.monitoring.v3.Group>`__.
 
     A group is a named filter that is used to identify a collection of
     monitored resources. Groups are typically used to mirror the
@@ -263,7 +263,7 @@ class GroupServiceGrpcTransport(GroupServiceTransport):
         # to pass in the functions for each.
         if "list_groups" not in self._stubs:
             self._stubs["list_groups"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.GroupService/ListGroups",
+                "/google.monitoring.v3.GroupService/ListGroups",
                 request_serializer=group_service.ListGroupsRequest.serialize,
                 response_deserializer=group_service.ListGroupsResponse.deserialize,
             )
@@ -287,7 +287,7 @@ class GroupServiceGrpcTransport(GroupServiceTransport):
         # to pass in the functions for each.
         if "get_group" not in self._stubs:
             self._stubs["get_group"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.GroupService/GetGroup",
+                "/google.monitoring.v3.GroupService/GetGroup",
                 request_serializer=group_service.GetGroupRequest.serialize,
                 response_deserializer=group.Group.deserialize,
             )
@@ -313,7 +313,7 @@ class GroupServiceGrpcTransport(GroupServiceTransport):
         # to pass in the functions for each.
         if "create_group" not in self._stubs:
             self._stubs["create_group"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.GroupService/CreateGroup",
+                "/google.monitoring.v3.GroupService/CreateGroup",
                 request_serializer=group_service.CreateGroupRequest.serialize,
                 response_deserializer=gm_group.Group.deserialize,
             )
@@ -340,7 +340,7 @@ class GroupServiceGrpcTransport(GroupServiceTransport):
         # to pass in the functions for each.
         if "update_group" not in self._stubs:
             self._stubs["update_group"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.GroupService/UpdateGroup",
+                "/google.monitoring.v3.GroupService/UpdateGroup",
                 request_serializer=group_service.UpdateGroupRequest.serialize,
                 response_deserializer=gm_group.Group.deserialize,
             )
@@ -364,7 +364,7 @@ class GroupServiceGrpcTransport(GroupServiceTransport):
         # to pass in the functions for each.
         if "delete_group" not in self._stubs:
             self._stubs["delete_group"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.GroupService/DeleteGroup",
+                "/google.monitoring.v3.GroupService/DeleteGroup",
                 request_serializer=group_service.DeleteGroupRequest.serialize,
                 response_deserializer=empty.Empty.FromString,
             )
@@ -393,7 +393,7 @@ class GroupServiceGrpcTransport(GroupServiceTransport):
         # to pass in the functions for each.
         if "list_group_members" not in self._stubs:
             self._stubs["list_group_members"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.GroupService/ListGroupMembers",
+                "/google.monitoring.v3.GroupService/ListGroupMembers",
                 request_serializer=group_service.ListGroupMembersRequest.serialize,
                 response_deserializer=group_service.ListGroupMembersResponse.deserialize,
             )

@@ -255,7 +255,7 @@ class ServiceMonitoringServiceGrpcTransport(ServiceMonitoringServiceTransport):
         # to pass in the functions for each.
         if "create_service" not in self._stubs:
             self._stubs["create_service"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.ServiceMonitoringService/CreateService",
+                "/google.monitoring.v3.ServiceMonitoringService/CreateService",
                 request_serializer=service_service.CreateServiceRequest.serialize,
                 response_deserializer=gm_service.Service.deserialize,
             )
@@ -281,7 +281,7 @@ class ServiceMonitoringServiceGrpcTransport(ServiceMonitoringServiceTransport):
         # to pass in the functions for each.
         if "get_service" not in self._stubs:
             self._stubs["get_service"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.ServiceMonitoringService/GetService",
+                "/google.monitoring.v3.ServiceMonitoringService/GetService",
                 request_serializer=service_service.GetServiceRequest.serialize,
                 response_deserializer=service.Service.deserialize,
             )
@@ -309,7 +309,7 @@ class ServiceMonitoringServiceGrpcTransport(ServiceMonitoringServiceTransport):
         # to pass in the functions for each.
         if "list_services" not in self._stubs:
             self._stubs["list_services"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.ServiceMonitoringService/ListServices",
+                "/google.monitoring.v3.ServiceMonitoringService/ListServices",
                 request_serializer=service_service.ListServicesRequest.serialize,
                 response_deserializer=service_service.ListServicesResponse.deserialize,
             )
@@ -335,7 +335,7 @@ class ServiceMonitoringServiceGrpcTransport(ServiceMonitoringServiceTransport):
         # to pass in the functions for each.
         if "update_service" not in self._stubs:
             self._stubs["update_service"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.ServiceMonitoringService/UpdateService",
+                "/google.monitoring.v3.ServiceMonitoringService/UpdateService",
                 request_serializer=service_service.UpdateServiceRequest.serialize,
                 response_deserializer=gm_service.Service.deserialize,
             )
@@ -361,7 +361,7 @@ class ServiceMonitoringServiceGrpcTransport(ServiceMonitoringServiceTransport):
         # to pass in the functions for each.
         if "delete_service" not in self._stubs:
             self._stubs["delete_service"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.ServiceMonitoringService/DeleteService",
+                "/google.monitoring.v3.ServiceMonitoringService/DeleteService",
                 request_serializer=service_service.DeleteServiceRequest.serialize,
                 response_deserializer=empty.Empty.FromString,
             )
@@ -392,7 +392,7 @@ class ServiceMonitoringServiceGrpcTransport(ServiceMonitoringServiceTransport):
             self._stubs[
                 "create_service_level_objective"
             ] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.ServiceMonitoringService/CreateServiceLevelObjective",
+                "/google.monitoring.v3.ServiceMonitoringService/CreateServiceLevelObjective",
                 request_serializer=service_service.CreateServiceLevelObjectiveRequest.serialize,
                 response_deserializer=service.ServiceLevelObjective.deserialize,
             )
@@ -420,7 +420,7 @@ class ServiceMonitoringServiceGrpcTransport(ServiceMonitoringServiceTransport):
         # to pass in the functions for each.
         if "get_service_level_objective" not in self._stubs:
             self._stubs["get_service_level_objective"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.ServiceMonitoringService/GetServiceLevelObjective",
+                "/google.monitoring.v3.ServiceMonitoringService/GetServiceLevelObjective",
                 request_serializer=service_service.GetServiceLevelObjectiveRequest.serialize,
                 response_deserializer=service.ServiceLevelObjective.deserialize,
             )
@@ -451,7 +451,7 @@ class ServiceMonitoringServiceGrpcTransport(ServiceMonitoringServiceTransport):
             self._stubs[
                 "list_service_level_objectives"
             ] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.ServiceMonitoringService/ListServiceLevelObjectives",
+                "/google.monitoring.v3.ServiceMonitoringService/ListServiceLevelObjectives",
                 request_serializer=service_service.ListServiceLevelObjectivesRequest.serialize,
                 response_deserializer=service_service.ListServiceLevelObjectivesResponse.deserialize,
             )
@@ -482,7 +482,7 @@ class ServiceMonitoringServiceGrpcTransport(ServiceMonitoringServiceTransport):
             self._stubs[
                 "update_service_level_objective"
             ] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.ServiceMonitoringService/UpdateServiceLevelObjective",
+                "/google.monitoring.v3.ServiceMonitoringService/UpdateServiceLevelObjective",
                 request_serializer=service_service.UpdateServiceLevelObjectiveRequest.serialize,
                 response_deserializer=service.ServiceLevelObjective.deserialize,
             )
@@ -510,7 +510,7 @@ class ServiceMonitoringServiceGrpcTransport(ServiceMonitoringServiceTransport):
             self._stubs[
                 "delete_service_level_objective"
             ] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.ServiceMonitoringService/DeleteServiceLevelObjective",
+                "/google.monitoring.v3.ServiceMonitoringService/DeleteServiceLevelObjective",
                 request_serializer=service_service.DeleteServiceLevelObjectiveRequest.serialize,
                 response_deserializer=empty.Empty.FromString,
             )

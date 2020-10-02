@@ -25,9 +25,7 @@ from google.protobuf import wrappers_pb2 as wrappers  # type: ignore
 from google.rpc import status_pb2 as status  # type: ignore
 
 
-__protobuf__ = proto.module(
-    package="google.cloud.monitoring.v3", manifest={"AlertPolicy",},
-)
+__protobuf__ = proto.module(package="google.monitoring.v3", manifest={"AlertPolicy",},)
 
 
 class AlertPolicy(proto.Message):
@@ -48,7 +46,7 @@ class AlertPolicy(proto.Message):
 
             ``[ALERT_POLICY_ID]`` is assigned by Stackdriver Monitoring
             when the policy is created. When calling the
-            [alertPolicies.create][google.cloud.monitoring.v3.AlertPolicyService.CreateAlertPolicy]
+            [alertPolicies.create][google.monitoring.v3.AlertPolicyService.CreateAlertPolicy]
             method, do not include the ``name`` field in the alerting
             policy passed as part of the request.
         display_name (str):
@@ -108,10 +106,10 @@ class AlertPolicy(proto.Message):
             new violations occur on an already opened incident. Each
             element of this array corresponds to the ``name`` field in
             each of the
-            [``NotificationChannel``][google.cloud.monitoring.v3.NotificationChannel]
+            [``NotificationChannel``][google.monitoring.v3.NotificationChannel]
             objects that are returned from the
             [``ListNotificationChannels``]
-            [google.cloud.monitoring.v3.NotificationChannelService.ListNotificationChannels]
+            [google.monitoring.v3.NotificationChannelService.ListNotificationChannels]
             method. The format of the entries in this field is:
 
             ::
@@ -174,14 +172,14 @@ class AlertPolicy(proto.Message):
                 alerting policy.
 
                 When calling the
-                [alertPolicies.create][google.cloud.monitoring.v3.AlertPolicyService.CreateAlertPolicy]
+                [alertPolicies.create][google.monitoring.v3.AlertPolicyService.CreateAlertPolicy]
                 method, do not include the ``name`` field in the conditions
                 of the requested alerting policy. Stackdriver Monitoring
                 creates the condition identifiers and includes them in the
                 new policy.
 
                 When calling the
-                [alertPolicies.update][google.cloud.monitoring.v3.AlertPolicyService.UpdateAlertPolicy]
+                [alertPolicies.update][google.monitoring.v3.AlertPolicyService.UpdateAlertPolicy]
                 method to update a policy, including a condition ``name``
                 causes the existing condition to be updated. Conditions
                 without names are added to the updated policy. Existing

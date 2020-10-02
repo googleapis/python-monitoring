@@ -25,7 +25,7 @@ from google.cloud.monitoring_v3.types import common
 
 
 __protobuf__ = proto.module(
-    package="google.cloud.monitoring.v3",
+    package="google.monitoring.v3",
     manifest={
         "Point",
         "TimeSeries",

@@ -52,6 +52,35 @@ class MetricServiceAsyncClient:
     DEFAULT_ENDPOINT = MetricServiceClient.DEFAULT_ENDPOINT
     DEFAULT_MTLS_ENDPOINT = MetricServiceClient.DEFAULT_MTLS_ENDPOINT
 
+    common_project_path = staticmethod(MetricServiceClient.common_project_path)
+    parse_common_project_path = staticmethod(
+        MetricServiceClient.parse_common_project_path
+    )
+
+    common_organization_path = staticmethod(
+        MetricServiceClient.common_organization_path
+    )
+    parse_common_organization_path = staticmethod(
+        MetricServiceClient.parse_common_organization_path
+    )
+
+    common_folder_path = staticmethod(MetricServiceClient.common_folder_path)
+    parse_common_folder_path = staticmethod(
+        MetricServiceClient.parse_common_folder_path
+    )
+
+    common_billing_account_path = staticmethod(
+        MetricServiceClient.common_billing_account_path
+    )
+    parse_common_billing_account_path = staticmethod(
+        MetricServiceClient.parse_common_billing_account_path
+    )
+
+    common_location_path = staticmethod(MetricServiceClient.common_location_path)
+    parse_common_location_path = staticmethod(
+        MetricServiceClient.parse_common_location_path
+    )
+
     from_service_account_file = MetricServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
 

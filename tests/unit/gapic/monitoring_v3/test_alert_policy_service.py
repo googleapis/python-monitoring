@@ -2041,9 +2041,9 @@ def test_parse_alert_policy_path():
 
 
 def test_alert_policy_condition_path():
-    project = "squid"
-    alert_policy = "clam"
-    condition = "whelk"
+    project = "oyster"
+    alert_policy = "nudibranch"
+    condition = "cuttlefish"
 
     expected = "projects/{project}/alertPolicies/{alert_policy}/conditions/{condition}".format(
         project=project, alert_policy=alert_policy, condition=condition,
@@ -2056,14 +2056,115 @@ def test_alert_policy_condition_path():
 
 def test_parse_alert_policy_condition_path():
     expected = {
-        "project": "octopus",
-        "alert_policy": "oyster",
-        "condition": "nudibranch",
+        "project": "mussel",
+        "alert_policy": "winkle",
+        "condition": "nautilus",
     }
     path = AlertPolicyServiceClient.alert_policy_condition_path(**expected)
 
     # Check that the path construction is reversible.
     actual = AlertPolicyServiceClient.parse_alert_policy_condition_path(path)
+    assert expected == actual
+
+
+def test_common_project_path():
+    project = "scallop"
+
+    expected = "projects/{project}".format(project=project,)
+    actual = AlertPolicyServiceClient.common_project_path(project)
+    assert expected == actual
+
+
+def test_parse_common_project_path():
+    expected = {
+        "project": "abalone",
+    }
+    path = AlertPolicyServiceClient.common_project_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = AlertPolicyServiceClient.parse_common_project_path(path)
+    assert expected == actual
+
+
+def test_common_organization_path():
+    organization = "squid"
+
+    expected = "organizations/{organization}".format(organization=organization,)
+    actual = AlertPolicyServiceClient.common_organization_path(organization)
+    assert expected == actual
+
+
+def test_parse_common_organization_path():
+    expected = {
+        "organization": "clam",
+    }
+    path = AlertPolicyServiceClient.common_organization_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = AlertPolicyServiceClient.parse_common_organization_path(path)
+    assert expected == actual
+
+
+def test_common_folder_path():
+    folder = "whelk"
+
+    expected = "folders/{folder}".format(folder=folder,)
+    actual = AlertPolicyServiceClient.common_folder_path(folder)
+    assert expected == actual
+
+
+def test_parse_common_folder_path():
+    expected = {
+        "folder": "octopus",
+    }
+    path = AlertPolicyServiceClient.common_folder_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = AlertPolicyServiceClient.parse_common_folder_path(path)
+    assert expected == actual
+
+
+def test_common_billing_account_path():
+    billing_account = "oyster"
+
+    expected = "billingAccounts/{billing_account}".format(
+        billing_account=billing_account,
+    )
+    actual = AlertPolicyServiceClient.common_billing_account_path(billing_account)
+    assert expected == actual
+
+
+def test_parse_common_billing_account_path():
+    expected = {
+        "billing_account": "nudibranch",
+    }
+    path = AlertPolicyServiceClient.common_billing_account_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = AlertPolicyServiceClient.parse_common_billing_account_path(path)
+    assert expected == actual
+
+
+def test_common_location_path():
+    project = "cuttlefish"
+    location = "mussel"
+
+    expected = "projects/{project}/locations/{location}".format(
+        project=project, location=location,
+    )
+    actual = AlertPolicyServiceClient.common_location_path(project, location)
+    assert expected == actual
+
+
+def test_parse_common_location_path():
+    expected = {
+        "project": "winkle",
+        "location": "nautilus",
+    }
+    path = AlertPolicyServiceClient.common_location_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = AlertPolicyServiceClient.parse_common_location_path(path)
     assert expected == actual
 
 

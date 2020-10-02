@@ -23,7 +23,7 @@ from google.type import calendar_period_pb2 as gt_calendar_period  # type: ignor
 
 
 __protobuf__ = proto.module(
-    package="google.cloud.monitoring.v3",
+    package="google.monitoring.v3",
     manifest={
         "Service",
         "ServiceLevelObjective",

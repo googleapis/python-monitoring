@@ -62,6 +62,35 @@ class UptimeCheckServiceAsyncClient:
         UptimeCheckServiceClient.parse_uptime_check_config_path
     )
 
+    common_project_path = staticmethod(UptimeCheckServiceClient.common_project_path)
+    parse_common_project_path = staticmethod(
+        UptimeCheckServiceClient.parse_common_project_path
+    )
+
+    common_organization_path = staticmethod(
+        UptimeCheckServiceClient.common_organization_path
+    )
+    parse_common_organization_path = staticmethod(
+        UptimeCheckServiceClient.parse_common_organization_path
+    )
+
+    common_folder_path = staticmethod(UptimeCheckServiceClient.common_folder_path)
+    parse_common_folder_path = staticmethod(
+        UptimeCheckServiceClient.parse_common_folder_path
+    )
+
+    common_billing_account_path = staticmethod(
+        UptimeCheckServiceClient.common_billing_account_path
+    )
+    parse_common_billing_account_path = staticmethod(
+        UptimeCheckServiceClient.parse_common_billing_account_path
+    )
+
+    common_location_path = staticmethod(UptimeCheckServiceClient.common_location_path)
+    parse_common_location_path = staticmethod(
+        UptimeCheckServiceClient.parse_common_location_path
+    )
+
     from_service_account_file = UptimeCheckServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
 

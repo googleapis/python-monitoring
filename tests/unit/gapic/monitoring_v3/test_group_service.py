@@ -2258,6 +2258,107 @@ def test_parse_group_path():
     assert expected == actual
 
 
+def test_common_project_path():
+    project = "oyster"
+
+    expected = "projects/{project}".format(project=project,)
+    actual = GroupServiceClient.common_project_path(project)
+    assert expected == actual
+
+
+def test_parse_common_project_path():
+    expected = {
+        "project": "nudibranch",
+    }
+    path = GroupServiceClient.common_project_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = GroupServiceClient.parse_common_project_path(path)
+    assert expected == actual
+
+
+def test_common_organization_path():
+    organization = "cuttlefish"
+
+    expected = "organizations/{organization}".format(organization=organization,)
+    actual = GroupServiceClient.common_organization_path(organization)
+    assert expected == actual
+
+
+def test_parse_common_organization_path():
+    expected = {
+        "organization": "mussel",
+    }
+    path = GroupServiceClient.common_organization_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = GroupServiceClient.parse_common_organization_path(path)
+    assert expected == actual
+
+
+def test_common_folder_path():
+    folder = "winkle"
+
+    expected = "folders/{folder}".format(folder=folder,)
+    actual = GroupServiceClient.common_folder_path(folder)
+    assert expected == actual
+
+
+def test_parse_common_folder_path():
+    expected = {
+        "folder": "nautilus",
+    }
+    path = GroupServiceClient.common_folder_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = GroupServiceClient.parse_common_folder_path(path)
+    assert expected == actual
+
+
+def test_common_billing_account_path():
+    billing_account = "scallop"
+
+    expected = "billingAccounts/{billing_account}".format(
+        billing_account=billing_account,
+    )
+    actual = GroupServiceClient.common_billing_account_path(billing_account)
+    assert expected == actual
+
+
+def test_parse_common_billing_account_path():
+    expected = {
+        "billing_account": "abalone",
+    }
+    path = GroupServiceClient.common_billing_account_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = GroupServiceClient.parse_common_billing_account_path(path)
+    assert expected == actual
+
+
+def test_common_location_path():
+    project = "squid"
+    location = "clam"
+
+    expected = "projects/{project}/locations/{location}".format(
+        project=project, location=location,
+    )
+    actual = GroupServiceClient.common_location_path(project, location)
+    assert expected == actual
+
+
+def test_parse_common_location_path():
+    expected = {
+        "project": "whelk",
+        "location": "octopus",
+    }
+    path = GroupServiceClient.common_location_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = GroupServiceClient.parse_common_location_path(path)
+    assert expected == actual
+
+
 def test_client_withDEFAULT_CLIENT_INFO():
     client_info = gapic_v1.client_info.ClientInfo()
 

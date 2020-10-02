@@ -3272,9 +3272,9 @@ def test_parse_service_path():
 
 
 def test_service_level_objective_path():
-    project = "squid"
-    service = "clam"
-    service_level_objective = "whelk"
+    project = "oyster"
+    service = "nudibranch"
+    service_level_objective = "cuttlefish"
 
     expected = "projects/{project}/services/{service}/serviceLevelObjectives/{service_level_objective}".format(
         project=project,
@@ -3289,14 +3289,115 @@ def test_service_level_objective_path():
 
 def test_parse_service_level_objective_path():
     expected = {
-        "project": "octopus",
-        "service": "oyster",
-        "service_level_objective": "nudibranch",
+        "project": "mussel",
+        "service": "winkle",
+        "service_level_objective": "nautilus",
     }
     path = ServiceMonitoringServiceClient.service_level_objective_path(**expected)
 
     # Check that the path construction is reversible.
     actual = ServiceMonitoringServiceClient.parse_service_level_objective_path(path)
+    assert expected == actual
+
+
+def test_common_project_path():
+    project = "scallop"
+
+    expected = "projects/{project}".format(project=project,)
+    actual = ServiceMonitoringServiceClient.common_project_path(project)
+    assert expected == actual
+
+
+def test_parse_common_project_path():
+    expected = {
+        "project": "abalone",
+    }
+    path = ServiceMonitoringServiceClient.common_project_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ServiceMonitoringServiceClient.parse_common_project_path(path)
+    assert expected == actual
+
+
+def test_common_organization_path():
+    organization = "squid"
+
+    expected = "organizations/{organization}".format(organization=organization,)
+    actual = ServiceMonitoringServiceClient.common_organization_path(organization)
+    assert expected == actual
+
+
+def test_parse_common_organization_path():
+    expected = {
+        "organization": "clam",
+    }
+    path = ServiceMonitoringServiceClient.common_organization_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ServiceMonitoringServiceClient.parse_common_organization_path(path)
+    assert expected == actual
+
+
+def test_common_folder_path():
+    folder = "whelk"
+
+    expected = "folders/{folder}".format(folder=folder,)
+    actual = ServiceMonitoringServiceClient.common_folder_path(folder)
+    assert expected == actual
+
+
+def test_parse_common_folder_path():
+    expected = {
+        "folder": "octopus",
+    }
+    path = ServiceMonitoringServiceClient.common_folder_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ServiceMonitoringServiceClient.parse_common_folder_path(path)
+    assert expected == actual
+
+
+def test_common_billing_account_path():
+    billing_account = "oyster"
+
+    expected = "billingAccounts/{billing_account}".format(
+        billing_account=billing_account,
+    )
+    actual = ServiceMonitoringServiceClient.common_billing_account_path(billing_account)
+    assert expected == actual
+
+
+def test_parse_common_billing_account_path():
+    expected = {
+        "billing_account": "nudibranch",
+    }
+    path = ServiceMonitoringServiceClient.common_billing_account_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ServiceMonitoringServiceClient.parse_common_billing_account_path(path)
+    assert expected == actual
+
+
+def test_common_location_path():
+    project = "cuttlefish"
+    location = "mussel"
+
+    expected = "projects/{project}/locations/{location}".format(
+        project=project, location=location,
+    )
+    actual = ServiceMonitoringServiceClient.common_location_path(project, location)
+    assert expected == actual
+
+
+def test_parse_common_location_path():
+    expected = {
+        "project": "winkle",
+        "location": "nautilus",
+    }
+    path = ServiceMonitoringServiceClient.common_location_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ServiceMonitoringServiceClient.parse_common_location_path(path)
     assert expected == actual
 
 

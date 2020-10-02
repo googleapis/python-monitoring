@@ -263,7 +263,7 @@ class UptimeCheckServiceGrpcAsyncIOTransport(UptimeCheckServiceTransport):
         # to pass in the functions for each.
         if "list_uptime_check_configs" not in self._stubs:
             self._stubs["list_uptime_check_configs"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.UptimeCheckService/ListUptimeCheckConfigs",
+                "/google.monitoring.v3.UptimeCheckService/ListUptimeCheckConfigs",
                 request_serializer=uptime_service.ListUptimeCheckConfigsRequest.serialize,
                 response_deserializer=uptime_service.ListUptimeCheckConfigsResponse.deserialize,
             )
@@ -292,7 +292,7 @@ class UptimeCheckServiceGrpcAsyncIOTransport(UptimeCheckServiceTransport):
         # to pass in the functions for each.
         if "get_uptime_check_config" not in self._stubs:
             self._stubs["get_uptime_check_config"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.UptimeCheckService/GetUptimeCheckConfig",
+                "/google.monitoring.v3.UptimeCheckService/GetUptimeCheckConfig",
                 request_serializer=uptime_service.GetUptimeCheckConfigRequest.serialize,
                 response_deserializer=uptime.UptimeCheckConfig.deserialize,
             )
@@ -321,7 +321,7 @@ class UptimeCheckServiceGrpcAsyncIOTransport(UptimeCheckServiceTransport):
         # to pass in the functions for each.
         if "create_uptime_check_config" not in self._stubs:
             self._stubs["create_uptime_check_config"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.UptimeCheckService/CreateUptimeCheckConfig",
+                "/google.monitoring.v3.UptimeCheckService/CreateUptimeCheckConfig",
                 request_serializer=uptime_service.CreateUptimeCheckConfigRequest.serialize,
                 response_deserializer=uptime.UptimeCheckConfig.deserialize,
             )
@@ -354,7 +354,7 @@ class UptimeCheckServiceGrpcAsyncIOTransport(UptimeCheckServiceTransport):
         # to pass in the functions for each.
         if "update_uptime_check_config" not in self._stubs:
             self._stubs["update_uptime_check_config"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.UptimeCheckService/UpdateUptimeCheckConfig",
+                "/google.monitoring.v3.UptimeCheckService/UpdateUptimeCheckConfig",
                 request_serializer=uptime_service.UpdateUptimeCheckConfigRequest.serialize,
                 response_deserializer=uptime.UptimeCheckConfig.deserialize,
             )
@@ -385,7 +385,7 @@ class UptimeCheckServiceGrpcAsyncIOTransport(UptimeCheckServiceTransport):
         # to pass in the functions for each.
         if "delete_uptime_check_config" not in self._stubs:
             self._stubs["delete_uptime_check_config"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.UptimeCheckService/DeleteUptimeCheckConfig",
+                "/google.monitoring.v3.UptimeCheckService/DeleteUptimeCheckConfig",
                 request_serializer=uptime_service.DeleteUptimeCheckConfigRequest.serialize,
                 response_deserializer=empty.Empty.FromString,
             )
@@ -415,7 +415,7 @@ class UptimeCheckServiceGrpcAsyncIOTransport(UptimeCheckServiceTransport):
         # to pass in the functions for each.
         if "list_uptime_check_ips" not in self._stubs:
             self._stubs["list_uptime_check_ips"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.UptimeCheckService/ListUptimeCheckIps",
+                "/google.monitoring.v3.UptimeCheckService/ListUptimeCheckIps",
                 request_serializer=uptime_service.ListUptimeCheckIpsRequest.serialize,
                 response_deserializer=uptime_service.ListUptimeCheckIpsResponse.deserialize,
             )

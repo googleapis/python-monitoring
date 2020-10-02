@@ -19,7 +19,7 @@ import proto  # type: ignore
 
 
 __protobuf__ = proto.module(
-    package="google.cloud.monitoring.v3", manifest={"DroppedLabels",},
+    package="google.monitoring.v3", manifest={"DroppedLabels",},
 )
 
 

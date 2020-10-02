@@ -157,6 +157,83 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         )
         return m.groupdict() if m else {}
 
+    @staticmethod
+    def notification_channel_descriptor_path(
+        project: str, channel_descriptor: str,
+    ) -> str:
+        """Return a fully-qualified notification_channel_descriptor string."""
+        return "projects/{project}/notificationChannelDescriptors/{channel_descriptor}".format(
+            project=project, channel_descriptor=channel_descriptor,
+        )
+
+    @staticmethod
+    def parse_notification_channel_descriptor_path(path: str) -> Dict[str, str]:
+        """Parse a notification_channel_descriptor path into its component segments."""
+        m = re.match(
+            r"^projects/(?P<project>.+?)/notificationChannelDescriptors/(?P<channel_descriptor>.+?)$",
+            path,
+        )
+        return m.groupdict() if m else {}
+
+    @staticmethod
+    def common_billing_account_path(billing_account: str,) -> str:
+        """Return a fully-qualified billing_account string."""
+        return "billingAccounts/{billing_account}".format(
+            billing_account=billing_account,
+        )
+
+    @staticmethod
+    def parse_common_billing_account_path(path: str) -> Dict[str, str]:
+        """Parse a billing_account path into its component segments."""
+        m = re.match(r"^billingAccounts/(?P<billing_account>.+?)$", path)
+        return m.groupdict() if m else {}
+
+    @staticmethod
+    def common_folder_path(folder: str,) -> str:
+        """Return a fully-qualified folder string."""
+        return "folders/{folder}".format(folder=folder,)
+
+    @staticmethod
+    def parse_common_folder_path(path: str) -> Dict[str, str]:
+        """Parse a folder path into its component segments."""
+        m = re.match(r"^folders/(?P<folder>.+?)$", path)
+        return m.groupdict() if m else {}
+
+    @staticmethod
+    def common_organization_path(organization: str,) -> str:
+        """Return a fully-qualified organization string."""
+        return "organizations/{organization}".format(organization=organization,)
+
+    @staticmethod
+    def parse_common_organization_path(path: str) -> Dict[str, str]:
+        """Parse a organization path into its component segments."""
+        m = re.match(r"^organizations/(?P<organization>.+?)$", path)
+        return m.groupdict() if m else {}
+
+    @staticmethod
+    def common_project_path(project: str,) -> str:
+        """Return a fully-qualified project string."""
+        return "projects/{project}".format(project=project,)
+
+    @staticmethod
+    def parse_common_project_path(path: str) -> Dict[str, str]:
+        """Parse a project path into its component segments."""
+        m = re.match(r"^projects/(?P<project>.+?)$", path)
+        return m.groupdict() if m else {}
+
+    @staticmethod
+    def common_location_path(project: str, location: str,) -> str:
+        """Return a fully-qualified location string."""
+        return "projects/{project}/locations/{location}".format(
+            project=project, location=location,
+        )
+
+    @staticmethod
+    def parse_common_location_path(path: str) -> Dict[str, str]:
+        """Parse a location path into its component segments."""
+        m = re.match(r"^projects/(?P<project>.+?)/locations/(?P<location>.+?)$", path)
+        return m.groupdict() if m else {}
+
     def __init__(
         self,
         *,
@@ -303,7 +380,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
                 Note that this names the parent container in which to
                 look for the descriptors; to retrieve a single
                 descriptor by name, use the
-                [GetNotificationChannelDescriptor][google.cloud.monitoring.v3.NotificationChannelService.GetNotificationChannelDescriptor]
+                [GetNotificationChannelDescriptor][google.monitoring.v3.NotificationChannelService.GetNotificationChannelDescriptor]
                 operation, instead.
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -490,7 +567,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
                 notification channels; it does not name a specific
                 channel. To query a specific channel by REST resource
                 name, use the
-                [``GetNotificationChannel``][google.cloud.monitoring.v3.NotificationChannelService.GetNotificationChannel]
+                [``GetNotificationChannel``][google.monitoring.v3.NotificationChannelService.GetNotificationChannel]
                 operation.
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this

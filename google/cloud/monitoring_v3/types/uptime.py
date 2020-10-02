@@ -23,7 +23,7 @@ from google.protobuf import duration_pb2 as duration  # type: ignore
 
 
 __protobuf__ = proto.module(
-    package="google.cloud.monitoring.v3",
+    package="google.monitoring.v3",
     manifest={
         "UptimeCheckRegion",
         "GroupResourceType",

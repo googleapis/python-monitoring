@@ -18,7 +18,7 @@
 import proto  # type: ignore
 
 
-__protobuf__ = proto.module(package="google.cloud.monitoring.v3", manifest={"Group",},)
+__protobuf__ = proto.module(package="google.monitoring.v3", manifest={"Group",},)
 
 
 class Group(proto.Message):

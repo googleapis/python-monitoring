@@ -24,7 +24,7 @@ from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
 
 
 __protobuf__ = proto.module(
-    package="google.cloud.monitoring.v3",
+    package="google.monitoring.v3",
     manifest={
         "ComparisonType",
         "ServiceTier",
@@ -165,7 +165,7 @@ class Aggregation(proto.Message):
         alignment_period (~.duration.Duration):
             The ``alignment_period`` specifies a time interval, in
             seconds, that is used to divide the data in all the [time
-            series][google.cloud.monitoring.v3.TimeSeries] into consistent
+            series][google.monitoring.v3.TimeSeries] into consistent
             blocks of time. This will be done before the per-series
             aligner can be applied to the data.
 

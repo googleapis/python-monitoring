@@ -23,7 +23,7 @@ from google.protobuf import field_mask_pb2 as field_mask  # type: ignore
 
 
 __protobuf__ = proto.module(
-    package="google.cloud.monitoring.v3",
+    package="google.monitoring.v3",
     manifest={
         "ListUptimeCheckConfigsRequest",
         "ListUptimeCheckConfigsResponse",

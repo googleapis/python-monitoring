@@ -260,7 +260,7 @@ class MetricServiceGrpcAsyncIOTransport(MetricServiceTransport):
             self._stubs[
                 "list_monitored_resource_descriptors"
             ] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.MetricService/ListMonitoredResourceDescriptors",
+                "/google.monitoring.v3.MetricService/ListMonitoredResourceDescriptors",
                 request_serializer=metric_service.ListMonitoredResourceDescriptorsRequest.serialize,
                 response_deserializer=metric_service.ListMonitoredResourceDescriptorsResponse.deserialize,
             )
@@ -293,7 +293,7 @@ class MetricServiceGrpcAsyncIOTransport(MetricServiceTransport):
             self._stubs[
                 "get_monitored_resource_descriptor"
             ] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.MetricService/GetMonitoredResourceDescriptor",
+                "/google.monitoring.v3.MetricService/GetMonitoredResourceDescriptor",
                 request_serializer=metric_service.GetMonitoredResourceDescriptorRequest.serialize,
                 response_deserializer=monitored_resource.MonitoredResourceDescriptor.FromString,
             )
@@ -323,7 +323,7 @@ class MetricServiceGrpcAsyncIOTransport(MetricServiceTransport):
         # to pass in the functions for each.
         if "list_metric_descriptors" not in self._stubs:
             self._stubs["list_metric_descriptors"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.MetricService/ListMetricDescriptors",
+                "/google.monitoring.v3.MetricService/ListMetricDescriptors",
                 request_serializer=metric_service.ListMetricDescriptorsRequest.serialize,
                 response_deserializer=metric_service.ListMetricDescriptorsResponse.deserialize,
             )
@@ -353,7 +353,7 @@ class MetricServiceGrpcAsyncIOTransport(MetricServiceTransport):
         # to pass in the functions for each.
         if "get_metric_descriptor" not in self._stubs:
             self._stubs["get_metric_descriptor"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.MetricService/GetMetricDescriptor",
+                "/google.monitoring.v3.MetricService/GetMetricDescriptor",
                 request_serializer=metric_service.GetMetricDescriptorRequest.serialize,
                 response_deserializer=ga_metric.MetricDescriptor.FromString,
             )
@@ -384,7 +384,7 @@ class MetricServiceGrpcAsyncIOTransport(MetricServiceTransport):
         # to pass in the functions for each.
         if "create_metric_descriptor" not in self._stubs:
             self._stubs["create_metric_descriptor"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.MetricService/CreateMetricDescriptor",
+                "/google.monitoring.v3.MetricService/CreateMetricDescriptor",
                 request_serializer=metric_service.CreateMetricDescriptorRequest.serialize,
                 response_deserializer=ga_metric.MetricDescriptor.FromString,
             )
@@ -414,7 +414,7 @@ class MetricServiceGrpcAsyncIOTransport(MetricServiceTransport):
         # to pass in the functions for each.
         if "delete_metric_descriptor" not in self._stubs:
             self._stubs["delete_metric_descriptor"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.MetricService/DeleteMetricDescriptor",
+                "/google.monitoring.v3.MetricService/DeleteMetricDescriptor",
                 request_serializer=metric_service.DeleteMetricDescriptorRequest.serialize,
                 response_deserializer=empty.Empty.FromString,
             )
@@ -444,7 +444,7 @@ class MetricServiceGrpcAsyncIOTransport(MetricServiceTransport):
         # to pass in the functions for each.
         if "list_time_series" not in self._stubs:
             self._stubs["list_time_series"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.MetricService/ListTimeSeries",
+                "/google.monitoring.v3.MetricService/ListTimeSeries",
                 request_serializer=metric_service.ListTimeSeriesRequest.serialize,
                 response_deserializer=metric_service.ListTimeSeriesResponse.deserialize,
             )
@@ -474,7 +474,7 @@ class MetricServiceGrpcAsyncIOTransport(MetricServiceTransport):
         # to pass in the functions for each.
         if "create_time_series" not in self._stubs:
             self._stubs["create_time_series"] = self.grpc_channel.unary_unary(
-                "/google.cloud.monitoring.v3.MetricService/CreateTimeSeries",
+                "/google.monitoring.v3.MetricService/CreateTimeSeries",
                 request_serializer=metric_service.CreateTimeSeriesRequest.serialize,
                 response_deserializer=empty.Empty.FromString,
             )

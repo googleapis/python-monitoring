@@ -69,6 +69,35 @@ class AlertPolicyServiceAsyncClient:
         AlertPolicyServiceClient.parse_alert_policy_condition_path
     )
 
+    common_project_path = staticmethod(AlertPolicyServiceClient.common_project_path)
+    parse_common_project_path = staticmethod(
+        AlertPolicyServiceClient.parse_common_project_path
+    )
+
+    common_organization_path = staticmethod(
+        AlertPolicyServiceClient.common_organization_path
+    )
+    parse_common_organization_path = staticmethod(
+        AlertPolicyServiceClient.parse_common_organization_path
+    )
+
+    common_folder_path = staticmethod(AlertPolicyServiceClient.common_folder_path)
+    parse_common_folder_path = staticmethod(
+        AlertPolicyServiceClient.parse_common_folder_path
+    )
+
+    common_billing_account_path = staticmethod(
+        AlertPolicyServiceClient.common_billing_account_path
+    )
+    parse_common_billing_account_path = staticmethod(
+        AlertPolicyServiceClient.parse_common_billing_account_path
+    )
+
+    common_location_path = staticmethod(AlertPolicyServiceClient.common_location_path)
+    parse_common_location_path = staticmethod(
+        AlertPolicyServiceClient.parse_common_location_path
+    )
+
     from_service_account_file = AlertPolicyServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
 
@@ -151,7 +180,7 @@ class AlertPolicyServiceAsyncClient:
                 Note that this field names the parent container in which
                 the alerting policies to be listed are stored. To
                 retrieve a single alerting policy by name, use the
-                [GetAlertPolicy][google.cloud.monitoring.v3.AlertPolicyService.GetAlertPolicy]
+                [GetAlertPolicy][google.monitoring.v3.AlertPolicyService.GetAlertPolicy]
                 operation, instead.
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -428,7 +457,7 @@ class AlertPolicyServiceAsyncClient:
                     projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
 
                 For more information, see
-                [AlertPolicy][google.cloud.monitoring.v3.AlertPolicy].
+                [AlertPolicy][google.monitoring.v3.AlertPolicy].
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.

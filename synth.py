@@ -54,11 +54,11 @@ for pattern in [
         ""
     )
 
-s.replace(
-    "google/cloud/**/*.py",
-    "google.monitoring",
-    "google.cloud.monitoring"
-)
+# s.replace(
+#     "google/cloud/**/*.py",
+#     "google.monitoring",
+#     "google.cloud.monitoring"
+# )
 
 # Synth hack due to microgenerator uses "type_" while api-common-protos uses "type".
 for file in ["test_uptime_check_service.py", "test_metric_service.py"]:

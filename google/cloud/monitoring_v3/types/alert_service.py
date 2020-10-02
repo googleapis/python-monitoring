@@ -23,7 +23,7 @@ from google.protobuf import field_mask_pb2 as field_mask  # type: ignore
 
 
 __protobuf__ = proto.module(
-    package="google.cloud.monitoring.v3",
+    package="google.monitoring.v3",
     manifest={
         "CreateAlertPolicyRequest",
         "GetAlertPolicyRequest",
@@ -95,7 +95,7 @@ class ListAlertPoliciesRequest(proto.Message):
             Note that this field names the parent container in which the
             alerting policies to be listed are stored. To retrieve a
             single alerting policy by name, use the
-            [GetAlertPolicy][google.cloud.monitoring.v3.AlertPolicyService.GetAlertPolicy]
+            [GetAlertPolicy][google.monitoring.v3.AlertPolicyService.GetAlertPolicy]
             operation, instead.
         filter (str):
             If provided, this field specifies the criteria that must be
@@ -212,7 +212,7 @@ class DeleteAlertPolicyRequest(proto.Message):
                 projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
 
             For more information, see
-            [AlertPolicy][google.cloud.monitoring.v3.AlertPolicy].
+            [AlertPolicy][google.monitoring.v3.AlertPolicy].
     """
 
     name = proto.Field(proto.STRING, number=3)

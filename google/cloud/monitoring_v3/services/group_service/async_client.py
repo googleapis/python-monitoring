@@ -41,7 +41,7 @@ from .client import GroupServiceClient
 
 class GroupServiceAsyncClient:
     """The Group API lets you inspect and manage your
-    `groups <#google.cloud.monitoring.v3.Group>`__.
+    `groups <#google.monitoring.v3.Group>`__.
 
     A group is a named filter that is used to identify a collection of
     monitored resources. Groups are typically used to mirror the
@@ -61,6 +61,31 @@ class GroupServiceAsyncClient:
 
     group_path = staticmethod(GroupServiceClient.group_path)
     parse_group_path = staticmethod(GroupServiceClient.parse_group_path)
+
+    common_project_path = staticmethod(GroupServiceClient.common_project_path)
+    parse_common_project_path = staticmethod(
+        GroupServiceClient.parse_common_project_path
+    )
+
+    common_organization_path = staticmethod(GroupServiceClient.common_organization_path)
+    parse_common_organization_path = staticmethod(
+        GroupServiceClient.parse_common_organization_path
+    )
+
+    common_folder_path = staticmethod(GroupServiceClient.common_folder_path)
+    parse_common_folder_path = staticmethod(GroupServiceClient.parse_common_folder_path)
+
+    common_billing_account_path = staticmethod(
+        GroupServiceClient.common_billing_account_path
+    )
+    parse_common_billing_account_path = staticmethod(
+        GroupServiceClient.parse_common_billing_account_path
+    )
+
+    common_location_path = staticmethod(GroupServiceClient.common_location_path)
+    parse_common_location_path = staticmethod(
+        GroupServiceClient.parse_common_location_path
+    )
 
     from_service_account_file = GroupServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
