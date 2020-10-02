@@ -146,13 +146,11 @@ def restore(project_name, backup_filename):
     is_same_project = project_name == record['project_name']
     # Convert dicts to AlertPolicies.
     policies_json = [json.dumps(policy) for policy in record['policies']]
-    policies = [google.protobuf.json_format.Parse(
-        policy_json, monitoring_v3.AlertPolicy())
+    policies = [monitoring_v3.AlertPolicy.from_json(policy_json)
         for policy_json in policies_json]
     # Convert dicts to NotificationChannels
     channels_json = [json.dumps(channel) for channel in record['channels']]
-    channels = [google.protobuf.json_format.Parse(
-        channel_json, monitoring_v3.NotificationChannel()) for channel_json in channels_json]
+    channels = [monitoring_v3.NotificationChannel.from_json(channel_json) for channel_json in channels_json]
 
     # Restore the channels.
     channel_client = monitoring_v3.NotificationChannelServiceClient()

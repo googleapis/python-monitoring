@@ -76,15 +76,13 @@ class PochanFixture:
             self.alert_policy = self.alert_policy_client.create_alert_policy(
                 name=self.project_name, alert_policy=policy)
             # Create a notification channel.
-            notification_channel = (
-                monitoring_v3.NotificationChannel())
             json = open('test_notification_channel.json').read()
-            google.protobuf.json_format.Parse(json, notification_channel)
+            notification_channel = monitoring_v3.NotificationChannel.from_json(json)
             notification_channel.display_name = (
                 'snippets-test-' + random_name(10))
             self.notification_channel = (
                 self.notification_channel_client.create_notification_channel(
-                    self.project_name, notification_channel))
+                    name=self.project_name, notification_channel=notification_channel))
         setup()
         return self
 
