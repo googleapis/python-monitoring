@@ -176,7 +176,7 @@ def restore(project_name, backup_filename):
         if not updated:
             # The channel no longer exists.  Recreate it.
             old_name = channel.name
-            channel.ClearField("name")
+            del channel.name
             new_channel = channel_client.create_notification_channel(
                 name=project_name, notification_channel=channel)
             channel_name_map[old_name] = new_channel.name
@@ -187,8 +187,8 @@ def restore(project_name, backup_filename):
     for policy in policies:
         print('Updating policy', policy.display_name)
         # These two fields cannot be set directly, so clear them.
-        policy.ClearField('creation_record')
-        policy.ClearField('mutation_record')
+        del policy.creation_record
+        del policy.mutation_record
 
         # Update old channel names with new channel names.
         for i, channel in enumerate(policy.notification_channels):
@@ -212,9 +212,9 @@ def restore(project_name, backup_filename):
         if not updated:
             # The policy no longer exists.  Recreate it.
             old_name = policy.name
-            policy.ClearField("name")
+            del policy.name
             for condition in policy.conditions:
-                condition.ClearField("name")
+                del condition.name
             policy = alert_client.create_alert_policy(name=project_name, alert_policy=policy)
         print('Updated', policy.name)
 # [END monitoring_alert_enable_channel]
