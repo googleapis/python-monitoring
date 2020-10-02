@@ -94,7 +94,7 @@ class PochanFixture:
         def teardown():
             try:
                 self.alert_policy_client.delete_alert_policy(
-                    self.alert_policy.name)
+                    name=self.alert_policy.name)
             except NotFound:
                 print("Ignored NotFound when deleting a policy.")
             try:

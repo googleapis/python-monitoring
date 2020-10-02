@@ -18,9 +18,10 @@ import argparse
 import json
 import os
 
+import google.api_core.exceptions
 from google.cloud import monitoring_v3
 from google.protobuf import field_mask_pb2 as field_mask
-import google.protobuf.json_format
+import proto
 import tabulate
 
 
@@ -60,14 +61,14 @@ def enable_alert_policies(project_name, enable, filter_=None):
     policies = client.list_alert_policies(request={"name":project_name, "filter":filter_})
 
     for policy in policies:
-        if bool(enable) == policy.enabled.value:
+        if bool(enable) == policy.enabled:
             print('Policy', policy.name, 'is already',
-                  'enabled' if policy.enabled.value else 'disabled')
+                  'enabled' if policy.enabled else 'disabled')
         else:
-            policy.enabled.value = bool(enable)
+            policy.enabled = bool(enable)
             mask = field_mask.FieldMask()
             mask.paths.append('enabled')
-            client.update_alert_policy(policy, mask)
+            client.update_alert_policy(alert_policy=policy, update_mask=mask)
             print('Enabled' if enable else 'Disabled', policy.name)
 # [END monitoring_alert_enable_policies]
 
@@ -123,11 +124,11 @@ def backup(project_name, backup_filename):
 
 
 class ProtoEncoder(json.JSONEncoder):
-    """Uses google.protobuf.json_format to encode protobufs as json."""
+    """Encode protobufs as json."""
     def default(self, obj):
         if type(obj) in (monitoring_v3.AlertPolicy,
                          monitoring_v3.NotificationChannel):
-            text = google.protobuf.json_format.MessageToJson(obj)
+            text = proto.Message.to_json(obj)
             return json.loads(text)
         return super(ProtoEncoder, self).default(obj)
 # [END monitoring_alert_backup_policies]
@@ -162,7 +163,7 @@ def restore(project_name, backup_filename):
         # This field is immutable and it is illegal to specify a
         # non-default value (UNVERIFIED or VERIFIED) in the
         # Create() or Update() operations.
-        channel.verification_status = monitoring_v3.enums.NotificationChannel.\
+        channel.verification_status = monitoring_v3.NotificationChannel.\
             VerificationStatus.VERIFICATION_STATUS_UNSPECIFIED
 
         if is_same_project:
