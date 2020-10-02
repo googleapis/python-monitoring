@@ -20,7 +20,9 @@ import mock
 
 from google.cloud import monitoring_v3 as monitoring_v3
 from google.cloud.monitoring_v3 import MetricServiceClient
-from google.cloud.monitoring_v3.services.metric_service.transports import MetricServiceGrpcTransport
+from google.cloud.monitoring_v3.services.metric_service.transports import (
+    MetricServiceGrpcTransport,
+)
 from google.protobuf import timestamp_pb2 as timestamp
 
 
@@ -77,8 +79,7 @@ class ChannelStub(object):
     def __init__(self, responses=[]):
         self.responses = responses
         self.responses = [
-            monitoring_v3.ListTimeSeriesResponse(**response)
-            for response in responses
+            monitoring_v3.ListTimeSeriesResponse(**response) for response in responses
         ]
         self.requests = []
 
@@ -107,7 +108,7 @@ class TestQuery(unittest.TestCase):
             start_timestamp.FromDatetime(start_time)
             interval.start_time = start_timestamp
         return interval
-    
+
     @staticmethod
     def _create_client(channel=None):
         if channel is None:
@@ -297,24 +298,36 @@ class TestQuery(unittest.TestCase):
 
         # Currently cannot create from a list of dict for repeated fields due to
         # https://github.com/googleapis/proto-plus-python/issues/135
-        POINT1 = monitoring_v3.Point({"interval": INTERVAL2, "value": {"double_value": VALUE1}})
-        POINT2 = monitoring_v3.Point({"interval": INTERVAL1, "value": {"double_value": VALUE1}})
-        POINT3 = monitoring_v3.Point({"interval": INTERVAL2, "value": {"double_value": VALUE2}})
-        POINT4 = monitoring_v3.Point({"interval": INTERVAL1, "value": {"double_value": VALUE2}})
-        SERIES1 = monitoring_v3.TimeSeries({
-            "metric": {"type": METRIC_TYPE, "labels": METRIC_LABELS},
-            "resource": {"type": RESOURCE_TYPE, "labels": RESOURCE_LABELS},
-            "metric_kind": METRIC_KIND,
-            "value_type": VALUE_TYPE,
-            "points": [POINT1, POINT2]
-        })
-        SERIES2 = monitoring_v3.TimeSeries({
-            "metric": {"type": METRIC_TYPE, "labels": METRIC_LABELS2},
-            "resource": {"type": RESOURCE_TYPE, "labels": RESOURCE_LABELS2},
-            "metric_kind": METRIC_KIND,
-            "value_type": VALUE_TYPE,
-            "points": [POINT3, POINT4]
-        })
+        POINT1 = monitoring_v3.Point(
+            {"interval": INTERVAL2, "value": {"double_value": VALUE1}}
+        )
+        POINT2 = monitoring_v3.Point(
+            {"interval": INTERVAL1, "value": {"double_value": VALUE1}}
+        )
+        POINT3 = monitoring_v3.Point(
+            {"interval": INTERVAL2, "value": {"double_value": VALUE2}}
+        )
+        POINT4 = monitoring_v3.Point(
+            {"interval": INTERVAL1, "value": {"double_value": VALUE2}}
+        )
+        SERIES1 = monitoring_v3.TimeSeries(
+            {
+                "metric": {"type": METRIC_TYPE, "labels": METRIC_LABELS},
+                "resource": {"type": RESOURCE_TYPE, "labels": RESOURCE_LABELS},
+                "metric_kind": METRIC_KIND,
+                "value_type": VALUE_TYPE,
+                "points": [POINT1, POINT2],
+            }
+        )
+        SERIES2 = monitoring_v3.TimeSeries(
+            {
+                "metric": {"type": METRIC_TYPE, "labels": METRIC_LABELS2},
+                "resource": {"type": RESOURCE_TYPE, "labels": RESOURCE_LABELS2},
+                "metric_kind": METRIC_KIND,
+                "value_type": VALUE_TYPE,
+                "points": [POINT3, POINT4],
+            }
+        )
 
         RESPONSE = {"time_series": [SERIES1, SERIES2], "next_page_token": ""}
 
