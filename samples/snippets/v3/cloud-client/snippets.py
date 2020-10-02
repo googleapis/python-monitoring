@@ -160,7 +160,7 @@ def list_time_series_reduce(project_id):
     aggregation = monitoring_v3.Aggregation({
         "alignment_period": {"seconds": 1200},  # 20 minutes
         "per_series_aligner": monitoring_v3.Aggregation.Aligner.ALIGN_MEAN,
-        "cross_series_reducer": monitoring_v3.enums.Aggregation.Reducer.REDUCE_MEAN,
+        "cross_series_reducer": monitoring_v3.Aggregation.Reducer.REDUCE_MEAN,
         "group_by_fields": ["resource.zone"]
     })
 
@@ -168,7 +168,7 @@ def list_time_series_reduce(project_id):
         "name":project_name,
         "filter":'metric.type = "compute.googleapis.com/instance/cpu/utilization"',
         "interval":interval,
-        "view":monitoring_v3.enums.ListTimeSeriesRequest.TimeSeriesView.FULL,
+        "view":monitoring_v3.ListTimeSeriesRequest.TimeSeriesView.FULL,
         "aggregation":aggregation
     })
     for result in results:
