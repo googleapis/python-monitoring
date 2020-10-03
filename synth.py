@@ -54,12 +54,6 @@ for pattern in [
         ""
     )
 
-# s.replace(
-#     "google/cloud/**/*.py",
-#     "google.monitoring",
-#     "google.cloud.monitoring"
-# )
-
 # Synth hack due to microgenerator uses "type_" while api-common-protos uses "type".
 for file in ["test_uptime_check_service.py", "test_metric_service.py"]:
     s.replace(
@@ -71,12 +65,10 @@ for file in ["test_uptime_check_service.py", "test_metric_service.py"]:
 # ----------------------------------------------------------------------------
 # Add templated files
 # ----------------------------------------------------------------------------
-# ----------------------------------------------------------------------------
-# Add templated files
-# ----------------------------------------------------------------------------
 templated_files = common.py_library(
     samples=True,  # set to True only if there are samples
     microgenerator=True,
+    cov_level=99
 )
 s.move(templated_files, excludes=[".coveragerc"])  # microgenerator has a good .coveragerc file
 
@@ -85,9 +77,7 @@ s.move(templated_files, excludes=[".coveragerc"])  # microgenerator has a good .
 # ----------------------------------------------------------------------------
 python.py_samples(skip_readmes=True)
 
-
-# TODO(busunkim): Use latest sphinx after microgenerator transition
-s.replace("noxfile.py", """['"]sphinx['"]""", '"sphinx<3.0.0"')
-
+# Don't treat warnings as errors.
+s.replace("noxfile.py", '[\"\']-W[\"\']', '# "-W"')
 
 s.shell.run(["nox", "-s", "blacken"], hide_output=False)
