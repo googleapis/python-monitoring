@@ -367,22 +367,17 @@ class TestQuery(unittest.TestCase):
         T0 = datetime.datetime(2016, 4, 6, 22, 5, 0)
         T1 = datetime.datetime(2016, 4, 6, 22, 10, 0)
 
-        channel = ChannelStub(responses=[{"next_page_token": ""}])
-        client = self._create_client(channel)
+        client = self._create_client()
         query = self._make_one(client, PROJECT, METRIC_TYPE)
-        query = query.select_interval(start_time=T0, end_time=T1)
-        response = list(query)
 
-        self.assertEqual(len(response), 0)
+        with mock.patch.object(
+            type(client._transport.list_time_series), "__call__"
+        ) as call:
+            call.return_value = monitoring_v3.ListTimeSeriesResponse()
+            query = query.select_interval(start_time=T0, end_time=T1)
+            response = list(query)
 
-        expected_request = monitoring_v3.ListTimeSeriesRequest(
-            name="projects/" + PROJECT,
-            filter='metric.type = "{type}"'.format(type=METRIC_TYPE),
-            interval=self._make_interval(T1, T0),
-            view=monitoring_v3.ListTimeSeriesRequest.TimeSeriesView.FULL,
-        )
-        request = channel.requests[0][1]
-        self.assertEqual(request, expected_request)
+            self.assertEqual(len(response), 0)
 
     def test_iteration_headers_only(self):
         T0 = datetime.datetime(2016, 4, 6, 22, 5, 0)
