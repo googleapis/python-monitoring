@@ -1,8 +1,8 @@
 # 2.0.0 Migration Guide
 
-The 2.0 release of the `google-cloud-vision` client is a significant upgrade based on a [next-gen code generator](https://github.com/googleapis/gapic-generator-python), and includes substantial interface changes. Existing code written for earlier versions of this library will likely require updates to use this version. This document describes the changes that have been made, and what you need to do to update your usage.
+The 2.0 release of the `google-cloud-monitoring` client is a significant upgrade based on a [next-gen code generator](https://github.com/googleapis/gapic-generator-python), and includes substantial interface changes. Existing code written for earlier versions of this library will likely require updates to use this version. This document describes the changes that have been made, and what you need to do to update your usage.
 
-If you experience issues or have questions, please file an [issue](https://github.com/googleapis/python-vision/issues).
+If you experience issues or have questions, please file an [issue](https://github.com/googleapis/python-monitoring/issues).
 
 ## Supported Python Versions
 
@@ -20,46 +20,45 @@ Methods expect request objects. We provide a script that will convert most commo
 * Install the library
 
 ```py
-python3 -m pip install google-cloud-vision
+python3 -m pip install google-cloud-monitoring
 ```
 
-* The script `fixup_vision_v1_keywords.py` is shipped with the library. It expects
+* The script `fixup_monitoring_v3_keywords.py` is shipped with the library. It expects
 an input directory (with the code to convert) and an empty destination directory.
 
 ```sh
-$ fixup_vision_v1_keywords.py --input-directory .samples/ --output-directory samples/
+$ fixup_monitoring_v3_keywords.py --input-directory .samples/ --output-directory samples/
 ```
 
 **Before:**
 ```py
-from google.cloud import vision_v1
+from google.cloud import monitoring_v3
 
-client = vision_v1.ProductSearchClient()
+client = monitoring_v3.MetricServiceClient()
 
-product_set = client.get_product_set("name")
+metric_descriptor = client.get_metric_descriptor("name")
 ```
 
 
 **After:**
 ```py
-from google.cloud import vision_v1
+from google.cloud import monitoring_v3
 
-client = vision_v1.ProductSearchClient()
+client = monitoring_v3.MetricServiceClient()
 
-product_set = client.get_product_set(request={"name": "name"})
+metric_descriptor = client.get_metric_descriptor(request={"name": "name"})
 ```
 
 ### More Details
 
-In `google-cloud-vision<2.0.0`, parameters required by the API were positional parameters and optional parameters were keyword parameters.
+In `google-cloud-monitoring<2.0.0`, parameters required by the API were positional parameters and optional parameters were keyword parameters.
 
 **Before:**
 ```py
-    def create_product_set(
+    def create_metric_descriptor(
         self,
-        parent,
-        product_set,
-        product_set_id=None,
+        name,
+        metric_descriptor,
         retry=google.api_core.gapic_v1.method.DEFAULT,
         timeout=google.api_core.gapic_v1.method.DEFAULT,
         metadata=None,
@@ -73,17 +72,16 @@ Some methods have additional keyword only parameters. The available parameters d
 
 **After:**
 ```py
-    def create_product_set(
+    def create_metric_descriptor(
         self,
-        request: product_search_service.CreateProductSetRequest = None,
+        request: metric_service.CreateMetricDescriptorRequest = None,
         *,
-        parent: str = None,
-        product_set: product_search_service.ProductSet = None,
-        product_set_id: str = None,
+        name: str = None,
+        metric_descriptor: ga_metric.MetricDescriptor = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
-    ) -> product_search_service.ProductSet:
+    ) -> ga_metric.MetricDescriptor:
 ```
 
 > **NOTE:** The `request` parameter and flattened keyword parameters for the API are mutually exclusive.
@@ -93,33 +91,30 @@ Some methods have additional keyword only parameters. The available parameters d
 Both of these calls are valid:
 
 ```py
-response = client.create_product_set(
+response = client.create_metric_descriptor(
     request={
-        "parent": parent,
-        "product_set_id": product_set_id,
-        "product_set": product_set
+        "name": name,
+        "metric_descriptor": metric_descriptor
     }
 )
 ```
 
 ```py
-response = client.create_product_set(
-    parent=parent,
-    product_set_id=product_set_id,
-    product_set=product_set
+response = client.create_metric_descriptor(
+    name=name,
+    metric_descriptor=metric_descriptor
 )
 ```
 
-This call is invalid because it mixes `request` with a keyword argument `product_set`. Executing this code
+This call is invalid because it mixes `request` with a keyword argument `metric_descriptor`. Executing this code
 will result in an error.
 
 ```py
-response = client.create_product_set(
+response = client.create_metric_descriptor(
     request={
-        "parent": parent,
-        "product_set_id": product_set_id
+        "name": name,
     },
-    product_set=product_set
+    metric_descriptor=metric_descriptor
 )
 ```
 
@@ -134,29 +129,31 @@ The submodules `enums` and `types` have been removed.
 
 **Before:**
 ```py
-from google.cloud import vision_v1
+from google.cloud import monitoring_v3
 
-likelihood = vision_v1.enums.Likelihood.UNKNOWN
-request = vision_v1.types.GetProductSetRequest(name="name")
+launch_stage = monitoring_v3.enums.LaunchStage.ALPHA
+policy = monitoring_v3.types.AlertPolicy(name="name")
 ```
 
 
 **After:**
 ```py
-from google.cloud import vision_v1
+from google.cloud import monitoring_v3
 
-likelihood = vision_v1.Likelihood.UNKNOWN
-request = vision_v1.GetProductSetRequest(name="name")
+launch_stage = monitoring_v3.LaunchStage.ALPHA
+policy = monitoring_v3.AlertPolicy(name="name")
 ```
 
-## Location Path Helper Method
+## Project Path Helper Method
 
-Loation path helper method has been removed. Please construct
-the path manually.
+`project_path` method is renamed `common_project_path`.
 
+**Before:**
 ```py
-project = "my-project"
-location = "location"
+project_path = client.project_path("project_id")
+```
 
-location_path = f"projects/{project}/locations/{location}"
+**After:**
+```py
+project_path = client.common_project_path("project_id")
 ```
