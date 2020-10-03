@@ -15,13 +15,11 @@
 import os
 
 import backoff
-import mock
-import pytest
 
 import quickstart
 
 
-PROJECT = os.environ['GOOGLE_CLOUD_PROJECT']
+PROJECT = os.environ["GOOGLE_CLOUD_PROJECT"]
 
 
 def test_quickstart(capsys):
@@ -29,6 +27,6 @@ def test_quickstart(capsys):
     def eventually_consistent_test():
         quickstart.run_quickstart(PROJECT)
         out, _ = capsys.readouterr()
-        assert 'wrote' in out
+        assert "wrote" in out
 
     eventually_consistent_test()
