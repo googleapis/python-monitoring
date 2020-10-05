@@ -23,7 +23,6 @@ from google.cloud.monitoring_v3 import MetricServiceClient
 from google.cloud.monitoring_v3.services.metric_service.transports import (
     MetricServiceGrpcTransport,
 )
-from google.protobuf import timestamp_pb2 as timestamp
 
 
 PROJECT = "my-project"
@@ -99,14 +98,7 @@ class TestQuery(unittest.TestCase):
 
     @staticmethod
     def _make_interval(end_time, start_time=None):
-        interval = monitoring_v3.TimeInterval()
-        end_timestamp = timestamp.Timestamp()
-        end_timestamp.FromDatetime(end_time)
-        interval.end_time = end_timestamp
-        if start_time is not None:
-            start_timestamp = timestamp.Timestamp()
-            start_timestamp.FromDatetime(start_time)
-            interval.start_time = start_timestamp
+        interval = monitoring_v3.TimeInterval(end_time=end_time, start_time=start_time)
         return interval
 
     @staticmethod
