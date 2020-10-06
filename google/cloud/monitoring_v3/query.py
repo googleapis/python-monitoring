@@ -334,7 +334,7 @@ class Query(object):
 
         Example::
 
-            import google.cloud.monitoring as monitoring
+            from google.cloud import monitoring
             query = query.align(
                 monitoring.Aggregation.Aligner.ALIGN_MEAN, minutes=5)
 
