@@ -380,7 +380,7 @@ class Query(object):
         For example, you could request an aggregated time series for each
         combination of project and zone as follows::
 
-            import google.cloud.monitoring as monitoring
+            from google.cloud import monitoring
             query = query.reduce(monitoring.Aggregation.Reducer.REDUCE_MEAN,
                                  'resource.project_id', 'resource.zone')
 
