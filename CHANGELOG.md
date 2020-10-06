@@ -9,7 +9,7 @@
 
 ### ⚠ BREAKING CHANGES
 
-* move to use microgen (#54)
+* move to use microgen (#54). See [Migration Guide](https://github.com/googleapis/python-monitoring/blob/master/UPGRADING.md).
 
 ### Features
 
