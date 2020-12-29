@@ -64,10 +64,11 @@ for file in ["test_uptime_check_service.py", "test_metric_service.py"]:
     )
 
 # Comment out broken path helper 'metric_descriptor_path'
+# https://github.com/googleapis/gapic-generator-python/issues/701
 s.replace(
     "google/cloud/**/metric_service/client.py",
     "(@staticmethod\n\s+def metric_descriptor_path.*?return m\.groupdict\(\) if m else \{\})",
-    '''"""\g<1>"""''',
+    """'''\g<1>'''""",
     re.MULTILINE| re.DOTALL
 )
 

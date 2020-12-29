@@ -3015,6 +3015,10 @@ def test_metric_service_transport_channel_mtls_with_client_cert_source(transport
                 ),
                 ssl_credentials=mock_ssl_cred,
                 quota_project_id=None,
+                options=[
+                    ("grpc.max_send_message_length", -1),
+                    ("grpc.max_receive_message_length", -1),
+                ],
             )
             assert transport.grpc_channel == mock_grpc_channel
             assert transport._ssl_channel_credentials == mock_ssl_cred
@@ -3061,6 +3065,10 @@ def test_metric_service_transport_channel_mtls_with_adc(transport_class):
                 ),
                 ssl_credentials=mock_ssl_cred,
                 quota_project_id=None,
+                options=[
+                    ("grpc.max_send_message_length", -1),
+                    ("grpc.max_receive_message_length", -1),
+                ],
             )
             assert transport.grpc_channel == mock_grpc_channel
 
@@ -3068,16 +3076,15 @@ def test_metric_service_transport_channel_mtls_with_adc(transport_class):
 """def test_metric_descriptor_path():
     project = "squid"
 
-    expected = "projects/{project}/metricDescriptors/{metric_descriptor=**}".format(
-        project=project,
-    )
+    expected = "projects/{project}/metricDescriptors/{metric_descriptor=**}".format(project=project, )
     actual = MetricServiceClient.metric_descriptor_path(project)
     assert expected == actual
 
 
 def test_parse_metric_descriptor_path():
     expected = {
-        "project": "clam",
+    "project": "clam",
+
     }
     path = MetricServiceClient.metric_descriptor_path(**expected)
 
@@ -3085,8 +3092,9 @@ def test_parse_metric_descriptor_path():
     actual = MetricServiceClient.parse_metric_descriptor_path(path)
     assert expected == actual
 
-
 """
+
+
 def test_monitored_resource_descriptor_path():
     project = "whelk"
     monitored_resource_descriptor = "octopus"
