@@ -145,10 +145,10 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
         """
         return self._transport
 
-    @staticmethod
+    '''@staticmethod
     def metric_descriptor_path(project: str,) -> str:
         """Return a fully-qualified metric_descriptor string."""
-        return "projects/{project}/metricDescriptors/{metric_descriptor=**}".format(
+        return "projects/{project}/metricDescriptors/{metric_descriptor=\*\*}".format(
             project=project,
         )
 
@@ -159,7 +159,7 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
             r"^projects/(?P<project>.+?)/metricDescriptors/{metric_descriptor=**}$",
             path,
         )
-        return m.groupdict() if m else {}
+        return m.groupdict() if m else {}'''
 
     @staticmethod
     def monitored_resource_descriptor_path(

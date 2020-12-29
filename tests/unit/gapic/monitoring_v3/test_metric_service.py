@@ -3065,7 +3065,7 @@ def test_metric_service_transport_channel_mtls_with_adc(transport_class):
             assert transport.grpc_channel == mock_grpc_channel
 
 
-def test_metric_descriptor_path():
+"""def test_metric_descriptor_path():
     project = "squid"
 
     expected = "projects/{project}/metricDescriptors/{metric_descriptor=**}".format(
@@ -3086,6 +3086,7 @@ def test_parse_metric_descriptor_path():
     assert expected == actual
 
 
+"""
 def test_monitored_resource_descriptor_path():
     project = "whelk"
     monitored_resource_descriptor = "octopus"
