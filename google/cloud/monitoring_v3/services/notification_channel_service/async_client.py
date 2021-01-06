@@ -101,6 +101,9 @@ class NotificationChannelServiceAsyncClient:
         NotificationChannelServiceClient.parse_common_location_path
     )
 
+    from_service_account_info = (
+        NotificationChannelServiceClient.from_service_account_info
+    )
     from_service_account_file = (
         NotificationChannelServiceClient.from_service_account_file
     )
@@ -182,7 +185,7 @@ class NotificationChannelServiceAsyncClient:
         types to be dynamically added.
 
         Args:
-            request (:class:`~.notification_service.ListNotificationChannelDescriptorsRequest`):
+            request (:class:`google.cloud.monitoring_v3.types.ListNotificationChannelDescriptorsRequest`):
                 The request object. The
                 `ListNotificationChannelDescriptors` request.
             name (:class:`str`):
@@ -199,6 +202,7 @@ class NotificationChannelServiceAsyncClient:
                 descriptor by name, use the
                 [GetNotificationChannelDescriptor][google.monitoring.v3.NotificationChannelService.GetNotificationChannelDescriptor]
                 operation, instead.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -210,8 +214,8 @@ class NotificationChannelServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.pagers.ListNotificationChannelDescriptorsAsyncPager:
-                The ``ListNotificationChannelDescriptors`` response.
+            google.cloud.monitoring_v3.services.notification_channel_service.pagers.ListNotificationChannelDescriptorsAsyncPager:
+                The ListNotificationChannelDescriptors response.
 
                 Iterating over this object will yield results and
                 resolve additional pages automatically.
@@ -285,7 +289,7 @@ class NotificationChannelServiceAsyncClient:
         notification channel of the given type.
 
         Args:
-            request (:class:`~.notification_service.GetNotificationChannelDescriptorRequest`):
+            request (:class:`google.cloud.monitoring_v3.types.GetNotificationChannelDescriptorRequest`):
                 The request object. The
                 `GetNotificationChannelDescriptor` response.
             name (:class:`str`):
@@ -295,6 +299,7 @@ class NotificationChannelServiceAsyncClient:
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]/notificationChannelDescriptors/[CHANNEL_TYPE]
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -306,7 +311,7 @@ class NotificationChannelServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.notification.NotificationChannelDescriptor:
+            google.cloud.monitoring_v3.types.NotificationChannelDescriptor:
                 A description of a notification
                 channel. The descriptor includes the
                 properties of the channel and the set of
@@ -373,7 +378,7 @@ class NotificationChannelServiceAsyncClient:
         created for the project.
 
         Args:
-            request (:class:`~.notification_service.ListNotificationChannelsRequest`):
+            request (:class:`google.cloud.monitoring_v3.types.ListNotificationChannelsRequest`):
                 The request object. The `ListNotificationChannels`
                 request.
             name (:class:`str`):
@@ -390,6 +395,7 @@ class NotificationChannelServiceAsyncClient:
                 name, use the
                 [``GetNotificationChannel``][google.monitoring.v3.NotificationChannelService.GetNotificationChannel]
                 operation.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -401,8 +407,8 @@ class NotificationChannelServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.pagers.ListNotificationChannelsAsyncPager:
-                The ``ListNotificationChannels`` response.
+            google.cloud.monitoring_v3.services.notification_channel_service.pagers.ListNotificationChannelsAsyncPager:
+                The ListNotificationChannels response.
 
                 Iterating over this object will yield results and
                 resolve additional pages automatically.
@@ -478,7 +484,7 @@ class NotificationChannelServiceAsyncClient:
         call to the create method.
 
         Args:
-            request (:class:`~.notification_service.GetNotificationChannelRequest`):
+            request (:class:`google.cloud.monitoring_v3.types.GetNotificationChannelRequest`):
                 The request object. The `GetNotificationChannel`
                 request.
             name (:class:`str`):
@@ -488,6 +494,7 @@ class NotificationChannelServiceAsyncClient:
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -499,13 +506,14 @@ class NotificationChannelServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.notification.NotificationChannel:
-                A ``NotificationChannel`` is a medium through which an
-                alert is delivered when a policy violation is detected.
-                Examples of channels include email, SMS, and third-party
-                messaging applications. Fields containing sensitive
-                information like authentication tokens or contact info
-                are only partially populated on retrieval.
+            google.cloud.monitoring_v3.types.NotificationChannel:
+                A NotificationChannel is a medium through which an alert is
+                   delivered when a policy violation is detected.
+                   Examples of channels include email, SMS, and
+                   third-party messaging applications. Fields containing
+                   sensitive information like authentication tokens or
+                   contact info are only partially populated on
+                   retrieval.
 
         """
         # Create or coerce a protobuf request object.
@@ -569,7 +577,7 @@ class NotificationChannelServiceAsyncClient:
         SMS number, or PagerDuty service.
 
         Args:
-            request (:class:`~.notification_service.CreateNotificationChannelRequest`):
+            request (:class:`google.cloud.monitoring_v3.types.CreateNotificationChannelRequest`):
                 The request object. The `CreateNotificationChannel`
                 request.
             name (:class:`str`):
@@ -586,12 +594,14 @@ class NotificationChannelServiceAsyncClient:
                 version of this field as a prefix, but will add
                 ``/notificationChannels/[CHANNEL_ID]`` to identify the
                 channel.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            notification_channel (:class:`~.notification.NotificationChannel`):
+            notification_channel (:class:`google.cloud.monitoring_v3.types.NotificationChannel`):
                 Required. The definition of the ``NotificationChannel``
                 to create.
+
                 This corresponds to the ``notification_channel`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -603,13 +613,14 @@ class NotificationChannelServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.notification.NotificationChannel:
-                A ``NotificationChannel`` is a medium through which an
-                alert is delivered when a policy violation is detected.
-                Examples of channels include email, SMS, and third-party
-                messaging applications. Fields containing sensitive
-                information like authentication tokens or contact info
-                are only partially populated on retrieval.
+            google.cloud.monitoring_v3.types.NotificationChannel:
+                A NotificationChannel is a medium through which an alert is
+                   delivered when a policy violation is detected.
+                   Examples of channels include email, SMS, and
+                   third-party messaging applications. Fields containing
+                   sensitive information like authentication tokens or
+                   contact info are only partially populated on
+                   retrieval.
 
         """
         # Create or coerce a protobuf request object.
@@ -666,20 +677,21 @@ class NotificationChannelServiceAsyncClient:
         in the field mask remain unchanged.
 
         Args:
-            request (:class:`~.notification_service.UpdateNotificationChannelRequest`):
+            request (:class:`google.cloud.monitoring_v3.types.UpdateNotificationChannelRequest`):
                 The request object. The `UpdateNotificationChannel`
                 request.
-            update_mask (:class:`~.field_mask.FieldMask`):
+            update_mask (:class:`google.protobuf.field_mask_pb2.FieldMask`):
                 The fields to update.
                 This corresponds to the ``update_mask`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            notification_channel (:class:`~.notification.NotificationChannel`):
+            notification_channel (:class:`google.cloud.monitoring_v3.types.NotificationChannel`):
                 Required. A description of the changes to be applied to
                 the specified notification channel. The description must
                 provide a definition for fields to be updated; the names
                 of these fields should also be included in the
                 ``update_mask``.
+
                 This corresponds to the ``notification_channel`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -691,13 +703,14 @@ class NotificationChannelServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.notification.NotificationChannel:
-                A ``NotificationChannel`` is a medium through which an
-                alert is delivered when a policy violation is detected.
-                Examples of channels include email, SMS, and third-party
-                messaging applications. Fields containing sensitive
-                information like authentication tokens or contact info
-                are only partially populated on retrieval.
+            google.cloud.monitoring_v3.types.NotificationChannel:
+                A NotificationChannel is a medium through which an alert is
+                   delivered when a policy violation is detected.
+                   Examples of channels include email, SMS, and
+                   third-party messaging applications. Fields containing
+                   sensitive information like authentication tokens or
+                   contact info are only partially populated on
+                   retrieval.
 
         """
         # Create or coerce a protobuf request object.
@@ -755,7 +768,7 @@ class NotificationChannelServiceAsyncClient:
         r"""Deletes a notification channel.
 
         Args:
-            request (:class:`~.notification_service.DeleteNotificationChannelRequest`):
+            request (:class:`google.cloud.monitoring_v3.types.DeleteNotificationChannelRequest`):
                 The request object. The `DeleteNotificationChannel`
                 request.
             name (:class:`str`):
@@ -765,6 +778,7 @@ class NotificationChannelServiceAsyncClient:
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -777,6 +791,7 @@ class NotificationChannelServiceAsyncClient:
                 referenced by an existing alerting
                 policy will fail to be deleted in a
                 delete operation.
+
                 This corresponds to the ``force`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -848,12 +863,13 @@ class NotificationChannelServiceAsyncClient:
         verify the channel.
 
         Args:
-            request (:class:`~.notification_service.SendNotificationChannelVerificationCodeRequest`):
+            request (:class:`google.cloud.monitoring_v3.types.SendNotificationChannelVerificationCodeRequest`):
                 The request object. The
                 `SendNotificationChannelVerificationCode` request.
             name (:class:`str`):
                 Required. The notification channel to
                 which to send a verification code.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -942,7 +958,7 @@ class NotificationChannelServiceAsyncClient:
         string that has a longer expiration time.
 
         Args:
-            request (:class:`~.notification_service.GetNotificationChannelVerificationCodeRequest`):
+            request (:class:`google.cloud.monitoring_v3.types.GetNotificationChannelVerificationCodeRequest`):
                 The request object. The
                 `GetNotificationChannelVerificationCode` request.
             name (:class:`str`):
@@ -952,6 +968,7 @@ class NotificationChannelServiceAsyncClient:
                 a channel that is already verified; if
                 the specified channel is not verified,
                 the request will fail.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -963,8 +980,8 @@ class NotificationChannelServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.notification_service.GetNotificationChannelVerificationCodeResponse:
-                The ``GetNotificationChannelVerificationCode`` request.
+            google.cloud.monitoring_v3.types.GetNotificationChannelVerificationCodeResponse:
+                The GetNotificationChannelVerificationCode request.
         """
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
@@ -1029,12 +1046,13 @@ class NotificationChannelServiceAsyncClient:
         ``SendNotificationChannelVerificationCode``.
 
         Args:
-            request (:class:`~.notification_service.VerifyNotificationChannelRequest`):
+            request (:class:`google.cloud.monitoring_v3.types.VerifyNotificationChannelRequest`):
                 The request object. The `VerifyNotificationChannel`
                 request.
             name (:class:`str`):
                 Required. The notification channel to
                 verify.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -1048,6 +1066,7 @@ class NotificationChannelServiceAsyncClient:
                 (in general, one is only guaranteed that the code is
                 valid UTF-8; one should not make any assumptions
                 regarding the structure or format of the code).
+
                 This corresponds to the ``code`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -1059,13 +1078,14 @@ class NotificationChannelServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.notification.NotificationChannel:
-                A ``NotificationChannel`` is a medium through which an
-                alert is delivered when a policy violation is detected.
-                Examples of channels include email, SMS, and third-party
-                messaging applications. Fields containing sensitive
-                information like authentication tokens or contact info
-                are only partially populated on retrieval.
+            google.cloud.monitoring_v3.types.NotificationChannel:
+                A NotificationChannel is a medium through which an alert is
+                   delivered when a policy violation is detected.
+                   Examples of channels include email, SMS, and
+                   third-party messaging applications. Fields containing
+                   sensitive information like authentication tokens or
+                   contact info are only partially populated on
+                   retrieval.
 
         """
         # Create or coerce a protobuf request object.

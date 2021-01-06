@@ -56,7 +56,7 @@ class AlertPolicy(proto.Message):
             same display name for multiple policies in the
             same project. The name is limited to 512 Unicode
             characters.
-        documentation (~.alert.AlertPolicy.Documentation):
+        documentation (google.cloud.monitoring_v3.types.AlertPolicy.Documentation):
             Documentation that is included with
             notifications and incidents related to this
             policy. Best practice is for the documentation
@@ -65,7 +65,7 @@ class AlertPolicy(proto.Message):
             underlying problems detected by the alerting
             policy. Notification channels that have limited
             capacity might not show this documentation.
-        user_labels (Sequence[~.alert.AlertPolicy.UserLabelsEntry]):
+        user_labels (Sequence[google.cloud.monitoring_v3.types.AlertPolicy.UserLabelsEntry]):
             User-supplied key/value data to be used for organizing and
             identifying the ``AlertPolicy`` objects.
 
@@ -74,19 +74,19 @@ class AlertPolicy(proto.Message):
             is smaller. Labels and values can contain only lowercase
             letters, numerals, underscores, and dashes. Keys must begin
             with a letter.
-        conditions (Sequence[~.alert.AlertPolicy.Condition]):
+        conditions (Sequence[google.cloud.monitoring_v3.types.AlertPolicy.Condition]):
             A list of conditions for the policy. The conditions are
             combined by AND or OR according to the ``combiner`` field.
             If the combined conditions evaluate to true, then an
             incident is created. A policy can have from one to six
             conditions. If ``condition_time_series_query_language`` is
             present, it must be the only ``condition``.
-        combiner (~.alert.AlertPolicy.ConditionCombinerType):
+        combiner (google.cloud.monitoring_v3.types.AlertPolicy.ConditionCombinerType):
             How to combine the results of multiple conditions to
             determine if an incident should be opened. If
             ``condition_time_series_query_language`` is present, this
             must be ``COMBINE_UNSPECIFIED``.
-        enabled (~.wrappers.BoolValue):
+        enabled (google.protobuf.wrappers_pb2.BoolValue):
             Whether or not the policy is enabled. On
             write, the default interpretation if unset is
             that the policy is enabled. On read, clients
@@ -95,7 +95,7 @@ class AlertPolicy(proto.Message):
             always be populated on List and Get operations,
             unless a field projection has been specified
             that strips it out.
-        validity (~.status.Status):
+        validity (google.rpc.status_pb2.Status):
             Read-only description of how the alert policy
             is invalid. OK if the alert policy is valid. If
             not OK, the alert policy will not generate
@@ -115,11 +115,11 @@ class AlertPolicy(proto.Message):
             ::
 
                 projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
-        creation_record (~.gm_mutation_record.MutationRecord):
+        creation_record (google.cloud.monitoring_v3.types.MutationRecord):
             A read-only record of the creation of the
             alerting policy. If provided in a call to create
             or update, this field will be ignored.
-        mutation_record (~.gm_mutation_record.MutationRecord):
+        mutation_record (google.cloud.monitoring_v3.types.MutationRecord):
             A read-only record of the most recent change
             to the alerting policy. If provided in a call to
             create or update, this field will be ignored.
@@ -195,10 +195,10 @@ class AlertPolicy(proto.Message):
                 incidents. To avoid confusion, don't use the
                 same display name for multiple conditions in the
                 same policy.
-            condition_threshold (~.alert.AlertPolicy.Condition.MetricThreshold):
+            condition_threshold (google.cloud.monitoring_v3.types.AlertPolicy.Condition.MetricThreshold):
                 A condition that compares a time series
                 against a threshold.
-            condition_absent (~.alert.AlertPolicy.Condition.MetricAbsence):
+            condition_absent (google.cloud.monitoring_v3.types.AlertPolicy.Condition.MetricAbsence):
                 A condition that checks that a time series
                 continues to receive new data points.
         """
@@ -240,7 +240,7 @@ class AlertPolicy(proto.Message):
                     optionally may contain restrictions on resource type,
                     resource labels, and metric labels. This field may not
                     exceed 2048 Unicode characters in length.
-                aggregations (Sequence[~.common.Aggregation]):
+                aggregations (Sequence[google.cloud.monitoring_v3.types.Aggregation]):
                     Specifies the alignment of data points in individual time
                     series as well as how to combine the retrieved time series
                     together (such as when aggregating multiple streams on each
@@ -266,7 +266,7 @@ class AlertPolicy(proto.Message):
                     contain restrictions on resource type, resource labels, and
                     metric labels. This field may not exceed 2048 Unicode
                     characters in length.
-                denominator_aggregations (Sequence[~.common.Aggregation]):
+                denominator_aggregations (Sequence[google.cloud.monitoring_v3.types.Aggregation]):
                     Specifies the alignment of data points in individual time
                     series selected by ``denominatorFilter`` as well as how to
                     combine the retrieved time series together (such as when
@@ -278,7 +278,7 @@ class AlertPolicy(proto.Message):
                     ``denominator_aggregations`` fields must use the same
                     alignment period and produce time series that have the same
                     periodicity and labels.
-                comparison (~.common.ComparisonType):
+                comparison (google.cloud.monitoring_v3.types.ComparisonType):
                     The comparison to apply between the time series (indicated
                     by ``filter`` and ``aggregation``) and the threshold
                     (indicated by ``threshold_value``). The comparison is
@@ -290,7 +290,7 @@ class AlertPolicy(proto.Message):
                 threshold_value (float):
                     A value against which to compare the time
                     series.
-                duration (~.gp_duration.Duration):
+                duration (google.protobuf.duration_pb2.Duration):
                     The amount of time that a time series must violate the
                     threshold to be considered failing. Currently, only values
                     that are a multiple of a minute--e.g., 0, 60, 120, or 300
@@ -302,7 +302,7 @@ class AlertPolicy(proto.Message):
                     long enough so that a single outlier does not generate
                     spurious alerts, but short enough that unhealthy states are
                     detected and alerted on quickly.
-                trigger (~.alert.AlertPolicy.Condition.Trigger):
+                trigger (google.cloud.monitoring_v3.types.AlertPolicy.Condition.Trigger):
                     The number/percent of time series for which the comparison
                     must hold in order for the condition to trigger. If
                     unspecified, then the condition will trigger if the
@@ -358,7 +358,7 @@ class AlertPolicy(proto.Message):
                     optionally may contain restrictions on resource type,
                     resource labels, and metric labels. This field may not
                     exceed 2048 Unicode characters in length.
-                aggregations (Sequence[~.common.Aggregation]):
+                aggregations (Sequence[google.cloud.monitoring_v3.types.Aggregation]):
                     Specifies the alignment of data points in individual time
                     series as well as how to combine the retrieved time series
                     together (such as when aggregating multiple streams on each
@@ -371,14 +371,14 @@ class AlertPolicy(proto.Message):
                     request <https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list>`__.
                     It is advisable to use the ``ListTimeSeries`` method when
                     debugging this field.
-                duration (~.gp_duration.Duration):
+                duration (google.protobuf.duration_pb2.Duration):
                     The amount of time that a time series must fail to report
                     new data to be considered failing. Currently, only values
                     that are a multiple of a minute--e.g. 60, 120, or 300
                     seconds--are supported. If an invalid value is given, an
                     error will be returned. The ``Duration.nanos`` field is
                     ignored.
-                trigger (~.alert.AlertPolicy.Condition.Trigger):
+                trigger (google.cloud.monitoring_v3.types.AlertPolicy.Condition.Trigger):
                     The number/percent of time series for which the comparison
                     must hold in order for the condition to trigger. If
                     unspecified, then the condition will trigger if the
