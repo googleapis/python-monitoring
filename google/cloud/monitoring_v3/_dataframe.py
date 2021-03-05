@@ -47,6 +47,10 @@ def _extract_labels(time_series):
 
 def _extract_value(typed_value):
     """Extract the value from a TypedValue."""
+    # There is no equivalent of WhichOneOf in proto-plus
+    # This may break if the field names have been altered in the
+    # proto-plus representation
+    # https://github.com/googleapis/proto-plus-python/issues/137
     value_type = monitoring_v3.TypedValue.pb(typed_value).WhichOneof("value")
     return getattr(typed_value, value_type)
 
