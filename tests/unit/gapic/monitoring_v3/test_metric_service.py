@@ -95,15 +95,19 @@ def test__get_default_mtls_endpoint():
     )
 
 
-def test_metric_service_client_from_service_account_info():
+@pytest.mark.parametrize(
+    "client_class", [MetricServiceClient, MetricServiceAsyncClient,]
+)
+def test_metric_service_client_from_service_account_info(client_class):
     creds = credentials.AnonymousCredentials()
     with mock.patch.object(
         service_account.Credentials, "from_service_account_info"
     ) as factory:
         factory.return_value = creds
         info = {"valid": True}
-        client = MetricServiceClient.from_service_account_info(info)
+        client = client_class.from_service_account_info(info)
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         assert client.transport._host == "monitoring.googleapis.com:443"
 
@@ -119,9 +123,11 @@ def test_metric_service_client_from_service_account_file(client_class):
         factory.return_value = creds
         client = client_class.from_service_account_file("dummy/file/path.json")
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         client = client_class.from_service_account_json("dummy/file/path.json")
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         assert client.transport._host == "monitoring.googleapis.com:443"
 
@@ -485,6 +491,24 @@ def test_list_monitored_resource_descriptors(
 
 def test_list_monitored_resource_descriptors_from_dict():
     test_list_monitored_resource_descriptors(request_type=dict)
+
+
+def test_list_monitored_resource_descriptors_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = MetricServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.list_monitored_resource_descriptors), "__call__"
+    ) as call:
+        client.list_monitored_resource_descriptors()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == metric_service.ListMonitoredResourceDescriptorsRequest()
 
 
 @pytest.mark.asyncio
@@ -891,6 +915,24 @@ def test_get_monitored_resource_descriptor_from_dict():
     test_get_monitored_resource_descriptor(request_type=dict)
 
 
+def test_get_monitored_resource_descriptor_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = MetricServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.get_monitored_resource_descriptor), "__call__"
+    ) as call:
+        client.get_monitored_resource_descriptor()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == metric_service.GetMonitoredResourceDescriptorRequest()
+
+
 @pytest.mark.asyncio
 async def test_get_monitored_resource_descriptor_async(
     transport: str = "grpc_asyncio",
@@ -1106,6 +1148,24 @@ def test_list_metric_descriptors(
 
 def test_list_metric_descriptors_from_dict():
     test_list_metric_descriptors(request_type=dict)
+
+
+def test_list_metric_descriptors_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = MetricServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.list_metric_descriptors), "__call__"
+    ) as call:
+        client.list_metric_descriptors()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == metric_service.ListMetricDescriptorsRequest()
 
 
 @pytest.mark.asyncio
@@ -1504,6 +1564,24 @@ def test_get_metric_descriptor_from_dict():
     test_get_metric_descriptor(request_type=dict)
 
 
+def test_get_metric_descriptor_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = MetricServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.get_metric_descriptor), "__call__"
+    ) as call:
+        client.get_metric_descriptor()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == metric_service.GetMetricDescriptorRequest()
+
+
 @pytest.mark.asyncio
 async def test_get_metric_descriptor_async(
     transport: str = "grpc_asyncio",
@@ -1748,6 +1826,24 @@ def test_create_metric_descriptor_from_dict():
     test_create_metric_descriptor(request_type=dict)
 
 
+def test_create_metric_descriptor_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = MetricServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.create_metric_descriptor), "__call__"
+    ) as call:
+        client.create_metric_descriptor()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == metric_service.CreateMetricDescriptorRequest()
+
+
 @pytest.mark.asyncio
 async def test_create_metric_descriptor_async(
     transport: str = "grpc_asyncio",
@@ -1987,6 +2083,24 @@ def test_delete_metric_descriptor_from_dict():
     test_delete_metric_descriptor(request_type=dict)
 
 
+def test_delete_metric_descriptor_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = MetricServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.delete_metric_descriptor), "__call__"
+    ) as call:
+        client.delete_metric_descriptor()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == metric_service.DeleteMetricDescriptorRequest()
+
+
 @pytest.mark.asyncio
 async def test_delete_metric_descriptor_async(
     transport: str = "grpc_asyncio",
@@ -2181,6 +2295,22 @@ def test_list_time_series(
 
 def test_list_time_series_from_dict():
     test_list_time_series(request_type=dict)
+
+
+def test_list_time_series_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = MetricServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.list_time_series), "__call__") as call:
+        client.list_time_series()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == metric_service.ListTimeSeriesRequest()
 
 
 @pytest.mark.asyncio
@@ -2557,6 +2687,24 @@ def test_create_time_series(
 
 def test_create_time_series_from_dict():
     test_create_time_series(request_type=dict)
+
+
+def test_create_time_series_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = MetricServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.create_time_series), "__call__"
+    ) as call:
+        client.create_time_series()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == metric_service.CreateTimeSeriesRequest()
 
 
 @pytest.mark.asyncio
