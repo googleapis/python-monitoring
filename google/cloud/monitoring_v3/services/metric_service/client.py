@@ -1091,9 +1091,8 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
 
             if name is not None:
                 request.name = name
-
-            if time_series:
-                request.time_series.extend(time_series)
+            if time_series is not None:
+                request.time_series = time_series
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
