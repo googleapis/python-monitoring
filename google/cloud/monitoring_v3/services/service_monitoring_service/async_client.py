@@ -94,7 +94,6 @@ class ServiceMonitoringServiceAsyncClient:
         ServiceMonitoringServiceClient.parse_common_location_path
     )
 
-    from_service_account_info = ServiceMonitoringServiceClient.from_service_account_info
     from_service_account_file = ServiceMonitoringServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
 
@@ -173,7 +172,7 @@ class ServiceMonitoringServiceAsyncClient:
         r"""Create a ``Service``.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.CreateServiceRequest`):
+            request (:class:`~.service_service.CreateServiceRequest`):
                 The request object. The `CreateService` request.
             parent (:class:`str`):
                 Required. Resource name of the parent workspace. The
@@ -182,11 +181,10 @@ class ServiceMonitoringServiceAsyncClient:
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]
-
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            service (:class:`google.cloud.monitoring_v3.types.Service`):
+            service (:class:`~.gm_service.Service`):
                 Required. The ``Service`` to create.
                 This corresponds to the ``service`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -199,13 +197,14 @@ class ServiceMonitoringServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.monitoring_v3.types.Service:
-                A Service is a discrete, autonomous, and network-accessible unit, designed
-                   to solve an individual concern
-                   ([Wikipedia](https://en.wikipedia.org/wiki/Service-orientation)).
-                   In Cloud Monitoring, a Service acts as the root
-                   resource under which operational aspects of the
-                   service are accessible.
+            ~.gm_service.Service:
+                A ``Service`` is a discrete, autonomous, and
+                network-accessible unit, designed to solve an individual
+                concern
+                (`Wikipedia <https://en.wikipedia.org/wiki/Service-orientation>`__).
+                In Cloud Monitoring, a ``Service`` acts as the root
+                resource under which operational aspects of the service
+                are accessible.
 
         """
         # Create or coerce a protobuf request object.
@@ -260,7 +259,7 @@ class ServiceMonitoringServiceAsyncClient:
         r"""Get the named ``Service``.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.GetServiceRequest`):
+            request (:class:`~.service_service.GetServiceRequest`):
                 The request object. The `GetService` request.
             name (:class:`str`):
                 Required. Resource name of the ``Service``. The format
@@ -269,7 +268,6 @@ class ServiceMonitoringServiceAsyncClient:
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -281,13 +279,14 @@ class ServiceMonitoringServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.monitoring_v3.types.Service:
-                A Service is a discrete, autonomous, and network-accessible unit, designed
-                   to solve an individual concern
-                   ([Wikipedia](https://en.wikipedia.org/wiki/Service-orientation)).
-                   In Cloud Monitoring, a Service acts as the root
-                   resource under which operational aspects of the
-                   service are accessible.
+            ~.service.Service:
+                A ``Service`` is a discrete, autonomous, and
+                network-accessible unit, designed to solve an individual
+                concern
+                (`Wikipedia <https://en.wikipedia.org/wiki/Service-orientation>`__).
+                In Cloud Monitoring, a ``Service`` acts as the root
+                resource under which operational aspects of the service
+                are accessible.
 
         """
         # Create or coerce a protobuf request object.
@@ -348,7 +347,7 @@ class ServiceMonitoringServiceAsyncClient:
         r"""List ``Service``\ s for this workspace.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.ListServicesRequest`):
+            request (:class:`~.service_service.ListServicesRequest`):
                 The request object. The `ListServices` request.
             parent (:class:`str`):
                 Required. Resource name of the parent containing the
@@ -359,7 +358,6 @@ class ServiceMonitoringServiceAsyncClient:
 
                     projects/[PROJECT_ID_OR_NUMBER]
                     workspaces/[HOST_PROJECT_ID_OR_NUMBER]
-
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -371,8 +369,8 @@ class ServiceMonitoringServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.monitoring_v3.services.service_monitoring_service.pagers.ListServicesAsyncPager:
-                The ListServices response.
+            ~.pagers.ListServicesAsyncPager:
+                The ``ListServices`` response.
 
                 Iterating over this object will yield results and
                 resolve additional pages automatically.
@@ -442,12 +440,11 @@ class ServiceMonitoringServiceAsyncClient:
         r"""Update this ``Service``.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.UpdateServiceRequest`):
+            request (:class:`~.service_service.UpdateServiceRequest`):
                 The request object. The `UpdateService` request.
-            service (:class:`google.cloud.monitoring_v3.types.Service`):
+            service (:class:`~.gm_service.Service`):
                 Required. The ``Service`` to draw updates from. The
                 given ``name`` specifies the resource to update.
-
                 This corresponds to the ``service`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -459,13 +456,14 @@ class ServiceMonitoringServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.monitoring_v3.types.Service:
-                A Service is a discrete, autonomous, and network-accessible unit, designed
-                   to solve an individual concern
-                   ([Wikipedia](https://en.wikipedia.org/wiki/Service-orientation)).
-                   In Cloud Monitoring, a Service acts as the root
-                   resource under which operational aspects of the
-                   service are accessible.
+            ~.gm_service.Service:
+                A ``Service`` is a discrete, autonomous, and
+                network-accessible unit, designed to solve an individual
+                concern
+                (`Wikipedia <https://en.wikipedia.org/wiki/Service-orientation>`__).
+                In Cloud Monitoring, a ``Service`` acts as the root
+                resource under which operational aspects of the service
+                are accessible.
 
         """
         # Create or coerce a protobuf request object.
@@ -520,7 +518,7 @@ class ServiceMonitoringServiceAsyncClient:
         r"""Soft delete this ``Service``.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.DeleteServiceRequest`):
+            request (:class:`~.service_service.DeleteServiceRequest`):
                 The request object. The `DeleteService` request.
             name (:class:`str`):
                 Required. Resource name of the ``Service`` to delete.
@@ -529,7 +527,6 @@ class ServiceMonitoringServiceAsyncClient:
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -598,7 +595,7 @@ class ServiceMonitoringServiceAsyncClient:
         r"""Create a ``ServiceLevelObjective`` for the given ``Service``.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.CreateServiceLevelObjectiveRequest`):
+            request (:class:`~.service_service.CreateServiceLevelObjectiveRequest`):
                 The request object. The `CreateServiceLevelObjective`
                 request.
             parent (:class:`str`):
@@ -608,15 +605,13 @@ class ServiceMonitoringServiceAsyncClient:
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
-
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            service_level_objective (:class:`google.cloud.monitoring_v3.types.ServiceLevelObjective`):
+            service_level_objective (:class:`~.service.ServiceLevelObjective`):
                 Required. The ``ServiceLevelObjective`` to create. The
                 provided ``name`` will be respected if no
                 ``ServiceLevelObjective`` exists with this name.
-
                 This corresponds to the ``service_level_objective`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -628,7 +623,7 @@ class ServiceMonitoringServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.monitoring_v3.types.ServiceLevelObjective:
+            ~.service.ServiceLevelObjective:
                 A Service-Level Objective (SLO)
                 describes a level of desired good
                 service. It consists of a service-level
@@ -696,7 +691,7 @@ class ServiceMonitoringServiceAsyncClient:
         r"""Get a ``ServiceLevelObjective`` by name.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.GetServiceLevelObjectiveRequest`):
+            request (:class:`~.service_service.GetServiceLevelObjectiveRequest`):
                 The request object. The `GetServiceLevelObjective`
                 request.
             name (:class:`str`):
@@ -706,7 +701,6 @@ class ServiceMonitoringServiceAsyncClient:
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -718,7 +712,7 @@ class ServiceMonitoringServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.monitoring_v3.types.ServiceLevelObjective:
+            ~.service.ServiceLevelObjective:
                 A Service-Level Objective (SLO)
                 describes a level of desired good
                 service. It consists of a service-level
@@ -792,7 +786,7 @@ class ServiceMonitoringServiceAsyncClient:
         r"""List the ``ServiceLevelObjective``\ s for the given ``Service``.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.ListServiceLevelObjectivesRequest`):
+            request (:class:`~.service_service.ListServiceLevelObjectivesRequest`):
                 The request object. The `ListServiceLevelObjectives`
                 request.
             parent (:class:`str`):
@@ -804,7 +798,6 @@ class ServiceMonitoringServiceAsyncClient:
 
                     projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
                     workspaces/[HOST_PROJECT_ID_OR_NUMBER]/services/-
-
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -816,8 +809,8 @@ class ServiceMonitoringServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.monitoring_v3.services.service_monitoring_service.pagers.ListServiceLevelObjectivesAsyncPager:
-                The ListServiceLevelObjectives response.
+            ~.pagers.ListServiceLevelObjectivesAsyncPager:
+                The ``ListServiceLevelObjectives`` response.
 
                 Iterating over this object will yield results and
                 resolve additional pages automatically.
@@ -887,14 +880,13 @@ class ServiceMonitoringServiceAsyncClient:
         r"""Update the given ``ServiceLevelObjective``.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.UpdateServiceLevelObjectiveRequest`):
+            request (:class:`~.service_service.UpdateServiceLevelObjectiveRequest`):
                 The request object. The `UpdateServiceLevelObjective`
                 request.
-            service_level_objective (:class:`google.cloud.monitoring_v3.types.ServiceLevelObjective`):
+            service_level_objective (:class:`~.service.ServiceLevelObjective`):
                 Required. The ``ServiceLevelObjective`` to draw updates
                 from. The given ``name`` specifies the resource to
                 update.
-
                 This corresponds to the ``service_level_objective`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -906,7 +898,7 @@ class ServiceMonitoringServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.monitoring_v3.types.ServiceLevelObjective:
+            ~.service.ServiceLevelObjective:
                 A Service-Level Objective (SLO)
                 describes a level of desired good
                 service. It consists of a service-level
@@ -979,7 +971,7 @@ class ServiceMonitoringServiceAsyncClient:
         r"""Delete the given ``ServiceLevelObjective``.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.DeleteServiceLevelObjectiveRequest`):
+            request (:class:`~.service_service.DeleteServiceLevelObjectiveRequest`):
                 The request object. The `DeleteServiceLevelObjective`
                 request.
             name (:class:`str`):
@@ -989,7 +981,6 @@ class ServiceMonitoringServiceAsyncClient:
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.

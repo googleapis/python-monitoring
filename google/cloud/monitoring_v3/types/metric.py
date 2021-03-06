@@ -42,7 +42,7 @@ class Point(proto.Message):
     r"""A single data point in a time series.
 
     Attributes:
-        interval (google.cloud.monitoring_v3.types.TimeInterval):
+        interval (~.common.TimeInterval):
             The time interval to which the data point applies. For
             ``GAUGE`` metrics, the start time is optional, but if it is
             supplied, it must equal the end time. For ``DELTA`` metrics,
@@ -54,7 +54,7 @@ class Point(proto.Message):
             increasing end times, until an event resets the cumulative
             value to zero and sets a new start time for the following
             points.
-        value (google.cloud.monitoring_v3.types.TypedValue):
+        value (~.common.TypedValue):
             The value of the data point.
     """
 
@@ -71,20 +71,20 @@ class TimeSeries(proto.Message):
     series.
 
     Attributes:
-        metric (google.api.metric_pb2.Metric):
+        metric (~.ga_metric.Metric):
             The associated metric. A fully-specified
             metric used to identify the time series.
-        resource (google.api.monitored_resource_pb2.MonitoredResource):
+        resource (~.monitored_resource.MonitoredResource):
             The associated monitored resource.  Custom
             metrics can use only certain monitored resource
             types in their time series data.
-        metadata (google.api.monitored_resource_pb2.MonitoredResourceMetadata):
+        metadata (~.monitored_resource.MonitoredResourceMetadata):
             Output only. The associated monitored
             resource metadata. When reading a a timeseries,
             this field will include metadata labels that are
             explicitly named in the reduction. When creating
             a timeseries, this field is ignored.
-        metric_kind (google.api.metric_pb2.MetricKind):
+        metric_kind (~.ga_metric.MetricDescriptor.MetricKind):
             The metric kind of the time series. When listing time
             series, this metric kind might be different from the metric
             kind of the associated metric if this time series is an
@@ -96,7 +96,7 @@ class TimeSeries(proto.Message):
             must be auto-created, then this field specifies the metric
             kind of the new descriptor and must be either ``GAUGE`` (the
             default) or ``CUMULATIVE``.
-        value_type (google.api.metric_pb2.ValueType):
+        value_type (~.ga_metric.MetricDescriptor.ValueType):
             The value type of the time series. When listing time series,
             this value type might be different from the value type of
             the associated metric if this time series is an alignment or
@@ -105,7 +105,7 @@ class TimeSeries(proto.Message):
             When creating a time series, this field is optional. If
             present, it must be the same as the type of the data in the
             ``points`` field.
-        points (Sequence[google.cloud.monitoring_v3.types.Point]):
+        points (Sequence[~.gm_metric.Point]):
             The data points of this time series. When listing time
             series, points are returned in reverse time order.
 
@@ -142,9 +142,9 @@ class TimeSeriesDescriptor(proto.Message):
     r"""A descriptor for the labels and points in a timeseries.
 
     Attributes:
-        label_descriptors (Sequence[google.api.label_pb2.LabelDescriptor]):
+        label_descriptors (Sequence[~.label.LabelDescriptor]):
             Descriptors for the labels.
-        point_descriptors (Sequence[google.cloud.monitoring_v3.types.TimeSeriesDescriptor.ValueDescriptor]):
+        point_descriptors (Sequence[~.gm_metric.TimeSeriesDescriptor.ValueDescriptor]):
             Descriptors for the point data value columns.
     """
 
@@ -154,9 +154,9 @@ class TimeSeriesDescriptor(proto.Message):
         Attributes:
             key (str):
                 The value key.
-            value_type (google.api.metric_pb2.ValueType):
+            value_type (~.ga_metric.MetricDescriptor.ValueType):
                 The value type.
-            metric_kind (google.api.metric_pb2.MetricKind):
+            metric_kind (~.ga_metric.MetricDescriptor.MetricKind):
                 The value stream kind.
         """
 
@@ -184,13 +184,13 @@ class TimeSeriesData(proto.Message):
     TimeSeriesDescriptor.
 
     Attributes:
-        label_values (Sequence[google.cloud.monitoring_v3.types.LabelValue]):
+        label_values (Sequence[~.gm_metric.LabelValue]):
             The values of the labels in the time series identifier,
             given in the same order as the ``label_descriptors`` field
             of the TimeSeriesDescriptor associated with this object.
             Each value must have a value of the type given in the
             corresponding entry of ``label_descriptors``.
-        point_data (Sequence[google.cloud.monitoring_v3.types.TimeSeriesData.PointData]):
+        point_data (Sequence[~.gm_metric.TimeSeriesData.PointData]):
             The points in the time series.
     """
 
@@ -201,9 +201,9 @@ class TimeSeriesData(proto.Message):
         with this object.
 
         Attributes:
-            values (Sequence[google.cloud.monitoring_v3.types.TypedValue]):
+            values (Sequence[~.common.TypedValue]):
                 The values that make up the point.
-            time_interval (google.cloud.monitoring_v3.types.TimeInterval):
+            time_interval (~.common.TimeInterval):
                 The time interval associated with the point.
         """
 
@@ -244,7 +244,7 @@ class QueryError(proto.Message):
     language format.
 
     Attributes:
-        locator (google.cloud.monitoring_v3.types.TextLocator):
+        locator (~.gm_metric.TextLocator):
             The location of the time series query
             language text that this error applies to.
         message (str):
@@ -281,13 +281,13 @@ class TextLocator(proto.Message):
             (e.g. a macro definition referenced in the text of the
             query), in which case this is the name of the source (e.g.
             the macro name).
-        start_position (google.cloud.monitoring_v3.types.TextLocator.Position):
+        start_position (~.gm_metric.TextLocator.Position):
             The position of the first byte within the
             text.
-        end_position (google.cloud.monitoring_v3.types.TextLocator.Position):
+        end_position (~.gm_metric.TextLocator.Position):
             The position of the last byte within the
             text.
-        nested_locator (google.cloud.monitoring_v3.types.TextLocator):
+        nested_locator (~.gm_metric.TextLocator):
             If ``source``, ``start_position``, and ``end_position``
             describe a call on some object (e.g. a macro in the time
             series query language text) and a location is to be

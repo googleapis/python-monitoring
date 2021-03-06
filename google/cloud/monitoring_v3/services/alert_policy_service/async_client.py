@@ -98,7 +98,6 @@ class AlertPolicyServiceAsyncClient:
         AlertPolicyServiceClient.parse_common_location_path
     )
 
-    from_service_account_info = AlertPolicyServiceClient.from_service_account_info
     from_service_account_file = AlertPolicyServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
 
@@ -176,7 +175,7 @@ class AlertPolicyServiceAsyncClient:
         r"""Lists the existing alerting policies for the project.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.ListAlertPoliciesRequest`):
+            request (:class:`~.alert_service.ListAlertPoliciesRequest`):
                 The request object. The protocol for the
                 `ListAlertPolicies` request.
             name (:class:`str`):
@@ -192,7 +191,6 @@ class AlertPolicyServiceAsyncClient:
                 retrieve a single alerting policy by name, use the
                 [GetAlertPolicy][google.monitoring.v3.AlertPolicyService.GetAlertPolicy]
                 operation, instead.
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -204,8 +202,8 @@ class AlertPolicyServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.monitoring_v3.services.alert_policy_service.pagers.ListAlertPoliciesAsyncPager:
-                The protocol for the ListAlertPolicies response.
+            ~.pagers.ListAlertPoliciesAsyncPager:
+                The protocol for the ``ListAlertPolicies`` response.
 
                 Iterating over this object will yield results and
                 resolve additional pages automatically.
@@ -275,7 +273,7 @@ class AlertPolicyServiceAsyncClient:
         r"""Gets a single alerting policy.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.GetAlertPolicyRequest`):
+            request (:class:`~.alert_service.GetAlertPolicyRequest`):
                 The request object. The protocol for the
                 `GetAlertPolicy` request.
             name (:class:`str`):
@@ -285,7 +283,6 @@ class AlertPolicyServiceAsyncClient:
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -297,12 +294,12 @@ class AlertPolicyServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.monitoring_v3.types.AlertPolicy:
-                A description of the conditions under which some aspect of your system is
-                   considered to be "unhealthy" and the ways to notify
-                   people or services about this state. For an overview
-                   of alert policies, see [Introduction to
-                   Alerting](\ https://cloud.google.com/monitoring/alerts/).
+            ~.alert.AlertPolicy:
+                A description of the conditions under which some aspect
+                of your system is considered to be "unhealthy" and the
+                ways to notify people or services about this state. For
+                an overview of alert policies, see `Introduction to
+                Alerting <https://cloud.google.com/monitoring/alerts/>`__.
 
         """
         # Create or coerce a protobuf request object.
@@ -364,7 +361,7 @@ class AlertPolicyServiceAsyncClient:
         r"""Creates a new alerting policy.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.CreateAlertPolicyRequest`):
+            request (:class:`~.alert_service.CreateAlertPolicyRequest`):
                 The request object. The protocol for the
                 `CreateAlertPolicy` request.
             name (:class:`str`):
@@ -382,16 +379,14 @@ class AlertPolicyServiceAsyncClient:
                 representation of this name as a prefix but adds a
                 suffix of the form ``/alertPolicies/[ALERT_POLICY_ID]``,
                 identifying the policy in the container.
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            alert_policy (:class:`google.cloud.monitoring_v3.types.AlertPolicy`):
+            alert_policy (:class:`~.alert.AlertPolicy`):
                 Required. The requested alerting policy. You should omit
                 the ``name`` field in this policy. The name will be
                 returned in the new policy, including a new
                 ``[ALERT_POLICY_ID]`` value.
-
                 This corresponds to the ``alert_policy`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -403,12 +398,12 @@ class AlertPolicyServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.monitoring_v3.types.AlertPolicy:
-                A description of the conditions under which some aspect of your system is
-                   considered to be "unhealthy" and the ways to notify
-                   people or services about this state. For an overview
-                   of alert policies, see [Introduction to
-                   Alerting](\ https://cloud.google.com/monitoring/alerts/).
+            ~.alert.AlertPolicy:
+                A description of the conditions under which some aspect
+                of your system is considered to be "unhealthy" and the
+                ways to notify people or services about this state. For
+                an overview of alert policies, see `Introduction to
+                Alerting <https://cloud.google.com/monitoring/alerts/>`__.
 
         """
         # Create or coerce a protobuf request object.
@@ -463,7 +458,7 @@ class AlertPolicyServiceAsyncClient:
         r"""Deletes an alerting policy.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.DeleteAlertPolicyRequest`):
+            request (:class:`~.alert_service.DeleteAlertPolicyRequest`):
                 The request object. The protocol for the
                 `DeleteAlertPolicy` request.
             name (:class:`str`):
@@ -475,7 +470,6 @@ class AlertPolicyServiceAsyncClient:
 
                 For more information, see
                 [AlertPolicy][google.monitoring.v3.AlertPolicy].
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -547,10 +541,10 @@ class AlertPolicyServiceAsyncClient:
         via ``updateMask``. Returns the updated alerting policy.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.UpdateAlertPolicyRequest`):
+            request (:class:`~.alert_service.UpdateAlertPolicyRequest`):
                 The request object. The protocol for the
                 `UpdateAlertPolicy` request.
-            update_mask (:class:`google.protobuf.field_mask_pb2.FieldMask`):
+            update_mask (:class:`~.field_mask.FieldMask`):
                 Optional. A list of alerting policy field names. If this
                 field is not empty, each listed field in the existing
                 alerting policy is set to the value of the corresponding
@@ -579,16 +573,14 @@ class AlertPolicyServiceAsyncClient:
                    the ``name`` field with that ``[CONDITION_ID]``. If
                    the supplied condition omits the ``name`` field, then
                    a new ``[CONDITION_ID]`` is created.
-
                 This corresponds to the ``update_mask`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            alert_policy (:class:`google.cloud.monitoring_v3.types.AlertPolicy`):
+            alert_policy (:class:`~.alert.AlertPolicy`):
                 Required. The updated alerting policy or the updated
                 values for the fields listed in ``update_mask``. If
                 ``update_mask`` is not empty, any fields in this policy
                 that are not in ``update_mask`` are ignored.
-
                 This corresponds to the ``alert_policy`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -600,12 +592,12 @@ class AlertPolicyServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.monitoring_v3.types.AlertPolicy:
-                A description of the conditions under which some aspect of your system is
-                   considered to be "unhealthy" and the ways to notify
-                   people or services about this state. For an overview
-                   of alert policies, see [Introduction to
-                   Alerting](\ https://cloud.google.com/monitoring/alerts/).
+            ~.alert.AlertPolicy:
+                A description of the conditions under which some aspect
+                of your system is considered to be "unhealthy" and the
+                ways to notify people or services about this state. For
+                an overview of alert policies, see `Introduction to
+                Alerting <https://cloud.google.com/monitoring/alerts/>`__.
 
         """
         # Create or coerce a protobuf request object.

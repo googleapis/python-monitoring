@@ -26,7 +26,7 @@ class ListGroupsPager:
     """A pager for iterating through ``list_groups`` requests.
 
     This class thinly wraps an initial
-    :class:`google.cloud.monitoring_v3.types.ListGroupsResponse` object, and
+    :class:`~.group_service.ListGroupsResponse` object, and
     provides an ``__iter__`` method to iterate through its
     ``group`` field.
 
@@ -35,7 +35,7 @@ class ListGroupsPager:
     through the ``group`` field on the
     corresponding responses.
 
-    All the usual :class:`google.cloud.monitoring_v3.types.ListGroupsResponse`
+    All the usual :class:`~.group_service.ListGroupsResponse`
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
@@ -53,9 +53,9 @@ class ListGroupsPager:
         Args:
             method (Callable): The method that was originally called, and
                 which instantiated this pager.
-            request (google.cloud.monitoring_v3.types.ListGroupsRequest):
+            request (:class:`~.group_service.ListGroupsRequest`):
                 The initial request object.
-            response (google.cloud.monitoring_v3.types.ListGroupsResponse):
+            response (:class:`~.group_service.ListGroupsResponse`):
                 The initial response object.
             metadata (Sequence[Tuple[str, str]]): Strings which should be
                 sent along with the request as metadata.
@@ -88,7 +88,7 @@ class ListGroupsAsyncPager:
     """A pager for iterating through ``list_groups`` requests.
 
     This class thinly wraps an initial
-    :class:`google.cloud.monitoring_v3.types.ListGroupsResponse` object, and
+    :class:`~.group_service.ListGroupsResponse` object, and
     provides an ``__aiter__`` method to iterate through its
     ``group`` field.
 
@@ -97,7 +97,7 @@ class ListGroupsAsyncPager:
     through the ``group`` field on the
     corresponding responses.
 
-    All the usual :class:`google.cloud.monitoring_v3.types.ListGroupsResponse`
+    All the usual :class:`~.group_service.ListGroupsResponse`
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
@@ -115,9 +115,9 @@ class ListGroupsAsyncPager:
         Args:
             method (Callable): The method that was originally called, and
                 which instantiated this pager.
-            request (google.cloud.monitoring_v3.types.ListGroupsRequest):
+            request (:class:`~.group_service.ListGroupsRequest`):
                 The initial request object.
-            response (google.cloud.monitoring_v3.types.ListGroupsResponse):
+            response (:class:`~.group_service.ListGroupsResponse`):
                 The initial response object.
             metadata (Sequence[Tuple[str, str]]): Strings which should be
                 sent along with the request as metadata.
@@ -154,7 +154,7 @@ class ListGroupMembersPager:
     """A pager for iterating through ``list_group_members`` requests.
 
     This class thinly wraps an initial
-    :class:`google.cloud.monitoring_v3.types.ListGroupMembersResponse` object, and
+    :class:`~.group_service.ListGroupMembersResponse` object, and
     provides an ``__iter__`` method to iterate through its
     ``members`` field.
 
@@ -163,7 +163,7 @@ class ListGroupMembersPager:
     through the ``members`` field on the
     corresponding responses.
 
-    All the usual :class:`google.cloud.monitoring_v3.types.ListGroupMembersResponse`
+    All the usual :class:`~.group_service.ListGroupMembersResponse`
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
@@ -181,9 +181,9 @@ class ListGroupMembersPager:
         Args:
             method (Callable): The method that was originally called, and
                 which instantiated this pager.
-            request (google.cloud.monitoring_v3.types.ListGroupMembersRequest):
+            request (:class:`~.group_service.ListGroupMembersRequest`):
                 The initial request object.
-            response (google.cloud.monitoring_v3.types.ListGroupMembersResponse):
+            response (:class:`~.group_service.ListGroupMembersResponse`):
                 The initial response object.
             metadata (Sequence[Tuple[str, str]]): Strings which should be
                 sent along with the request as metadata.
@@ -216,7 +216,7 @@ class ListGroupMembersAsyncPager:
     """A pager for iterating through ``list_group_members`` requests.
 
     This class thinly wraps an initial
-    :class:`google.cloud.monitoring_v3.types.ListGroupMembersResponse` object, and
+    :class:`~.group_service.ListGroupMembersResponse` object, and
     provides an ``__aiter__`` method to iterate through its
     ``members`` field.
 
@@ -225,7 +225,7 @@ class ListGroupMembersAsyncPager:
     through the ``members`` field on the
     corresponding responses.
 
-    All the usual :class:`google.cloud.monitoring_v3.types.ListGroupMembersResponse`
+    All the usual :class:`~.group_service.ListGroupMembersResponse`
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
@@ -243,9 +243,9 @@ class ListGroupMembersAsyncPager:
         Args:
             method (Callable): The method that was originally called, and
                 which instantiated this pager.
-            request (google.cloud.monitoring_v3.types.ListGroupMembersRequest):
+            request (:class:`~.group_service.ListGroupMembersRequest`):
                 The initial request object.
-            response (google.cloud.monitoring_v3.types.ListGroupMembersResponse):
+            response (:class:`~.group_service.ListGroupMembersResponse`):
                 The initial response object.
             metadata (Sequence[Tuple[str, str]]): Strings which should be
                 sent along with the request as metadata.
