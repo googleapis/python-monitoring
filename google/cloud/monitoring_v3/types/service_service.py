@@ -56,7 +56,7 @@ class CreateServiceRequest(proto.Message):
             Optional. The Service id to use for this Service. If
             omitted, an id will be generated instead. Must match the
             pattern ``[a-z0-9\-]+``
-        service (~.gm_service.Service):
+        service (google.cloud.monitoring_v3.types.Service):
             Required. The ``Service`` to create.
     """
 
@@ -139,7 +139,7 @@ class ListServicesResponse(proto.Message):
     r"""The ``ListServices`` response.
 
     Attributes:
-        services (Sequence[~.gm_service.Service]):
+        services (Sequence[google.cloud.monitoring_v3.types.Service]):
             The ``Service``\ s matching the specified filter.
         next_page_token (str):
             If there are more results than have been returned, then this
@@ -161,10 +161,10 @@ class UpdateServiceRequest(proto.Message):
     r"""The ``UpdateService`` request.
 
     Attributes:
-        service (~.gm_service.Service):
+        service (google.cloud.monitoring_v3.types.Service):
             Required. The ``Service`` to draw updates from. The given
             ``name`` specifies the resource to update.
-        update_mask (~.field_mask.FieldMask):
+        update_mask (google.protobuf.field_mask_pb2.FieldMask):
             A set of field paths defining which fields to
             use for the update.
     """
@@ -205,7 +205,7 @@ class CreateServiceLevelObjectiveRequest(proto.Message):
             Optional. The ServiceLevelObjective id to use for this
             ServiceLevelObjective. If omitted, an id will be generated
             instead. Must match the pattern ``[a-z0-9\-]+``
-        service_level_objective (~.gm_service.ServiceLevelObjective):
+        service_level_objective (google.cloud.monitoring_v3.types.ServiceLevelObjective):
             Required. The ``ServiceLevelObjective`` to create. The
             provided ``name`` will be respected if no
             ``ServiceLevelObjective`` exists with this name.
@@ -231,7 +231,7 @@ class GetServiceLevelObjectiveRequest(proto.Message):
             ::
 
                 projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
-        view (~.gm_service.ServiceLevelObjective.View):
+        view (google.cloud.monitoring_v3.types.ServiceLevelObjective.View):
             View of the ``ServiceLevelObjective`` to return. If
             ``DEFAULT``, return the ``ServiceLevelObjective`` as
             originally defined. If ``EXPLICIT`` and the
@@ -272,7 +272,7 @@ class ListServiceLevelObjectivesRequest(proto.Message):
             ``nextPageToken`` value returned by a previous call to this
             method. Using this field causes the method to return
             additional results from the previous method call.
-        view (~.gm_service.ServiceLevelObjective.View):
+        view (google.cloud.monitoring_v3.types.ServiceLevelObjective.View):
             View of the ``ServiceLevelObjective``\ s to return. If
             ``DEFAULT``, return each ``ServiceLevelObjective`` as
             originally defined. If ``EXPLICIT`` and the
@@ -298,7 +298,7 @@ class ListServiceLevelObjectivesResponse(proto.Message):
     r"""The ``ListServiceLevelObjectives`` response.
 
     Attributes:
-        service_level_objectives (Sequence[~.gm_service.ServiceLevelObjective]):
+        service_level_objectives (Sequence[google.cloud.monitoring_v3.types.ServiceLevelObjective]):
             The ``ServiceLevelObjective``\ s matching the specified
             filter.
         next_page_token (str):
@@ -323,10 +323,10 @@ class UpdateServiceLevelObjectiveRequest(proto.Message):
     r"""The ``UpdateServiceLevelObjective`` request.
 
     Attributes:
-        service_level_objective (~.gm_service.ServiceLevelObjective):
+        service_level_objective (google.cloud.monitoring_v3.types.ServiceLevelObjective):
             Required. The ``ServiceLevelObjective`` to draw updates
             from. The given ``name`` specifies the resource to update.
-        update_mask (~.field_mask.FieldMask):
+        update_mask (google.protobuf.field_mask_pb2.FieldMask):
             A set of field paths defining which fields to
             use for the update.
     """
