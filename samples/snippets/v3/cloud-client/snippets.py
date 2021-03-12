@@ -18,8 +18,8 @@ import pprint
 import time
 import uuid
 
-from google.api import metric_pb2 as ga_metric
 from google.api import label_pb2 as ga_label
+from google.api import metric_pb2 as ga_metric
 from google.cloud import monitoring_v3
 
 
