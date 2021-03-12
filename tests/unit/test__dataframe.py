@@ -53,7 +53,8 @@ ARRAY = [VALUES] * DIMENSIONS[0]
 
 
 def parse_timestamps():
-    return [pandas.Timestamp(t) for t in TIMESTAMPS]
+    from google.api_core import datetime_helpers
+    return [datetime_helpers.from_rfc3339(t).replace(tzinfo=None) for t in TIMESTAMPS]
 
 
 def generate_query_results():
