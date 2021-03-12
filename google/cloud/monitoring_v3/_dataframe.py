@@ -99,7 +99,10 @@ def _build_dataframe(time_series_iterable, label=None, labels=None):  # pragma: 
     for time_series in time_series_iterable:
         pandas_series = pandas.Series(
             data=[_extract_value(point.value) for point in time_series.points],
-            index=[point.interval.end_time.timestamp_pb().ToNanoseconds() for point in time_series.points],
+            index=[
+                point.interval.end_time.timestamp_pb().ToNanoseconds()
+                for point in time_series.points
+            ],
         )
         columns.append(pandas_series)
         headers.append(_extract_header(time_series))
