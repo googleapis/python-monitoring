@@ -87,7 +87,7 @@ def default(session):
         "mock", "pytest", "pytest-cov",
     )
 
-    session.install("-e", ".")
+    session.install("-e", ".[pandas]")
 
     # Run py.test against the unit tests.
     session.run(
@@ -141,7 +141,7 @@ def system(session):
     session.install(
         "mock", "pytest", "google-cloud-testutils",
     )
-    session.install("-e", ".")
+    session.install("-e", ".[pandas]")
 
     # Run py.test against the system tests.
     if system_test_exists:
