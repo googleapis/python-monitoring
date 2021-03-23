@@ -93,7 +93,7 @@ class ListMonitoredResourceDescriptorsResponse(proto.Message):
     r"""The ``ListMonitoredResourceDescriptors`` response.
 
     Attributes:
-        resource_descriptors (Sequence[google.api.monitored_resource_pb2.MonitoredResourceDescriptor]):
+        resource_descriptors (Sequence[~.monitored_resource.MonitoredResourceDescriptor]):
             The monitored resource descriptors that are available to
             this project and that match ``filter``, if present.
         next_page_token (str):
@@ -178,7 +178,7 @@ class ListMetricDescriptorsResponse(proto.Message):
     r"""The ``ListMetricDescriptors`` response.
 
     Attributes:
-        metric_descriptors (Sequence[google.api.metric_pb2.MetricDescriptor]):
+        metric_descriptors (Sequence[~.ga_metric.MetricDescriptor]):
             The metric descriptors that are available to the project and
             that match the value of ``filter``, if present.
         next_page_token (str):
@@ -229,7 +229,7 @@ class CreateMetricDescriptorRequest(proto.Message):
             ::
 
                 projects/[PROJECT_ID_OR_NUMBER]
-        metric_descriptor (google.api.metric_pb2.MetricDescriptor):
+        metric_descriptor (~.ga_metric.MetricDescriptor):
             Required. The new `custom
             metric <https://cloud.google.com/monitoring/custom-metrics>`__
             descriptor.
@@ -284,12 +284,12 @@ class ListTimeSeriesRequest(proto.Message):
 
                 metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
                     metric.labels.instance_name = "my-instance-name".
-        interval (google.cloud.monitoring_v3.types.TimeInterval):
+        interval (~.common.TimeInterval):
             Required. The time interval for which results
             should be returned. Only time series that
             contain data points in the specified interval
             are included in the response.
-        aggregation (google.cloud.monitoring_v3.types.Aggregation):
+        aggregation (~.common.Aggregation):
             Specifies the alignment of data points in individual time
             series as well as how to combine the retrieved time series
             across specified labels.
@@ -300,7 +300,7 @@ class ListTimeSeriesRequest(proto.Message):
             Unsupported: must be left blank. The points
             in each time series are currently returned in
             reverse time order (most recent to oldest).
-        view (google.cloud.monitoring_v3.types.ListTimeSeriesRequest.TimeSeriesView):
+        view (~.metric_service.ListTimeSeriesRequest.TimeSeriesView):
             Required. Specifies which information is
             returned about the time series.
         page_size (int):
@@ -343,7 +343,7 @@ class ListTimeSeriesResponse(proto.Message):
     r"""The ``ListTimeSeries`` response.
 
     Attributes:
-        time_series (Sequence[google.cloud.monitoring_v3.types.TimeSeries]):
+        time_series (Sequence[~.gm_metric.TimeSeries]):
             One or more time series that match the filter
             included in the request.
         next_page_token (str):
@@ -351,7 +351,7 @@ class ListTimeSeriesResponse(proto.Message):
             field is set to a non-empty value. To see the additional
             results, use that value as ``page_token`` in the next call
             to this method.
-        execution_errors (Sequence[google.rpc.status_pb2.Status]):
+        execution_errors (Sequence[~.gr_status.Status]):
             Query execution errors that may have caused
             the time series data returned to be incomplete.
     """
@@ -382,7 +382,7 @@ class CreateTimeSeriesRequest(proto.Message):
             ::
 
                 projects/[PROJECT_ID_OR_NUMBER]
-        time_series (Sequence[google.cloud.monitoring_v3.types.TimeSeries]):
+        time_series (Sequence[~.gm_metric.TimeSeries]):
             Required. The new data to be added to a list of time series.
             Adds at most one data point to each of several time series.
             The new data point must be more recent than any other point
@@ -405,10 +405,10 @@ class CreateTimeSeriesError(proto.Message):
     r"""DEPRECATED. Used to hold per-time-series error status.
 
     Attributes:
-        time_series (google.cloud.monitoring_v3.types.TimeSeries):
+        time_series (~.gm_metric.TimeSeries):
             DEPRECATED. Time series ID that resulted in the ``status``
             error.
-        status (google.rpc.status_pb2.Status):
+        status (~.gr_status.Status):
             DEPRECATED. The status of the requested write operation for
             ``time_series``.
     """
@@ -428,7 +428,7 @@ class CreateTimeSeriesSummary(proto.Message):
         success_point_count (int):
             The number of points that were successfully
             written.
-        errors (Sequence[google.cloud.monitoring_v3.types.CreateTimeSeriesSummary.Error]):
+        errors (Sequence[~.metric_service.CreateTimeSeriesSummary.Error]):
             The number of points that failed to be
             written. Order is not guaranteed.
     """
@@ -437,7 +437,7 @@ class CreateTimeSeriesSummary(proto.Message):
         r"""Detailed information about an error category.
 
         Attributes:
-            status (google.rpc.status_pb2.Status):
+            status (~.gr_status.Status):
                 The status of the requested write operation.
             point_count (int):
                 The number of points that couldn't be written because of
@@ -493,16 +493,16 @@ class QueryTimeSeriesResponse(proto.Message):
     r"""The ``QueryTimeSeries`` response.
 
     Attributes:
-        time_series_descriptor (google.cloud.monitoring_v3.types.TimeSeriesDescriptor):
+        time_series_descriptor (~.gm_metric.TimeSeriesDescriptor):
             The descriptor for the time series data.
-        time_series_data (Sequence[google.cloud.monitoring_v3.types.TimeSeriesData]):
+        time_series_data (Sequence[~.gm_metric.TimeSeriesData]):
             The time series data.
         next_page_token (str):
             If there are more results than have been returned, then this
             field is set to a non-empty value. To see the additional
             results, use that value as ``page_token`` in the next call
             to this method.
-        partial_errors (Sequence[google.rpc.status_pb2.Status]):
+        partial_errors (Sequence[~.gr_status.Status]):
             Query execution errors that may have caused
             the time series data returned to be incomplete.
             The available data will be available in the
@@ -533,7 +533,7 @@ class QueryErrorList(proto.Message):
     errors.
 
     Attributes:
-        errors (Sequence[google.cloud.monitoring_v3.types.QueryError]):
+        errors (Sequence[~.gm_metric.QueryError]):
             Errors in parsing the time series query
             language text. The number of errors in the
             response may be limited.

@@ -87,7 +87,6 @@ class GroupServiceAsyncClient:
         GroupServiceClient.parse_common_location_path
     )
 
-    from_service_account_info = GroupServiceClient.from_service_account_info
     from_service_account_file = GroupServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
 
@@ -164,7 +163,7 @@ class GroupServiceAsyncClient:
         r"""Lists the existing groups.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.ListGroupsRequest`):
+            request (:class:`~.group_service.ListGroupsRequest`):
                 The request object. The `ListGroup` request.
             name (:class:`str`):
                 Required. The project whose groups are to be listed. The
@@ -173,7 +172,6 @@ class GroupServiceAsyncClient:
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -185,8 +183,8 @@ class GroupServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.monitoring_v3.services.group_service.pagers.ListGroupsAsyncPager:
-                The ListGroups response.
+            ~.pagers.ListGroupsAsyncPager:
+                The ``ListGroups`` response.
 
                 Iterating over this object will yield results and
                 resolve additional pages automatically.
@@ -256,7 +254,7 @@ class GroupServiceAsyncClient:
         r"""Gets a single group.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.GetGroupRequest`):
+            request (:class:`~.group_service.GetGroupRequest`):
                 The request object. The `GetGroup` request.
             name (:class:`str`):
                 Required. The group to retrieve. The format is:
@@ -264,7 +262,6 @@ class GroupServiceAsyncClient:
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -276,40 +273,40 @@ class GroupServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.monitoring_v3.types.Group:
-                The description of a dynamic collection of monitored resources. Each group
-                   has a filter that is matched against monitored
-                   resources and their associated metadata. If a group's
-                   filter matches an available monitored resource, then
-                   that resource is a member of that group. Groups can
-                   contain any number of monitored resources, and each
-                   monitored resource can be a member of any number of
-                   groups.
+            ~.group.Group:
+                The description of a dynamic collection of monitored
+                resources. Each group has a filter that is matched
+                against monitored resources and their associated
+                metadata. If a group's filter matches an available
+                monitored resource, then that resource is a member of
+                that group. Groups can contain any number of monitored
+                resources, and each monitored resource can be a member
+                of any number of groups.
 
-                   Groups can be nested in parent-child hierarchies. The
-                   parentName field identifies an optional parent for
-                   each group. If a group has a parent, then the only
-                   monitored resources available to be matched by the
-                   group's filter are the resources contained in the
-                   parent group. In other words, a group contains the
-                   monitored resources that match its filter and the
-                   filters of all the group's ancestors. A group without
-                   a parent can contain any monitored resource.
+                Groups can be nested in parent-child hierarchies. The
+                ``parentName`` field identifies an optional parent for
+                each group. If a group has a parent, then the only
+                monitored resources available to be matched by the
+                group's filter are the resources contained in the parent
+                group. In other words, a group contains the monitored
+                resources that match its filter and the filters of all
+                the group's ancestors. A group without a parent can
+                contain any monitored resource.
 
-                   For example, consider an infrastructure running a set
-                   of instances with two user-defined tags:
-                   "environment" and "role". A parent group has a
-                   filter, environment="production". A child of that
-                   parent group has a filter, role="transcoder". The
-                   parent group contains all instances in the production
-                   environment, regardless of their roles. The child
-                   group contains instances that have the transcoder
-                   role *and* are in the production environment.
+                For example, consider an infrastructure running a set of
+                instances with two user-defined tags: ``"environment"``
+                and ``"role"``. A parent group has a filter,
+                ``environment="production"``. A child of that parent
+                group has a filter, ``role="transcoder"``. The parent
+                group contains all instances in the production
+                environment, regardless of their roles. The child group
+                contains instances that have the transcoder role *and*
+                are in the production environment.
 
-                   The monitored resources contained in a group can
-                   change at any moment, depending on what resources
-                   exist and what filters are associated with the group
-                   and its ancestors.
+                The monitored resources contained in a group can change
+                at any moment, depending on what resources exist and
+                what filters are associated with the group and its
+                ancestors.
 
         """
         # Create or coerce a protobuf request object.
@@ -371,7 +368,7 @@ class GroupServiceAsyncClient:
         r"""Creates a new group.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.CreateGroupRequest`):
+            request (:class:`~.group_service.CreateGroupRequest`):
                 The request object. The `CreateGroup` request.
             name (:class:`str`):
                 Required. The project in which to create the group. The
@@ -380,14 +377,12 @@ class GroupServiceAsyncClient:
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            group (:class:`google.cloud.monitoring_v3.types.Group`):
+            group (:class:`~.gm_group.Group`):
                 Required. A group definition. It is an error to define
                 the ``name`` field because the system assigns the name.
-
                 This corresponds to the ``group`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -399,40 +394,40 @@ class GroupServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.monitoring_v3.types.Group:
-                The description of a dynamic collection of monitored resources. Each group
-                   has a filter that is matched against monitored
-                   resources and their associated metadata. If a group's
-                   filter matches an available monitored resource, then
-                   that resource is a member of that group. Groups can
-                   contain any number of monitored resources, and each
-                   monitored resource can be a member of any number of
-                   groups.
+            ~.gm_group.Group:
+                The description of a dynamic collection of monitored
+                resources. Each group has a filter that is matched
+                against monitored resources and their associated
+                metadata. If a group's filter matches an available
+                monitored resource, then that resource is a member of
+                that group. Groups can contain any number of monitored
+                resources, and each monitored resource can be a member
+                of any number of groups.
 
-                   Groups can be nested in parent-child hierarchies. The
-                   parentName field identifies an optional parent for
-                   each group. If a group has a parent, then the only
-                   monitored resources available to be matched by the
-                   group's filter are the resources contained in the
-                   parent group. In other words, a group contains the
-                   monitored resources that match its filter and the
-                   filters of all the group's ancestors. A group without
-                   a parent can contain any monitored resource.
+                Groups can be nested in parent-child hierarchies. The
+                ``parentName`` field identifies an optional parent for
+                each group. If a group has a parent, then the only
+                monitored resources available to be matched by the
+                group's filter are the resources contained in the parent
+                group. In other words, a group contains the monitored
+                resources that match its filter and the filters of all
+                the group's ancestors. A group without a parent can
+                contain any monitored resource.
 
-                   For example, consider an infrastructure running a set
-                   of instances with two user-defined tags:
-                   "environment" and "role". A parent group has a
-                   filter, environment="production". A child of that
-                   parent group has a filter, role="transcoder". The
-                   parent group contains all instances in the production
-                   environment, regardless of their roles. The child
-                   group contains instances that have the transcoder
-                   role *and* are in the production environment.
+                For example, consider an infrastructure running a set of
+                instances with two user-defined tags: ``"environment"``
+                and ``"role"``. A parent group has a filter,
+                ``environment="production"``. A child of that parent
+                group has a filter, ``role="transcoder"``. The parent
+                group contains all instances in the production
+                environment, regardless of their roles. The child group
+                contains instances that have the transcoder role *and*
+                are in the production environment.
 
-                   The monitored resources contained in a group can
-                   change at any moment, depending on what resources
-                   exist and what filters are associated with the group
-                   and its ancestors.
+                The monitored resources contained in a group can change
+                at any moment, depending on what resources exist and
+                what filters are associated with the group and its
+                ancestors.
 
         """
         # Create or coerce a protobuf request object.
@@ -488,13 +483,12 @@ class GroupServiceAsyncClient:
         except ``name``.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.UpdateGroupRequest`):
+            request (:class:`~.group_service.UpdateGroupRequest`):
                 The request object. The `UpdateGroup` request.
-            group (:class:`google.cloud.monitoring_v3.types.Group`):
+            group (:class:`~.gm_group.Group`):
                 Required. The new definition of the group. All fields of
                 the existing group, excepting ``name``, are replaced
                 with the corresponding fields of this group.
-
                 This corresponds to the ``group`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -506,40 +500,40 @@ class GroupServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.monitoring_v3.types.Group:
-                The description of a dynamic collection of monitored resources. Each group
-                   has a filter that is matched against monitored
-                   resources and their associated metadata. If a group's
-                   filter matches an available monitored resource, then
-                   that resource is a member of that group. Groups can
-                   contain any number of monitored resources, and each
-                   monitored resource can be a member of any number of
-                   groups.
+            ~.gm_group.Group:
+                The description of a dynamic collection of monitored
+                resources. Each group has a filter that is matched
+                against monitored resources and their associated
+                metadata. If a group's filter matches an available
+                monitored resource, then that resource is a member of
+                that group. Groups can contain any number of monitored
+                resources, and each monitored resource can be a member
+                of any number of groups.
 
-                   Groups can be nested in parent-child hierarchies. The
-                   parentName field identifies an optional parent for
-                   each group. If a group has a parent, then the only
-                   monitored resources available to be matched by the
-                   group's filter are the resources contained in the
-                   parent group. In other words, a group contains the
-                   monitored resources that match its filter and the
-                   filters of all the group's ancestors. A group without
-                   a parent can contain any monitored resource.
+                Groups can be nested in parent-child hierarchies. The
+                ``parentName`` field identifies an optional parent for
+                each group. If a group has a parent, then the only
+                monitored resources available to be matched by the
+                group's filter are the resources contained in the parent
+                group. In other words, a group contains the monitored
+                resources that match its filter and the filters of all
+                the group's ancestors. A group without a parent can
+                contain any monitored resource.
 
-                   For example, consider an infrastructure running a set
-                   of instances with two user-defined tags:
-                   "environment" and "role". A parent group has a
-                   filter, environment="production". A child of that
-                   parent group has a filter, role="transcoder". The
-                   parent group contains all instances in the production
-                   environment, regardless of their roles. The child
-                   group contains instances that have the transcoder
-                   role *and* are in the production environment.
+                For example, consider an infrastructure running a set of
+                instances with two user-defined tags: ``"environment"``
+                and ``"role"``. A parent group has a filter,
+                ``environment="production"``. A child of that parent
+                group has a filter, ``role="transcoder"``. The parent
+                group contains all instances in the production
+                environment, regardless of their roles. The child group
+                contains instances that have the transcoder role *and*
+                are in the production environment.
 
-                   The monitored resources contained in a group can
-                   change at any moment, depending on what resources
-                   exist and what filters are associated with the group
-                   and its ancestors.
+                The monitored resources contained in a group can change
+                at any moment, depending on what resources exist and
+                what filters are associated with the group and its
+                ancestors.
 
         """
         # Create or coerce a protobuf request object.
@@ -602,7 +596,7 @@ class GroupServiceAsyncClient:
         r"""Deletes an existing group.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.DeleteGroupRequest`):
+            request (:class:`~.group_service.DeleteGroupRequest`):
                 The request object. The `DeleteGroup` request. The
                 default behavior is to be able to delete a single group
                 without any descendants.
@@ -612,7 +606,6 @@ class GroupServiceAsyncClient:
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -681,7 +674,7 @@ class GroupServiceAsyncClient:
         group.
 
         Args:
-            request (:class:`google.cloud.monitoring_v3.types.ListGroupMembersRequest`):
+            request (:class:`~.group_service.ListGroupMembersRequest`):
                 The request object. The `ListGroupMembers` request.
             name (:class:`str`):
                 Required. The group whose members are listed. The format
@@ -690,7 +683,6 @@ class GroupServiceAsyncClient:
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -702,8 +694,8 @@ class GroupServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.monitoring_v3.services.group_service.pagers.ListGroupMembersAsyncPager:
-                The ListGroupMembers response.
+            ~.pagers.ListGroupMembersAsyncPager:
+                The ``ListGroupMembers`` response.
 
                 Iterating over this object will yield results and
                 resolve additional pages automatically.

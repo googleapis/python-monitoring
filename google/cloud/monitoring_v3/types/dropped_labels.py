@@ -42,7 +42,7 @@ class DroppedLabels(proto.Message):
     clients to resolve any ambiguities.
 
     Attributes:
-        label (Sequence[google.cloud.monitoring_v3.types.DroppedLabels.LabelEntry]):
+        label (Sequence[~.dropped_labels.DroppedLabels.LabelEntry]):
             Map from label to its value, for all labels
             dropped in any aggregation.
     """

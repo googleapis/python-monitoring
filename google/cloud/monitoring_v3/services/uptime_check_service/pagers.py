@@ -25,7 +25,7 @@ class ListUptimeCheckConfigsPager:
     """A pager for iterating through ``list_uptime_check_configs`` requests.
 
     This class thinly wraps an initial
-    :class:`google.cloud.monitoring_v3.types.ListUptimeCheckConfigsResponse` object, and
+    :class:`~.uptime_service.ListUptimeCheckConfigsResponse` object, and
     provides an ``__iter__`` method to iterate through its
     ``uptime_check_configs`` field.
 
@@ -34,7 +34,7 @@ class ListUptimeCheckConfigsPager:
     through the ``uptime_check_configs`` field on the
     corresponding responses.
 
-    All the usual :class:`google.cloud.monitoring_v3.types.ListUptimeCheckConfigsResponse`
+    All the usual :class:`~.uptime_service.ListUptimeCheckConfigsResponse`
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
@@ -52,9 +52,9 @@ class ListUptimeCheckConfigsPager:
         Args:
             method (Callable): The method that was originally called, and
                 which instantiated this pager.
-            request (google.cloud.monitoring_v3.types.ListUptimeCheckConfigsRequest):
+            request (:class:`~.uptime_service.ListUptimeCheckConfigsRequest`):
                 The initial request object.
-            response (google.cloud.monitoring_v3.types.ListUptimeCheckConfigsResponse):
+            response (:class:`~.uptime_service.ListUptimeCheckConfigsResponse`):
                 The initial response object.
             metadata (Sequence[Tuple[str, str]]): Strings which should be
                 sent along with the request as metadata.
@@ -87,7 +87,7 @@ class ListUptimeCheckConfigsAsyncPager:
     """A pager for iterating through ``list_uptime_check_configs`` requests.
 
     This class thinly wraps an initial
-    :class:`google.cloud.monitoring_v3.types.ListUptimeCheckConfigsResponse` object, and
+    :class:`~.uptime_service.ListUptimeCheckConfigsResponse` object, and
     provides an ``__aiter__`` method to iterate through its
     ``uptime_check_configs`` field.
 
@@ -96,7 +96,7 @@ class ListUptimeCheckConfigsAsyncPager:
     through the ``uptime_check_configs`` field on the
     corresponding responses.
 
-    All the usual :class:`google.cloud.monitoring_v3.types.ListUptimeCheckConfigsResponse`
+    All the usual :class:`~.uptime_service.ListUptimeCheckConfigsResponse`
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
@@ -114,9 +114,9 @@ class ListUptimeCheckConfigsAsyncPager:
         Args:
             method (Callable): The method that was originally called, and
                 which instantiated this pager.
-            request (google.cloud.monitoring_v3.types.ListUptimeCheckConfigsRequest):
+            request (:class:`~.uptime_service.ListUptimeCheckConfigsRequest`):
                 The initial request object.
-            response (google.cloud.monitoring_v3.types.ListUptimeCheckConfigsResponse):
+            response (:class:`~.uptime_service.ListUptimeCheckConfigsResponse`):
                 The initial response object.
             metadata (Sequence[Tuple[str, str]]): Strings which should be
                 sent along with the request as metadata.
@@ -155,7 +155,7 @@ class ListUptimeCheckIpsPager:
     """A pager for iterating through ``list_uptime_check_ips`` requests.
 
     This class thinly wraps an initial
-    :class:`google.cloud.monitoring_v3.types.ListUptimeCheckIpsResponse` object, and
+    :class:`~.uptime_service.ListUptimeCheckIpsResponse` object, and
     provides an ``__iter__`` method to iterate through its
     ``uptime_check_ips`` field.
 
@@ -164,7 +164,7 @@ class ListUptimeCheckIpsPager:
     through the ``uptime_check_ips`` field on the
     corresponding responses.
 
-    All the usual :class:`google.cloud.monitoring_v3.types.ListUptimeCheckIpsResponse`
+    All the usual :class:`~.uptime_service.ListUptimeCheckIpsResponse`
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
@@ -182,9 +182,9 @@ class ListUptimeCheckIpsPager:
         Args:
             method (Callable): The method that was originally called, and
                 which instantiated this pager.
-            request (google.cloud.monitoring_v3.types.ListUptimeCheckIpsRequest):
+            request (:class:`~.uptime_service.ListUptimeCheckIpsRequest`):
                 The initial request object.
-            response (google.cloud.monitoring_v3.types.ListUptimeCheckIpsResponse):
+            response (:class:`~.uptime_service.ListUptimeCheckIpsResponse`):
                 The initial response object.
             metadata (Sequence[Tuple[str, str]]): Strings which should be
                 sent along with the request as metadata.
@@ -217,7 +217,7 @@ class ListUptimeCheckIpsAsyncPager:
     """A pager for iterating through ``list_uptime_check_ips`` requests.
 
     This class thinly wraps an initial
-    :class:`google.cloud.monitoring_v3.types.ListUptimeCheckIpsResponse` object, and
+    :class:`~.uptime_service.ListUptimeCheckIpsResponse` object, and
     provides an ``__aiter__`` method to iterate through its
     ``uptime_check_ips`` field.
 
@@ -226,7 +226,7 @@ class ListUptimeCheckIpsAsyncPager:
     through the ``uptime_check_ips`` field on the
     corresponding responses.
 
-    All the usual :class:`google.cloud.monitoring_v3.types.ListUptimeCheckIpsResponse`
+    All the usual :class:`~.uptime_service.ListUptimeCheckIpsResponse`
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
@@ -244,9 +244,9 @@ class ListUptimeCheckIpsAsyncPager:
         Args:
             method (Callable): The method that was originally called, and
                 which instantiated this pager.
-            request (google.cloud.monitoring_v3.types.ListUptimeCheckIpsRequest):
+            request (:class:`~.uptime_service.ListUptimeCheckIpsRequest`):
                 The initial request object.
-            response (google.cloud.monitoring_v3.types.ListUptimeCheckIpsResponse):
+            response (:class:`~.uptime_service.ListUptimeCheckIpsResponse`):
                 The initial response object.
             metadata (Sequence[Tuple[str, str]]): Strings which should be
                 sent along with the request as metadata.

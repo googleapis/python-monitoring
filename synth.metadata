@@ -4,15 +4,15 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-monitoring.git",
-        "sha": "f716011b74c5f7b2ce59b432dfef585050cfd9d8"
+        "sha": "9f74808af641ce63787b64f2e3de713a50977a71"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "89e3c509923819eb87bedc8331a823403d9dba55",
-        "internalRef": "351705536"
+        "sha": "69697504d9eba1d064820c3085b4750767be6d08",
+        "internalRef": "348952930"
       }
     },
     {
@@ -42,7 +42,6 @@
     }
   ],
   "generatedFiles": [
-    ".coveragerc",
     ".flake8",
     ".github/CONTRIBUTING.md",
     ".github/ISSUE_TEMPLATE/bug_report.md",
@@ -96,14 +95,8 @@
     "docs/_static/custom.css",
     "docs/_templates/layout.html",
     "docs/conf.py",
-    "docs/monitoring_v3/alert_policy_service.rst",
-    "docs/monitoring_v3/group_service.rst",
-    "docs/monitoring_v3/metric_service.rst",
-    "docs/monitoring_v3/notification_channel_service.rst",
-    "docs/monitoring_v3/service_monitoring_service.rst",
     "docs/monitoring_v3/services.rst",
     "docs/monitoring_v3/types.rst",
-    "docs/monitoring_v3/uptime_check_service.rst",
     "docs/multiprocessing.rst",
     "google/cloud/monitoring/__init__.py",
     "google/cloud/monitoring/py.typed",
