@@ -122,6 +122,7 @@ from .types.uptime_service import UpdateUptimeCheckConfigRequest
 __all__ = (
     "Aggregation",
     "AlertPolicy",
+    "AlertPolicyServiceClient",
     "BasicSli",
     "ComparisonType",
     "CreateAlertPolicyRequest",
@@ -156,7 +157,6 @@ __all__ = (
     "GetUptimeCheckConfigRequest",
     "Group",
     "GroupResourceType",
-    "GroupServiceClient",
     "InternalChecker",
     "LabelValue",
     "ListAlertPoliciesRequest",
@@ -221,5 +221,5 @@ __all__ = (
     "UptimeCheckServiceClient",
     "VerifyNotificationChannelRequest",
     "WindowsBasedSli",
-    "AlertPolicyServiceClient",
+    "GroupServiceClient",
 )

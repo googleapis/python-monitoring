@@ -74,7 +74,7 @@ class TypedValue(proto.Message):
             significant digits of precision.
         string_value (str):
             A variable-length string value.
-        distribution_value (~.distribution.Distribution):
+        distribution_value (google.api.distribution_pb2.Distribution):
             A distribution value.
     """
 
@@ -117,9 +117,9 @@ class TimeInterval(proto.Message):
        at the previous end time.
 
     Attributes:
-        end_time (~.timestamp.Timestamp):
+        end_time (google.protobuf.timestamp_pb2.Timestamp):
             Required. The end of the time interval.
-        start_time (~.timestamp.Timestamp):
+        start_time (google.protobuf.timestamp_pb2.Timestamp):
             Optional. The beginning of the time interval.
             The default value for the start time is the end
             time. The start time must not be later than the
@@ -162,7 +162,7 @@ class Aggregation(proto.Message):
     aggregation <https://cloud.google.com/monitoring/api/v3/aggregation>`__.
 
     Attributes:
-        alignment_period (~.duration.Duration):
+        alignment_period (google.protobuf.duration_pb2.Duration):
             The ``alignment_period`` specifies a time interval, in
             seconds, that is used to divide the data in all the [time
             series][google.monitoring.v3.TimeSeries] into consistent
@@ -174,7 +174,7 @@ class Aggregation(proto.Message):
             is required or an error is returned. If no per-series
             aligner is specified, or the aligner ``ALIGN_NONE`` is
             specified, then this field is ignored.
-        per_series_aligner (~.common.Aggregation.Aligner):
+        per_series_aligner (google.cloud.monitoring_v3.types.Aggregation.Aligner):
             An ``Aligner`` describes how to bring the data points in a
             single time series into temporal alignment. Except for
             ``ALIGN_NONE``, all alignments cause all the data points in
@@ -194,7 +194,7 @@ class Aggregation(proto.Message):
             specified, then ``per_series_aligner`` must be specified and
             not equal to ``ALIGN_NONE`` and ``alignment_period`` must be
             specified; otherwise, an error is returned.
-        cross_series_reducer (~.common.Aggregation.Reducer):
+        cross_series_reducer (google.cloud.monitoring_v3.types.Aggregation.Reducer):
             The reduction operation to be used to combine time series
             into a single time series, where the value of each data
             point in the resulting series is a function of all the
