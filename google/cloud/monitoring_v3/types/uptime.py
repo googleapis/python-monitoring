@@ -89,7 +89,7 @@ class InternalChecker(proto.Message):
             The GCP project ID where the internal checker
             lives. Not necessary the same as the Workspace
             project.
-        state (~.uptime.InternalChecker.State):
+        state (google.cloud.monitoring_v3.types.InternalChecker.State):
             The current operational state of the internal
             checker.
     """
@@ -135,39 +135,39 @@ class UptimeCheckConfig(proto.Message):
             within a Stackdriver Workspace in order to make
             it easier to identify; however, uniqueness is
             not enforced. Required.
-        monitored_resource (~.ga_monitored_resource.MonitoredResource):
+        monitored_resource (google.api.monitored_resource_pb2.MonitoredResource):
             The `monitored
             resource <https://cloud.google.com/monitoring/api/resources>`__
             associated with the configuration. The following monitored
             resource types are supported for Uptime checks:
             ``uptime_url``, ``gce_instance``, ``gae_app``,
             ``aws_ec2_instance``, ``aws_elb_load_balancer``
-        resource_group (~.uptime.UptimeCheckConfig.ResourceGroup):
+        resource_group (google.cloud.monitoring_v3.types.UptimeCheckConfig.ResourceGroup):
             The group resource associated with the
             configuration.
-        http_check (~.uptime.UptimeCheckConfig.HttpCheck):
+        http_check (google.cloud.monitoring_v3.types.UptimeCheckConfig.HttpCheck):
             Contains information needed to make an HTTP
             or HTTPS check.
-        tcp_check (~.uptime.UptimeCheckConfig.TcpCheck):
+        tcp_check (google.cloud.monitoring_v3.types.UptimeCheckConfig.TcpCheck):
             Contains information needed to make a TCP
             check.
-        period (~.duration.Duration):
+        period (google.protobuf.duration_pb2.Duration):
             How often, in seconds, the Uptime check is performed.
             Currently, the only supported values are ``60s`` (1 minute),
             ``300s`` (5 minutes), ``600s`` (10 minutes), and ``900s``
             (15 minutes). Optional, defaults to ``60s``.
-        timeout (~.duration.Duration):
+        timeout (google.protobuf.duration_pb2.Duration):
             The maximum amount of time to wait for the
             request to complete (must be between 1 and 60
             seconds). Required.
-        content_matchers (Sequence[~.uptime.UptimeCheckConfig.ContentMatcher]):
+        content_matchers (Sequence[google.cloud.monitoring_v3.types.UptimeCheckConfig.ContentMatcher]):
             The content that is expected to appear in the data returned
             by the target server against which the check is run.
             Currently, only the first entry in the ``content_matchers``
             list is supported, and additional entries will be ignored.
             This field is optional and should only be specified if a
             content match is required as part of the/ Uptime check.
-        selected_regions (Sequence[~.uptime.UptimeCheckRegion]):
+        selected_regions (Sequence[google.cloud.monitoring_v3.types.UptimeCheckRegion]):
             The list of regions from which the check will
             be run. Some regions contain one location, and
             others contain more than one. If this field is
@@ -182,7 +182,7 @@ class UptimeCheckConfig(proto.Message):
             provide 'selected_regions' when is_internal is ``true``, or
             to provide 'internal_checkers' when is_internal is
             ``false``.
-        internal_checkers (Sequence[~.uptime.InternalChecker]):
+        internal_checkers (Sequence[google.cloud.monitoring_v3.types.InternalChecker]):
             The internal checkers that this check will egress from. If
             ``is_internal`` is ``true`` and this list is empty, the
             check will egress from all the InternalCheckers configured
@@ -199,7 +199,7 @@ class UptimeCheckConfig(proto.Message):
                 The group of resources being monitored. Should be only the
                 ``[GROUP_ID]``, and not the full-path
                 ``projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]``.
-            resource_type (~.uptime.GroupResourceType):
+            resource_type (google.cloud.monitoring_v3.types.GroupResourceType):
                 The resource type of the group members.
         """
 
@@ -211,7 +211,7 @@ class UptimeCheckConfig(proto.Message):
         r"""Information involved in an HTTP/HTTPS Uptime check request.
 
         Attributes:
-            request_method (~.uptime.UptimeCheckConfig.HttpCheck.RequestMethod):
+            request_method (google.cloud.monitoring_v3.types.UptimeCheckConfig.HttpCheck.RequestMethod):
                 The HTTP request method to use for the check.
             use_ssl (bool):
                 If ``true``, use HTTPS instead of HTTP to run the check.
@@ -227,7 +227,7 @@ class UptimeCheckConfig(proto.Message):
                 server against which to run the check. Will be combined with
                 host (specified within the ``monitored_resource``) and
                 ``path`` to construct the full URL.
-            auth_info (~.uptime.UptimeCheckConfig.HttpCheck.BasicAuthentication):
+            auth_info (google.cloud.monitoring_v3.types.UptimeCheckConfig.HttpCheck.BasicAuthentication):
                 The authentication information. Optional when
                 creating an HTTP check; defaults to empty.
             mask_headers (bool):
@@ -238,7 +238,7 @@ class UptimeCheckConfig(proto.Message):
                 responsible for encrypting the headers. On Get/List calls,
                 if ``mask_headers`` is set to ``true`` then the headers will
                 be obscured with ``******.``
-            headers (Sequence[~.uptime.UptimeCheckConfig.HttpCheck.HeadersEntry]):
+            headers (Sequence[google.cloud.monitoring_v3.types.UptimeCheckConfig.HttpCheck.HeadersEntry]):
                 The list of headers to send as part of the
                 Uptime check request. If two headers have the
                 same key and different values, they should be
@@ -250,7 +250,7 @@ class UptimeCheckConfig(proto.Message):
                 the same key in a Create call will cause the
                 first to be overwritten by the second. The
                 maximum number of headers allowed is 100.
-            content_type (~.uptime.UptimeCheckConfig.HttpCheck.ContentType):
+            content_type (google.cloud.monitoring_v3.types.UptimeCheckConfig.HttpCheck.ContentType):
                 The content type to use for the check.
             validate_ssl (bool):
                 Boolean specifying whether to include SSL certificate
@@ -352,7 +352,7 @@ class UptimeCheckConfig(proto.Message):
                 String or regex content to match. Maximum 1024 bytes. An
                 empty ``content`` string indicates no content matching is to
                 be performed.
-            matcher (~.uptime.UptimeCheckConfig.ContentMatcher.ContentMatcherOption):
+            matcher (google.cloud.monitoring_v3.types.UptimeCheckConfig.ContentMatcher.ContentMatcherOption):
                 The type of content matcher that will be applied to the
                 server output, compared to the ``content`` string when the
                 check is run.
@@ -421,7 +421,7 @@ class UptimeCheckIp(proto.Message):
     addresses where checkers in the location run from.
 
     Attributes:
-        region (~.uptime.UptimeCheckRegion):
+        region (google.cloud.monitoring_v3.types.UptimeCheckRegion):
             A broad region category in which the IP
             address is located.
         location (str):

@@ -121,6 +121,22 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
     )
 
     @classmethod
+    def from_service_account_info(cls, info: dict, *args, **kwargs):
+        """Creates an instance of this client using the provided credentials info.
+
+        Args:
+            info (dict): The service account private key info.
+            args: Additional arguments to pass to the constructor.
+            kwargs: Additional arguments to pass to the constructor.
+
+        Returns:
+            ServiceMonitoringServiceClient: The constructed client.
+        """
+        credentials = service_account.Credentials.from_service_account_info(info)
+        kwargs["credentials"] = credentials
+        return cls(*args, **kwargs)
+
+    @classmethod
     def from_service_account_file(cls, filename: str, *args, **kwargs):
         """Creates an instance of this client using the provided credentials
         file.
@@ -132,7 +148,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
             kwargs: Additional arguments to pass to the constructor.
 
         Returns:
-            {@api.name}: The constructed client.
+            ServiceMonitoringServiceClient: The constructed client.
         """
         credentials = service_account.Credentials.from_service_account_file(filename)
         kwargs["credentials"] = credentials
@@ -257,10 +273,10 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
                 credentials identify the application to the service; if none
                 are specified, the client will attempt to ascertain the
                 credentials from the environment.
-            transport (Union[str, ~.ServiceMonitoringServiceTransport]): The
+            transport (Union[str, ServiceMonitoringServiceTransport]): The
                 transport to use. If set to None, a transport is chosen
                 automatically.
-            client_options (client_options_lib.ClientOptions): Custom options for the
+            client_options (google.api_core.client_options.ClientOptions): Custom options for the
                 client. It won't take effect if a ``transport`` instance is provided.
                 (1) The ``api_endpoint`` property can be used to override the
                 default endpoint provided by the client. GOOGLE_API_USE_MTLS_ENDPOINT
@@ -371,19 +387,20 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
         r"""Create a ``Service``.
 
         Args:
-            request (:class:`~.service_service.CreateServiceRequest`):
+            request (google.cloud.monitoring_v3.types.CreateServiceRequest):
                 The request object. The `CreateService` request.
-            parent (:class:`str`):
+            parent (str):
                 Required. Resource name of the parent workspace. The
                 format is:
 
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            service (:class:`~.gm_service.Service`):
+            service (google.cloud.monitoring_v3.types.Service):
                 Required. The ``Service`` to create.
                 This corresponds to the ``service`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -396,14 +413,13 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
                 sent along with the request as metadata.
 
         Returns:
-            ~.gm_service.Service:
-                A ``Service`` is a discrete, autonomous, and
-                network-accessible unit, designed to solve an individual
-                concern
-                (`Wikipedia <https://en.wikipedia.org/wiki/Service-orientation>`__).
-                In Cloud Monitoring, a ``Service`` acts as the root
-                resource under which operational aspects of the service
-                are accessible.
+            google.cloud.monitoring_v3.types.Service:
+                A Service is a discrete, autonomous, and network-accessible unit, designed
+                   to solve an individual concern
+                   ([Wikipedia](https://en.wikipedia.org/wiki/Service-orientation)).
+                   In Cloud Monitoring, a Service acts as the root
+                   resource under which operational aspects of the
+                   service are accessible.
 
         """
         # Create or coerce a protobuf request object.
@@ -459,15 +475,16 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
         r"""Get the named ``Service``.
 
         Args:
-            request (:class:`~.service_service.GetServiceRequest`):
+            request (google.cloud.monitoring_v3.types.GetServiceRequest):
                 The request object. The `GetService` request.
-            name (:class:`str`):
+            name (str):
                 Required. Resource name of the ``Service``. The format
                 is:
 
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -479,14 +496,13 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
                 sent along with the request as metadata.
 
         Returns:
-            ~.service.Service:
-                A ``Service`` is a discrete, autonomous, and
-                network-accessible unit, designed to solve an individual
-                concern
-                (`Wikipedia <https://en.wikipedia.org/wiki/Service-orientation>`__).
-                In Cloud Monitoring, a ``Service`` acts as the root
-                resource under which operational aspects of the service
-                are accessible.
+            google.cloud.monitoring_v3.types.Service:
+                A Service is a discrete, autonomous, and network-accessible unit, designed
+                   to solve an individual concern
+                   ([Wikipedia](https://en.wikipedia.org/wiki/Service-orientation)).
+                   In Cloud Monitoring, a Service acts as the root
+                   resource under which operational aspects of the
+                   service are accessible.
 
         """
         # Create or coerce a protobuf request object.
@@ -540,9 +556,9 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
         r"""List ``Service``\ s for this workspace.
 
         Args:
-            request (:class:`~.service_service.ListServicesRequest`):
+            request (google.cloud.monitoring_v3.types.ListServicesRequest):
                 The request object. The `ListServices` request.
-            parent (:class:`str`):
+            parent (str):
                 Required. Resource name of the parent containing the
                 listed services, either a project or a Monitoring
                 Workspace. The formats are:
@@ -551,6 +567,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
                     projects/[PROJECT_ID_OR_NUMBER]
                     workspaces/[HOST_PROJECT_ID_OR_NUMBER]
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -562,8 +579,8 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
                 sent along with the request as metadata.
 
         Returns:
-            ~.pagers.ListServicesPager:
-                The ``ListServices`` response.
+            google.cloud.monitoring_v3.services.service_monitoring_service.pagers.ListServicesPager:
+                The ListServices response.
 
                 Iterating over this object will yield results and
                 resolve additional pages automatically.
@@ -626,11 +643,12 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
         r"""Update this ``Service``.
 
         Args:
-            request (:class:`~.service_service.UpdateServiceRequest`):
+            request (google.cloud.monitoring_v3.types.UpdateServiceRequest):
                 The request object. The `UpdateService` request.
-            service (:class:`~.gm_service.Service`):
+            service (google.cloud.monitoring_v3.types.Service):
                 Required. The ``Service`` to draw updates from. The
                 given ``name`` specifies the resource to update.
+
                 This corresponds to the ``service`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -642,14 +660,13 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
                 sent along with the request as metadata.
 
         Returns:
-            ~.gm_service.Service:
-                A ``Service`` is a discrete, autonomous, and
-                network-accessible unit, designed to solve an individual
-                concern
-                (`Wikipedia <https://en.wikipedia.org/wiki/Service-orientation>`__).
-                In Cloud Monitoring, a ``Service`` acts as the root
-                resource under which operational aspects of the service
-                are accessible.
+            google.cloud.monitoring_v3.types.Service:
+                A Service is a discrete, autonomous, and network-accessible unit, designed
+                   to solve an individual concern
+                   ([Wikipedia](https://en.wikipedia.org/wiki/Service-orientation)).
+                   In Cloud Monitoring, a Service acts as the root
+                   resource under which operational aspects of the
+                   service are accessible.
 
         """
         # Create or coerce a protobuf request object.
@@ -705,15 +722,16 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
         r"""Soft delete this ``Service``.
 
         Args:
-            request (:class:`~.service_service.DeleteServiceRequest`):
+            request (google.cloud.monitoring_v3.types.DeleteServiceRequest):
                 The request object. The `DeleteService` request.
-            name (:class:`str`):
+            name (str):
                 Required. Resource name of the ``Service`` to delete.
                 The format is:
 
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -775,23 +793,25 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
         r"""Create a ``ServiceLevelObjective`` for the given ``Service``.
 
         Args:
-            request (:class:`~.service_service.CreateServiceLevelObjectiveRequest`):
+            request (google.cloud.monitoring_v3.types.CreateServiceLevelObjectiveRequest):
                 The request object. The `CreateServiceLevelObjective`
                 request.
-            parent (:class:`str`):
+            parent (str):
                 Required. Resource name of the parent ``Service``. The
                 format is:
 
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            service_level_objective (:class:`~.service.ServiceLevelObjective`):
+            service_level_objective (google.cloud.monitoring_v3.types.ServiceLevelObjective):
                 Required. The ``ServiceLevelObjective`` to create. The
                 provided ``name`` will be respected if no
                 ``ServiceLevelObjective`` exists with this name.
+
                 This corresponds to the ``service_level_objective`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -803,7 +823,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
                 sent along with the request as metadata.
 
         Returns:
-            ~.service.ServiceLevelObjective:
+            google.cloud.monitoring_v3.types.ServiceLevelObjective:
                 A Service-Level Objective (SLO)
                 describes a level of desired good
                 service. It consists of a service-level
@@ -874,16 +894,17 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
         r"""Get a ``ServiceLevelObjective`` by name.
 
         Args:
-            request (:class:`~.service_service.GetServiceLevelObjectiveRequest`):
+            request (google.cloud.monitoring_v3.types.GetServiceLevelObjectiveRequest):
                 The request object. The `GetServiceLevelObjective`
                 request.
-            name (:class:`str`):
+            name (str):
                 Required. Resource name of the ``ServiceLevelObjective``
                 to get. The format is:
 
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -895,7 +916,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
                 sent along with the request as metadata.
 
         Returns:
-            ~.service.ServiceLevelObjective:
+            google.cloud.monitoring_v3.types.ServiceLevelObjective:
                 A Service-Level Objective (SLO)
                 describes a level of desired good
                 service. It consists of a service-level
@@ -964,10 +985,10 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
         r"""List the ``ServiceLevelObjective``\ s for the given ``Service``.
 
         Args:
-            request (:class:`~.service_service.ListServiceLevelObjectivesRequest`):
+            request (google.cloud.monitoring_v3.types.ListServiceLevelObjectivesRequest):
                 The request object. The `ListServiceLevelObjectives`
                 request.
-            parent (:class:`str`):
+            parent (str):
                 Required. Resource name of the parent containing the
                 listed SLOs, either a project or a Monitoring Workspace.
                 The formats are:
@@ -976,6 +997,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
                     projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
                     workspaces/[HOST_PROJECT_ID_OR_NUMBER]/services/-
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -987,8 +1009,8 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
                 sent along with the request as metadata.
 
         Returns:
-            ~.pagers.ListServiceLevelObjectivesPager:
-                The ``ListServiceLevelObjectives`` response.
+            google.cloud.monitoring_v3.services.service_monitoring_service.pagers.ListServiceLevelObjectivesPager:
+                The ListServiceLevelObjectives response.
 
                 Iterating over this object will yield results and
                 resolve additional pages automatically.
@@ -1053,13 +1075,14 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
         r"""Update the given ``ServiceLevelObjective``.
 
         Args:
-            request (:class:`~.service_service.UpdateServiceLevelObjectiveRequest`):
+            request (google.cloud.monitoring_v3.types.UpdateServiceLevelObjectiveRequest):
                 The request object. The `UpdateServiceLevelObjective`
                 request.
-            service_level_objective (:class:`~.service.ServiceLevelObjective`):
+            service_level_objective (google.cloud.monitoring_v3.types.ServiceLevelObjective):
                 Required. The ``ServiceLevelObjective`` to draw updates
                 from. The given ``name`` specifies the resource to
                 update.
+
                 This corresponds to the ``service_level_objective`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -1071,7 +1094,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
                 sent along with the request as metadata.
 
         Returns:
-            ~.service.ServiceLevelObjective:
+            google.cloud.monitoring_v3.types.ServiceLevelObjective:
                 A Service-Level Objective (SLO)
                 describes a level of desired good
                 service. It consists of a service-level
@@ -1147,16 +1170,17 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
         r"""Delete the given ``ServiceLevelObjective``.
 
         Args:
-            request (:class:`~.service_service.DeleteServiceLevelObjectiveRequest`):
+            request (google.cloud.monitoring_v3.types.DeleteServiceLevelObjectiveRequest):
                 The request object. The `DeleteServiceLevelObjective`
                 request.
-            name (:class:`str`):
+            name (str):
                 Required. Resource name of the ``ServiceLevelObjective``
                 to delete. The format is:
 
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.

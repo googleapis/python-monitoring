@@ -127,6 +127,22 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
     )
 
     @classmethod
+    def from_service_account_info(cls, info: dict, *args, **kwargs):
+        """Creates an instance of this client using the provided credentials info.
+
+        Args:
+            info (dict): The service account private key info.
+            args: Additional arguments to pass to the constructor.
+            kwargs: Additional arguments to pass to the constructor.
+
+        Returns:
+            AlertPolicyServiceClient: The constructed client.
+        """
+        credentials = service_account.Credentials.from_service_account_info(info)
+        kwargs["credentials"] = credentials
+        return cls(*args, **kwargs)
+
+    @classmethod
     def from_service_account_file(cls, filename: str, *args, **kwargs):
         """Creates an instance of this client using the provided credentials
         file.
@@ -138,7 +154,7 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
             kwargs: Additional arguments to pass to the constructor.
 
         Returns:
-            {@api.name}: The constructed client.
+            AlertPolicyServiceClient: The constructed client.
         """
         credentials = service_account.Credentials.from_service_account_file(filename)
         kwargs["credentials"] = credentials
@@ -263,10 +279,10 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
                 credentials identify the application to the service; if none
                 are specified, the client will attempt to ascertain the
                 credentials from the environment.
-            transport (Union[str, ~.AlertPolicyServiceTransport]): The
+            transport (Union[str, AlertPolicyServiceTransport]): The
                 transport to use. If set to None, a transport is chosen
                 automatically.
-            client_options (client_options_lib.ClientOptions): Custom options for the
+            client_options (google.api_core.client_options.ClientOptions): Custom options for the
                 client. It won't take effect if a ``transport`` instance is provided.
                 (1) The ``api_endpoint`` property can be used to override the
                 default endpoint provided by the client. GOOGLE_API_USE_MTLS_ENDPOINT
@@ -376,10 +392,10 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
         r"""Lists the existing alerting policies for the project.
 
         Args:
-            request (:class:`~.alert_service.ListAlertPoliciesRequest`):
+            request (google.cloud.monitoring_v3.types.ListAlertPoliciesRequest):
                 The request object. The protocol for the
                 `ListAlertPolicies` request.
-            name (:class:`str`):
+            name (str):
                 Required. The project whose alert policies are to be
                 listed. The format is:
 
@@ -392,6 +408,7 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
                 retrieve a single alerting policy by name, use the
                 [GetAlertPolicy][google.monitoring.v3.AlertPolicyService.GetAlertPolicy]
                 operation, instead.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -403,8 +420,8 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            ~.pagers.ListAlertPoliciesPager:
-                The protocol for the ``ListAlertPolicies`` response.
+            google.cloud.monitoring_v3.services.alert_policy_service.pagers.ListAlertPoliciesPager:
+                The protocol for the ListAlertPolicies response.
 
                 Iterating over this object will yield results and
                 resolve additional pages automatically.
@@ -467,16 +484,17 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
         r"""Gets a single alerting policy.
 
         Args:
-            request (:class:`~.alert_service.GetAlertPolicyRequest`):
+            request (google.cloud.monitoring_v3.types.GetAlertPolicyRequest):
                 The request object. The protocol for the
                 `GetAlertPolicy` request.
-            name (:class:`str`):
+            name (str):
                 Required. The alerting policy to retrieve. The format
                 is:
 
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -488,12 +506,12 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            ~.alert.AlertPolicy:
-                A description of the conditions under which some aspect
-                of your system is considered to be "unhealthy" and the
-                ways to notify people or services about this state. For
-                an overview of alert policies, see `Introduction to
-                Alerting <https://cloud.google.com/monitoring/alerts/>`__.
+            google.cloud.monitoring_v3.types.AlertPolicy:
+                A description of the conditions under which some aspect of your system is
+                   considered to be "unhealthy" and the ways to notify
+                   people or services about this state. For an overview
+                   of alert policies, see [Introduction to
+                   Alerting](\ https://cloud.google.com/monitoring/alerts/).
 
         """
         # Create or coerce a protobuf request object.
@@ -548,10 +566,10 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
         r"""Creates a new alerting policy.
 
         Args:
-            request (:class:`~.alert_service.CreateAlertPolicyRequest`):
+            request (google.cloud.monitoring_v3.types.CreateAlertPolicyRequest):
                 The request object. The protocol for the
                 `CreateAlertPolicy` request.
-            name (:class:`str`):
+            name (str):
                 Required. The project in which to create the alerting
                 policy. The format is:
 
@@ -566,14 +584,16 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
                 representation of this name as a prefix but adds a
                 suffix of the form ``/alertPolicies/[ALERT_POLICY_ID]``,
                 identifying the policy in the container.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            alert_policy (:class:`~.alert.AlertPolicy`):
+            alert_policy (google.cloud.monitoring_v3.types.AlertPolicy):
                 Required. The requested alerting policy. You should omit
                 the ``name`` field in this policy. The name will be
                 returned in the new policy, including a new
                 ``[ALERT_POLICY_ID]`` value.
+
                 This corresponds to the ``alert_policy`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -585,12 +605,12 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            ~.alert.AlertPolicy:
-                A description of the conditions under which some aspect
-                of your system is considered to be "unhealthy" and the
-                ways to notify people or services about this state. For
-                an overview of alert policies, see `Introduction to
-                Alerting <https://cloud.google.com/monitoring/alerts/>`__.
+            google.cloud.monitoring_v3.types.AlertPolicy:
+                A description of the conditions under which some aspect of your system is
+                   considered to be "unhealthy" and the ways to notify
+                   people or services about this state. For an overview
+                   of alert policies, see [Introduction to
+                   Alerting](\ https://cloud.google.com/monitoring/alerts/).
 
         """
         # Create or coerce a protobuf request object.
@@ -646,10 +666,10 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
         r"""Deletes an alerting policy.
 
         Args:
-            request (:class:`~.alert_service.DeleteAlertPolicyRequest`):
+            request (google.cloud.monitoring_v3.types.DeleteAlertPolicyRequest):
                 The request object. The protocol for the
                 `DeleteAlertPolicy` request.
-            name (:class:`str`):
+            name (str):
                 Required. The alerting policy to delete. The format is:
 
                 ::
@@ -658,6 +678,7 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
 
                 For more information, see
                 [AlertPolicy][google.monitoring.v3.AlertPolicy].
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -722,10 +743,10 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
         via ``updateMask``. Returns the updated alerting policy.
 
         Args:
-            request (:class:`~.alert_service.UpdateAlertPolicyRequest`):
+            request (google.cloud.monitoring_v3.types.UpdateAlertPolicyRequest):
                 The request object. The protocol for the
                 `UpdateAlertPolicy` request.
-            update_mask (:class:`~.field_mask.FieldMask`):
+            update_mask (google.protobuf.field_mask_pb2.FieldMask):
                 Optional. A list of alerting policy field names. If this
                 field is not empty, each listed field in the existing
                 alerting policy is set to the value of the corresponding
@@ -754,14 +775,16 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
                    the ``name`` field with that ``[CONDITION_ID]``. If
                    the supplied condition omits the ``name`` field, then
                    a new ``[CONDITION_ID]`` is created.
+
                 This corresponds to the ``update_mask`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            alert_policy (:class:`~.alert.AlertPolicy`):
+            alert_policy (google.cloud.monitoring_v3.types.AlertPolicy):
                 Required. The updated alerting policy or the updated
                 values for the fields listed in ``update_mask``. If
                 ``update_mask`` is not empty, any fields in this policy
                 that are not in ``update_mask`` are ignored.
+
                 This corresponds to the ``alert_policy`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -773,12 +796,12 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            ~.alert.AlertPolicy:
-                A description of the conditions under which some aspect
-                of your system is considered to be "unhealthy" and the
-                ways to notify people or services about this state. For
-                an overview of alert policies, see `Introduction to
-                Alerting <https://cloud.google.com/monitoring/alerts/>`__.
+            google.cloud.monitoring_v3.types.AlertPolicy:
+                A description of the conditions under which some aspect of your system is
+                   considered to be "unhealthy" and the ways to notify
+                   people or services about this state. For an overview
+                   of alert policies, see [Introduction to
+                   Alerting](\ https://cloud.google.com/monitoring/alerts/).
 
         """
         # Create or coerce a protobuf request object.

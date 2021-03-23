@@ -55,19 +55,19 @@ class Service(proto.Message):
         display_name (str):
             Name used for UI elements listing this
             Service.
-        custom (~.gm_service.Service.Custom):
+        custom (google.cloud.monitoring_v3.types.Service.Custom):
             Custom service type.
-        app_engine (~.gm_service.Service.AppEngine):
+        app_engine (google.cloud.monitoring_v3.types.Service.AppEngine):
             Type used for App Engine services.
-        cloud_endpoints (~.gm_service.Service.CloudEndpoints):
+        cloud_endpoints (google.cloud.monitoring_v3.types.Service.CloudEndpoints):
             Type used for Cloud Endpoints services.
-        cluster_istio (~.gm_service.Service.ClusterIstio):
+        cluster_istio (google.cloud.monitoring_v3.types.Service.ClusterIstio):
             Type used for Istio services that live in a
             Kubernetes cluster.
-        mesh_istio (~.gm_service.Service.MeshIstio):
+        mesh_istio (google.cloud.monitoring_v3.types.Service.MeshIstio):
             Type used for Istio services scoped to an
             Istio mesh.
-        telemetry (~.gm_service.Service.Telemetry):
+        telemetry (google.cloud.monitoring_v3.types.Service.Telemetry):
             Configuration for how to query telemetry on a
             Service.
     """
@@ -217,18 +217,18 @@ class ServiceLevelObjective(proto.Message):
                 projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
         display_name (str):
             Name used for UI elements listing this SLO.
-        service_level_indicator (~.gm_service.ServiceLevelIndicator):
+        service_level_indicator (google.cloud.monitoring_v3.types.ServiceLevelIndicator):
             The definition of good service, used to measure and
             calculate the quality of the ``Service``'s performance with
             respect to a single aspect of service quality.
         goal (float):
             The fraction of service that must be good in order for this
             objective to be met. ``0 < goal <= 0.999``.
-        rolling_period (~.duration.Duration):
+        rolling_period (google.protobuf.duration_pb2.Duration):
             A rolling time period, semantically "in the past
             ``<rolling_period>``". Must be an integer multiple of 1 day
             no larger than 30 days.
-        calendar_period (~.gt_calendar_period.CalendarPeriod):
+        calendar_period (google.type.calendar_period_pb2.CalendarPeriod):
             A calendar period, semantically "since the start of the
             current ``<calendar_period>``". At this time, only ``DAY``,
             ``WEEK``, ``FORTNIGHT``, and ``MONTH`` are supported.
@@ -281,11 +281,11 @@ class ServiceLevelIndicator(proto.Message):
     queries.
 
     Attributes:
-        basic_sli (~.gm_service.BasicSli):
+        basic_sli (google.cloud.monitoring_v3.types.BasicSli):
             Basic SLI on a well-known service type.
-        request_based (~.gm_service.RequestBasedSli):
+        request_based (google.cloud.monitoring_v3.types.RequestBasedSli):
             Request-based SLIs
-        windows_based (~.gm_service.WindowsBasedSli):
+        windows_based (google.cloud.monitoring_v3.types.WindowsBasedSli):
             Windows-based SLIs
     """
 
@@ -334,11 +334,11 @@ class BasicSli(proto.Message):
             applies to all API versions. For service types
             that don't support breaking down by version,
             setting this field will result in an error.
-        availability (~.gm_service.BasicSli.AvailabilityCriteria):
+        availability (google.cloud.monitoring_v3.types.BasicSli.AvailabilityCriteria):
             Good service is defined to be the count of
             requests made to this service that return
             successfully.
-        latency (~.gm_service.BasicSli.LatencyCriteria):
+        latency (google.cloud.monitoring_v3.types.BasicSli.LatencyCriteria):
             Good service is defined to be the count of requests made to
             this service that are fast enough with respect to
             ``latency.threshold``.
@@ -351,7 +351,7 @@ class BasicSli(proto.Message):
         r"""Parameters for a latency threshold SLI.
 
         Attributes:
-            threshold (~.duration.Duration):
+            threshold (google.protobuf.duration_pb2.Duration):
                 Good service is defined to be the count of requests made to
                 this service that return in no more than ``threshold``.
         """
@@ -396,11 +396,11 @@ class RequestBasedSli(proto.Message):
     are counted directly.
 
     Attributes:
-        good_total_ratio (~.gm_service.TimeSeriesRatio):
+        good_total_ratio (google.cloud.monitoring_v3.types.TimeSeriesRatio):
             ``good_total_ratio`` is used when the ratio of
             ``good_service`` to ``total_service`` is computed from two
             ``TimeSeries``.
-        distribution_cut (~.gm_service.DistributionCut):
+        distribution_cut (google.cloud.monitoring_v3.types.DistributionCut):
             ``distribution_cut`` is used when ``good_service`` is a
             count of values aggregated in a ``Distribution`` that fall
             into a good range. The ``total_service`` is the total count
@@ -472,7 +472,7 @@ class DistributionCut(proto.Message):
             specifying a ``TimeSeries`` aggregating values. Must have
             ``ValueType = DISTRIBUTION`` and ``MetricKind = DELTA`` or
             ``MetricKind = CUMULATIVE``.
-        range_ (~.gm_service.Range):
+        range_ (google.cloud.monitoring_v3.types.Range):
             Range of values considered "good." For a one-
             ided range, set one bound to an infinite value.
     """
@@ -494,15 +494,15 @@ class WindowsBasedSli(proto.Message):
             filter <https://cloud.google.com/monitoring/api/v3/filters>`__
             specifying a ``TimeSeries`` with ``ValueType = BOOL``. The
             window is good if any ``true`` values appear in the window.
-        good_total_ratio_threshold (~.gm_service.WindowsBasedSli.PerformanceThreshold):
+        good_total_ratio_threshold (google.cloud.monitoring_v3.types.WindowsBasedSli.PerformanceThreshold):
             A window is good if its ``performance`` is high enough.
-        metric_mean_in_range (~.gm_service.WindowsBasedSli.MetricRange):
+        metric_mean_in_range (google.cloud.monitoring_v3.types.WindowsBasedSli.MetricRange):
             A window is good if the metric's value is in
             a good range, averaged across returned streams.
-        metric_sum_in_range (~.gm_service.WindowsBasedSli.MetricRange):
+        metric_sum_in_range (google.cloud.monitoring_v3.types.WindowsBasedSli.MetricRange):
             A window is good if the metric's value is in
             a good range, summed across returned streams.
-        window_period (~.duration.Duration):
+        window_period (google.protobuf.duration_pb2.Duration):
             Duration over which window quality is evaluated. Must be an
             integer fraction of a day and at least ``60s``.
     """
@@ -512,9 +512,9 @@ class WindowsBasedSli(proto.Message):
         that window has a sufficiently high ``performance``.
 
         Attributes:
-            performance (~.gm_service.RequestBasedSli):
+            performance (google.cloud.monitoring_v3.types.RequestBasedSli):
                 ``RequestBasedSli`` to evaluate to judge window quality.
-            basic_sli_performance (~.gm_service.BasicSli):
+            basic_sli_performance (google.cloud.monitoring_v3.types.BasicSli):
                 ``BasicSli`` to evaluate to judge window quality.
             threshold (float):
                 If window ``performance >= threshold``, the window is
@@ -543,7 +543,7 @@ class WindowsBasedSli(proto.Message):
                 filter <https://cloud.google.com/monitoring/api/v3/filters>`__
                 specifying the ``TimeSeries`` to use for evaluating window
                 quality.
-            range_ (~.gm_service.Range):
+            range_ (google.cloud.monitoring_v3.types.Range):
                 Range of values considered "good." For a one-
                 ided range, set one bound to an infinite value.
         """

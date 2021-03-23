@@ -91,6 +91,7 @@ class UptimeCheckServiceAsyncClient:
         UptimeCheckServiceClient.parse_common_location_path
     )
 
+    from_service_account_info = UptimeCheckServiceClient.from_service_account_info
     from_service_account_file = UptimeCheckServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
 
@@ -170,7 +171,7 @@ class UptimeCheckServiceAsyncClient:
         configurations).
 
         Args:
-            request (:class:`~.uptime_service.ListUptimeCheckConfigsRequest`):
+            request (:class:`google.cloud.monitoring_v3.types.ListUptimeCheckConfigsRequest`):
                 The request object. The protocol for the
                 `ListUptimeCheckConfigs` request.
             parent (:class:`str`):
@@ -180,6 +181,7 @@ class UptimeCheckServiceAsyncClient:
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -191,9 +193,8 @@ class UptimeCheckServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.pagers.ListUptimeCheckConfigsAsyncPager:
-                The protocol for the ``ListUptimeCheckConfigs``
-                response.
+            google.cloud.monitoring_v3.services.uptime_check_service.pagers.ListUptimeCheckConfigsAsyncPager:
+                The protocol for the ListUptimeCheckConfigs response.
 
                 Iterating over this object will yield results and
                 resolve additional pages automatically.
@@ -263,7 +264,7 @@ class UptimeCheckServiceAsyncClient:
         r"""Gets a single Uptime check configuration.
 
         Args:
-            request (:class:`~.uptime_service.GetUptimeCheckConfigRequest`):
+            request (:class:`google.cloud.monitoring_v3.types.GetUptimeCheckConfigRequest`):
                 The request object. The protocol for the
                 `GetUptimeCheckConfig` request.
             name (:class:`str`):
@@ -273,6 +274,7 @@ class UptimeCheckServiceAsyncClient:
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -284,7 +286,7 @@ class UptimeCheckServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.uptime.UptimeCheckConfig:
+            google.cloud.monitoring_v3.types.UptimeCheckConfig:
                 This message configures which
                 resources and services to monitor for
                 availability.
@@ -349,7 +351,7 @@ class UptimeCheckServiceAsyncClient:
         r"""Creates a new Uptime check configuration.
 
         Args:
-            request (:class:`~.uptime_service.CreateUptimeCheckConfigRequest`):
+            request (:class:`google.cloud.monitoring_v3.types.CreateUptimeCheckConfigRequest`):
                 The request object. The protocol for the
                 `CreateUptimeCheckConfig` request.
             parent (:class:`str`):
@@ -359,12 +361,14 @@ class UptimeCheckServiceAsyncClient:
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            uptime_check_config (:class:`~.uptime.UptimeCheckConfig`):
+            uptime_check_config (:class:`google.cloud.monitoring_v3.types.UptimeCheckConfig`):
                 Required. The new Uptime check
                 configuration.
+
                 This corresponds to the ``uptime_check_config`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -376,7 +380,7 @@ class UptimeCheckServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.uptime.UptimeCheckConfig:
+            google.cloud.monitoring_v3.types.UptimeCheckConfig:
                 This message configures which
                 resources and services to monitor for
                 availability.
@@ -438,10 +442,10 @@ class UptimeCheckServiceAsyncClient:
         configuration.
 
         Args:
-            request (:class:`~.uptime_service.UpdateUptimeCheckConfigRequest`):
+            request (:class:`google.cloud.monitoring_v3.types.UpdateUptimeCheckConfigRequest`):
                 The request object. The protocol for the
                 `UpdateUptimeCheckConfig` request.
-            uptime_check_config (:class:`~.uptime.UptimeCheckConfig`):
+            uptime_check_config (:class:`google.cloud.monitoring_v3.types.UptimeCheckConfig`):
                 Required. If an ``updateMask`` has been specified, this
                 field gives the values for the set of fields mentioned
                 in the ``updateMask``. If an ``updateMask`` has not been
@@ -455,6 +459,7 @@ class UptimeCheckServiceAsyncClient:
                 The following fields can be updated: ``display_name``,
                 ``http_check``, ``tcp_check``, ``timeout``,
                 ``content_matchers``, and ``selected_regions``.
+
                 This corresponds to the ``uptime_check_config`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -466,7 +471,7 @@ class UptimeCheckServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.uptime.UptimeCheckConfig:
+            google.cloud.monitoring_v3.types.UptimeCheckConfig:
                 This message configures which
                 resources and services to monitor for
                 availability.
@@ -527,7 +532,7 @@ class UptimeCheckServiceAsyncClient:
         that would be rendered invalid by the deletion.
 
         Args:
-            request (:class:`~.uptime_service.DeleteUptimeCheckConfigRequest`):
+            request (:class:`google.cloud.monitoring_v3.types.DeleteUptimeCheckConfigRequest`):
                 The request object. The protocol for the
                 `DeleteUptimeCheckConfig` request.
             name (:class:`str`):
@@ -537,6 +542,7 @@ class UptimeCheckServiceAsyncClient:
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -604,7 +610,7 @@ class UptimeCheckServiceAsyncClient:
         from
 
         Args:
-            request (:class:`~.uptime_service.ListUptimeCheckIpsRequest`):
+            request (:class:`google.cloud.monitoring_v3.types.ListUptimeCheckIpsRequest`):
                 The request object. The protocol for the
                 `ListUptimeCheckIps` request.
 
@@ -615,8 +621,8 @@ class UptimeCheckServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.pagers.ListUptimeCheckIpsAsyncPager:
-                The protocol for the ``ListUptimeCheckIps`` response.
+            google.cloud.monitoring_v3.services.uptime_check_service.pagers.ListUptimeCheckIpsAsyncPager:
+                The protocol for the ListUptimeCheckIps response.
 
                 Iterating over this object will yield results and
                 resolve additional pages automatically.
