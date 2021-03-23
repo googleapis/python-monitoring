@@ -201,6 +201,9 @@ class AlertPolicy(proto.Message):
             condition_absent (google.cloud.monitoring_v3.types.AlertPolicy.Condition.MetricAbsence):
                 A condition that checks that a time series
                 continues to receive new data points.
+            condition_monitoring_query_language (google.cloud.monitoring_v3.types.AlertPolicy.Condition.MonitoringQueryLanguageCondition):
+                A condition that uses the Monitoring Query
+                Language to define alerts.
         """
 
         class Trigger(proto.Message):
@@ -227,7 +230,7 @@ class AlertPolicy(proto.Message):
 
             Attributes:
                 filter (str):
-                    A
+                    Required. A
                     `filter <https://cloud.google.com/monitoring/api/v3/filters>`__
                     that identifies which time series should be compared with
                     the threshold.
@@ -236,9 +239,9 @@ class AlertPolicy(proto.Message):
                     ```ListTimeSeries``
                     request <https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list>`__
                     (that call is useful to verify the time series that will be
-                    retrieved / processed) and must specify the metric type and
-                    optionally may contain restrictions on resource type,
-                    resource labels, and metric labels. This field may not
+                    retrieved / processed). The filter must specify the metric
+                    type and the resource type. Optionally, it can specify
+                    resource labels and metric labels. This field must not
                     exceed 2048 Unicode characters in length.
                 aggregations (Sequence[google.cloud.monitoring_v3.types.Aggregation]):
                     Specifies the alignment of data points in individual time
@@ -345,7 +348,7 @@ class AlertPolicy(proto.Message):
 
             Attributes:
                 filter (str):
-                    A
+                    Required. A
                     `filter <https://cloud.google.com/monitoring/api/v3/filters>`__
                     that identifies which time series should be compared with
                     the threshold.
@@ -354,9 +357,9 @@ class AlertPolicy(proto.Message):
                     ```ListTimeSeries``
                     request <https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list>`__
                     (that call is useful to verify the time series that will be
-                    retrieved / processed) and must specify the metric type and
-                    optionally may contain restrictions on resource type,
-                    resource labels, and metric labels. This field may not
+                    retrieved / processed). The filter must specify the metric
+                    type and the resource type. Optionally, it can specify
+                    resource labels and metric labels. This field must not
                     exceed 2048 Unicode characters in length.
                 aggregations (Sequence[google.cloud.monitoring_v3.types.Aggregation]):
                     Specifies the alignment of data points in individual time
@@ -373,11 +376,11 @@ class AlertPolicy(proto.Message):
                     debugging this field.
                 duration (google.protobuf.duration_pb2.Duration):
                     The amount of time that a time series must fail to report
-                    new data to be considered failing. Currently, only values
-                    that are a multiple of a minute--e.g. 60, 120, or 300
-                    seconds--are supported. If an invalid value is given, an
-                    error will be returned. The ``Duration.nanos`` field is
-                    ignored.
+                    new data to be considered failing. The minimum value of this
+                    field is 120 seconds. Larger values that are a multiple of a
+                    minute--for example, 240 or 300 seconds--are supported. If
+                    an invalid value is given, an error will be returned. The
+                    ``Duration.nanos`` field is ignored.
                 trigger (google.cloud.monitoring_v3.types.AlertPolicy.Condition.Trigger):
                     The number/percent of time series for which the comparison
                     must hold in order for the condition to trigger. If
@@ -391,6 +394,48 @@ class AlertPolicy(proto.Message):
             aggregations = proto.RepeatedField(
                 proto.MESSAGE, number=5, message=common.Aggregation,
             )
+
+            duration = proto.Field(
+                proto.MESSAGE, number=2, message=gp_duration.Duration,
+            )
+
+            trigger = proto.Field(
+                proto.MESSAGE, number=3, message="AlertPolicy.Condition.Trigger",
+            )
+
+        class MonitoringQueryLanguageCondition(proto.Message):
+            r"""A condition type that allows alert policies to be defined using
+            `Monitoring Query
+            Language <https://cloud.google.com/monitoring/mql>`__.
+
+            Attributes:
+                query (str):
+                    `Monitoring Query
+                    Language <https://cloud.google.com/monitoring/mql>`__ query
+                    that outputs a boolean stream.
+                duration (google.protobuf.duration_pb2.Duration):
+                    The amount of time that a time series must violate the
+                    threshold to be considered failing. Currently, only values
+                    that are a multiple of a minute--e.g., 0, 60, 120, or 300
+                    seconds--are supported. If an invalid value is given, an
+                    error will be returned. When choosing a duration, it is
+                    useful to keep in mind the frequency of the underlying time
+                    series data (which may also be affected by any alignments
+                    specified in the ``aggregations`` field); a good duration is
+                    long enough so that a single outlier does not generate
+                    spurious alerts, but short enough that unhealthy states are
+                    detected and alerted on quickly.
+                trigger (google.cloud.monitoring_v3.types.AlertPolicy.Condition.Trigger):
+                    The number/percent of time series for which the comparison
+                    must hold in order for the condition to trigger. If
+                    unspecified, then the condition will trigger if the
+                    comparison is true for any of the time series that have been
+                    identified by ``filter`` and ``aggregations``, or by the
+                    ratio, if ``denominator_filter`` and
+                    ``denominator_aggregations`` are specified.
+            """
+
+            query = proto.Field(proto.STRING, number=1)
 
             duration = proto.Field(
                 proto.MESSAGE, number=2, message=gp_duration.Duration,
@@ -416,6 +461,13 @@ class AlertPolicy(proto.Message):
             number=2,
             oneof="condition",
             message="AlertPolicy.Condition.MetricAbsence",
+        )
+
+        condition_monitoring_query_language = proto.Field(
+            proto.MESSAGE,
+            number=19,
+            oneof="condition",
+            message="AlertPolicy.Condition.MonitoringQueryLanguageCondition",
         )
 
     name = proto.Field(proto.STRING, number=1)

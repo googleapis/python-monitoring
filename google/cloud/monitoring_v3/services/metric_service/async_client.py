@@ -60,6 +60,8 @@ class MetricServiceAsyncClient:
     parse_monitored_resource_descriptor_path = staticmethod(
         MetricServiceClient.parse_monitored_resource_descriptor_path
     )
+    time_series_path = staticmethod(MetricServiceClient.time_series_path)
+    parse_time_series_path = staticmethod(MetricServiceClient.parse_time_series_path)
 
     common_billing_account_path = staticmethod(
         MetricServiceClient.common_billing_account_path
@@ -759,12 +761,14 @@ class MetricServiceAsyncClient:
             request (:class:`google.cloud.monitoring_v3.types.ListTimeSeriesRequest`):
                 The request object. The `ListTimeSeries` request.
             name (:class:`str`):
-                Required. The project on which to execute the request.
-                The format is:
+                Required. The project, organization or folder on which
+                to execute the request. The format is:
 
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]
+                    organizations/[ORGANIZATION_ID]
+                    folders/[FOLDER_ID]
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this

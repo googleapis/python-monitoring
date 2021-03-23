@@ -192,6 +192,21 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
         return m.groupdict() if m else {}
 
     @staticmethod
+    def time_series_path(project: str, time_series: str,) -> str:
+        """Return a fully-qualified time_series string."""
+        return "projects/{project}/timeSeries/{time_series}".format(
+            project=project, time_series=time_series,
+        )
+
+    @staticmethod
+    def parse_time_series_path(path: str) -> Dict[str, str]:
+        """Parse a time_series path into its component segments."""
+        m = re.match(
+            r"^projects/(?P<project>.+?)/timeSeries/(?P<time_series>.+?)$", path
+        )
+        return m.groupdict() if m else {}
+
+    @staticmethod
     def common_billing_account_path(billing_account: str,) -> str:
         """Return a fully-qualified billing_account string."""
         return "billingAccounts/{billing_account}".format(
@@ -908,12 +923,14 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
             request (google.cloud.monitoring_v3.types.ListTimeSeriesRequest):
                 The request object. The `ListTimeSeries` request.
             name (str):
-                Required. The project on which to execute the request.
-                The format is:
+                Required. The project, organization or folder on which
+                to execute the request. The format is:
 
                 ::
 
                     projects/[PROJECT_ID_OR_NUMBER]
+                    organizations/[ORGANIZATION_ID]
+                    folders/[FOLDER_ID]
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this

@@ -80,10 +80,10 @@ class TimeSeries(proto.Message):
             types in their time series data.
         metadata (google.api.monitored_resource_pb2.MonitoredResourceMetadata):
             Output only. The associated monitored
-            resource metadata. When reading a a timeseries,
+            resource metadata. When reading a time series,
             this field will include metadata labels that are
             explicitly named in the reduction. When creating
-            a timeseries, this field is ignored.
+            a time series, this field is ignored.
         metric_kind (google.api.metric_pb2.MetricKind):
             The metric kind of the time series. When listing time
             series, this metric kind might be different from the metric
@@ -115,6 +115,11 @@ class TimeSeries(proto.Message):
             descriptor must be auto-created, then the value type of the
             descriptor is determined by the point's type, which must be
             ``BOOL``, ``INT64``, ``DOUBLE``, or ``DISTRIBUTION``.
+        unit (str):
+            The units in which the metric value is reported. It is only
+            applicable if the ``value_type`` is ``INT64``, ``DOUBLE``,
+            or ``DISTRIBUTION``. The ``unit`` defines the representation
+            of the stored metric values.
     """
 
     metric = proto.Field(proto.MESSAGE, number=1, message=ga_metric.Metric,)
@@ -137,9 +142,11 @@ class TimeSeries(proto.Message):
 
     points = proto.RepeatedField(proto.MESSAGE, number=5, message="Point",)
 
+    unit = proto.Field(proto.STRING, number=8)
+
 
 class TimeSeriesDescriptor(proto.Message):
-    r"""A descriptor for the labels and points in a timeseries.
+    r"""A descriptor for the labels and points in a time series.
 
     Attributes:
         label_descriptors (Sequence[google.api.label_pb2.LabelDescriptor]):
@@ -158,6 +165,11 @@ class TimeSeriesDescriptor(proto.Message):
                 The value type.
             metric_kind (google.api.metric_pb2.MetricKind):
                 The value stream kind.
+            unit (str):
+                The unit in which ``time_series`` point values are reported.
+                ``unit`` follows the UCUM format for units as seen in
+                https://unitsofmeasure.org/ucum.html. ``unit`` is only valid
+                if ``value_type`` is INTEGER, DOUBLE, DISTRIBUTION.
         """
 
         key = proto.Field(proto.STRING, number=1)
@@ -169,6 +181,8 @@ class TimeSeriesDescriptor(proto.Message):
         metric_kind = proto.Field(
             proto.ENUM, number=3, enum=ga_metric.MetricDescriptor.MetricKind,
         )
+
+        unit = proto.Field(proto.STRING, number=4)
 
     label_descriptors = proto.RepeatedField(
         proto.MESSAGE, number=1, message=label.LabelDescriptor,

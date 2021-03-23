@@ -385,7 +385,8 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListAlertPoliciesPager:
-        r"""Lists the existing alerting policies for the project.
+        r"""Lists the existing alerting policies for the
+        workspace.
 
         Args:
             request (google.cloud.monitoring_v3.types.ListAlertPoliciesRequest):
@@ -575,11 +576,13 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
 
                 Note that this field names the parent container in which
                 the alerting policy will be written, not the name of the
-                created policy. The alerting policy that is returned
-                will have a name that contains a normalized
-                representation of this name as a prefix but adds a
-                suffix of the form ``/alertPolicies/[ALERT_POLICY_ID]``,
-                identifying the policy in the container.
+                created policy. \|name\| must be a host project of a
+                workspace, otherwise INVALID_ARGUMENT error will return.
+                The alerting policy that is returned will have a name
+                that contains a normalized representation of this name
+                as a prefix but adds a suffix of the form
+                ``/alertPolicies/[ALERT_POLICY_ID]``, identifying the
+                policy in the container.
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this

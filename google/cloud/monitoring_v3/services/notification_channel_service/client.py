@@ -36,6 +36,7 @@ from google.api import label_pb2 as label  # type: ignore
 from google.api import launch_stage_pb2 as launch_stage  # type: ignore
 from google.cloud.monitoring_v3.services.notification_channel_service import pagers
 from google.cloud.monitoring_v3.types import common
+from google.cloud.monitoring_v3.types import mutation_record
 from google.cloud.monitoring_v3.types import notification
 from google.cloud.monitoring_v3.types import notification_service
 from google.protobuf import field_mask_pb2 as field_mask  # type: ignore

@@ -21,6 +21,7 @@ import proto  # type: ignore
 from google.api import label_pb2 as label  # type: ignore
 from google.api import launch_stage_pb2 as ga_launch_stage  # type: ignore
 from google.cloud.monitoring_v3.types import common
+from google.cloud.monitoring_v3.types import mutation_record
 from google.protobuf import wrappers_pb2 as wrappers  # type: ignore
 
 
@@ -47,9 +48,10 @@ class NotificationChannelDescriptor(proto.Message):
 
             In the above, ``[TYPE]`` is the value of the ``type`` field.
         type_ (str):
-            The type of notification channel, such as
-            "email", "sms", etc. Notification channel types
-            are globally unique.
+            The type of notification channel, such as "email" and "sms".
+            To view the full list of channels, see `Channel
+            descriptors <https://cloud.google.com/monitoring/alerts/using-channels-api#ncd>`__.
+            Notification channel types are globally unique.
         display_name (str):
             A human-readable name for the notification
             channel type.  This form of the name is suitable
@@ -181,6 +183,10 @@ class NotificationChannel(proto.Message):
             notifications from the same set of alerting
             policies on the channel at some point in the
             future.
+        creation_record (google.cloud.monitoring_v3.types.MutationRecord):
+            Record of the creation of this channel.
+        mutation_records (Sequence[google.cloud.monitoring_v3.types.MutationRecord]):
+            Records of the modification of this channel.
     """
 
     class VerificationStatus(proto.Enum):
@@ -210,6 +216,14 @@ class NotificationChannel(proto.Message):
     verification_status = proto.Field(proto.ENUM, number=9, enum=VerificationStatus,)
 
     enabled = proto.Field(proto.MESSAGE, number=11, message=wrappers.BoolValue,)
+
+    creation_record = proto.Field(
+        proto.MESSAGE, number=12, message=mutation_record.MutationRecord,
+    )
+
+    mutation_records = proto.RepeatedField(
+        proto.MESSAGE, number=13, message=mutation_record.MutationRecord,
+    )
 
 
 __all__ = tuple(sorted(__protobuf__.manifest))

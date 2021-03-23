@@ -215,6 +215,11 @@ class ListNotificationChannelsResponse(proto.Message):
             match the request. Use the value in the ``page_token`` field
             in a subsequent request to fetch the next set of results. If
             empty, all results have been returned.
+        total_size (int):
+            The total number of notification channels in
+            all pages. This number is only an estimate, and
+            may change in subsequent pages.
+            https://aip.dev/158
     """
 
     @property
@@ -226,6 +231,8 @@ class ListNotificationChannelsResponse(proto.Message):
     )
 
     next_page_token = proto.Field(proto.STRING, number=2)
+
+    total_size = proto.Field(proto.INT32, number=4)
 
 
 class GetNotificationChannelRequest(proto.Message):

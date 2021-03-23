@@ -67,6 +67,10 @@ class Service(proto.Message):
         mesh_istio (google.cloud.monitoring_v3.types.Service.MeshIstio):
             Type used for Istio services scoped to an
             Istio mesh.
+        istio_canonical_service (google.cloud.monitoring_v3.types.Service.IstioCanonicalService):
+            Type used for canonical services scoped to an Istio mesh.
+            Metrics for Istio are `documented
+            here <https://istio.io/latest/docs/reference/config/metrics/>`__
         telemetry (google.cloud.monitoring_v3.types.Service.Telemetry):
             Configuration for how to query telemetry on a
             Service.
@@ -107,7 +111,8 @@ class Service(proto.Message):
 
     class ClusterIstio(proto.Message):
         r"""Istio service scoped to a single Kubernetes cluster. Learn
-        more at http://istio.io.
+        more at https://istio.io. Clusters running OSS Istio will have
+        their services ingested as this type.
 
         Attributes:
             location (str):
@@ -137,7 +142,9 @@ class Service(proto.Message):
         service_name = proto.Field(proto.STRING, number=4)
 
     class MeshIstio(proto.Message):
-        r"""Istio service scoped to an Istio mesh
+        r"""Istio service scoped to an Istio mesh. Anthos clusters
+        running ASM < 1.6.8 will have their services ingested as this
+        type.
 
         Attributes:
             mesh_uid (str):
@@ -159,6 +166,36 @@ class Service(proto.Message):
         service_namespace = proto.Field(proto.STRING, number=3)
 
         service_name = proto.Field(proto.STRING, number=4)
+
+    class IstioCanonicalService(proto.Message):
+        r"""Canonical service scoped to an Istio mesh. Anthos clusters
+        running ASM >= 1.6.8 will have their services ingested as this
+        type.
+
+        Attributes:
+            mesh_uid (str):
+                Identifier for the Istio mesh in which this canonical
+                service is defined. Corresponds to the ``mesh_uid`` metric
+                label in `Istio
+                metrics <https://cloud.google.com/monitoring/api/metrics_istio>`__.
+            canonical_service_namespace (str):
+                The namespace of the canonical service underlying this
+                service. Corresponds to the
+                ``destination_canonical_service_namespace`` metric label in
+                `Istio
+                metrics <https://cloud.google.com/monitoring/api/metrics_istio>`__.
+            canonical_service (str):
+                The name of the canonical service underlying this service.
+                Corresponds to the ``destination_canonical_service_name``
+                metric label in label in `Istio
+                metrics <https://cloud.google.com/monitoring/api/metrics_istio>`__.
+        """
+
+        mesh_uid = proto.Field(proto.STRING, number=1)
+
+        canonical_service_namespace = proto.Field(proto.STRING, number=3)
+
+        canonical_service = proto.Field(proto.STRING, number=4)
 
     class Telemetry(proto.Message):
         r"""Configuration for how to query telemetry on a Service.
@@ -192,6 +229,10 @@ class Service(proto.Message):
 
     mesh_istio = proto.Field(
         proto.MESSAGE, number=10, oneof="identifier", message=MeshIstio,
+    )
+
+    istio_canonical_service = proto.Field(
+        proto.MESSAGE, number=11, oneof="identifier", message=IstioCanonicalService,
     )
 
     telemetry = proto.Field(proto.MESSAGE, number=13, message=Telemetry,)

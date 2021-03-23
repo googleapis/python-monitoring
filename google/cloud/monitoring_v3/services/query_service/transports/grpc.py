@@ -26,25 +26,17 @@ from google.auth.transport.grpc import SslCredentials  # type: ignore
 
 import grpc  # type: ignore
 
-from google.cloud.monitoring_v3.types import alert
-from google.cloud.monitoring_v3.types import alert_service
-from google.protobuf import empty_pb2 as empty  # type: ignore
+from google.cloud.monitoring_v3.types import metric_service
 
-from .base import AlertPolicyServiceTransport, DEFAULT_CLIENT_INFO
+from .base import QueryServiceTransport, DEFAULT_CLIENT_INFO
 
 
-class AlertPolicyServiceGrpcTransport(AlertPolicyServiceTransport):
-    """gRPC backend transport for AlertPolicyService.
+class QueryServiceGrpcTransport(QueryServiceTransport):
+    """gRPC backend transport for QueryService.
 
-    The AlertPolicyService API is used to manage (list, create, delete,
-    edit) alert policies in Stackdriver Monitoring. An alerting policy
-    is a description of the conditions under which some aspect of your
-    system is considered to be "unhealthy" and the ways to notify people
-    or services about this state. In addition to using this API, alert
-    policies can also be managed through `Stackdriver
-    Monitoring <https://cloud.google.com/monitoring/docs/>`__, which can
-    be reached by clicking the "Monitoring" tab in `Cloud
-    Console <https://console.cloud.google.com/>`__.
+    The QueryService API is used to manage time series data in
+    Stackdriver Monitoring. Time series data is a collection of data
+    points that describes the time-varying values of a metric.
 
     This class defines the same methods as the primary client, so the
     primary client can load the underlying transport implementation
@@ -232,20 +224,19 @@ class AlertPolicyServiceGrpcTransport(AlertPolicyServiceTransport):
         return self._grpc_channel
 
     @property
-    def list_alert_policies(
+    def query_time_series(
         self,
     ) -> Callable[
-        [alert_service.ListAlertPoliciesRequest],
-        alert_service.ListAlertPoliciesResponse,
+        [metric_service.QueryTimeSeriesRequest], metric_service.QueryTimeSeriesResponse
     ]:
-        r"""Return a callable for the list alert policies method over gRPC.
+        r"""Return a callable for the query time series method over gRPC.
 
-        Lists the existing alerting policies for the
-        workspace.
+        Queries time series using Monitoring Query Language.
+        This method does not require a Workspace.
 
         Returns:
-            Callable[[~.ListAlertPoliciesRequest],
-                    ~.ListAlertPoliciesResponse]:
+            Callable[[~.QueryTimeSeriesRequest],
+                    ~.QueryTimeSeriesResponse]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -253,120 +244,13 @@ class AlertPolicyServiceGrpcTransport(AlertPolicyServiceTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "list_alert_policies" not in self._stubs:
-            self._stubs["list_alert_policies"] = self.grpc_channel.unary_unary(
-                "/google.monitoring.v3.AlertPolicyService/ListAlertPolicies",
-                request_serializer=alert_service.ListAlertPoliciesRequest.serialize,
-                response_deserializer=alert_service.ListAlertPoliciesResponse.deserialize,
+        if "query_time_series" not in self._stubs:
+            self._stubs["query_time_series"] = self.grpc_channel.unary_unary(
+                "/google.monitoring.v3.QueryService/QueryTimeSeries",
+                request_serializer=metric_service.QueryTimeSeriesRequest.serialize,
+                response_deserializer=metric_service.QueryTimeSeriesResponse.deserialize,
             )
-        return self._stubs["list_alert_policies"]
-
-    @property
-    def get_alert_policy(
-        self,
-    ) -> Callable[[alert_service.GetAlertPolicyRequest], alert.AlertPolicy]:
-        r"""Return a callable for the get alert policy method over gRPC.
-
-        Gets a single alerting policy.
-
-        Returns:
-            Callable[[~.GetAlertPolicyRequest],
-                    ~.AlertPolicy]:
-                A function that, when called, will call the underlying RPC
-                on the server.
-        """
-        # Generate a "stub function" on-the-fly which will actually make
-        # the request.
-        # gRPC handles serialization and deserialization, so we just need
-        # to pass in the functions for each.
-        if "get_alert_policy" not in self._stubs:
-            self._stubs["get_alert_policy"] = self.grpc_channel.unary_unary(
-                "/google.monitoring.v3.AlertPolicyService/GetAlertPolicy",
-                request_serializer=alert_service.GetAlertPolicyRequest.serialize,
-                response_deserializer=alert.AlertPolicy.deserialize,
-            )
-        return self._stubs["get_alert_policy"]
-
-    @property
-    def create_alert_policy(
-        self,
-    ) -> Callable[[alert_service.CreateAlertPolicyRequest], alert.AlertPolicy]:
-        r"""Return a callable for the create alert policy method over gRPC.
-
-        Creates a new alerting policy.
-
-        Returns:
-            Callable[[~.CreateAlertPolicyRequest],
-                    ~.AlertPolicy]:
-                A function that, when called, will call the underlying RPC
-                on the server.
-        """
-        # Generate a "stub function" on-the-fly which will actually make
-        # the request.
-        # gRPC handles serialization and deserialization, so we just need
-        # to pass in the functions for each.
-        if "create_alert_policy" not in self._stubs:
-            self._stubs["create_alert_policy"] = self.grpc_channel.unary_unary(
-                "/google.monitoring.v3.AlertPolicyService/CreateAlertPolicy",
-                request_serializer=alert_service.CreateAlertPolicyRequest.serialize,
-                response_deserializer=alert.AlertPolicy.deserialize,
-            )
-        return self._stubs["create_alert_policy"]
-
-    @property
-    def delete_alert_policy(
-        self,
-    ) -> Callable[[alert_service.DeleteAlertPolicyRequest], empty.Empty]:
-        r"""Return a callable for the delete alert policy method over gRPC.
-
-        Deletes an alerting policy.
-
-        Returns:
-            Callable[[~.DeleteAlertPolicyRequest],
-                    ~.Empty]:
-                A function that, when called, will call the underlying RPC
-                on the server.
-        """
-        # Generate a "stub function" on-the-fly which will actually make
-        # the request.
-        # gRPC handles serialization and deserialization, so we just need
-        # to pass in the functions for each.
-        if "delete_alert_policy" not in self._stubs:
-            self._stubs["delete_alert_policy"] = self.grpc_channel.unary_unary(
-                "/google.monitoring.v3.AlertPolicyService/DeleteAlertPolicy",
-                request_serializer=alert_service.DeleteAlertPolicyRequest.serialize,
-                response_deserializer=empty.Empty.FromString,
-            )
-        return self._stubs["delete_alert_policy"]
-
-    @property
-    def update_alert_policy(
-        self,
-    ) -> Callable[[alert_service.UpdateAlertPolicyRequest], alert.AlertPolicy]:
-        r"""Return a callable for the update alert policy method over gRPC.
-
-        Updates an alerting policy. You can either replace the entire
-        policy with a new one or replace only certain fields in the
-        current alerting policy by specifying the fields to be updated
-        via ``updateMask``. Returns the updated alerting policy.
-
-        Returns:
-            Callable[[~.UpdateAlertPolicyRequest],
-                    ~.AlertPolicy]:
-                A function that, when called, will call the underlying RPC
-                on the server.
-        """
-        # Generate a "stub function" on-the-fly which will actually make
-        # the request.
-        # gRPC handles serialization and deserialization, so we just need
-        # to pass in the functions for each.
-        if "update_alert_policy" not in self._stubs:
-            self._stubs["update_alert_policy"] = self.grpc_channel.unary_unary(
-                "/google.monitoring.v3.AlertPolicyService/UpdateAlertPolicy",
-                request_serializer=alert_service.UpdateAlertPolicyRequest.serialize,
-                response_deserializer=alert.AlertPolicy.deserialize,
-            )
-        return self._stubs["update_alert_policy"]
+        return self._stubs["query_time_series"]
 
 
-__all__ = ("AlertPolicyServiceGrpcTransport",)
+__all__ = ("QueryServiceGrpcTransport",)

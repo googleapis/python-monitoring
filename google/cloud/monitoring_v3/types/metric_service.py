@@ -266,12 +266,14 @@ class ListTimeSeriesRequest(proto.Message):
 
     Attributes:
         name (str):
-            Required. The project on which to execute the request. The
-            format is:
+            Required. The project, organization or folder on which to
+            execute the request. The format is:
 
             ::
 
                 projects/[PROJECT_ID_OR_NUMBER]
+                organizations/[ORGANIZATION_ID]
+                folders/[FOLDER_ID]
         filter (str):
             Required. A `monitoring
             filter <https://cloud.google.com/monitoring/api/v3/filters>`__
@@ -296,6 +298,9 @@ class ListTimeSeriesRequest(proto.Message):
 
             By default (if no ``aggregation`` is explicitly specified),
             the raw time series data is returned.
+        secondary_aggregation (google.cloud.monitoring_v3.types.Aggregation):
+            Apply a second aggregation after ``aggregation`` is applied.
+            May only be specified if ``aggregation`` is specified.
         order_by (str):
             Unsupported: must be left blank. The points
             in each time series are currently returned in
@@ -330,6 +335,10 @@ class ListTimeSeriesRequest(proto.Message):
 
     aggregation = proto.Field(proto.MESSAGE, number=5, message=common.Aggregation,)
 
+    secondary_aggregation = proto.Field(
+        proto.MESSAGE, number=11, message=common.Aggregation,
+    )
+
     order_by = proto.Field(proto.STRING, number=6)
 
     view = proto.Field(proto.ENUM, number=7, enum=TimeSeriesView,)
@@ -354,6 +363,13 @@ class ListTimeSeriesResponse(proto.Message):
         execution_errors (Sequence[google.rpc.status_pb2.Status]):
             Query execution errors that may have caused
             the time series data returned to be incomplete.
+        unit (str):
+            The unit in which all ``time_series`` point values are
+            reported. ``unit`` follows the UCUM format for units as seen
+            in https://unitsofmeasure.org/ucum.html. If different
+            ``time_series`` have different units (for example, because
+            they come from different metric types, or a unit is absent),
+            then ``unit`` will be "{not_a_unit}".
     """
 
     @property
@@ -369,6 +385,8 @@ class ListTimeSeriesResponse(proto.Message):
     execution_errors = proto.RepeatedField(
         proto.MESSAGE, number=3, message=gr_status.Status,
     )
+
+    unit = proto.Field(proto.STRING, number=5)
 
 
 class CreateTimeSeriesRequest(proto.Message):
@@ -467,9 +485,9 @@ class QueryTimeSeriesRequest(proto.Message):
 
                 projects/[PROJECT_ID_OR_NUMBER]
         query (str):
-            Required. The query in the monitoring query
-            language format. The default time zone is in
-            UTC.
+            Required. The query in the `Monitoring Query
+            Language <https://cloud.google.com/monitoring/mql/reference>`__
+            format. The default time zone is in UTC.
         page_size (int):
             A positive number that is the maximum number of
             time_series_data to return.
