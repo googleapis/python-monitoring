@@ -94,15 +94,20 @@ def test__get_default_mtls_endpoint():
     )
 
 
-def test_service_monitoring_service_client_from_service_account_info():
+@pytest.mark.parametrize(
+    "client_class",
+    [ServiceMonitoringServiceClient, ServiceMonitoringServiceAsyncClient,],
+)
+def test_service_monitoring_service_client_from_service_account_info(client_class):
     creds = credentials.AnonymousCredentials()
     with mock.patch.object(
         service_account.Credentials, "from_service_account_info"
     ) as factory:
         factory.return_value = creds
         info = {"valid": True}
-        client = ServiceMonitoringServiceClient.from_service_account_info(info)
+        client = client_class.from_service_account_info(info)
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         assert client.transport._host == "monitoring.googleapis.com:443"
 
@@ -119,9 +124,11 @@ def test_service_monitoring_service_client_from_service_account_file(client_clas
         factory.return_value = creds
         client = client_class.from_service_account_file("dummy/file/path.json")
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         client = client_class.from_service_account_json("dummy/file/path.json")
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         assert client.transport._host == "monitoring.googleapis.com:443"
 
@@ -512,6 +519,22 @@ def test_create_service_from_dict():
     test_create_service(request_type=dict)
 
 
+def test_create_service_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = ServiceMonitoringServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.create_service), "__call__") as call:
+        client.create_service()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service_service.CreateServiceRequest()
+
+
 @pytest.mark.asyncio
 async def test_create_service_async(
     transport: str = "grpc_asyncio", request_type=service_service.CreateServiceRequest
@@ -729,6 +752,22 @@ def test_get_service_from_dict():
     test_get_service(request_type=dict)
 
 
+def test_get_service_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = ServiceMonitoringServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.get_service), "__call__") as call:
+        client.get_service()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service_service.GetServiceRequest()
+
+
 @pytest.mark.asyncio
 async def test_get_service_async(
     transport: str = "grpc_asyncio", request_type=service_service.GetServiceRequest
@@ -930,6 +969,22 @@ def test_list_services(
 
 def test_list_services_from_dict():
     test_list_services(request_type=dict)
+
+
+def test_list_services_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = ServiceMonitoringServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.list_services), "__call__") as call:
+        client.list_services()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service_service.ListServicesRequest()
 
 
 @pytest.mark.asyncio
@@ -1271,6 +1326,22 @@ def test_update_service_from_dict():
     test_update_service(request_type=dict)
 
 
+def test_update_service_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = ServiceMonitoringServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.update_service), "__call__") as call:
+        client.update_service()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service_service.UpdateServiceRequest()
+
+
 @pytest.mark.asyncio
 async def test_update_service_async(
     transport: str = "grpc_asyncio", request_type=service_service.UpdateServiceRequest
@@ -1475,6 +1546,22 @@ def test_delete_service(
 
 def test_delete_service_from_dict():
     test_delete_service(request_type=dict)
+
+
+def test_delete_service_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = ServiceMonitoringServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.delete_service), "__call__") as call:
+        client.delete_service()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service_service.DeleteServiceRequest()
 
 
 @pytest.mark.asyncio
@@ -1682,6 +1769,24 @@ def test_create_service_level_objective(
 
 def test_create_service_level_objective_from_dict():
     test_create_service_level_objective(request_type=dict)
+
+
+def test_create_service_level_objective_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = ServiceMonitoringServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.create_service_level_objective), "__call__"
+    ) as call:
+        client.create_service_level_objective()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service_service.CreateServiceLevelObjectiveRequest()
 
 
 @pytest.mark.asyncio
@@ -1934,6 +2039,24 @@ def test_get_service_level_objective_from_dict():
     test_get_service_level_objective(request_type=dict)
 
 
+def test_get_service_level_objective_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = ServiceMonitoringServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.get_service_level_objective), "__call__"
+    ) as call:
+        client.get_service_level_objective()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service_service.GetServiceLevelObjectiveRequest()
+
+
 @pytest.mark.asyncio
 async def test_get_service_level_objective_async(
     transport: str = "grpc_asyncio",
@@ -2157,6 +2280,24 @@ def test_list_service_level_objectives(
 
 def test_list_service_level_objectives_from_dict():
     test_list_service_level_objectives(request_type=dict)
+
+
+def test_list_service_level_objectives_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = ServiceMonitoringServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.list_service_level_objectives), "__call__"
+    ) as call:
+        client.list_service_level_objectives()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service_service.ListServiceLevelObjectivesRequest()
 
 
 @pytest.mark.asyncio
@@ -2567,6 +2708,24 @@ def test_update_service_level_objective_from_dict():
     test_update_service_level_objective(request_type=dict)
 
 
+def test_update_service_level_objective_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = ServiceMonitoringServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.update_service_level_objective), "__call__"
+    ) as call:
+        client.update_service_level_objective()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service_service.UpdateServiceLevelObjectiveRequest()
+
+
 @pytest.mark.asyncio
 async def test_update_service_level_objective_async(
     transport: str = "grpc_asyncio",
@@ -2801,6 +2960,24 @@ def test_delete_service_level_objective(
 
 def test_delete_service_level_objective_from_dict():
     test_delete_service_level_objective(request_type=dict)
+
+
+def test_delete_service_level_objective_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = ServiceMonitoringServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.delete_service_level_objective), "__call__"
+    ) as call:
+        client.delete_service_level_objective()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service_service.DeleteServiceLevelObjectiveRequest()
 
 
 @pytest.mark.asyncio
