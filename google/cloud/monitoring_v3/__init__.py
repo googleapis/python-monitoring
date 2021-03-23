@@ -200,7 +200,6 @@ __all__ = (
     "Service",
     "ServiceLevelIndicator",
     "ServiceLevelObjective",
-    "ServiceMonitoringServiceClient",
     "ServiceTier",
     "SpanContext",
     "TextLocator",
@@ -219,7 +218,8 @@ __all__ = (
     "UptimeCheckConfig",
     "UptimeCheckIp",
     "UptimeCheckRegion",
+    "UptimeCheckServiceClient",
     "VerifyNotificationChannelRequest",
     "WindowsBasedSli",
-    "UptimeCheckServiceClient",
+    "ServiceMonitoringServiceClient",
 )
