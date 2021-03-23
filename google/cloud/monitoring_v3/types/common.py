@@ -53,6 +53,7 @@ class ServiceTier(proto.Enum):
     documentation <https://cloud.google.com/monitoring/workspaces/tiers>`__
     for more details.
     """
+    _pb_options = {"deprecated": True}
     SERVICE_TIER_UNSPECIFIED = 0
     SERVICE_TIER_BASIC = 1
     SERVICE_TIER_PREMIUM = 2
