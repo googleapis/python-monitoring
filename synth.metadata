@@ -11,8 +11,8 @@
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "520682435235d9c503983a360a2090025aa47cd1",
-        "internalRef": "350246057"
+        "sha": "89e3c509923819eb87bedc8331a823403d9dba55",
+        "internalRef": "351705536"
       }
     },
     {
@@ -191,7 +191,6 @@
     "google/cloud/monitoring_v3/types/span_context.py",
     "google/cloud/monitoring_v3/types/uptime.py",
     "google/cloud/monitoring_v3/types/uptime_service.py",
-    "monitoring-v3-py.tar.gz",
     "mypy.ini",
     "noxfile.py",
     "renovate.json",
