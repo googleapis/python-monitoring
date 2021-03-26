@@ -158,6 +158,7 @@ __all__ = (
     "GetUptimeCheckConfigRequest",
     "Group",
     "GroupResourceType",
+    "GroupServiceClient",
     "InternalChecker",
     "LabelValue",
     "ListAlertPoliciesRequest",
@@ -220,8 +221,7 @@ __all__ = (
     "UptimeCheckConfig",
     "UptimeCheckIp",
     "UptimeCheckRegion",
-    "UptimeCheckServiceClient",
     "VerifyNotificationChannelRequest",
     "WindowsBasedSli",
-    "GroupServiceClient",
+    "UptimeCheckServiceClient",
 )
