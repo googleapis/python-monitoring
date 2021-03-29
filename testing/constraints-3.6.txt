@@ -7,4 +7,4 @@
 # Then this file should have google-cloud-foo==1.14.0
 google-api-core==1.22.2
 proto-plus==1.15.0
-pandas==0.17.1
+pandas==0.23.0
