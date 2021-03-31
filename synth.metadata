@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-monitoring.git",
-        "sha": "cc875805857abcbaedd1d63ff5eba56da15cc735"
+        "sha": "da5253c5326b4f43d045c94e28d8ce93a715a535"
       }
     },
     {
