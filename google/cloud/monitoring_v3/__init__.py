@@ -189,10 +189,10 @@ __all__ = (
     "MutationRecord",
     "NotificationChannel",
     "NotificationChannelDescriptor",
+    "NotificationChannelServiceClient",
     "Point",
     "QueryError",
     "QueryErrorList",
-    "QueryServiceClient",
     "QueryTimeSeriesRequest",
     "QueryTimeSeriesResponse",
     "Range",
@@ -223,5 +223,5 @@ __all__ = (
     "UptimeCheckServiceClient",
     "VerifyNotificationChannelRequest",
     "WindowsBasedSli",
-    "NotificationChannelServiceClient",
+    "QueryServiceClient",
 )
