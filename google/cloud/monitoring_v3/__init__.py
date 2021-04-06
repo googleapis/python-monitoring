@@ -193,6 +193,7 @@ __all__ = (
     "Point",
     "QueryError",
     "QueryErrorList",
+    "QueryServiceClient",
     "QueryTimeSeriesRequest",
     "QueryTimeSeriesResponse",
     "Range",
@@ -201,7 +202,6 @@ __all__ = (
     "Service",
     "ServiceLevelIndicator",
     "ServiceLevelObjective",
-    "ServiceMonitoringServiceClient",
     "ServiceTier",
     "SpanContext",
     "TextLocator",
@@ -223,5 +223,5 @@ __all__ = (
     "UptimeCheckServiceClient",
     "VerifyNotificationChannelRequest",
     "WindowsBasedSli",
-    "QueryServiceClient",
+    "ServiceMonitoringServiceClient",
 )
