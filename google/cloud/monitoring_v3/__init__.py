@@ -185,6 +185,7 @@ __all__ = (
     "ListUptimeCheckConfigsResponse",
     "ListUptimeCheckIpsRequest",
     "ListUptimeCheckIpsResponse",
+    "MetricServiceClient",
     "MutationRecord",
     "NotificationChannel",
     "NotificationChannelDescriptor",
@@ -192,7 +193,6 @@ __all__ = (
     "Point",
     "QueryError",
     "QueryErrorList",
-    "QueryServiceClient",
     "QueryTimeSeriesRequest",
     "QueryTimeSeriesResponse",
     "Range",
@@ -223,5 +223,5 @@ __all__ = (
     "UptimeCheckServiceClient",
     "VerifyNotificationChannelRequest",
     "WindowsBasedSli",
-    "MetricServiceClient",
+    "QueryServiceClient",
 )
