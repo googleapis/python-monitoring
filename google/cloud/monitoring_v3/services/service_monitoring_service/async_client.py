@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 from collections import OrderedDict
 import functools
 import re
@@ -22,19 +20,18 @@ from typing import Dict, Sequence, Tuple, Type, Union
 import pkg_resources
 
 import google.api_core.client_options as ClientOptions  # type: ignore
-from google.api_core import exceptions  # type: ignore
+from google.api_core import exceptions as core_exceptions  # type: ignore
 from google.api_core import gapic_v1  # type: ignore
 from google.api_core import retry as retries  # type: ignore
-from google.auth import credentials  # type: ignore
+from google.auth import credentials as ga_credentials  # type: ignore
 from google.oauth2 import service_account  # type: ignore
 
 from google.cloud.monitoring_v3.services.service_monitoring_service import pagers
 from google.cloud.monitoring_v3.types import service
 from google.cloud.monitoring_v3.types import service as gm_service
 from google.cloud.monitoring_v3.types import service_service
-from google.protobuf import duration_pb2 as duration  # type: ignore
-from google.type import calendar_period_pb2 as calendar_period  # type: ignore
-
+from google.protobuf import duration_pb2  # type: ignore
+from google.type import calendar_period_pb2  # type: ignore
 from .transports.base import ServiceMonitoringServiceTransport, DEFAULT_CLIENT_INFO
 from .transports.grpc_asyncio import ServiceMonitoringServiceGrpcAsyncIOTransport
 from .client import ServiceMonitoringServiceClient
@@ -60,33 +57,28 @@ class ServiceMonitoringServiceAsyncClient:
     parse_service_level_objective_path = staticmethod(
         ServiceMonitoringServiceClient.parse_service_level_objective_path
     )
-
     common_billing_account_path = staticmethod(
         ServiceMonitoringServiceClient.common_billing_account_path
     )
     parse_common_billing_account_path = staticmethod(
         ServiceMonitoringServiceClient.parse_common_billing_account_path
     )
-
     common_folder_path = staticmethod(ServiceMonitoringServiceClient.common_folder_path)
     parse_common_folder_path = staticmethod(
         ServiceMonitoringServiceClient.parse_common_folder_path
     )
-
     common_organization_path = staticmethod(
         ServiceMonitoringServiceClient.common_organization_path
     )
     parse_common_organization_path = staticmethod(
         ServiceMonitoringServiceClient.parse_common_organization_path
     )
-
     common_project_path = staticmethod(
         ServiceMonitoringServiceClient.common_project_path
     )
     parse_common_project_path = staticmethod(
         ServiceMonitoringServiceClient.parse_common_project_path
     )
-
     common_location_path = staticmethod(
         ServiceMonitoringServiceClient.common_location_path
     )
@@ -143,7 +135,7 @@ class ServiceMonitoringServiceAsyncClient:
     def __init__(
         self,
         *,
-        credentials: credentials.Credentials = None,
+        credentials: ga_credentials.Credentials = None,
         transport: Union[str, ServiceMonitoringServiceTransport] = "grpc_asyncio",
         client_options: ClientOptions = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
@@ -180,7 +172,6 @@ class ServiceMonitoringServiceAsyncClient:
             google.auth.exceptions.MutualTlsChannelError: If mutual TLS transport
                 creation failed for any reason.
         """
-
         self._client = ServiceMonitoringServiceClient(
             credentials=credentials,
             transport=transport,
@@ -219,7 +210,6 @@ class ServiceMonitoringServiceAsyncClient:
                 This corresponds to the ``service`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -250,7 +240,6 @@ class ServiceMonitoringServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if parent is not None:
             request.parent = parent
         if service is not None:
@@ -301,7 +290,6 @@ class ServiceMonitoringServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -332,7 +320,6 @@ class ServiceMonitoringServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if name is not None:
             request.name = name
 
@@ -392,7 +379,6 @@ class ServiceMonitoringServiceAsyncClient:
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -421,7 +407,6 @@ class ServiceMonitoringServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if parent is not None:
             request.parent = parent
 
@@ -481,7 +466,6 @@ class ServiceMonitoringServiceAsyncClient:
                 This corresponds to the ``service`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -512,7 +496,6 @@ class ServiceMonitoringServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if service is not None:
             request.service = service
 
@@ -563,7 +546,6 @@ class ServiceMonitoringServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -584,7 +566,6 @@ class ServiceMonitoringServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if name is not None:
             request.name = name
 
@@ -651,7 +632,6 @@ class ServiceMonitoringServiceAsyncClient:
                 This corresponds to the ``service_level_objective`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -689,7 +669,6 @@ class ServiceMonitoringServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if parent is not None:
             request.parent = parent
         if service_level_objective is not None:
@@ -741,7 +720,6 @@ class ServiceMonitoringServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -779,7 +757,6 @@ class ServiceMonitoringServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if name is not None:
             request.name = name
 
@@ -840,7 +817,6 @@ class ServiceMonitoringServiceAsyncClient:
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -869,7 +845,6 @@ class ServiceMonitoringServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if parent is not None:
             request.parent = parent
 
@@ -931,7 +906,6 @@ class ServiceMonitoringServiceAsyncClient:
                 This corresponds to the ``service_level_objective`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -969,7 +943,6 @@ class ServiceMonitoringServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if service_level_objective is not None:
             request.service_level_objective = service_level_objective
 
@@ -1026,7 +999,6 @@ class ServiceMonitoringServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -1047,7 +1019,6 @@ class ServiceMonitoringServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if name is not None:
             request.name = name
 

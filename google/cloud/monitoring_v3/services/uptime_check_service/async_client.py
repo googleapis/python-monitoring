@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 from collections import OrderedDict
 import functools
 import re
@@ -22,18 +20,17 @@ from typing import Dict, Sequence, Tuple, Type, Union
 import pkg_resources
 
 import google.api_core.client_options as ClientOptions  # type: ignore
-from google.api_core import exceptions  # type: ignore
+from google.api_core import exceptions as core_exceptions  # type: ignore
 from google.api_core import gapic_v1  # type: ignore
 from google.api_core import retry as retries  # type: ignore
-from google.auth import credentials  # type: ignore
+from google.auth import credentials as ga_credentials  # type: ignore
 from google.oauth2 import service_account  # type: ignore
 
-from google.api import monitored_resource_pb2 as monitored_resource  # type: ignore
+from google.api import monitored_resource_pb2  # type: ignore
 from google.cloud.monitoring_v3.services.uptime_check_service import pagers
 from google.cloud.monitoring_v3.types import uptime
 from google.cloud.monitoring_v3.types import uptime_service
-from google.protobuf import duration_pb2 as duration  # type: ignore
-
+from google.protobuf import duration_pb2  # type: ignore
 from .transports.base import UptimeCheckServiceTransport, DEFAULT_CLIENT_INFO
 from .transports.grpc_asyncio import UptimeCheckServiceGrpcAsyncIOTransport
 from .client import UptimeCheckServiceClient
@@ -61,31 +58,26 @@ class UptimeCheckServiceAsyncClient:
     parse_uptime_check_config_path = staticmethod(
         UptimeCheckServiceClient.parse_uptime_check_config_path
     )
-
     common_billing_account_path = staticmethod(
         UptimeCheckServiceClient.common_billing_account_path
     )
     parse_common_billing_account_path = staticmethod(
         UptimeCheckServiceClient.parse_common_billing_account_path
     )
-
     common_folder_path = staticmethod(UptimeCheckServiceClient.common_folder_path)
     parse_common_folder_path = staticmethod(
         UptimeCheckServiceClient.parse_common_folder_path
     )
-
     common_organization_path = staticmethod(
         UptimeCheckServiceClient.common_organization_path
     )
     parse_common_organization_path = staticmethod(
         UptimeCheckServiceClient.parse_common_organization_path
     )
-
     common_project_path = staticmethod(UptimeCheckServiceClient.common_project_path)
     parse_common_project_path = staticmethod(
         UptimeCheckServiceClient.parse_common_project_path
     )
-
     common_location_path = staticmethod(UptimeCheckServiceClient.common_location_path)
     parse_common_location_path = staticmethod(
         UptimeCheckServiceClient.parse_common_location_path
@@ -140,7 +132,7 @@ class UptimeCheckServiceAsyncClient:
     def __init__(
         self,
         *,
-        credentials: credentials.Credentials = None,
+        credentials: ga_credentials.Credentials = None,
         transport: Union[str, UptimeCheckServiceTransport] = "grpc_asyncio",
         client_options: ClientOptions = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
@@ -177,7 +169,6 @@ class UptimeCheckServiceAsyncClient:
             google.auth.exceptions.MutualTlsChannelError: If mutual TLS transport
                 creation failed for any reason.
         """
-
         self._client = UptimeCheckServiceClient(
             credentials=credentials,
             transport=transport,
@@ -213,7 +204,6 @@ class UptimeCheckServiceAsyncClient:
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -242,7 +232,6 @@ class UptimeCheckServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if parent is not None:
             request.parent = parent
 
@@ -307,7 +296,6 @@ class UptimeCheckServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -335,7 +323,6 @@ class UptimeCheckServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if name is not None:
             request.name = name
 
@@ -402,7 +389,6 @@ class UptimeCheckServiceAsyncClient:
                 This corresponds to the ``uptime_check_config`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -430,7 +416,6 @@ class UptimeCheckServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if parent is not None:
             request.parent = parent
         if uptime_check_config is not None:
@@ -493,7 +478,6 @@ class UptimeCheckServiceAsyncClient:
                 This corresponds to the ``uptime_check_config`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -521,7 +505,6 @@ class UptimeCheckServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if uptime_check_config is not None:
             request.uptime_check_config = uptime_check_config
 
@@ -576,7 +559,6 @@ class UptimeCheckServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -597,7 +579,6 @@ class UptimeCheckServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if name is not None:
             request.name = name
 
@@ -644,7 +625,6 @@ class UptimeCheckServiceAsyncClient:
             request (:class:`google.cloud.monitoring_v3.types.ListUptimeCheckIpsRequest`):
                 The request object. The protocol for the
                 `ListUptimeCheckIps` request.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -660,7 +640,6 @@ class UptimeCheckServiceAsyncClient:
 
         """
         # Create or coerce a protobuf request object.
-
         request = uptime_service.ListUptimeCheckIpsRequest(request)
 
         # Wrap the RPC method; this adds retry and timeout information,
