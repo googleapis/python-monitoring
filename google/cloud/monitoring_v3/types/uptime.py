@@ -377,7 +377,7 @@ class UptimeCheckConfig(proto.Message):
         proto.MESSAGE,
         number=3,
         oneof="resource",
-        message=ga_monitored_resource.MonitoredResource,
+        message=monitored_resource_pb2.MonitoredResource,
     )
     resource_group = proto.Field(
         proto.MESSAGE, number=4, oneof="resource", message=ResourceGroup,

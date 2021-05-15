@@ -315,7 +315,7 @@ class MetricServiceTransport(abc.ABC):
         self,
     ) -> Callable[
         [metric_service.GetMetricDescriptorRequest],
-        Union[ga_metric.MetricDescriptor, Awaitable[ga_metric.MetricDescriptor]],
+        Union[metric_pb2.MetricDescriptor, Awaitable[metric_pb2.MetricDescriptor]],
     ]:
         raise NotImplementedError()
 
@@ -324,7 +324,7 @@ class MetricServiceTransport(abc.ABC):
         self,
     ) -> Callable[
         [metric_service.CreateMetricDescriptorRequest],
-        Union[ga_metric.MetricDescriptor, Awaitable[ga_metric.MetricDescriptor]],
+        Union[metric_pb2.MetricDescriptor, Awaitable[metric_pb2.MetricDescriptor]],
     ]:
         raise NotImplementedError()
 

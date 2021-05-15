@@ -92,7 +92,8 @@ class AlertPolicyServiceAsyncClient:
 
     @classmethod
     def from_service_account_info(cls, info: dict, *args, **kwargs):
-        """Creates an instance of this client using the provided credentials info.
+        """Creates an instance of this client using the provided credentials
+            info.
 
         Args:
             info (dict): The service account private key info.
@@ -107,7 +108,7 @@ class AlertPolicyServiceAsyncClient:
     @classmethod
     def from_service_account_file(cls, filename: str, *args, **kwargs):
         """Creates an instance of this client using the provided credentials
-        file.
+            file.
 
         Args:
             filename (str): The path to the service account private key json
@@ -124,7 +125,7 @@ class AlertPolicyServiceAsyncClient:
 
     @property
     def transport(self) -> AlertPolicyServiceTransport:
-        """Return the transport used by the client instance.
+        """Returns the transport used by the client instance.
 
         Returns:
             AlertPolicyServiceTransport: The transport used by the client instance.
@@ -144,7 +145,7 @@ class AlertPolicyServiceAsyncClient:
         client_options: ClientOptions = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
-        """Instantiate the alert policy service client.
+        """Instantiates the alert policy service client.
 
         Args:
             credentials (Optional[google.auth.credentials.Credentials]): The
@@ -256,7 +257,8 @@ class AlertPolicyServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                    core_exceptions.DeadlineExceeded,
+                    core_exceptions.ServiceUnavailable,
                 ),
                 deadline=30.0,
             ),
@@ -349,7 +351,8 @@ class AlertPolicyServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                    core_exceptions.DeadlineExceeded,
+                    core_exceptions.ServiceUnavailable,
                 ),
                 deadline=30.0,
             ),
@@ -529,7 +532,8 @@ class AlertPolicyServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                    core_exceptions.DeadlineExceeded,
+                    core_exceptions.ServiceUnavailable,
                 ),
                 deadline=30.0,
             ),

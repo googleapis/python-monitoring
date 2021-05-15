@@ -117,7 +117,7 @@ class TimeSeries(proto.Message):
             of the stored metric values.
     """
 
-    metric = proto.Field(proto.MESSAGE, number=1, message=ga_metric.Metric,)
+    metric = proto.Field(proto.MESSAGE, number=1, message=metric_pb2.Metric,)
     resource = proto.Field(
         proto.MESSAGE, number=2, message=monitored_resource_pb2.MonitoredResource,
     )
@@ -127,10 +127,10 @@ class TimeSeries(proto.Message):
         message=monitored_resource_pb2.MonitoredResourceMetadata,
     )
     metric_kind = proto.Field(
-        proto.ENUM, number=3, enum=ga_metric.MetricDescriptor.MetricKind,
+        proto.ENUM, number=3, enum=metric_pb2.MetricDescriptor.MetricKind,
     )
     value_type = proto.Field(
-        proto.ENUM, number=4, enum=ga_metric.MetricDescriptor.ValueType,
+        proto.ENUM, number=4, enum=metric_pb2.MetricDescriptor.ValueType,
     )
     points = proto.RepeatedField(proto.MESSAGE, number=5, message="Point",)
     unit = proto.Field(proto.STRING, number=8,)
@@ -163,10 +163,10 @@ class TimeSeriesDescriptor(proto.Message):
 
         key = proto.Field(proto.STRING, number=1,)
         value_type = proto.Field(
-            proto.ENUM, number=2, enum=ga_metric.MetricDescriptor.ValueType,
+            proto.ENUM, number=2, enum=metric_pb2.MetricDescriptor.ValueType,
         )
         metric_kind = proto.Field(
-            proto.ENUM, number=3, enum=ga_metric.MetricDescriptor.MetricKind,
+            proto.ENUM, number=3, enum=metric_pb2.MetricDescriptor.MetricKind,
         )
         unit = proto.Field(proto.STRING, number=4,)
 

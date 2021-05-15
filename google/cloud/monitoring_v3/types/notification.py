@@ -82,7 +82,7 @@ class NotificationChannelDescriptor(proto.Message):
     supported_tiers = proto.RepeatedField(
         proto.ENUM, number=5, enum=common.ServiceTier,
     )
-    launch_stage = proto.Field(proto.ENUM, number=7, enum=ga_launch_stage.LaunchStage,)
+    launch_stage = proto.Field(proto.ENUM, number=7, enum=launch_stage_pb2.LaunchStage,)
 
 
 class NotificationChannel(proto.Message):

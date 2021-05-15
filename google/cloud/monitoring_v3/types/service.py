@@ -276,7 +276,7 @@ class ServiceLevelObjective(proto.Message):
         proto.MESSAGE, number=5, oneof="period", message=duration_pb2.Duration,
     )
     calendar_period = proto.Field(
-        proto.ENUM, number=6, oneof="period", enum=gt_calendar_period.CalendarPeriod,
+        proto.ENUM, number=6, oneof="period", enum=calendar_period_pb2.CalendarPeriod,
     )
 
 

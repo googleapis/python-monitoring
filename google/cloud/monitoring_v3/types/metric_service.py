@@ -180,7 +180,7 @@ class ListMetricDescriptorsResponse(proto.Message):
         return self
 
     metric_descriptors = proto.RepeatedField(
-        proto.MESSAGE, number=1, message=ga_metric.MetricDescriptor,
+        proto.MESSAGE, number=1, message=metric_pb2.MetricDescriptor,
     )
     next_page_token = proto.Field(proto.STRING, number=2,)
 
@@ -221,7 +221,7 @@ class CreateMetricDescriptorRequest(proto.Message):
 
     name = proto.Field(proto.STRING, number=3,)
     metric_descriptor = proto.Field(
-        proto.MESSAGE, number=2, message=ga_metric.MetricDescriptor,
+        proto.MESSAGE, number=2, message=metric_pb2.MetricDescriptor,
     )
 
 
@@ -353,7 +353,7 @@ class ListTimeSeriesResponse(proto.Message):
     )
     next_page_token = proto.Field(proto.STRING, number=2,)
     execution_errors = proto.RepeatedField(
-        proto.MESSAGE, number=3, message=gr_status.Status,
+        proto.MESSAGE, number=3, message=status_pb2.Status,
     )
     unit = proto.Field(proto.STRING, number=5,)
 
@@ -398,7 +398,7 @@ class CreateTimeSeriesError(proto.Message):
     """
 
     time_series = proto.Field(proto.MESSAGE, number=1, message=gm_metric.TimeSeries,)
-    status = proto.Field(proto.MESSAGE, number=2, message=gr_status.Status,)
+    status = proto.Field(proto.MESSAGE, number=2, message=status_pb2.Status,)
 
 
 class CreateTimeSeriesSummary(proto.Message):
@@ -426,7 +426,7 @@ class CreateTimeSeriesSummary(proto.Message):
                 ``status``.
         """
 
-        status = proto.Field(proto.MESSAGE, number=1, message=gr_status.Status,)
+        status = proto.Field(proto.MESSAGE, number=1, message=status_pb2.Status,)
         point_count = proto.Field(proto.INT32, number=2,)
 
     total_point_count = proto.Field(proto.INT32, number=1,)
@@ -495,7 +495,7 @@ class QueryTimeSeriesResponse(proto.Message):
     )
     next_page_token = proto.Field(proto.STRING, number=10,)
     partial_errors = proto.RepeatedField(
-        proto.MESSAGE, number=11, message=gr_status.Status,
+        proto.MESSAGE, number=11, message=status_pb2.Status,
     )
 
 

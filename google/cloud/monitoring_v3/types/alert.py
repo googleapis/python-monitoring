@@ -321,7 +321,7 @@ class AlertPolicy(proto.Message):
             comparison = proto.Field(proto.ENUM, number=4, enum=common.ComparisonType,)
             threshold_value = proto.Field(proto.DOUBLE, number=5,)
             duration = proto.Field(
-                proto.MESSAGE, number=6, message=gp_duration.Duration,
+                proto.MESSAGE, number=6, message=duration_pb2.Duration,
             )
             trigger = proto.Field(
                 proto.MESSAGE, number=7, message="AlertPolicy.Condition.Trigger",
@@ -382,7 +382,7 @@ class AlertPolicy(proto.Message):
                 proto.MESSAGE, number=5, message=common.Aggregation,
             )
             duration = proto.Field(
-                proto.MESSAGE, number=2, message=gp_duration.Duration,
+                proto.MESSAGE, number=2, message=duration_pb2.Duration,
             )
             trigger = proto.Field(
                 proto.MESSAGE, number=3, message="AlertPolicy.Condition.Trigger",
@@ -422,7 +422,7 @@ class AlertPolicy(proto.Message):
 
             query = proto.Field(proto.STRING, number=1,)
             duration = proto.Field(
-                proto.MESSAGE, number=2, message=gp_duration.Duration,
+                proto.MESSAGE, number=2, message=duration_pb2.Duration,
             )
             trigger = proto.Field(
                 proto.MESSAGE, number=3, message="AlertPolicy.Condition.Trigger",

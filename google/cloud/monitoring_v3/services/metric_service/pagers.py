@@ -122,7 +122,7 @@ class ListMonitoredResourceDescriptorsAsyncPager:
         *,
         metadata: Sequence[Tuple[str, str]] = ()
     ):
-        """Instantiate the pager.
+        """Instantiates the pager.
 
         Args:
             method (Callable): The method that was originally called, and
@@ -220,7 +220,7 @@ class ListMetricDescriptorsPager:
             self._response = self._method(self._request, metadata=self._metadata)
             yield self._response
 
-    def __iter__(self) -> Iterable[ga_metric.MetricDescriptor]:
+    def __iter__(self) -> Iterable[metric_pb2.MetricDescriptor]:
         for page in self.pages:
             yield from page.metric_descriptors
 
@@ -254,7 +254,7 @@ class ListMetricDescriptorsAsyncPager:
         *,
         metadata: Sequence[Tuple[str, str]] = ()
     ):
-        """Instantiate the pager.
+        """Instantiates the pager.
 
         Args:
             method (Callable): The method that was originally called, and
@@ -284,7 +284,7 @@ class ListMetricDescriptorsAsyncPager:
             self._response = await self._method(self._request, metadata=self._metadata)
             yield self._response
 
-    def __aiter__(self) -> AsyncIterable[ga_metric.MetricDescriptor]:
+    def __aiter__(self) -> AsyncIterable[metric_pb2.MetricDescriptor]:
         async def async_generator():
             async for page in self.pages:
                 for response in page.metric_descriptors:
@@ -384,7 +384,7 @@ class ListTimeSeriesAsyncPager:
         *,
         metadata: Sequence[Tuple[str, str]] = ()
     ):
-        """Instantiate the pager.
+        """Instantiates the pager.
 
         Args:
             method (Callable): The method that was originally called, and
