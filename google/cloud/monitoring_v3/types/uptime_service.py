@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 import proto  # type: ignore
+
 
 from google.cloud.monitoring_v3.types import uptime
 from google.protobuf import field_mask_pb2 as field_mask  # type: ignore
@@ -36,6 +39,7 @@ __protobuf__ = proto.module(
 
 class ListUptimeCheckConfigsRequest(proto.Message):
     r"""The protocol for the ``ListUptimeCheckConfigs`` request.
+
     Attributes:
         parent (str):
             Required. The project whose Uptime check configurations are
@@ -57,13 +61,16 @@ class ListUptimeCheckConfigsRequest(proto.Message):
             results from the previous method call.
     """
 
-    parent = proto.Field(proto.STRING, number=1,)
-    page_size = proto.Field(proto.INT32, number=3,)
-    page_token = proto.Field(proto.STRING, number=4,)
+    parent = proto.Field(proto.STRING, number=1)
+
+    page_size = proto.Field(proto.INT32, number=3)
+
+    page_token = proto.Field(proto.STRING, number=4)
 
 
 class ListUptimeCheckConfigsResponse(proto.Message):
     r"""The protocol for the ``ListUptimeCheckConfigs`` response.
+
     Attributes:
         uptime_check_configs (Sequence[google.cloud.monitoring_v3.types.UptimeCheckConfig]):
             The returned Uptime check configurations.
@@ -87,12 +94,15 @@ class ListUptimeCheckConfigsResponse(proto.Message):
     uptime_check_configs = proto.RepeatedField(
         proto.MESSAGE, number=1, message=uptime.UptimeCheckConfig,
     )
-    next_page_token = proto.Field(proto.STRING, number=2,)
-    total_size = proto.Field(proto.INT32, number=3,)
+
+    next_page_token = proto.Field(proto.STRING, number=2)
+
+    total_size = proto.Field(proto.INT32, number=3)
 
 
 class GetUptimeCheckConfigRequest(proto.Message):
     r"""The protocol for the ``GetUptimeCheckConfig`` request.
+
     Attributes:
         name (str):
             Required. The Uptime check configuration to retrieve. The
@@ -103,11 +113,12 @@ class GetUptimeCheckConfigRequest(proto.Message):
                 projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
     """
 
-    name = proto.Field(proto.STRING, number=1,)
+    name = proto.Field(proto.STRING, number=1)
 
 
 class CreateUptimeCheckConfigRequest(proto.Message):
     r"""The protocol for the ``CreateUptimeCheckConfig`` request.
+
     Attributes:
         parent (str):
             Required. The project in which to create the Uptime check.
@@ -120,7 +131,8 @@ class CreateUptimeCheckConfigRequest(proto.Message):
             Required. The new Uptime check configuration.
     """
 
-    parent = proto.Field(proto.STRING, number=1,)
+    parent = proto.Field(proto.STRING, number=1)
+
     uptime_check_config = proto.Field(
         proto.MESSAGE, number=2, message=uptime.UptimeCheckConfig,
     )
@@ -128,6 +140,7 @@ class CreateUptimeCheckConfigRequest(proto.Message):
 
 class UpdateUptimeCheckConfigRequest(proto.Message):
     r"""The protocol for the ``UpdateUptimeCheckConfig`` request.
+
     Attributes:
         update_mask (google.protobuf.field_mask_pb2.FieldMask):
             Optional. If present, only the listed fields
@@ -152,6 +165,7 @@ class UpdateUptimeCheckConfigRequest(proto.Message):
     """
 
     update_mask = proto.Field(proto.MESSAGE, number=2, message=field_mask.FieldMask,)
+
     uptime_check_config = proto.Field(
         proto.MESSAGE, number=3, message=uptime.UptimeCheckConfig,
     )
@@ -159,6 +173,7 @@ class UpdateUptimeCheckConfigRequest(proto.Message):
 
 class DeleteUptimeCheckConfigRequest(proto.Message):
     r"""The protocol for the ``DeleteUptimeCheckConfig`` request.
+
     Attributes:
         name (str):
             Required. The Uptime check configuration to delete. The
@@ -169,11 +184,12 @@ class DeleteUptimeCheckConfigRequest(proto.Message):
                 projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
     """
 
-    name = proto.Field(proto.STRING, number=1,)
+    name = proto.Field(proto.STRING, number=1)
 
 
 class ListUptimeCheckIpsRequest(proto.Message):
     r"""The protocol for the ``ListUptimeCheckIps`` request.
+
     Attributes:
         page_size (int):
             The maximum number of results to return in a single
@@ -190,12 +206,14 @@ class ListUptimeCheckIpsRequest(proto.Message):
             not yet implemented
     """
 
-    page_size = proto.Field(proto.INT32, number=2,)
-    page_token = proto.Field(proto.STRING, number=3,)
+    page_size = proto.Field(proto.INT32, number=2)
+
+    page_token = proto.Field(proto.STRING, number=3)
 
 
 class ListUptimeCheckIpsResponse(proto.Message):
     r"""The protocol for the ``ListUptimeCheckIps`` response.
+
     Attributes:
         uptime_check_ips (Sequence[google.cloud.monitoring_v3.types.UptimeCheckIp]):
             The returned list of IP addresses (including
@@ -216,7 +234,8 @@ class ListUptimeCheckIpsResponse(proto.Message):
     uptime_check_ips = proto.RepeatedField(
         proto.MESSAGE, number=1, message=uptime.UptimeCheckIp,
     )
-    next_page_token = proto.Field(proto.STRING, number=2,)
+
+    next_page_token = proto.Field(proto.STRING, number=2)
 
 
 __all__ = tuple(sorted(__protobuf__.manifest))

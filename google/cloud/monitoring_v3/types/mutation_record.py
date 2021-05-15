@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 import proto  # type: ignore
+
 
 from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
 
@@ -25,6 +28,7 @@ __protobuf__ = proto.module(
 
 class MutationRecord(proto.Message):
     r"""Describes a change made to a configuration.
+
     Attributes:
         mutate_time (google.protobuf.timestamp_pb2.Timestamp):
             When the change occurred.
@@ -34,7 +38,8 @@ class MutationRecord(proto.Message):
     """
 
     mutate_time = proto.Field(proto.MESSAGE, number=1, message=timestamp.Timestamp,)
-    mutated_by = proto.Field(proto.STRING, number=2,)
+
+    mutated_by = proto.Field(proto.STRING, number=2)
 
 
 __all__ = tuple(sorted(__protobuf__.manifest))

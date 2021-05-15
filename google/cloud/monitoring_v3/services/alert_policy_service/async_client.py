@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 from collections import OrderedDict
 import functools
 import re
@@ -33,6 +35,7 @@ from google.cloud.monitoring_v3.types import mutation_record
 from google.protobuf import field_mask_pb2 as field_mask  # type: ignore
 from google.protobuf import wrappers_pb2 as wrappers  # type: ignore
 from google.rpc import status_pb2 as status  # type: ignore
+
 from .transports.base import AlertPolicyServiceTransport, DEFAULT_CLIENT_INFO
 from .transports.grpc_asyncio import AlertPolicyServiceGrpcAsyncIOTransport
 from .client import AlertPolicyServiceClient
@@ -65,26 +68,31 @@ class AlertPolicyServiceAsyncClient:
     parse_alert_policy_condition_path = staticmethod(
         AlertPolicyServiceClient.parse_alert_policy_condition_path
     )
+
     common_billing_account_path = staticmethod(
         AlertPolicyServiceClient.common_billing_account_path
     )
     parse_common_billing_account_path = staticmethod(
         AlertPolicyServiceClient.parse_common_billing_account_path
     )
+
     common_folder_path = staticmethod(AlertPolicyServiceClient.common_folder_path)
     parse_common_folder_path = staticmethod(
         AlertPolicyServiceClient.parse_common_folder_path
     )
+
     common_organization_path = staticmethod(
         AlertPolicyServiceClient.common_organization_path
     )
     parse_common_organization_path = staticmethod(
         AlertPolicyServiceClient.parse_common_organization_path
     )
+
     common_project_path = staticmethod(AlertPolicyServiceClient.common_project_path)
     parse_common_project_path = staticmethod(
         AlertPolicyServiceClient.parse_common_project_path
     )
+
     common_location_path = staticmethod(AlertPolicyServiceClient.common_location_path)
     parse_common_location_path = staticmethod(
         AlertPolicyServiceClient.parse_common_location_path
@@ -176,6 +184,7 @@ class AlertPolicyServiceAsyncClient:
             google.auth.exceptions.MutualTlsChannelError: If mutual TLS transport
                 creation failed for any reason.
         """
+
         self._client = AlertPolicyServiceClient(
             credentials=credentials,
             transport=transport,
@@ -197,8 +206,7 @@ class AlertPolicyServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.ListAlertPoliciesRequest`):
-                The request object.
-                The protocol for the
+                The request object. The protocol for the
                 `ListAlertPolicies` request.
             name (:class:`str`):
                 Required. The project whose alert policies are to be
@@ -217,6 +225,7 @@ class AlertPolicyServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -245,6 +254,7 @@ class AlertPolicyServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
 
@@ -296,8 +306,7 @@ class AlertPolicyServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.GetAlertPolicyRequest`):
-                The request object.
-                The protocol for the
+                The request object. The protocol for the
                 `GetAlertPolicy` request.
             name (:class:`str`):
                 Required. The alerting policy to retrieve. The format
@@ -310,6 +319,7 @@ class AlertPolicyServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -339,6 +349,7 @@ class AlertPolicyServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
 
@@ -385,8 +396,7 @@ class AlertPolicyServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.CreateAlertPolicyRequest`):
-                The request object.
-                The protocol for the
+                The request object. The protocol for the
                 `CreateAlertPolicy` request.
             name (:class:`str`):
                 Required. The project in which to create the alerting
@@ -418,6 +428,7 @@ class AlertPolicyServiceAsyncClient:
                 This corresponds to the ``alert_policy`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -447,6 +458,7 @@ class AlertPolicyServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
         if alert_policy is not None:
@@ -485,8 +497,7 @@ class AlertPolicyServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.DeleteAlertPolicyRequest`):
-                The request object.
-                The protocol for the
+                The request object. The protocol for the
                 `DeleteAlertPolicy` request.
             name (:class:`str`):
                 Required. The alerting policy to delete. The format is:
@@ -501,6 +512,7 @@ class AlertPolicyServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -521,6 +533,7 @@ class AlertPolicyServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
 
@@ -569,8 +582,7 @@ class AlertPolicyServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.UpdateAlertPolicyRequest`):
-                The request object.
-                The protocol for the
+                The request object. The protocol for the
                 `UpdateAlertPolicy` request.
             update_mask (:class:`google.protobuf.field_mask_pb2.FieldMask`):
                 Optional. A list of alerting policy field names. If this
@@ -614,6 +626,7 @@ class AlertPolicyServiceAsyncClient:
                 This corresponds to the ``alert_policy`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -643,6 +656,7 @@ class AlertPolicyServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if update_mask is not None:
             request.update_mask = update_mask
         if alert_policy is not None:

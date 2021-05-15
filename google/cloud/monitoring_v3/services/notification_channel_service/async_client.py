@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 from collections import OrderedDict
 import functools
 import re
@@ -36,6 +38,7 @@ from google.cloud.monitoring_v3.types import notification_service
 from google.protobuf import field_mask_pb2 as field_mask  # type: ignore
 from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
 from google.protobuf import wrappers_pb2 as wrappers  # type: ignore
+
 from .transports.base import NotificationChannelServiceTransport, DEFAULT_CLIENT_INFO
 from .transports.grpc_asyncio import NotificationChannelServiceGrpcAsyncIOTransport
 from .client import NotificationChannelServiceClient
@@ -63,30 +66,35 @@ class NotificationChannelServiceAsyncClient:
     parse_notification_channel_descriptor_path = staticmethod(
         NotificationChannelServiceClient.parse_notification_channel_descriptor_path
     )
+
     common_billing_account_path = staticmethod(
         NotificationChannelServiceClient.common_billing_account_path
     )
     parse_common_billing_account_path = staticmethod(
         NotificationChannelServiceClient.parse_common_billing_account_path
     )
+
     common_folder_path = staticmethod(
         NotificationChannelServiceClient.common_folder_path
     )
     parse_common_folder_path = staticmethod(
         NotificationChannelServiceClient.parse_common_folder_path
     )
+
     common_organization_path = staticmethod(
         NotificationChannelServiceClient.common_organization_path
     )
     parse_common_organization_path = staticmethod(
         NotificationChannelServiceClient.parse_common_organization_path
     )
+
     common_project_path = staticmethod(
         NotificationChannelServiceClient.common_project_path
     )
     parse_common_project_path = staticmethod(
         NotificationChannelServiceClient.parse_common_project_path
     )
+
     common_location_path = staticmethod(
         NotificationChannelServiceClient.common_location_path
     )
@@ -180,6 +188,7 @@ class NotificationChannelServiceAsyncClient:
             google.auth.exceptions.MutualTlsChannelError: If mutual TLS transport
                 creation failed for any reason.
         """
+
         self._client = NotificationChannelServiceClient(
             credentials=credentials,
             transport=transport,
@@ -202,8 +211,7 @@ class NotificationChannelServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.ListNotificationChannelDescriptorsRequest`):
-                The request object.
-                The
+                The request object. The
                 `ListNotificationChannelDescriptors` request.
             name (:class:`str`):
                 Required. The REST resource name of the parent from
@@ -223,6 +231,7 @@ class NotificationChannelServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -253,6 +262,7 @@ class NotificationChannelServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
 
@@ -306,8 +316,7 @@ class NotificationChannelServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.GetNotificationChannelDescriptorRequest`):
-                The request object.
-                The
+                The request object. The
                 `GetNotificationChannelDescriptor` response.
             name (:class:`str`):
                 Required. The channel type for which to execute the
@@ -320,6 +329,7 @@ class NotificationChannelServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -349,6 +359,7 @@ class NotificationChannelServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
 
@@ -395,8 +406,7 @@ class NotificationChannelServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.ListNotificationChannelsRequest`):
-                The request object.
-                The `ListNotificationChannels`
+                The request object. The `ListNotificationChannels`
                 request.
             name (:class:`str`):
                 Required. The project on which to execute the request.
@@ -416,6 +426,7 @@ class NotificationChannelServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -444,6 +455,7 @@ class NotificationChannelServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
 
@@ -501,8 +513,7 @@ class NotificationChannelServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.GetNotificationChannelRequest`):
-                The request object.
-                The `GetNotificationChannel`
+                The request object. The `GetNotificationChannel`
                 request.
             name (:class:`str`):
                 Required. The channel for which to execute the request.
@@ -515,6 +526,7 @@ class NotificationChannelServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -546,6 +558,7 @@ class NotificationChannelServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
 
@@ -594,8 +607,7 @@ class NotificationChannelServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.CreateNotificationChannelRequest`):
-                The request object.
-                The `CreateNotificationChannel`
+                The request object. The `CreateNotificationChannel`
                 request.
             name (:class:`str`):
                 Required. The project on which to execute the request.
@@ -622,6 +634,7 @@ class NotificationChannelServiceAsyncClient:
                 This corresponds to the ``notification_channel`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -653,6 +666,7 @@ class NotificationChannelServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
         if notification_channel is not None:
@@ -693,8 +707,7 @@ class NotificationChannelServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.UpdateNotificationChannelRequest`):
-                The request object.
-                The `UpdateNotificationChannel`
+                The request object. The `UpdateNotificationChannel`
                 request.
             update_mask (:class:`google.protobuf.field_mask_pb2.FieldMask`):
                 The fields to update.
@@ -711,6 +724,7 @@ class NotificationChannelServiceAsyncClient:
                 This corresponds to the ``notification_channel`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -742,6 +756,7 @@ class NotificationChannelServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if update_mask is not None:
             request.update_mask = update_mask
         if notification_channel is not None:
@@ -783,8 +798,7 @@ class NotificationChannelServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.DeleteNotificationChannelRequest`):
-                The request object.
-                The `DeleteNotificationChannel`
+                The request object. The `DeleteNotificationChannel`
                 request.
             name (:class:`str`):
                 Required. The channel for which to execute the request.
@@ -810,6 +824,7 @@ class NotificationChannelServiceAsyncClient:
                 This corresponds to the ``force`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -830,6 +845,7 @@ class NotificationChannelServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
         if force is not None:
@@ -878,8 +894,7 @@ class NotificationChannelServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.SendNotificationChannelVerificationCodeRequest`):
-                The request object.
-                The
+                The request object. The
                 `SendNotificationChannelVerificationCode` request.
             name (:class:`str`):
                 Required. The notification channel to
@@ -888,6 +903,7 @@ class NotificationChannelServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -910,6 +926,7 @@ class NotificationChannelServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
 
@@ -972,8 +989,7 @@ class NotificationChannelServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.GetNotificationChannelVerificationCodeRequest`):
-                The request object.
-                The
+                The request object. The
                 `GetNotificationChannelVerificationCode` request.
             name (:class:`str`):
                 Required. The notification channel
@@ -986,6 +1002,7 @@ class NotificationChannelServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -1012,6 +1029,7 @@ class NotificationChannelServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
 
@@ -1060,8 +1078,7 @@ class NotificationChannelServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.VerifyNotificationChannelRequest`):
-                The request object.
-                The `VerifyNotificationChannel`
+                The request object. The `VerifyNotificationChannel`
                 request.
             name (:class:`str`):
                 Required. The notification channel to
@@ -1084,6 +1101,7 @@ class NotificationChannelServiceAsyncClient:
                 This corresponds to the ``code`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -1115,6 +1133,7 @@ class NotificationChannelServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
         if code is not None:

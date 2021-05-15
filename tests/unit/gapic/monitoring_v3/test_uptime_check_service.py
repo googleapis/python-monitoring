@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,16 +14,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 import os
 import mock
-import packaging.version
 
 import grpc
 from grpc.experimental import aio
 import math
 import pytest
 from proto.marshal.rules.dates import DurationRule, TimestampRule
-
 
 from google import auth
 from google.api import monitored_resource_pb2 as monitored_resource  # type: ignore
@@ -41,40 +41,11 @@ from google.cloud.monitoring_v3.services.uptime_check_service import (
 )
 from google.cloud.monitoring_v3.services.uptime_check_service import pagers
 from google.cloud.monitoring_v3.services.uptime_check_service import transports
-from google.cloud.monitoring_v3.services.uptime_check_service.transports.base import (
-    _API_CORE_VERSION,
-)
-from google.cloud.monitoring_v3.services.uptime_check_service.transports.base import (
-    _GOOGLE_AUTH_VERSION,
-)
 from google.cloud.monitoring_v3.types import uptime
 from google.cloud.monitoring_v3.types import uptime_service
 from google.oauth2 import service_account
 from google.protobuf import duration_pb2 as duration  # type: ignore
 from google.protobuf import field_mask_pb2 as field_mask  # type: ignore
-
-
-# TODO(busunkim): Once google-api-core >= 1.26.0 is required:
-# - Delete all the api-core and auth "less than" test cases
-# - Delete these pytest markers (Make the "greater than or equal to" tests the default).
-requires_google_auth_lt_1_25_0 = pytest.mark.skipif(
-    packaging.version.parse(_GOOGLE_AUTH_VERSION) >= packaging.version.parse("1.25.0"),
-    reason="This test requires google-auth < 1.25.0",
-)
-requires_google_auth_gte_1_25_0 = pytest.mark.skipif(
-    packaging.version.parse(_GOOGLE_AUTH_VERSION) < packaging.version.parse("1.25.0"),
-    reason="This test requires google-auth >= 1.25.0",
-)
-
-requires_api_core_lt_1_26_0 = pytest.mark.skipif(
-    packaging.version.parse(_API_CORE_VERSION) >= packaging.version.parse("1.26.0"),
-    reason="This test requires google-api-core < 1.26.0",
-)
-
-requires_api_core_gte_1_26_0 = pytest.mark.skipif(
-    packaging.version.parse(_API_CORE_VERSION) < packaging.version.parse("1.26.0"),
-    reason="This test requires google-api-core >= 1.26.0",
-)
 
 
 def client_cert_source_callback():
@@ -509,16 +480,21 @@ def test_list_uptime_check_configs(
         call.return_value = uptime_service.ListUptimeCheckConfigsResponse(
             next_page_token="next_page_token_value", total_size=1086,
         )
+
         response = client.list_uptime_check_configs(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
+
         assert args[0] == uptime_service.ListUptimeCheckConfigsRequest()
 
     # Establish that the response is the type that we expect.
+
     assert isinstance(response, pagers.ListUptimeCheckConfigsPager)
+
     assert response.next_page_token == "next_page_token_value"
+
     assert response.total_size == 1086
 
 
@@ -540,6 +516,7 @@ def test_list_uptime_check_configs_empty_call():
         client.list_uptime_check_configs()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
+
         assert args[0] == uptime_service.ListUptimeCheckConfigsRequest()
 
 
@@ -566,16 +543,20 @@ async def test_list_uptime_check_configs_async(
                 next_page_token="next_page_token_value", total_size=1086,
             )
         )
+
         response = await client.list_uptime_check_configs(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
+
         assert args[0] == uptime_service.ListUptimeCheckConfigsRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, pagers.ListUptimeCheckConfigsAsyncPager)
+
     assert response.next_page_token == "next_page_token_value"
+
     assert response.total_size == 1086
 
 
@@ -590,7 +571,6 @@ def test_list_uptime_check_configs_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = uptime_service.ListUptimeCheckConfigsRequest()
-
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -598,6 +578,7 @@ def test_list_uptime_check_configs_field_headers():
         type(client.transport.list_uptime_check_configs), "__call__"
     ) as call:
         call.return_value = uptime_service.ListUptimeCheckConfigsResponse()
+
         client.list_uptime_check_configs(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -619,7 +600,6 @@ async def test_list_uptime_check_configs_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = uptime_service.ListUptimeCheckConfigsRequest()
-
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -629,6 +609,7 @@ async def test_list_uptime_check_configs_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             uptime_service.ListUptimeCheckConfigsResponse()
         )
+
         await client.list_uptime_check_configs(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -650,6 +631,7 @@ def test_list_uptime_check_configs_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = uptime_service.ListUptimeCheckConfigsResponse()
+
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.list_uptime_check_configs(parent="parent_value",)
@@ -658,6 +640,7 @@ def test_list_uptime_check_configs_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
+
         assert args[0].parent == "parent_value"
 
 
@@ -696,6 +679,7 @@ async def test_list_uptime_check_configs_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
+
         assert args[0].parent == "parent_value"
 
 
@@ -913,18 +897,25 @@ def test_get_uptime_check_config(
                 request_method=uptime.UptimeCheckConfig.HttpCheck.RequestMethod.GET
             ),
         )
+
         response = client.get_uptime_check_config(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
+
         assert args[0] == uptime_service.GetUptimeCheckConfigRequest()
 
     # Establish that the response is the type that we expect.
+
     assert isinstance(response, uptime.UptimeCheckConfig)
+
     assert response.name == "name_value"
+
     assert response.display_name == "display_name_value"
+
     assert response.selected_regions == [uptime.UptimeCheckRegion.USA]
+
     assert response.is_internal is True
 
 
@@ -946,6 +937,7 @@ def test_get_uptime_check_config_empty_call():
         client.get_uptime_check_config()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
+
         assert args[0] == uptime_service.GetUptimeCheckConfigRequest()
 
 
@@ -975,18 +967,24 @@ async def test_get_uptime_check_config_async(
                 is_internal=True,
             )
         )
+
         response = await client.get_uptime_check_config(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
+
         assert args[0] == uptime_service.GetUptimeCheckConfigRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, uptime.UptimeCheckConfig)
+
     assert response.name == "name_value"
+
     assert response.display_name == "display_name_value"
+
     assert response.selected_regions == [uptime.UptimeCheckRegion.USA]
+
     assert response.is_internal is True
 
 
@@ -1001,7 +999,6 @@ def test_get_uptime_check_config_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = uptime_service.GetUptimeCheckConfigRequest()
-
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1009,6 +1006,7 @@ def test_get_uptime_check_config_field_headers():
         type(client.transport.get_uptime_check_config), "__call__"
     ) as call:
         call.return_value = uptime.UptimeCheckConfig()
+
         client.get_uptime_check_config(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1030,7 +1028,6 @@ async def test_get_uptime_check_config_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = uptime_service.GetUptimeCheckConfigRequest()
-
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1040,6 +1037,7 @@ async def test_get_uptime_check_config_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             uptime.UptimeCheckConfig()
         )
+
         await client.get_uptime_check_config(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1061,6 +1059,7 @@ def test_get_uptime_check_config_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = uptime.UptimeCheckConfig()
+
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.get_uptime_check_config(name="name_value",)
@@ -1069,6 +1068,7 @@ def test_get_uptime_check_config_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
+
         assert args[0].name == "name_value"
 
 
@@ -1107,6 +1107,7 @@ async def test_get_uptime_check_config_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
+
         assert args[0].name == "name_value"
 
 
@@ -1150,18 +1151,25 @@ def test_create_uptime_check_config(
                 request_method=uptime.UptimeCheckConfig.HttpCheck.RequestMethod.GET
             ),
         )
+
         response = client.create_uptime_check_config(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
+
         assert args[0] == uptime_service.CreateUptimeCheckConfigRequest()
 
     # Establish that the response is the type that we expect.
+
     assert isinstance(response, uptime.UptimeCheckConfig)
+
     assert response.name == "name_value"
+
     assert response.display_name == "display_name_value"
+
     assert response.selected_regions == [uptime.UptimeCheckRegion.USA]
+
     assert response.is_internal is True
 
 
@@ -1183,6 +1191,7 @@ def test_create_uptime_check_config_empty_call():
         client.create_uptime_check_config()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
+
         assert args[0] == uptime_service.CreateUptimeCheckConfigRequest()
 
 
@@ -1212,18 +1221,24 @@ async def test_create_uptime_check_config_async(
                 is_internal=True,
             )
         )
+
         response = await client.create_uptime_check_config(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
+
         assert args[0] == uptime_service.CreateUptimeCheckConfigRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, uptime.UptimeCheckConfig)
+
     assert response.name == "name_value"
+
     assert response.display_name == "display_name_value"
+
     assert response.selected_regions == [uptime.UptimeCheckRegion.USA]
+
     assert response.is_internal is True
 
 
@@ -1238,7 +1253,6 @@ def test_create_uptime_check_config_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = uptime_service.CreateUptimeCheckConfigRequest()
-
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1246,6 +1260,7 @@ def test_create_uptime_check_config_field_headers():
         type(client.transport.create_uptime_check_config), "__call__"
     ) as call:
         call.return_value = uptime.UptimeCheckConfig()
+
         client.create_uptime_check_config(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1267,7 +1282,6 @@ async def test_create_uptime_check_config_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = uptime_service.CreateUptimeCheckConfigRequest()
-
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1277,6 +1291,7 @@ async def test_create_uptime_check_config_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             uptime.UptimeCheckConfig()
         )
+
         await client.create_uptime_check_config(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1298,6 +1313,7 @@ def test_create_uptime_check_config_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = uptime.UptimeCheckConfig()
+
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.create_uptime_check_config(
@@ -1309,7 +1325,9 @@ def test_create_uptime_check_config_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
+
         assert args[0].parent == "parent_value"
+
         assert args[0].uptime_check_config == uptime.UptimeCheckConfig(
             name="name_value"
         )
@@ -1355,7 +1373,9 @@ async def test_create_uptime_check_config_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
+
         assert args[0].parent == "parent_value"
+
         assert args[0].uptime_check_config == uptime.UptimeCheckConfig(
             name="name_value"
         )
@@ -1403,18 +1423,25 @@ def test_update_uptime_check_config(
                 request_method=uptime.UptimeCheckConfig.HttpCheck.RequestMethod.GET
             ),
         )
+
         response = client.update_uptime_check_config(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
+
         assert args[0] == uptime_service.UpdateUptimeCheckConfigRequest()
 
     # Establish that the response is the type that we expect.
+
     assert isinstance(response, uptime.UptimeCheckConfig)
+
     assert response.name == "name_value"
+
     assert response.display_name == "display_name_value"
+
     assert response.selected_regions == [uptime.UptimeCheckRegion.USA]
+
     assert response.is_internal is True
 
 
@@ -1436,6 +1463,7 @@ def test_update_uptime_check_config_empty_call():
         client.update_uptime_check_config()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
+
         assert args[0] == uptime_service.UpdateUptimeCheckConfigRequest()
 
 
@@ -1465,18 +1493,24 @@ async def test_update_uptime_check_config_async(
                 is_internal=True,
             )
         )
+
         response = await client.update_uptime_check_config(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
+
         assert args[0] == uptime_service.UpdateUptimeCheckConfigRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, uptime.UptimeCheckConfig)
+
     assert response.name == "name_value"
+
     assert response.display_name == "display_name_value"
+
     assert response.selected_regions == [uptime.UptimeCheckRegion.USA]
+
     assert response.is_internal is True
 
 
@@ -1491,7 +1525,6 @@ def test_update_uptime_check_config_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = uptime_service.UpdateUptimeCheckConfigRequest()
-
     request.uptime_check_config.name = "uptime_check_config.name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1499,6 +1532,7 @@ def test_update_uptime_check_config_field_headers():
         type(client.transport.update_uptime_check_config), "__call__"
     ) as call:
         call.return_value = uptime.UptimeCheckConfig()
+
         client.update_uptime_check_config(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1523,7 +1557,6 @@ async def test_update_uptime_check_config_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = uptime_service.UpdateUptimeCheckConfigRequest()
-
     request.uptime_check_config.name = "uptime_check_config.name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1533,6 +1566,7 @@ async def test_update_uptime_check_config_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             uptime.UptimeCheckConfig()
         )
+
         await client.update_uptime_check_config(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1557,6 +1591,7 @@ def test_update_uptime_check_config_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = uptime.UptimeCheckConfig()
+
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.update_uptime_check_config(
@@ -1567,6 +1602,7 @@ def test_update_uptime_check_config_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
+
         assert args[0].uptime_check_config == uptime.UptimeCheckConfig(
             name="name_value"
         )
@@ -1610,6 +1646,7 @@ async def test_update_uptime_check_config_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
+
         assert args[0].uptime_check_config == uptime.UptimeCheckConfig(
             name="name_value"
         )
@@ -1647,11 +1684,13 @@ def test_delete_uptime_check_config(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
+
         response = client.delete_uptime_check_config(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
+
         assert args[0] == uptime_service.DeleteUptimeCheckConfigRequest()
 
     # Establish that the response is the type that we expect.
@@ -1676,6 +1715,7 @@ def test_delete_uptime_check_config_empty_call():
         client.delete_uptime_check_config()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
+
         assert args[0] == uptime_service.DeleteUptimeCheckConfigRequest()
 
 
@@ -1698,11 +1738,13 @@ async def test_delete_uptime_check_config_async(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
+
         response = await client.delete_uptime_check_config(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
+
         assert args[0] == uptime_service.DeleteUptimeCheckConfigRequest()
 
     # Establish that the response is the type that we expect.
@@ -1720,7 +1762,6 @@ def test_delete_uptime_check_config_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = uptime_service.DeleteUptimeCheckConfigRequest()
-
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1728,6 +1769,7 @@ def test_delete_uptime_check_config_field_headers():
         type(client.transport.delete_uptime_check_config), "__call__"
     ) as call:
         call.return_value = None
+
         client.delete_uptime_check_config(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1749,7 +1791,6 @@ async def test_delete_uptime_check_config_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = uptime_service.DeleteUptimeCheckConfigRequest()
-
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1757,6 +1798,7 @@ async def test_delete_uptime_check_config_field_headers_async():
         type(client.transport.delete_uptime_check_config), "__call__"
     ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
+
         await client.delete_uptime_check_config(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1778,6 +1820,7 @@ def test_delete_uptime_check_config_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
+
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.delete_uptime_check_config(name="name_value",)
@@ -1786,6 +1829,7 @@ def test_delete_uptime_check_config_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
+
         assert args[0].name == "name_value"
 
 
@@ -1822,6 +1866,7 @@ async def test_delete_uptime_check_config_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
+
         assert args[0].name == "name_value"
 
 
@@ -1858,15 +1903,19 @@ def test_list_uptime_check_ips(
         call.return_value = uptime_service.ListUptimeCheckIpsResponse(
             next_page_token="next_page_token_value",
         )
+
         response = client.list_uptime_check_ips(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
+
         assert args[0] == uptime_service.ListUptimeCheckIpsRequest()
 
     # Establish that the response is the type that we expect.
+
     assert isinstance(response, pagers.ListUptimeCheckIpsPager)
+
     assert response.next_page_token == "next_page_token_value"
 
 
@@ -1888,6 +1937,7 @@ def test_list_uptime_check_ips_empty_call():
         client.list_uptime_check_ips()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
+
         assert args[0] == uptime_service.ListUptimeCheckIpsRequest()
 
 
@@ -1914,15 +1964,18 @@ async def test_list_uptime_check_ips_async(
                 next_page_token="next_page_token_value",
             )
         )
+
         response = await client.list_uptime_check_ips(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
+
         assert args[0] == uptime_service.ListUptimeCheckIpsRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, pagers.ListUptimeCheckIpsAsyncPager)
+
     assert response.next_page_token == "next_page_token_value"
 
 
@@ -2195,36 +2248,10 @@ def test_uptime_check_service_base_transport():
             getattr(transport, method)(request=object())
 
 
-@requires_google_auth_gte_1_25_0
 def test_uptime_check_service_base_transport_with_credentials_file():
     # Instantiate the base transport with a credentials file
     with mock.patch.object(
-        auth, "load_credentials_from_file", autospec=True
-    ) as load_creds, mock.patch(
-        "google.cloud.monitoring_v3.services.uptime_check_service.transports.UptimeCheckServiceTransport._prep_wrapped_messages"
-    ) as Transport:
-        Transport.return_value = None
-        load_creds.return_value = (credentials.AnonymousCredentials(), None)
-        transport = transports.UptimeCheckServiceTransport(
-            credentials_file="credentials.json", quota_project_id="octopus",
-        )
-        load_creds.assert_called_once_with(
-            "credentials.json",
-            scopes=None,
-            default_scopes=(
-                "https://www.googleapis.com/auth/cloud-platform",
-                "https://www.googleapis.com/auth/monitoring",
-                "https://www.googleapis.com/auth/monitoring.read",
-            ),
-            quota_project_id="octopus",
-        )
-
-
-@requires_google_auth_lt_1_25_0
-def test_uptime_check_service_base_transport_with_credentials_file_old_google_auth():
-    # Instantiate the base transport with a credentials file
-    with mock.patch.object(
-        auth, "load_credentials_from_file", autospec=True
+        auth, "load_credentials_from_file"
     ) as load_creds, mock.patch(
         "google.cloud.monitoring_v3.services.uptime_check_service.transports.UptimeCheckServiceTransport._prep_wrapped_messages"
     ) as Transport:
@@ -2246,7 +2273,7 @@ def test_uptime_check_service_base_transport_with_credentials_file_old_google_au
 
 def test_uptime_check_service_base_transport_with_adc():
     # Test the default credentials are used if credentials and credentials_file are None.
-    with mock.patch.object(auth, "default", autospec=True) as adc, mock.patch(
+    with mock.patch.object(auth, "default") as adc, mock.patch(
         "google.cloud.monitoring_v3.services.uptime_check_service.transports.UptimeCheckServiceTransport._prep_wrapped_messages"
     ) as Transport:
         Transport.return_value = None
@@ -2255,27 +2282,9 @@ def test_uptime_check_service_base_transport_with_adc():
         adc.assert_called_once()
 
 
-@requires_google_auth_gte_1_25_0
 def test_uptime_check_service_auth_adc():
     # If no credentials are provided, we should use ADC credentials.
-    with mock.patch.object(auth, "default", autospec=True) as adc:
-        adc.return_value = (credentials.AnonymousCredentials(), None)
-        UptimeCheckServiceClient()
-        adc.assert_called_once_with(
-            scopes=None,
-            default_scopes=(
-                "https://www.googleapis.com/auth/cloud-platform",
-                "https://www.googleapis.com/auth/monitoring",
-                "https://www.googleapis.com/auth/monitoring.read",
-            ),
-            quota_project_id=None,
-        )
-
-
-@requires_google_auth_lt_1_25_0
-def test_uptime_check_service_auth_adc_old_google_auth():
-    # If no credentials are provided, we should use ADC credentials.
-    with mock.patch.object(auth, "default", autospec=True) as adc:
+    with mock.patch.object(auth, "default") as adc:
         adc.return_value = (credentials.AnonymousCredentials(), None)
         UptimeCheckServiceClient()
         adc.assert_called_once_with(
@@ -2288,45 +2297,14 @@ def test_uptime_check_service_auth_adc_old_google_auth():
         )
 
 
-@pytest.mark.parametrize(
-    "transport_class",
-    [
-        transports.UptimeCheckServiceGrpcTransport,
-        transports.UptimeCheckServiceGrpcAsyncIOTransport,
-    ],
-)
-@requires_google_auth_gte_1_25_0
-def test_uptime_check_service_transport_auth_adc(transport_class):
+def test_uptime_check_service_transport_auth_adc():
     # If credentials and host are not provided, the transport class should use
     # ADC credentials.
-    with mock.patch.object(auth, "default", autospec=True) as adc:
+    with mock.patch.object(auth, "default") as adc:
         adc.return_value = (credentials.AnonymousCredentials(), None)
-        transport_class(quota_project_id="octopus", scopes=["1", "2"])
-        adc.assert_called_once_with(
-            scopes=["1", "2"],
-            default_scopes=(
-                "https://www.googleapis.com/auth/cloud-platform",
-                "https://www.googleapis.com/auth/monitoring",
-                "https://www.googleapis.com/auth/monitoring.read",
-            ),
-            quota_project_id="octopus",
+        transports.UptimeCheckServiceGrpcTransport(
+            host="squid.clam.whelk", quota_project_id="octopus"
         )
-
-
-@pytest.mark.parametrize(
-    "transport_class",
-    [
-        transports.UptimeCheckServiceGrpcTransport,
-        transports.UptimeCheckServiceGrpcAsyncIOTransport,
-    ],
-)
-@requires_google_auth_lt_1_25_0
-def test_uptime_check_service_transport_auth_adc_old_google_auth(transport_class):
-    # If credentials and host are not provided, the transport class should use
-    # ADC credentials.
-    with mock.patch.object(auth, "default", autospec=True) as adc:
-        adc.return_value = (credentials.AnonymousCredentials(), None)
-        transport_class(quota_project_id="octopus")
         adc.assert_called_once_with(
             scopes=(
                 "https://www.googleapis.com/auth/cloud-platform",
@@ -2334,117 +2312,6 @@ def test_uptime_check_service_transport_auth_adc_old_google_auth(transport_class
                 "https://www.googleapis.com/auth/monitoring.read",
             ),
             quota_project_id="octopus",
-        )
-
-
-@pytest.mark.parametrize(
-    "transport_class,grpc_helpers",
-    [
-        (transports.UptimeCheckServiceGrpcTransport, grpc_helpers),
-        (transports.UptimeCheckServiceGrpcAsyncIOTransport, grpc_helpers_async),
-    ],
-)
-@requires_api_core_gte_1_26_0
-def test_uptime_check_service_transport_create_channel(transport_class, grpc_helpers):
-    # If credentials and host are not provided, the transport class should use
-    # ADC credentials.
-    with mock.patch.object(auth, "default", autospec=True) as adc, mock.patch.object(
-        grpc_helpers, "create_channel", autospec=True
-    ) as create_channel:
-        creds = credentials.AnonymousCredentials()
-        adc.return_value = (creds, None)
-        transport_class(quota_project_id="octopus", scopes=["1", "2"])
-
-        create_channel.assert_called_with(
-            "monitoring.googleapis.com",
-            credentials=creds,
-            credentials_file=None,
-            quota_project_id="octopus",
-            default_scopes=(
-                "https://www.googleapis.com/auth/cloud-platform",
-                "https://www.googleapis.com/auth/monitoring",
-                "https://www.googleapis.com/auth/monitoring.read",
-            ),
-            scopes=["1", "2"],
-            default_host="monitoring.googleapis.com",
-            ssl_credentials=None,
-            options=[
-                ("grpc.max_send_message_length", -1),
-                ("grpc.max_receive_message_length", -1),
-            ],
-        )
-
-
-@pytest.mark.parametrize(
-    "transport_class,grpc_helpers",
-    [
-        (transports.UptimeCheckServiceGrpcTransport, grpc_helpers),
-        (transports.UptimeCheckServiceGrpcAsyncIOTransport, grpc_helpers_async),
-    ],
-)
-@requires_api_core_lt_1_26_0
-def test_uptime_check_service_transport_create_channel_old_api_core(
-    transport_class, grpc_helpers
-):
-    # If credentials and host are not provided, the transport class should use
-    # ADC credentials.
-    with mock.patch.object(auth, "default", autospec=True) as adc, mock.patch.object(
-        grpc_helpers, "create_channel", autospec=True
-    ) as create_channel:
-        creds = credentials.AnonymousCredentials()
-        adc.return_value = (creds, None)
-        transport_class(quota_project_id="octopus")
-
-        create_channel.assert_called_with(
-            "monitoring.googleapis.com",
-            credentials=creds,
-            credentials_file=None,
-            quota_project_id="octopus",
-            scopes=(
-                "https://www.googleapis.com/auth/cloud-platform",
-                "https://www.googleapis.com/auth/monitoring",
-                "https://www.googleapis.com/auth/monitoring.read",
-            ),
-            ssl_credentials=None,
-            options=[
-                ("grpc.max_send_message_length", -1),
-                ("grpc.max_receive_message_length", -1),
-            ],
-        )
-
-
-@pytest.mark.parametrize(
-    "transport_class,grpc_helpers",
-    [
-        (transports.UptimeCheckServiceGrpcTransport, grpc_helpers),
-        (transports.UptimeCheckServiceGrpcAsyncIOTransport, grpc_helpers_async),
-    ],
-)
-@requires_api_core_lt_1_26_0
-def test_uptime_check_service_transport_create_channel_user_scopes(
-    transport_class, grpc_helpers
-):
-    # If credentials and host are not provided, the transport class should use
-    # ADC credentials.
-    with mock.patch.object(auth, "default", autospec=True) as adc, mock.patch.object(
-        grpc_helpers, "create_channel", autospec=True
-    ) as create_channel:
-        creds = credentials.AnonymousCredentials()
-        adc.return_value = (creds, None)
-
-        transport_class(quota_project_id="octopus", scopes=["1", "2"])
-
-        create_channel.assert_called_with(
-            "monitoring.googleapis.com",
-            credentials=creds,
-            credentials_file=None,
-            quota_project_id="octopus",
-            scopes=["1", "2"],
-            ssl_credentials=None,
-            options=[
-                ("grpc.max_send_message_length", -1),
-                ("grpc.max_receive_message_length", -1),
-            ],
         )
 
 
@@ -2654,6 +2521,7 @@ def test_uptime_check_service_transport_channel_mtls_with_adc(transport_class):
 def test_uptime_check_config_path():
     project = "squid"
     uptime_check_config = "clam"
+
     expected = "projects/{project}/uptimeCheckConfigs/{uptime_check_config}".format(
         project=project, uptime_check_config=uptime_check_config,
     )
@@ -2677,6 +2545,7 @@ def test_parse_uptime_check_config_path():
 
 def test_common_billing_account_path():
     billing_account = "oyster"
+
     expected = "billingAccounts/{billing_account}".format(
         billing_account=billing_account,
     )
@@ -2697,6 +2566,7 @@ def test_parse_common_billing_account_path():
 
 def test_common_folder_path():
     folder = "cuttlefish"
+
     expected = "folders/{folder}".format(folder=folder,)
     actual = UptimeCheckServiceClient.common_folder_path(folder)
     assert expected == actual
@@ -2715,6 +2585,7 @@ def test_parse_common_folder_path():
 
 def test_common_organization_path():
     organization = "winkle"
+
     expected = "organizations/{organization}".format(organization=organization,)
     actual = UptimeCheckServiceClient.common_organization_path(organization)
     assert expected == actual
@@ -2733,6 +2604,7 @@ def test_parse_common_organization_path():
 
 def test_common_project_path():
     project = "scallop"
+
     expected = "projects/{project}".format(project=project,)
     actual = UptimeCheckServiceClient.common_project_path(project)
     assert expected == actual
@@ -2752,6 +2624,7 @@ def test_parse_common_project_path():
 def test_common_location_path():
     project = "squid"
     location = "clam"
+
     expected = "projects/{project}/locations/{location}".format(
         project=project, location=location,
     )

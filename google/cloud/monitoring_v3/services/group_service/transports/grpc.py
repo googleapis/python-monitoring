@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,8 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 import warnings
-from typing import Callable, Dict, Optional, Sequence, Tuple, Union
+from typing import Callable, Dict, Optional, Sequence, Tuple
 
 from google.api_core import grpc_helpers  # type: ignore
 from google.api_core import gapic_v1  # type: ignore
@@ -28,6 +30,7 @@ from google.cloud.monitoring_v3.types import group
 from google.cloud.monitoring_v3.types import group as gm_group
 from google.cloud.monitoring_v3.types import group_service
 from google.protobuf import empty_pb2 as empty  # type: ignore
+
 from .base import GroupServiceTransport, DEFAULT_CLIENT_INFO
 
 
@@ -75,8 +78,7 @@ class GroupServiceGrpcTransport(GroupServiceTransport):
         """Instantiate the transport.
 
         Args:
-            host (Optional[str]):
-                 The hostname to connect to.
+            host (Optional[str]): The hostname to connect to.
             credentials (Optional[google.auth.credentials.Credentials]): The
                 authorization credentials to attach to requests. These
                 credentials identify the application to the service; if none
@@ -217,15 +219,13 @@ class GroupServiceGrpcTransport(GroupServiceTransport):
             google.api_core.exceptions.DuplicateCredentialArgs: If both ``credentials``
               and ``credentials_file`` are passed.
         """
-
-        self_signed_jwt_kwargs = cls._get_self_signed_jwt_kwargs(host, scopes)
-
+        scopes = scopes or cls.AUTH_SCOPES
         return grpc_helpers.create_channel(
             host,
             credentials=credentials,
             credentials_file=credentials_file,
+            scopes=scopes,
             quota_project_id=quota_project_id,
-            **self_signed_jwt_kwargs,
             **kwargs,
         )
 
@@ -239,9 +239,7 @@ class GroupServiceGrpcTransport(GroupServiceTransport):
     def list_groups(
         self,
     ) -> Callable[[group_service.ListGroupsRequest], group_service.ListGroupsResponse]:
-        r"""Return a callable for the
-        list groups
-          method over gRPC.
+        r"""Return a callable for the list groups method over gRPC.
 
         Lists the existing groups.
 
@@ -265,9 +263,7 @@ class GroupServiceGrpcTransport(GroupServiceTransport):
 
     @property
     def get_group(self) -> Callable[[group_service.GetGroupRequest], group.Group]:
-        r"""Return a callable for the
-        get group
-          method over gRPC.
+        r"""Return a callable for the get group method over gRPC.
 
         Gets a single group.
 
@@ -293,9 +289,7 @@ class GroupServiceGrpcTransport(GroupServiceTransport):
     def create_group(
         self,
     ) -> Callable[[group_service.CreateGroupRequest], gm_group.Group]:
-        r"""Return a callable for the
-        create group
-          method over gRPC.
+        r"""Return a callable for the create group method over gRPC.
 
         Creates a new group.
 
@@ -321,9 +315,7 @@ class GroupServiceGrpcTransport(GroupServiceTransport):
     def update_group(
         self,
     ) -> Callable[[group_service.UpdateGroupRequest], gm_group.Group]:
-        r"""Return a callable for the
-        update group
-          method over gRPC.
+        r"""Return a callable for the update group method over gRPC.
 
         Updates an existing group. You can change any group attributes
         except ``name``.
@@ -348,9 +340,7 @@ class GroupServiceGrpcTransport(GroupServiceTransport):
 
     @property
     def delete_group(self) -> Callable[[group_service.DeleteGroupRequest], empty.Empty]:
-        r"""Return a callable for the
-        delete group
-          method over gRPC.
+        r"""Return a callable for the delete group method over gRPC.
 
         Deletes an existing group.
 
@@ -378,9 +368,7 @@ class GroupServiceGrpcTransport(GroupServiceTransport):
     ) -> Callable[
         [group_service.ListGroupMembersRequest], group_service.ListGroupMembersResponse
     ]:
-        r"""Return a callable for the
-        list group members
-          method over gRPC.
+        r"""Return a callable for the list group members method over gRPC.
 
         Lists the monitored resources that are members of a
         group.

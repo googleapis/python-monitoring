@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 import proto  # type: ignore
 
 
@@ -47,7 +49,7 @@ class SpanContext(proto.Message):
             8-byte array.
     """
 
-    span_name = proto.Field(proto.STRING, number=1,)
+    span_name = proto.Field(proto.STRING, number=1)
 
 
 __all__ = tuple(sorted(__protobuf__.manifest))

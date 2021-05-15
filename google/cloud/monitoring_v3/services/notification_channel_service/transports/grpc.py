@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,8 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 import warnings
-from typing import Callable, Dict, Optional, Sequence, Tuple, Union
+from typing import Callable, Dict, Optional, Sequence, Tuple
 
 from google.api_core import grpc_helpers  # type: ignore
 from google.api_core import gapic_v1  # type: ignore
@@ -27,6 +29,7 @@ import grpc  # type: ignore
 from google.cloud.monitoring_v3.types import notification
 from google.cloud.monitoring_v3.types import notification_service
 from google.protobuf import empty_pb2 as empty  # type: ignore
+
 from .base import NotificationChannelServiceTransport, DEFAULT_CLIENT_INFO
 
 
@@ -64,8 +67,7 @@ class NotificationChannelServiceGrpcTransport(NotificationChannelServiceTranspor
         """Instantiate the transport.
 
         Args:
-            host (Optional[str]):
-                 The hostname to connect to.
+            host (Optional[str]): The hostname to connect to.
             credentials (Optional[google.auth.credentials.Credentials]): The
                 authorization credentials to attach to requests. These
                 credentials identify the application to the service; if none
@@ -206,15 +208,13 @@ class NotificationChannelServiceGrpcTransport(NotificationChannelServiceTranspor
             google.api_core.exceptions.DuplicateCredentialArgs: If both ``credentials``
               and ``credentials_file`` are passed.
         """
-
-        self_signed_jwt_kwargs = cls._get_self_signed_jwt_kwargs(host, scopes)
-
+        scopes = scopes or cls.AUTH_SCOPES
         return grpc_helpers.create_channel(
             host,
             credentials=credentials,
             credentials_file=credentials_file,
+            scopes=scopes,
             quota_project_id=quota_project_id,
-            **self_signed_jwt_kwargs,
             **kwargs,
         )
 
@@ -231,10 +231,8 @@ class NotificationChannelServiceGrpcTransport(NotificationChannelServiceTranspor
         [notification_service.ListNotificationChannelDescriptorsRequest],
         notification_service.ListNotificationChannelDescriptorsResponse,
     ]:
-        r"""Return a callable for the
-        list notification channel
-        descriptors
-          method over gRPC.
+        r"""Return a callable for the list notification channel
+        descriptors method over gRPC.
 
         Lists the descriptors for supported channel types.
         The use of descriptors makes it possible for new channel
@@ -267,10 +265,8 @@ class NotificationChannelServiceGrpcTransport(NotificationChannelServiceTranspor
         [notification_service.GetNotificationChannelDescriptorRequest],
         notification.NotificationChannelDescriptor,
     ]:
-        r"""Return a callable for the
-        get notification channel
-        descriptor
-          method over gRPC.
+        r"""Return a callable for the get notification channel
+        descriptor method over gRPC.
 
         Gets a single channel descriptor. The descriptor
         indicates which fields are expected / permitted for a
@@ -303,9 +299,7 @@ class NotificationChannelServiceGrpcTransport(NotificationChannelServiceTranspor
         [notification_service.ListNotificationChannelsRequest],
         notification_service.ListNotificationChannelsResponse,
     ]:
-        r"""Return a callable for the
-        list notification channels
-          method over gRPC.
+        r"""Return a callable for the list notification channels method over gRPC.
 
         Lists the notification channels that have been
         created for the project.
@@ -335,9 +329,7 @@ class NotificationChannelServiceGrpcTransport(NotificationChannelServiceTranspor
         [notification_service.GetNotificationChannelRequest],
         notification.NotificationChannel,
     ]:
-        r"""Return a callable for the
-        get notification channel
-          method over gRPC.
+        r"""Return a callable for the get notification channel method over gRPC.
 
         Gets a single notification channel. The channel
         includes the relevant configuration details with which
@@ -372,9 +364,7 @@ class NotificationChannelServiceGrpcTransport(NotificationChannelServiceTranspor
         [notification_service.CreateNotificationChannelRequest],
         notification.NotificationChannel,
     ]:
-        r"""Return a callable for the
-        create notification channel
-          method over gRPC.
+        r"""Return a callable for the create notification channel method over gRPC.
 
         Creates a new notification channel, representing a
         single notification endpoint such as an email address,
@@ -405,9 +395,7 @@ class NotificationChannelServiceGrpcTransport(NotificationChannelServiceTranspor
         [notification_service.UpdateNotificationChannelRequest],
         notification.NotificationChannel,
     ]:
-        r"""Return a callable for the
-        update notification channel
-          method over gRPC.
+        r"""Return a callable for the update notification channel method over gRPC.
 
         Updates a notification channel. Fields not specified
         in the field mask remain unchanged.
@@ -434,9 +422,7 @@ class NotificationChannelServiceGrpcTransport(NotificationChannelServiceTranspor
     def delete_notification_channel(
         self,
     ) -> Callable[[notification_service.DeleteNotificationChannelRequest], empty.Empty]:
-        r"""Return a callable for the
-        delete notification channel
-          method over gRPC.
+        r"""Return a callable for the delete notification channel method over gRPC.
 
         Deletes a notification channel.
 
@@ -465,10 +451,8 @@ class NotificationChannelServiceGrpcTransport(NotificationChannelServiceTranspor
         [notification_service.SendNotificationChannelVerificationCodeRequest],
         empty.Empty,
     ]:
-        r"""Return a callable for the
-        send notification channel
-        verification code
-          method over gRPC.
+        r"""Return a callable for the send notification channel
+        verification code method over gRPC.
 
         Causes a verification code to be delivered to the channel. The
         code can then be supplied in ``VerifyNotificationChannel`` to
@@ -501,10 +485,8 @@ class NotificationChannelServiceGrpcTransport(NotificationChannelServiceTranspor
         [notification_service.GetNotificationChannelVerificationCodeRequest],
         notification_service.GetNotificationChannelVerificationCodeResponse,
     ]:
-        r"""Return a callable for the
-        get notification channel
-        verification code
-          method over gRPC.
+        r"""Return a callable for the get notification channel
+        verification code method over gRPC.
 
         Requests a verification code for an already verified
         channel that can then be used in a call to
@@ -562,9 +544,7 @@ class NotificationChannelServiceGrpcTransport(NotificationChannelServiceTranspor
         [notification_service.VerifyNotificationChannelRequest],
         notification.NotificationChannel,
     ]:
-        r"""Return a callable for the
-        verify notification channel
-          method over gRPC.
+        r"""Return a callable for the verify notification channel method over gRPC.
 
         Verifies a ``NotificationChannel`` by proving receipt of the
         code delivered to the channel as a result of calling

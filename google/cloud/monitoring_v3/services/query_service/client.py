@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 from collections import OrderedDict
 from distutils import util
 import os
@@ -33,6 +35,7 @@ from google.oauth2 import service_account  # type: ignore
 from google.cloud.monitoring_v3.services.query_service import pagers
 from google.cloud.monitoring_v3.types import metric
 from google.cloud.monitoring_v3.types import metric_service
+
 from .transports.base import QueryServiceTransport, DEFAULT_CLIENT_INFO
 from .transports.grpc import QueryServiceGrpcTransport
 from .transports.grpc_asyncio import QueryServiceGrpcAsyncIOTransport
@@ -339,8 +342,8 @@ class QueryServiceClient(metaclass=QueryServiceClientMeta):
 
         Args:
             request (google.cloud.monitoring_v3.types.QueryTimeSeriesRequest):
-                The request object.
-                The `QueryTimeSeries` request.
+                The request object. The `QueryTimeSeries` request.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -356,6 +359,7 @@ class QueryServiceClient(metaclass=QueryServiceClientMeta):
 
         """
         # Create or coerce a protobuf request object.
+
         # Minor optimization to avoid making a copy if the user passes
         # in a metric_service.QueryTimeSeriesRequest.
         # There's no risk of modifying the input as we've already verified

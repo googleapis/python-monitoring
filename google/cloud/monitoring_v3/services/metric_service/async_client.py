@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 from collections import OrderedDict
 import functools
 import re
@@ -34,6 +36,7 @@ from google.cloud.monitoring_v3.services.metric_service import pagers
 from google.cloud.monitoring_v3.types import common
 from google.cloud.monitoring_v3.types import metric as gm_metric
 from google.cloud.monitoring_v3.types import metric_service
+
 from .transports.base import MetricServiceTransport, DEFAULT_CLIENT_INFO
 from .transports.grpc_asyncio import MetricServiceGrpcAsyncIOTransport
 from .client import MetricServiceClient
@@ -59,26 +62,31 @@ class MetricServiceAsyncClient:
     )
     time_series_path = staticmethod(MetricServiceClient.time_series_path)
     parse_time_series_path = staticmethod(MetricServiceClient.parse_time_series_path)
+
     common_billing_account_path = staticmethod(
         MetricServiceClient.common_billing_account_path
     )
     parse_common_billing_account_path = staticmethod(
         MetricServiceClient.parse_common_billing_account_path
     )
+
     common_folder_path = staticmethod(MetricServiceClient.common_folder_path)
     parse_common_folder_path = staticmethod(
         MetricServiceClient.parse_common_folder_path
     )
+
     common_organization_path = staticmethod(
         MetricServiceClient.common_organization_path
     )
     parse_common_organization_path = staticmethod(
         MetricServiceClient.parse_common_organization_path
     )
+
     common_project_path = staticmethod(MetricServiceClient.common_project_path)
     parse_common_project_path = staticmethod(
         MetricServiceClient.parse_common_project_path
     )
+
     common_location_path = staticmethod(MetricServiceClient.common_location_path)
     parse_common_location_path = staticmethod(
         MetricServiceClient.parse_common_location_path
@@ -169,6 +177,7 @@ class MetricServiceAsyncClient:
             google.auth.exceptions.MutualTlsChannelError: If mutual TLS transport
                 creation failed for any reason.
         """
+
         self._client = MetricServiceClient(
             credentials=credentials,
             transport=transport,
@@ -190,8 +199,7 @@ class MetricServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.ListMonitoredResourceDescriptorsRequest`):
-                The request object.
-                The
+                The request object. The
                 `ListMonitoredResourceDescriptors` request.
             name (:class:`str`):
                 Required. The project on which to execute the request.
@@ -204,6 +212,7 @@ class MetricServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -232,6 +241,7 @@ class MetricServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
 
@@ -284,8 +294,7 @@ class MetricServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.GetMonitoredResourceDescriptorRequest`):
-                The request object.
-                The `GetMonitoredResourceDescriptor`
+                The request object. The `GetMonitoredResourceDescriptor`
                 request.
             name (:class:`str`):
                 Required. The monitored resource descriptor to get. The
@@ -301,6 +310,7 @@ class MetricServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -336,6 +346,7 @@ class MetricServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
 
@@ -382,8 +393,7 @@ class MetricServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.ListMetricDescriptorsRequest`):
-                The request object.
-                The `ListMetricDescriptors` request.
+                The request object. The `ListMetricDescriptors` request.
             name (:class:`str`):
                 Required. The project on which to execute the request.
                 The format is:
@@ -395,6 +405,7 @@ class MetricServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -423,6 +434,7 @@ class MetricServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
 
@@ -475,8 +487,7 @@ class MetricServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.GetMetricDescriptorRequest`):
-                The request object.
-                The `GetMetricDescriptor` request.
+                The request object. The `GetMetricDescriptor` request.
             name (:class:`str`):
                 Required. The metric descriptor on which to execute the
                 request. The format is:
@@ -491,6 +502,7 @@ class MetricServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -520,6 +532,7 @@ class MetricServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
 
@@ -568,8 +581,7 @@ class MetricServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.CreateMetricDescriptorRequest`):
-                The request object.
-                The `CreateMetricDescriptor`
+                The request object. The `CreateMetricDescriptor`
                 request.
             name (:class:`str`):
                 Required. The project on which to execute the request.
@@ -590,6 +602,7 @@ class MetricServiceAsyncClient:
                 This corresponds to the ``metric_descriptor`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -619,6 +632,7 @@ class MetricServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
         if metric_descriptor is not None:
@@ -659,8 +673,7 @@ class MetricServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.DeleteMetricDescriptorRequest`):
-                The request object.
-                The `DeleteMetricDescriptor`
+                The request object. The `DeleteMetricDescriptor`
                 request.
             name (:class:`str`):
                 Required. The metric descriptor on which to execute the
@@ -676,6 +689,7 @@ class MetricServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -696,6 +710,7 @@ class MetricServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
 
@@ -744,8 +759,7 @@ class MetricServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.ListTimeSeriesRequest`):
-                The request object.
-                The `ListTimeSeries` request.
+                The request object. The `ListTimeSeries` request.
             name (:class:`str`):
                 Required. The project, organization or folder on which
                 to execute the request. The format is:
@@ -792,6 +806,7 @@ class MetricServiceAsyncClient:
                 This corresponds to the ``view`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -820,6 +835,7 @@ class MetricServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
         if filter is not None:
@@ -882,8 +898,7 @@ class MetricServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.monitoring_v3.types.CreateTimeSeriesRequest`):
-                The request object.
-                The `CreateTimeSeries` request.
+                The request object. The `CreateTimeSeries` request.
             name (:class:`str`):
                 Required. The project on which to execute the request.
                 The format is:
@@ -910,6 +925,7 @@ class MetricServiceAsyncClient:
                 This corresponds to the ``time_series`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -930,8 +946,10 @@ class MetricServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
+
         if time_series:
             request.time_series.extend(time_series)
 

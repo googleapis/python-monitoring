@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 from collections import OrderedDict
 from distutils import util
 import os
@@ -35,6 +37,7 @@ from google.cloud.monitoring_v3.services.group_service import pagers
 from google.cloud.monitoring_v3.types import group
 from google.cloud.monitoring_v3.types import group as gm_group
 from google.cloud.monitoring_v3.types import group_service
+
 from .transports.base import GroupServiceTransport, DEFAULT_CLIENT_INFO
 from .transports.grpc import GroupServiceGrpcTransport
 from .transports.grpc_asyncio import GroupServiceGrpcAsyncIOTransport
@@ -361,8 +364,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
 
         Args:
             request (google.cloud.monitoring_v3.types.ListGroupsRequest):
-                The request object.
-                The `ListGroup` request.
+                The request object. The `ListGroup` request.
             name (str):
                 Required. The project whose groups are to be listed. The
                 format is:
@@ -374,6 +376,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -404,8 +407,10 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, group_service.ListGroupsRequest):
             request = group_service.ListGroupsRequest(request)
+
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
+
             if name is not None:
                 request.name = name
 
@@ -444,8 +449,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
 
         Args:
             request (google.cloud.monitoring_v3.types.GetGroupRequest):
-                The request object.
-                The `GetGroup` request.
+                The request object. The `GetGroup` request.
             name (str):
                 Required. The group to retrieve. The format is:
 
@@ -456,6 +460,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -515,8 +520,10 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, group_service.GetGroupRequest):
             request = group_service.GetGroupRequest(request)
+
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
+
             if name is not None:
                 request.name = name
 
@@ -550,8 +557,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
 
         Args:
             request (google.cloud.monitoring_v3.types.CreateGroupRequest):
-                The request object.
-                The `CreateGroup` request.
+                The request object. The `CreateGroup` request.
             name (str):
                 Required. The project in which to create the group. The
                 format is:
@@ -570,6 +576,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
                 This corresponds to the ``group`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -629,8 +636,10 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, group_service.CreateGroupRequest):
             request = group_service.CreateGroupRequest(request)
+
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
+
             if name is not None:
                 request.name = name
             if group is not None:
@@ -666,8 +675,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
 
         Args:
             request (google.cloud.monitoring_v3.types.UpdateGroupRequest):
-                The request object.
-                The `UpdateGroup` request.
+                The request object. The `UpdateGroup` request.
             group (google.cloud.monitoring_v3.types.Group):
                 Required. The new definition of the group. All fields of
                 the existing group, excepting ``name``, are replaced
@@ -676,6 +684,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
                 This corresponds to the ``group`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -735,8 +744,10 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, group_service.UpdateGroupRequest):
             request = group_service.UpdateGroupRequest(request)
+
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
+
             if group is not None:
                 request.group = group
 
@@ -771,8 +782,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
 
         Args:
             request (google.cloud.monitoring_v3.types.DeleteGroupRequest):
-                The request object.
-                The `DeleteGroup` request. The
+                The request object. The `DeleteGroup` request. The
                 default behavior is to be able to delete a single group
                 without any descendants.
             name (str):
@@ -785,6 +795,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -807,8 +818,10 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, group_service.DeleteGroupRequest):
             request = group_service.DeleteGroupRequest(request)
+
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
+
             if name is not None:
                 request.name = name
 
@@ -841,8 +854,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
 
         Args:
             request (google.cloud.monitoring_v3.types.ListGroupMembersRequest):
-                The request object.
-                The `ListGroupMembers` request.
+                The request object. The `ListGroupMembers` request.
             name (str):
                 Required. The group whose members are listed. The format
                 is:
@@ -854,6 +866,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -884,8 +897,10 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, group_service.ListGroupMembersRequest):
             request = group_service.ListGroupMembersRequest(request)
+
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
+
             if name is not None:
                 request.name = name
 
