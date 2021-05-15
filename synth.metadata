@@ -11,8 +11,8 @@
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "fc62a8d41f691de3524805cdb52a5c352796f322",
-        "internalRef": "372626134"
+        "sha": "162641cfe5573c648df679a6dd30385650a08704",
+        "internalRef": "373400747"
       }
     }
   ],
@@ -97,7 +97,6 @@
     "docs/monitoring_v3/types.rst",
     "docs/monitoring_v3/uptime_check_service.rst",
     "docs/multiprocessing.rst",
-    "examples/feature_fragments",
     "google/cloud/monitoring/__init__.py",
     "google/cloud/monitoring/py.typed",
     "google/cloud/monitoring_v3/__init__.py",

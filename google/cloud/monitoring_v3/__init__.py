@@ -127,6 +127,13 @@ from .types.uptime_service import ListUptimeCheckIpsResponse
 from .types.uptime_service import UpdateUptimeCheckConfigRequest
 
 __all__ = (
+    "AlertPolicyServiceAsyncClient",
+    "GroupServiceAsyncClient",
+    "MetricServiceAsyncClient",
+    "NotificationChannelServiceAsyncClient",
+    "QueryServiceAsyncClient",
+    "ServiceMonitoringServiceAsyncClient",
+    "UptimeCheckServiceAsyncClient",
     "Aggregation",
     "AlertPolicy",
     "AlertPolicyServiceClient",
