@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,12 +13,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 import abc
-import typing
+from typing import Awaitable, Callable, Dict, Optional, Sequence, Union
+import packaging.version
 import pkg_resources
 
 from google import auth  # type: ignore
+import google.api_core  # type: ignore
 from google.api_core import exceptions  # type: ignore
 from google.api_core import gapic_v1  # type: ignore
 from google.api_core import retry as retries  # type: ignore
@@ -29,7 +29,6 @@ from google.cloud.monitoring_v3.types import notification
 from google.cloud.monitoring_v3.types import notification_service
 from google.protobuf import empty_pb2 as empty  # type: ignore
 
-
 try:
     DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
         gapic_version=pkg_resources.get_distribution(
@@ -38,6 +37,17 @@ try:
     )
 except pkg_resources.DistributionNotFound:
     DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo()
+
+try:
+    # google.auth.__version__ was added in 1.26.0
+    _GOOGLE_AUTH_VERSION = auth.__version__
+except AttributeError:
+    try:  # try pkg_resources if it is available
+        _GOOGLE_AUTH_VERSION = pkg_resources.get_distribution("google-auth").version
+    except pkg_resources.DistributionNotFound:  # pragma: NO COVER
+        _GOOGLE_AUTH_VERSION = None
+
+_API_CORE_VERSION = google.api_core.__version__
 
 
 class NotificationChannelServiceTransport(abc.ABC):
@@ -49,21 +59,24 @@ class NotificationChannelServiceTransport(abc.ABC):
         "https://www.googleapis.com/auth/monitoring.read",
     )
 
+    DEFAULT_HOST: str = "monitoring.googleapis.com"
+
     def __init__(
         self,
         *,
-        host: str = "monitoring.googleapis.com",
+        host: str = DEFAULT_HOST,
         credentials: credentials.Credentials = None,
-        credentials_file: typing.Optional[str] = None,
-        scopes: typing.Optional[typing.Sequence[str]] = AUTH_SCOPES,
-        quota_project_id: typing.Optional[str] = None,
+        credentials_file: Optional[str] = None,
+        scopes: Optional[Sequence[str]] = None,
+        quota_project_id: Optional[str] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
         **kwargs,
     ) -> None:
         """Instantiate the transport.
 
         Args:
-            host (Optional[str]): The hostname to connect to.
+            host (Optional[str]):
+                 The hostname to connect to.
             credentials (Optional[google.auth.credentials.Credentials]): The
                 authorization credentials to attach to requests. These
                 credentials identify the application to the service; if none
@@ -72,7 +85,7 @@ class NotificationChannelServiceTransport(abc.ABC):
             credentials_file (Optional[str]): A file with credentials that can
                 be loaded with :func:`google.auth.load_credentials_from_file`.
                 This argument is mutually exclusive with credentials.
-            scope (Optional[Sequence[str]]): A list of scopes.
+            scopes (Optional[Sequence[str]]): A list of scopes.
             quota_project_id (Optional[str]): An optional project to use for billing
                 and quota.
             client_info (google.api_core.gapic_v1.client_info.ClientInfo):
@@ -86,6 +99,8 @@ class NotificationChannelServiceTransport(abc.ABC):
             host += ":443"
         self._host = host
 
+        scopes_kwargs = self._get_scopes_kwargs(self._host, scopes)
+
         # Save the scopes.
         self._scopes = scopes or self.AUTH_SCOPES
 
@@ -98,16 +113,61 @@ class NotificationChannelServiceTransport(abc.ABC):
 
         if credentials_file is not None:
             credentials, _ = auth.load_credentials_from_file(
-                credentials_file, scopes=self._scopes, quota_project_id=quota_project_id
+                credentials_file, **scopes_kwargs, quota_project_id=quota_project_id
             )
 
         elif credentials is None:
             credentials, _ = auth.default(
-                scopes=self._scopes, quota_project_id=quota_project_id
+                **scopes_kwargs, quota_project_id=quota_project_id
             )
 
         # Save the credentials.
         self._credentials = credentials
+
+    # TODO(busunkim): These two class methods are in the base transport
+    # to avoid duplicating code across the transport classes. These functions
+    # should be deleted once the minimum required versions of google-api-core
+    # and google-auth are increased.
+
+    # TODO: Remove this function once google-auth >= 1.25.0 is required
+    @classmethod
+    def _get_scopes_kwargs(
+        cls, host: str, scopes: Optional[Sequence[str]]
+    ) -> Dict[str, Optional[Sequence[str]]]:
+        """Returns scopes kwargs to pass to google-auth methods depending on the google-auth version"""
+
+        scopes_kwargs = {}
+
+        if _GOOGLE_AUTH_VERSION and (
+            packaging.version.parse(_GOOGLE_AUTH_VERSION)
+            >= packaging.version.parse("1.25.0")
+        ):
+            scopes_kwargs = {"scopes": scopes, "default_scopes": cls.AUTH_SCOPES}
+        else:
+            scopes_kwargs = {"scopes": scopes or cls.AUTH_SCOPES}
+
+        return scopes_kwargs
+
+    # TODO: Remove this function once google-api-core >= 1.26.0 is required
+    @classmethod
+    def _get_self_signed_jwt_kwargs(
+        cls, host: str, scopes: Optional[Sequence[str]]
+    ) -> Dict[str, Union[Optional[Sequence[str]], str]]:
+        """Returns kwargs to pass to grpc_helpers.create_channel depending on the google-api-core version"""
+
+        self_signed_jwt_kwargs: Dict[str, Union[Optional[Sequence[str]], str]] = {}
+
+        if _API_CORE_VERSION and (
+            packaging.version.parse(_API_CORE_VERSION)
+            >= packaging.version.parse("1.26.0")
+        ):
+            self_signed_jwt_kwargs["default_scopes"] = cls.AUTH_SCOPES
+            self_signed_jwt_kwargs["scopes"] = scopes
+            self_signed_jwt_kwargs["default_host"] = cls.DEFAULT_HOST
+        else:
+            self_signed_jwt_kwargs["scopes"] = scopes or cls.AUTH_SCOPES
+
+        return self_signed_jwt_kwargs
 
     def _prep_wrapped_messages(self, client_info):
         # Precompute the wrapped methods.
@@ -230,13 +290,11 @@ class NotificationChannelServiceTransport(abc.ABC):
     @property
     def list_notification_channel_descriptors(
         self,
-    ) -> typing.Callable[
+    ) -> Callable[
         [notification_service.ListNotificationChannelDescriptorsRequest],
-        typing.Union[
+        Union[
             notification_service.ListNotificationChannelDescriptorsResponse,
-            typing.Awaitable[
-                notification_service.ListNotificationChannelDescriptorsResponse
-            ],
+            Awaitable[notification_service.ListNotificationChannelDescriptorsResponse],
         ],
     ]:
         raise NotImplementedError()
@@ -244,11 +302,11 @@ class NotificationChannelServiceTransport(abc.ABC):
     @property
     def get_notification_channel_descriptor(
         self,
-    ) -> typing.Callable[
+    ) -> Callable[
         [notification_service.GetNotificationChannelDescriptorRequest],
-        typing.Union[
+        Union[
             notification.NotificationChannelDescriptor,
-            typing.Awaitable[notification.NotificationChannelDescriptor],
+            Awaitable[notification.NotificationChannelDescriptor],
         ],
     ]:
         raise NotImplementedError()
@@ -256,11 +314,11 @@ class NotificationChannelServiceTransport(abc.ABC):
     @property
     def list_notification_channels(
         self,
-    ) -> typing.Callable[
+    ) -> Callable[
         [notification_service.ListNotificationChannelsRequest],
-        typing.Union[
+        Union[
             notification_service.ListNotificationChannelsResponse,
-            typing.Awaitable[notification_service.ListNotificationChannelsResponse],
+            Awaitable[notification_service.ListNotificationChannelsResponse],
         ],
     ]:
         raise NotImplementedError()
@@ -268,11 +326,11 @@ class NotificationChannelServiceTransport(abc.ABC):
     @property
     def get_notification_channel(
         self,
-    ) -> typing.Callable[
+    ) -> Callable[
         [notification_service.GetNotificationChannelRequest],
-        typing.Union[
+        Union[
             notification.NotificationChannel,
-            typing.Awaitable[notification.NotificationChannel],
+            Awaitable[notification.NotificationChannel],
         ],
     ]:
         raise NotImplementedError()
@@ -280,11 +338,11 @@ class NotificationChannelServiceTransport(abc.ABC):
     @property
     def create_notification_channel(
         self,
-    ) -> typing.Callable[
+    ) -> Callable[
         [notification_service.CreateNotificationChannelRequest],
-        typing.Union[
+        Union[
             notification.NotificationChannel,
-            typing.Awaitable[notification.NotificationChannel],
+            Awaitable[notification.NotificationChannel],
         ],
     ]:
         raise NotImplementedError()
@@ -292,11 +350,11 @@ class NotificationChannelServiceTransport(abc.ABC):
     @property
     def update_notification_channel(
         self,
-    ) -> typing.Callable[
+    ) -> Callable[
         [notification_service.UpdateNotificationChannelRequest],
-        typing.Union[
+        Union[
             notification.NotificationChannel,
-            typing.Awaitable[notification.NotificationChannel],
+            Awaitable[notification.NotificationChannel],
         ],
     ]:
         raise NotImplementedError()
@@ -304,29 +362,29 @@ class NotificationChannelServiceTransport(abc.ABC):
     @property
     def delete_notification_channel(
         self,
-    ) -> typing.Callable[
+    ) -> Callable[
         [notification_service.DeleteNotificationChannelRequest],
-        typing.Union[empty.Empty, typing.Awaitable[empty.Empty]],
+        Union[empty.Empty, Awaitable[empty.Empty]],
     ]:
         raise NotImplementedError()
 
     @property
     def send_notification_channel_verification_code(
         self,
-    ) -> typing.Callable[
+    ) -> Callable[
         [notification_service.SendNotificationChannelVerificationCodeRequest],
-        typing.Union[empty.Empty, typing.Awaitable[empty.Empty]],
+        Union[empty.Empty, Awaitable[empty.Empty]],
     ]:
         raise NotImplementedError()
 
     @property
     def get_notification_channel_verification_code(
         self,
-    ) -> typing.Callable[
+    ) -> Callable[
         [notification_service.GetNotificationChannelVerificationCodeRequest],
-        typing.Union[
+        Union[
             notification_service.GetNotificationChannelVerificationCodeResponse,
-            typing.Awaitable[
+            Awaitable[
                 notification_service.GetNotificationChannelVerificationCodeResponse
             ],
         ],
@@ -336,11 +394,11 @@ class NotificationChannelServiceTransport(abc.ABC):
     @property
     def verify_notification_channel(
         self,
-    ) -> typing.Callable[
+    ) -> Callable[
         [notification_service.VerifyNotificationChannelRequest],
-        typing.Union[
+        Union[
             notification.NotificationChannel,
-            typing.Awaitable[notification.NotificationChannel],
+            Awaitable[notification.NotificationChannel],
         ],
     ]:
         raise NotImplementedError()

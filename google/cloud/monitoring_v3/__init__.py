@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,6 +21,7 @@ from .services.notification_channel_service import NotificationChannelServiceCli
 from .services.query_service import QueryServiceClient
 from .services.service_monitoring_service import ServiceMonitoringServiceClient
 from .services.uptime_check_service import UptimeCheckServiceClient
+
 from .types.alert import AlertPolicy
 from .types.alert_service import CreateAlertPolicyRequest
 from .types.alert_service import DeleteAlertPolicyRequest
@@ -118,7 +118,6 @@ from .types.uptime_service import ListUptimeCheckConfigsResponse
 from .types.uptime_service import ListUptimeCheckIpsRequest
 from .types.uptime_service import ListUptimeCheckIpsResponse
 from .types.uptime_service import UpdateUptimeCheckConfigRequest
-
 
 __all__ = (
     "Aggregation",

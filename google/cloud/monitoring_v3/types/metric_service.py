@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,9 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 import proto  # type: ignore
-
 
 from google.api import metric_pb2 as ga_metric  # type: ignore
 from google.api import monitored_resource_pb2 as monitored_resource  # type: ignore
@@ -50,7 +47,6 @@ __protobuf__ = proto.module(
 
 class ListMonitoredResourceDescriptorsRequest(proto.Message):
     r"""The ``ListMonitoredResourceDescriptors`` request.
-
     Attributes:
         name (str):
             Required. The project on which to execute the request. The
@@ -80,18 +76,14 @@ class ListMonitoredResourceDescriptorsRequest(proto.Message):
             additional results from the previous method call.
     """
 
-    name = proto.Field(proto.STRING, number=5)
-
-    filter = proto.Field(proto.STRING, number=2)
-
-    page_size = proto.Field(proto.INT32, number=3)
-
-    page_token = proto.Field(proto.STRING, number=4)
+    name = proto.Field(proto.STRING, number=5,)
+    filter = proto.Field(proto.STRING, number=2,)
+    page_size = proto.Field(proto.INT32, number=3,)
+    page_token = proto.Field(proto.STRING, number=4,)
 
 
 class ListMonitoredResourceDescriptorsResponse(proto.Message):
     r"""The ``ListMonitoredResourceDescriptors`` response.
-
     Attributes:
         resource_descriptors (Sequence[google.api.monitored_resource_pb2.MonitoredResourceDescriptor]):
             The monitored resource descriptors that are available to
@@ -110,13 +102,11 @@ class ListMonitoredResourceDescriptorsResponse(proto.Message):
     resource_descriptors = proto.RepeatedField(
         proto.MESSAGE, number=1, message=monitored_resource.MonitoredResourceDescriptor,
     )
-
-    next_page_token = proto.Field(proto.STRING, number=2)
+    next_page_token = proto.Field(proto.STRING, number=2,)
 
 
 class GetMonitoredResourceDescriptorRequest(proto.Message):
     r"""The ``GetMonitoredResourceDescriptor`` request.
-
     Attributes:
         name (str):
             Required. The monitored resource descriptor to get. The
@@ -130,12 +120,11 @@ class GetMonitoredResourceDescriptorRequest(proto.Message):
             ``cloudsql_database``.
     """
 
-    name = proto.Field(proto.STRING, number=3)
+    name = proto.Field(proto.STRING, number=3,)
 
 
 class ListMetricDescriptorsRequest(proto.Message):
     r"""The ``ListMetricDescriptors`` request.
-
     Attributes:
         name (str):
             Required. The project on which to execute the request. The
@@ -165,18 +154,14 @@ class ListMetricDescriptorsRequest(proto.Message):
             additional results from the previous method call.
     """
 
-    name = proto.Field(proto.STRING, number=5)
-
-    filter = proto.Field(proto.STRING, number=2)
-
-    page_size = proto.Field(proto.INT32, number=3)
-
-    page_token = proto.Field(proto.STRING, number=4)
+    name = proto.Field(proto.STRING, number=5,)
+    filter = proto.Field(proto.STRING, number=2,)
+    page_size = proto.Field(proto.INT32, number=3,)
+    page_token = proto.Field(proto.STRING, number=4,)
 
 
 class ListMetricDescriptorsResponse(proto.Message):
     r"""The ``ListMetricDescriptors`` response.
-
     Attributes:
         metric_descriptors (Sequence[google.api.metric_pb2.MetricDescriptor]):
             The metric descriptors that are available to the project and
@@ -195,13 +180,11 @@ class ListMetricDescriptorsResponse(proto.Message):
     metric_descriptors = proto.RepeatedField(
         proto.MESSAGE, number=1, message=ga_metric.MetricDescriptor,
     )
-
-    next_page_token = proto.Field(proto.STRING, number=2)
+    next_page_token = proto.Field(proto.STRING, number=2,)
 
 
 class GetMetricDescriptorRequest(proto.Message):
     r"""The ``GetMetricDescriptor`` request.
-
     Attributes:
         name (str):
             Required. The metric descriptor on which to execute the
@@ -215,12 +198,11 @@ class GetMetricDescriptorRequest(proto.Message):
             ``"compute.googleapis.com/instance/disk/read_bytes_count"``.
     """
 
-    name = proto.Field(proto.STRING, number=3)
+    name = proto.Field(proto.STRING, number=3,)
 
 
 class CreateMetricDescriptorRequest(proto.Message):
     r"""The ``CreateMetricDescriptor`` request.
-
     Attributes:
         name (str):
             Required. The project on which to execute the request. The
@@ -235,8 +217,7 @@ class CreateMetricDescriptorRequest(proto.Message):
             descriptor.
     """
 
-    name = proto.Field(proto.STRING, number=3)
-
+    name = proto.Field(proto.STRING, number=3,)
     metric_descriptor = proto.Field(
         proto.MESSAGE, number=2, message=ga_metric.MetricDescriptor,
     )
@@ -244,7 +225,6 @@ class CreateMetricDescriptorRequest(proto.Message):
 
 class DeleteMetricDescriptorRequest(proto.Message):
     r"""The ``DeleteMetricDescriptor`` request.
-
     Attributes:
         name (str):
             Required. The metric descriptor on which to execute the
@@ -258,12 +238,11 @@ class DeleteMetricDescriptorRequest(proto.Message):
             ``"custom.googleapis.com/my_test_metric"``.
     """
 
-    name = proto.Field(proto.STRING, number=3)
+    name = proto.Field(proto.STRING, number=3,)
 
 
 class ListTimeSeriesRequest(proto.Message):
     r"""The ``ListTimeSeries`` request.
-
     Attributes:
         name (str):
             Required. The project, organization or folder on which to
@@ -327,30 +306,21 @@ class ListTimeSeriesRequest(proto.Message):
         FULL = 0
         HEADERS = 1
 
-    name = proto.Field(proto.STRING, number=10)
-
-    filter = proto.Field(proto.STRING, number=2)
-
+    name = proto.Field(proto.STRING, number=10,)
+    filter = proto.Field(proto.STRING, number=2,)
     interval = proto.Field(proto.MESSAGE, number=4, message=common.TimeInterval,)
-
     aggregation = proto.Field(proto.MESSAGE, number=5, message=common.Aggregation,)
-
     secondary_aggregation = proto.Field(
         proto.MESSAGE, number=11, message=common.Aggregation,
     )
-
-    order_by = proto.Field(proto.STRING, number=6)
-
+    order_by = proto.Field(proto.STRING, number=6,)
     view = proto.Field(proto.ENUM, number=7, enum=TimeSeriesView,)
-
-    page_size = proto.Field(proto.INT32, number=8)
-
-    page_token = proto.Field(proto.STRING, number=9)
+    page_size = proto.Field(proto.INT32, number=8,)
+    page_token = proto.Field(proto.STRING, number=9,)
 
 
 class ListTimeSeriesResponse(proto.Message):
     r"""The ``ListTimeSeries`` response.
-
     Attributes:
         time_series (Sequence[google.cloud.monitoring_v3.types.TimeSeries]):
             One or more time series that match the filter
@@ -379,19 +349,15 @@ class ListTimeSeriesResponse(proto.Message):
     time_series = proto.RepeatedField(
         proto.MESSAGE, number=1, message=gm_metric.TimeSeries,
     )
-
-    next_page_token = proto.Field(proto.STRING, number=2)
-
+    next_page_token = proto.Field(proto.STRING, number=2,)
     execution_errors = proto.RepeatedField(
         proto.MESSAGE, number=3, message=gr_status.Status,
     )
-
-    unit = proto.Field(proto.STRING, number=5)
+    unit = proto.Field(proto.STRING, number=5,)
 
 
 class CreateTimeSeriesRequest(proto.Message):
     r"""The ``CreateTimeSeries`` request.
-
     Attributes:
         name (str):
             Required. The project on which to execute the request. The
@@ -412,8 +378,7 @@ class CreateTimeSeriesRequest(proto.Message):
             request is 200.
     """
 
-    name = proto.Field(proto.STRING, number=3)
-
+    name = proto.Field(proto.STRING, number=3,)
     time_series = proto.RepeatedField(
         proto.MESSAGE, number=2, message=gm_metric.TimeSeries,
     )
@@ -421,7 +386,6 @@ class CreateTimeSeriesRequest(proto.Message):
 
 class CreateTimeSeriesError(proto.Message):
     r"""DEPRECATED. Used to hold per-time-series error status.
-
     Attributes:
         time_series (google.cloud.monitoring_v3.types.TimeSeries):
             DEPRECATED. Time series ID that resulted in the ``status``
@@ -432,7 +396,6 @@ class CreateTimeSeriesError(proto.Message):
     """
 
     time_series = proto.Field(proto.MESSAGE, number=1, message=gm_metric.TimeSeries,)
-
     status = proto.Field(proto.MESSAGE, number=2, message=gr_status.Status,)
 
 
@@ -453,7 +416,6 @@ class CreateTimeSeriesSummary(proto.Message):
 
     class Error(proto.Message):
         r"""Detailed information about an error category.
-
         Attributes:
             status (google.rpc.status_pb2.Status):
                 The status of the requested write operation.
@@ -463,19 +425,15 @@ class CreateTimeSeriesSummary(proto.Message):
         """
 
         status = proto.Field(proto.MESSAGE, number=1, message=gr_status.Status,)
+        point_count = proto.Field(proto.INT32, number=2,)
 
-        point_count = proto.Field(proto.INT32, number=2)
-
-    total_point_count = proto.Field(proto.INT32, number=1)
-
-    success_point_count = proto.Field(proto.INT32, number=2)
-
+    total_point_count = proto.Field(proto.INT32, number=1,)
+    success_point_count = proto.Field(proto.INT32, number=2,)
     errors = proto.RepeatedField(proto.MESSAGE, number=3, message=Error,)
 
 
 class QueryTimeSeriesRequest(proto.Message):
     r"""The ``QueryTimeSeries`` request.
-
     Attributes:
         name (str):
             Required. The project on which to execute the request. The
@@ -498,18 +456,14 @@ class QueryTimeSeriesRequest(proto.Message):
             additional results from the previous method call.
     """
 
-    name = proto.Field(proto.STRING, number=1)
-
-    query = proto.Field(proto.STRING, number=7)
-
-    page_size = proto.Field(proto.INT32, number=9)
-
-    page_token = proto.Field(proto.STRING, number=10)
+    name = proto.Field(proto.STRING, number=1,)
+    query = proto.Field(proto.STRING, number=7,)
+    page_size = proto.Field(proto.INT32, number=9,)
+    page_token = proto.Field(proto.STRING, number=10,)
 
 
 class QueryTimeSeriesResponse(proto.Message):
     r"""The ``QueryTimeSeries`` response.
-
     Attributes:
         time_series_descriptor (google.cloud.monitoring_v3.types.TimeSeriesDescriptor):
             The descriptor for the time series data.
@@ -534,13 +488,10 @@ class QueryTimeSeriesResponse(proto.Message):
     time_series_descriptor = proto.Field(
         proto.MESSAGE, number=8, message=gm_metric.TimeSeriesDescriptor,
     )
-
     time_series_data = proto.RepeatedField(
         proto.MESSAGE, number=9, message=gm_metric.TimeSeriesData,
     )
-
-    next_page_token = proto.Field(proto.STRING, number=10)
-
+    next_page_token = proto.Field(proto.STRING, number=10,)
     partial_errors = proto.RepeatedField(
         proto.MESSAGE, number=11, message=gr_status.Status,
     )
@@ -560,8 +511,7 @@ class QueryErrorList(proto.Message):
     """
 
     errors = proto.RepeatedField(proto.MESSAGE, number=1, message=gm_metric.QueryError,)
-
-    error_summary = proto.Field(proto.STRING, number=2)
+    error_summary = proto.Field(proto.STRING, number=2,)
 
 
 __all__ = tuple(sorted(__protobuf__.manifest))

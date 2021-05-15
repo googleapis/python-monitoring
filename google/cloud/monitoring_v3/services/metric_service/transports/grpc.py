@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,9 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 import warnings
-from typing import Callable, Dict, Optional, Sequence, Tuple
+from typing import Callable, Dict, Optional, Sequence, Tuple, Union
 
 from google.api_core import grpc_helpers  # type: ignore
 from google.api_core import gapic_v1  # type: ignore
@@ -30,7 +28,6 @@ from google.api import metric_pb2 as ga_metric  # type: ignore
 from google.api import monitored_resource_pb2 as monitored_resource  # type: ignore
 from google.cloud.monitoring_v3.types import metric_service
 from google.protobuf import empty_pb2 as empty  # type: ignore
-
 from .base import MetricServiceTransport, DEFAULT_CLIENT_INFO
 
 
@@ -68,7 +65,8 @@ class MetricServiceGrpcTransport(MetricServiceTransport):
         """Instantiate the transport.
 
         Args:
-            host (Optional[str]): The hostname to connect to.
+            host (Optional[str]):
+                 The hostname to connect to.
             credentials (Optional[google.auth.credentials.Credentials]): The
                 authorization credentials to attach to requests. These
                 credentials identify the application to the service; if none
@@ -209,13 +207,15 @@ class MetricServiceGrpcTransport(MetricServiceTransport):
             google.api_core.exceptions.DuplicateCredentialArgs: If both ``credentials``
               and ``credentials_file`` are passed.
         """
-        scopes = scopes or cls.AUTH_SCOPES
+
+        self_signed_jwt_kwargs = cls._get_self_signed_jwt_kwargs(host, scopes)
+
         return grpc_helpers.create_channel(
             host,
             credentials=credentials,
             credentials_file=credentials_file,
-            scopes=scopes,
             quota_project_id=quota_project_id,
+            **self_signed_jwt_kwargs,
             **kwargs,
         )
 
@@ -232,8 +232,10 @@ class MetricServiceGrpcTransport(MetricServiceTransport):
         [metric_service.ListMonitoredResourceDescriptorsRequest],
         metric_service.ListMonitoredResourceDescriptorsResponse,
     ]:
-        r"""Return a callable for the list monitored resource
-        descriptors method over gRPC.
+        r"""Return a callable for the
+        list monitored resource
+        descriptors
+          method over gRPC.
 
         Lists monitored resource descriptors that match a
         filter. This method does not require a Workspace.
@@ -265,8 +267,10 @@ class MetricServiceGrpcTransport(MetricServiceTransport):
         [metric_service.GetMonitoredResourceDescriptorRequest],
         monitored_resource.MonitoredResourceDescriptor,
     ]:
-        r"""Return a callable for the get monitored resource
-        descriptor method over gRPC.
+        r"""Return a callable for the
+        get monitored resource
+        descriptor
+          method over gRPC.
 
         Gets a single monitored resource descriptor. This
         method does not require a Workspace.
@@ -298,7 +302,9 @@ class MetricServiceGrpcTransport(MetricServiceTransport):
         [metric_service.ListMetricDescriptorsRequest],
         metric_service.ListMetricDescriptorsResponse,
     ]:
-        r"""Return a callable for the list metric descriptors method over gRPC.
+        r"""Return a callable for the
+        list metric descriptors
+          method over gRPC.
 
         Lists metric descriptors that match a filter. This
         method does not require a Workspace.
@@ -327,7 +333,9 @@ class MetricServiceGrpcTransport(MetricServiceTransport):
     ) -> Callable[
         [metric_service.GetMetricDescriptorRequest], ga_metric.MetricDescriptor
     ]:
-        r"""Return a callable for the get metric descriptor method over gRPC.
+        r"""Return a callable for the
+        get metric descriptor
+          method over gRPC.
 
         Gets a single metric descriptor. This method does not
         require a Workspace.
@@ -356,7 +364,9 @@ class MetricServiceGrpcTransport(MetricServiceTransport):
     ) -> Callable[
         [metric_service.CreateMetricDescriptorRequest], ga_metric.MetricDescriptor
     ]:
-        r"""Return a callable for the create metric descriptor method over gRPC.
+        r"""Return a callable for the
+        create metric descriptor
+          method over gRPC.
 
         Creates a new metric descriptor. User-created metric descriptors
         define `custom
@@ -384,7 +394,9 @@ class MetricServiceGrpcTransport(MetricServiceTransport):
     def delete_metric_descriptor(
         self,
     ) -> Callable[[metric_service.DeleteMetricDescriptorRequest], empty.Empty]:
-        r"""Return a callable for the delete metric descriptor method over gRPC.
+        r"""Return a callable for the
+        delete metric descriptor
+          method over gRPC.
 
         Deletes a metric descriptor. Only user-created `custom
         metrics <https://cloud.google.com/monitoring/custom-metrics>`__
@@ -414,7 +426,9 @@ class MetricServiceGrpcTransport(MetricServiceTransport):
     ) -> Callable[
         [metric_service.ListTimeSeriesRequest], metric_service.ListTimeSeriesResponse
     ]:
-        r"""Return a callable for the list time series method over gRPC.
+        r"""Return a callable for the
+        list time series
+          method over gRPC.
 
         Lists time series that match a filter. This method
         does not require a Workspace.
@@ -441,7 +455,9 @@ class MetricServiceGrpcTransport(MetricServiceTransport):
     def create_time_series(
         self,
     ) -> Callable[[metric_service.CreateTimeSeriesRequest], empty.Empty]:
-        r"""Return a callable for the create time series method over gRPC.
+        r"""Return a callable for the
+        create time series
+          method over gRPC.
 
         Creates or adds data to one or more time series.
         The response is empty if all time series in the request

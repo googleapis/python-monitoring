@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,15 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 import warnings
-from typing import Awaitable, Callable, Dict, Optional, Sequence, Tuple
+from typing import Awaitable, Callable, Dict, Optional, Sequence, Tuple, Union
 
 from google.api_core import gapic_v1  # type: ignore
 from google.api_core import grpc_helpers_async  # type: ignore
 from google import auth  # type: ignore
 from google.auth import credentials  # type: ignore
 from google.auth.transport.grpc import SslCredentials  # type: ignore
+import packaging.version
 
 import grpc  # type: ignore
 from grpc.experimental import aio  # type: ignore
@@ -31,7 +30,6 @@ from google.cloud.monitoring_v3.types import group
 from google.cloud.monitoring_v3.types import group as gm_group
 from google.cloud.monitoring_v3.types import group_service
 from google.protobuf import empty_pb2 as empty  # type: ignore
-
 from .base import GroupServiceTransport, DEFAULT_CLIENT_INFO
 from .grpc import GroupServiceGrpcTransport
 
@@ -94,13 +92,15 @@ class GroupServiceGrpcAsyncIOTransport(GroupServiceTransport):
         Returns:
             aio.Channel: A gRPC AsyncIO channel object.
         """
-        scopes = scopes or cls.AUTH_SCOPES
+
+        self_signed_jwt_kwargs = cls._get_self_signed_jwt_kwargs(host, scopes)
+
         return grpc_helpers_async.create_channel(
             host,
             credentials=credentials,
             credentials_file=credentials_file,
-            scopes=scopes,
             quota_project_id=quota_project_id,
+            **self_signed_jwt_kwargs,
             **kwargs,
         )
 
@@ -122,7 +122,8 @@ class GroupServiceGrpcAsyncIOTransport(GroupServiceTransport):
         """Instantiate the transport.
 
         Args:
-            host (Optional[str]): The hostname to connect to.
+            host (Optional[str]):
+                 The hostname to connect to.
             credentials (Optional[google.auth.credentials.Credentials]): The
                 authorization credentials to attach to requests. These
                 credentials identify the application to the service; if none
@@ -180,7 +181,6 @@ class GroupServiceGrpcAsyncIOTransport(GroupServiceTransport):
             # If a channel was explicitly provided, set it.
             self._grpc_channel = channel
             self._ssl_channel_credentials = None
-
         else:
             if api_mtls_endpoint:
                 host = api_mtls_endpoint
@@ -245,7 +245,9 @@ class GroupServiceGrpcAsyncIOTransport(GroupServiceTransport):
     ) -> Callable[
         [group_service.ListGroupsRequest], Awaitable[group_service.ListGroupsResponse]
     ]:
-        r"""Return a callable for the list groups method over gRPC.
+        r"""Return a callable for the
+        list groups
+          method over gRPC.
 
         Lists the existing groups.
 
@@ -271,7 +273,9 @@ class GroupServiceGrpcAsyncIOTransport(GroupServiceTransport):
     def get_group(
         self,
     ) -> Callable[[group_service.GetGroupRequest], Awaitable[group.Group]]:
-        r"""Return a callable for the get group method over gRPC.
+        r"""Return a callable for the
+        get group
+          method over gRPC.
 
         Gets a single group.
 
@@ -297,7 +301,9 @@ class GroupServiceGrpcAsyncIOTransport(GroupServiceTransport):
     def create_group(
         self,
     ) -> Callable[[group_service.CreateGroupRequest], Awaitable[gm_group.Group]]:
-        r"""Return a callable for the create group method over gRPC.
+        r"""Return a callable for the
+        create group
+          method over gRPC.
 
         Creates a new group.
 
@@ -323,7 +329,9 @@ class GroupServiceGrpcAsyncIOTransport(GroupServiceTransport):
     def update_group(
         self,
     ) -> Callable[[group_service.UpdateGroupRequest], Awaitable[gm_group.Group]]:
-        r"""Return a callable for the update group method over gRPC.
+        r"""Return a callable for the
+        update group
+          method over gRPC.
 
         Updates an existing group. You can change any group attributes
         except ``name``.
@@ -350,7 +358,9 @@ class GroupServiceGrpcAsyncIOTransport(GroupServiceTransport):
     def delete_group(
         self,
     ) -> Callable[[group_service.DeleteGroupRequest], Awaitable[empty.Empty]]:
-        r"""Return a callable for the delete group method over gRPC.
+        r"""Return a callable for the
+        delete group
+          method over gRPC.
 
         Deletes an existing group.
 
@@ -379,7 +389,9 @@ class GroupServiceGrpcAsyncIOTransport(GroupServiceTransport):
         [group_service.ListGroupMembersRequest],
         Awaitable[group_service.ListGroupMembersResponse],
     ]:
-        r"""Return a callable for the list group members method over gRPC.
+        r"""Return a callable for the
+        list group members
+          method over gRPC.
 
         Lists the monitored resources that are members of a
         group.

@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,9 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 import warnings
-from typing import Callable, Dict, Optional, Sequence, Tuple
+from typing import Callable, Dict, Optional, Sequence, Tuple, Union
 
 from google.api_core import grpc_helpers  # type: ignore
 from google.api_core import gapic_v1  # type: ignore
@@ -29,7 +27,6 @@ import grpc  # type: ignore
 from google.cloud.monitoring_v3.types import uptime
 from google.cloud.monitoring_v3.types import uptime_service
 from google.protobuf import empty_pb2 as empty  # type: ignore
-
 from .base import UptimeCheckServiceTransport, DEFAULT_CLIENT_INFO
 
 
@@ -73,7 +70,8 @@ class UptimeCheckServiceGrpcTransport(UptimeCheckServiceTransport):
         """Instantiate the transport.
 
         Args:
-            host (Optional[str]): The hostname to connect to.
+            host (Optional[str]):
+                 The hostname to connect to.
             credentials (Optional[google.auth.credentials.Credentials]): The
                 authorization credentials to attach to requests. These
                 credentials identify the application to the service; if none
@@ -214,13 +212,15 @@ class UptimeCheckServiceGrpcTransport(UptimeCheckServiceTransport):
             google.api_core.exceptions.DuplicateCredentialArgs: If both ``credentials``
               and ``credentials_file`` are passed.
         """
-        scopes = scopes or cls.AUTH_SCOPES
+
+        self_signed_jwt_kwargs = cls._get_self_signed_jwt_kwargs(host, scopes)
+
         return grpc_helpers.create_channel(
             host,
             credentials=credentials,
             credentials_file=credentials_file,
-            scopes=scopes,
             quota_project_id=quota_project_id,
+            **self_signed_jwt_kwargs,
             **kwargs,
         )
 
@@ -237,7 +237,9 @@ class UptimeCheckServiceGrpcTransport(UptimeCheckServiceTransport):
         [uptime_service.ListUptimeCheckConfigsRequest],
         uptime_service.ListUptimeCheckConfigsResponse,
     ]:
-        r"""Return a callable for the list uptime check configs method over gRPC.
+        r"""Return a callable for the
+        list uptime check configs
+          method over gRPC.
 
         Lists the existing valid Uptime check configurations
         for the project (leaving out any invalid
@@ -267,7 +269,9 @@ class UptimeCheckServiceGrpcTransport(UptimeCheckServiceTransport):
     ) -> Callable[
         [uptime_service.GetUptimeCheckConfigRequest], uptime.UptimeCheckConfig
     ]:
-        r"""Return a callable for the get uptime check config method over gRPC.
+        r"""Return a callable for the
+        get uptime check config
+          method over gRPC.
 
         Gets a single Uptime check configuration.
 
@@ -295,7 +299,9 @@ class UptimeCheckServiceGrpcTransport(UptimeCheckServiceTransport):
     ) -> Callable[
         [uptime_service.CreateUptimeCheckConfigRequest], uptime.UptimeCheckConfig
     ]:
-        r"""Return a callable for the create uptime check config method over gRPC.
+        r"""Return a callable for the
+        create uptime check config
+          method over gRPC.
 
         Creates a new Uptime check configuration.
 
@@ -323,7 +329,9 @@ class UptimeCheckServiceGrpcTransport(UptimeCheckServiceTransport):
     ) -> Callable[
         [uptime_service.UpdateUptimeCheckConfigRequest], uptime.UptimeCheckConfig
     ]:
-        r"""Return a callable for the update uptime check config method over gRPC.
+        r"""Return a callable for the
+        update uptime check config
+          method over gRPC.
 
         Updates an Uptime check configuration. You can either replace
         the entire configuration with a new one or replace only certain
@@ -353,7 +361,9 @@ class UptimeCheckServiceGrpcTransport(UptimeCheckServiceTransport):
     def delete_uptime_check_config(
         self,
     ) -> Callable[[uptime_service.DeleteUptimeCheckConfigRequest], empty.Empty]:
-        r"""Return a callable for the delete uptime check config method over gRPC.
+        r"""Return a callable for the
+        delete uptime check config
+          method over gRPC.
 
         Deletes an Uptime check configuration. Note that this
         method will fail if the Uptime check configuration is
@@ -385,7 +395,9 @@ class UptimeCheckServiceGrpcTransport(UptimeCheckServiceTransport):
         [uptime_service.ListUptimeCheckIpsRequest],
         uptime_service.ListUptimeCheckIpsResponse,
     ]:
-        r"""Return a callable for the list uptime check ips method over gRPC.
+        r"""Return a callable for the
+        list uptime check ips
+          method over gRPC.
 
         Returns the list of IP addresses that checkers run
         from

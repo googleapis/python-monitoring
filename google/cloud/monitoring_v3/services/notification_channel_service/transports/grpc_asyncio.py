@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,15 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 import warnings
-from typing import Awaitable, Callable, Dict, Optional, Sequence, Tuple
+from typing import Awaitable, Callable, Dict, Optional, Sequence, Tuple, Union
 
 from google.api_core import gapic_v1  # type: ignore
 from google.api_core import grpc_helpers_async  # type: ignore
 from google import auth  # type: ignore
 from google.auth import credentials  # type: ignore
 from google.auth.transport.grpc import SslCredentials  # type: ignore
+import packaging.version
 
 import grpc  # type: ignore
 from grpc.experimental import aio  # type: ignore
@@ -30,7 +29,6 @@ from grpc.experimental import aio  # type: ignore
 from google.cloud.monitoring_v3.types import notification
 from google.cloud.monitoring_v3.types import notification_service
 from google.protobuf import empty_pb2 as empty  # type: ignore
-
 from .base import NotificationChannelServiceTransport, DEFAULT_CLIENT_INFO
 from .grpc import NotificationChannelServiceGrpcTransport
 
@@ -85,13 +83,15 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
         Returns:
             aio.Channel: A gRPC AsyncIO channel object.
         """
-        scopes = scopes or cls.AUTH_SCOPES
+
+        self_signed_jwt_kwargs = cls._get_self_signed_jwt_kwargs(host, scopes)
+
         return grpc_helpers_async.create_channel(
             host,
             credentials=credentials,
             credentials_file=credentials_file,
-            scopes=scopes,
             quota_project_id=quota_project_id,
+            **self_signed_jwt_kwargs,
             **kwargs,
         )
 
@@ -113,7 +113,8 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
         """Instantiate the transport.
 
         Args:
-            host (Optional[str]): The hostname to connect to.
+            host (Optional[str]):
+                 The hostname to connect to.
             credentials (Optional[google.auth.credentials.Credentials]): The
                 authorization credentials to attach to requests. These
                 credentials identify the application to the service; if none
@@ -171,7 +172,6 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
             # If a channel was explicitly provided, set it.
             self._grpc_channel = channel
             self._ssl_channel_credentials = None
-
         else:
             if api_mtls_endpoint:
                 host = api_mtls_endpoint
@@ -237,8 +237,10 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
         [notification_service.ListNotificationChannelDescriptorsRequest],
         Awaitable[notification_service.ListNotificationChannelDescriptorsResponse],
     ]:
-        r"""Return a callable for the list notification channel
-        descriptors method over gRPC.
+        r"""Return a callable for the
+        list notification channel
+        descriptors
+          method over gRPC.
 
         Lists the descriptors for supported channel types.
         The use of descriptors makes it possible for new channel
@@ -271,8 +273,10 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
         [notification_service.GetNotificationChannelDescriptorRequest],
         Awaitable[notification.NotificationChannelDescriptor],
     ]:
-        r"""Return a callable for the get notification channel
-        descriptor method over gRPC.
+        r"""Return a callable for the
+        get notification channel
+        descriptor
+          method over gRPC.
 
         Gets a single channel descriptor. The descriptor
         indicates which fields are expected / permitted for a
@@ -305,7 +309,9 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
         [notification_service.ListNotificationChannelsRequest],
         Awaitable[notification_service.ListNotificationChannelsResponse],
     ]:
-        r"""Return a callable for the list notification channels method over gRPC.
+        r"""Return a callable for the
+        list notification channels
+          method over gRPC.
 
         Lists the notification channels that have been
         created for the project.
@@ -335,7 +341,9 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
         [notification_service.GetNotificationChannelRequest],
         Awaitable[notification.NotificationChannel],
     ]:
-        r"""Return a callable for the get notification channel method over gRPC.
+        r"""Return a callable for the
+        get notification channel
+          method over gRPC.
 
         Gets a single notification channel. The channel
         includes the relevant configuration details with which
@@ -370,7 +378,9 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
         [notification_service.CreateNotificationChannelRequest],
         Awaitable[notification.NotificationChannel],
     ]:
-        r"""Return a callable for the create notification channel method over gRPC.
+        r"""Return a callable for the
+        create notification channel
+          method over gRPC.
 
         Creates a new notification channel, representing a
         single notification endpoint such as an email address,
@@ -401,7 +411,9 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
         [notification_service.UpdateNotificationChannelRequest],
         Awaitable[notification.NotificationChannel],
     ]:
-        r"""Return a callable for the update notification channel method over gRPC.
+        r"""Return a callable for the
+        update notification channel
+          method over gRPC.
 
         Updates a notification channel. Fields not specified
         in the field mask remain unchanged.
@@ -430,7 +442,9 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
     ) -> Callable[
         [notification_service.DeleteNotificationChannelRequest], Awaitable[empty.Empty]
     ]:
-        r"""Return a callable for the delete notification channel method over gRPC.
+        r"""Return a callable for the
+        delete notification channel
+          method over gRPC.
 
         Deletes a notification channel.
 
@@ -459,8 +473,10 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
         [notification_service.SendNotificationChannelVerificationCodeRequest],
         Awaitable[empty.Empty],
     ]:
-        r"""Return a callable for the send notification channel
-        verification code method over gRPC.
+        r"""Return a callable for the
+        send notification channel
+        verification code
+          method over gRPC.
 
         Causes a verification code to be delivered to the channel. The
         code can then be supplied in ``VerifyNotificationChannel`` to
@@ -493,8 +509,10 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
         [notification_service.GetNotificationChannelVerificationCodeRequest],
         Awaitable[notification_service.GetNotificationChannelVerificationCodeResponse],
     ]:
-        r"""Return a callable for the get notification channel
-        verification code method over gRPC.
+        r"""Return a callable for the
+        get notification channel
+        verification code
+          method over gRPC.
 
         Requests a verification code for an already verified
         channel that can then be used in a call to
@@ -552,7 +570,9 @@ class NotificationChannelServiceGrpcAsyncIOTransport(
         [notification_service.VerifyNotificationChannelRequest],
         Awaitable[notification.NotificationChannel],
     ]:
-        r"""Return a callable for the verify notification channel method over gRPC.
+        r"""Return a callable for the
+        verify notification channel
+          method over gRPC.
 
         Verifies a ``NotificationChannel`` by proving receipt of the
         code delivered to the channel as a result of calling

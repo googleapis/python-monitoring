@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,15 +13,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 import os
 import mock
+import packaging.version
 
 import grpc
 from grpc.experimental import aio
 import math
 import pytest
 from proto.marshal.rules.dates import DurationRule, TimestampRule
+
 
 from google import auth
 from google.api import distribution_pb2 as distribution  # type: ignore
@@ -41,6 +41,12 @@ from google.cloud.monitoring_v3.services.metric_service import MetricServiceAsyn
 from google.cloud.monitoring_v3.services.metric_service import MetricServiceClient
 from google.cloud.monitoring_v3.services.metric_service import pagers
 from google.cloud.monitoring_v3.services.metric_service import transports
+from google.cloud.monitoring_v3.services.metric_service.transports.base import (
+    _API_CORE_VERSION,
+)
+from google.cloud.monitoring_v3.services.metric_service.transports.base import (
+    _GOOGLE_AUTH_VERSION,
+)
 from google.cloud.monitoring_v3.types import common
 from google.cloud.monitoring_v3.types import metric as gm_metric
 from google.cloud.monitoring_v3.types import metric_service
@@ -49,6 +55,29 @@ from google.protobuf import any_pb2 as gp_any  # type: ignore
 from google.protobuf import duration_pb2 as duration  # type: ignore
 from google.protobuf import struct_pb2 as struct  # type: ignore
 from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
+
+
+# TODO(busunkim): Once google-api-core >= 1.26.0 is required:
+# - Delete all the api-core and auth "less than" test cases
+# - Delete these pytest markers (Make the "greater than or equal to" tests the default).
+requires_google_auth_lt_1_25_0 = pytest.mark.skipif(
+    packaging.version.parse(_GOOGLE_AUTH_VERSION) >= packaging.version.parse("1.25.0"),
+    reason="This test requires google-auth < 1.25.0",
+)
+requires_google_auth_gte_1_25_0 = pytest.mark.skipif(
+    packaging.version.parse(_GOOGLE_AUTH_VERSION) < packaging.version.parse("1.25.0"),
+    reason="This test requires google-auth >= 1.25.0",
+)
+
+requires_api_core_lt_1_26_0 = pytest.mark.skipif(
+    packaging.version.parse(_API_CORE_VERSION) >= packaging.version.parse("1.26.0"),
+    reason="This test requires google-api-core < 1.26.0",
+)
+
+requires_api_core_gte_1_26_0 = pytest.mark.skipif(
+    packaging.version.parse(_API_CORE_VERSION) < packaging.version.parse("1.26.0"),
+    reason="This test requires google-api-core >= 1.26.0",
+)
 
 
 def client_cert_source_callback():
@@ -473,19 +502,15 @@ def test_list_monitored_resource_descriptors(
         call.return_value = metric_service.ListMonitoredResourceDescriptorsResponse(
             next_page_token="next_page_token_value",
         )
-
         response = client.list_monitored_resource_descriptors(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.ListMonitoredResourceDescriptorsRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, pagers.ListMonitoredResourceDescriptorsPager)
-
     assert response.next_page_token == "next_page_token_value"
 
 
@@ -507,7 +532,6 @@ def test_list_monitored_resource_descriptors_empty_call():
         client.list_monitored_resource_descriptors()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.ListMonitoredResourceDescriptorsRequest()
 
 
@@ -534,18 +558,15 @@ async def test_list_monitored_resource_descriptors_async(
                 next_page_token="next_page_token_value",
             )
         )
-
         response = await client.list_monitored_resource_descriptors(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.ListMonitoredResourceDescriptorsRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, pagers.ListMonitoredResourceDescriptorsAsyncPager)
-
     assert response.next_page_token == "next_page_token_value"
 
 
@@ -560,6 +581,7 @@ def test_list_monitored_resource_descriptors_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = metric_service.ListMonitoredResourceDescriptorsRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -567,7 +589,6 @@ def test_list_monitored_resource_descriptors_field_headers():
         type(client.transport.list_monitored_resource_descriptors), "__call__"
     ) as call:
         call.return_value = metric_service.ListMonitoredResourceDescriptorsResponse()
-
         client.list_monitored_resource_descriptors(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -587,6 +608,7 @@ async def test_list_monitored_resource_descriptors_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = metric_service.ListMonitoredResourceDescriptorsRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -596,7 +618,6 @@ async def test_list_monitored_resource_descriptors_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             metric_service.ListMonitoredResourceDescriptorsResponse()
         )
-
         await client.list_monitored_resource_descriptors(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -618,7 +639,6 @@ def test_list_monitored_resource_descriptors_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = metric_service.ListMonitoredResourceDescriptorsResponse()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.list_monitored_resource_descriptors(name="name_value",)
@@ -627,7 +647,6 @@ def test_list_monitored_resource_descriptors_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -664,7 +683,6 @@ async def test_list_monitored_resource_descriptors_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -889,25 +907,18 @@ def test_get_monitored_resource_descriptor(
             display_name="display_name_value",
             description="description_value",
         )
-
         response = client.get_monitored_resource_descriptor(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.GetMonitoredResourceDescriptorRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, monitored_resource.MonitoredResourceDescriptor)
-
     assert response.name == "name_value"
-
     assert response.type == "type_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.description == "description_value"
 
 
@@ -929,7 +940,6 @@ def test_get_monitored_resource_descriptor_empty_call():
         client.get_monitored_resource_descriptor()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.GetMonitoredResourceDescriptorRequest()
 
 
@@ -959,24 +969,18 @@ async def test_get_monitored_resource_descriptor_async(
                 description="description_value",
             )
         )
-
         response = await client.get_monitored_resource_descriptor(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.GetMonitoredResourceDescriptorRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, monitored_resource.MonitoredResourceDescriptor)
-
     assert response.name == "name_value"
-
     assert response.type == "type_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.description == "description_value"
 
 
@@ -991,6 +995,7 @@ def test_get_monitored_resource_descriptor_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = metric_service.GetMonitoredResourceDescriptorRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -998,7 +1003,6 @@ def test_get_monitored_resource_descriptor_field_headers():
         type(client.transport.get_monitored_resource_descriptor), "__call__"
     ) as call:
         call.return_value = monitored_resource.MonitoredResourceDescriptor()
-
         client.get_monitored_resource_descriptor(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1018,6 +1022,7 @@ async def test_get_monitored_resource_descriptor_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = metric_service.GetMonitoredResourceDescriptorRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1027,7 +1032,6 @@ async def test_get_monitored_resource_descriptor_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             monitored_resource.MonitoredResourceDescriptor()
         )
-
         await client.get_monitored_resource_descriptor(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1049,7 +1053,6 @@ def test_get_monitored_resource_descriptor_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = monitored_resource.MonitoredResourceDescriptor()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.get_monitored_resource_descriptor(name="name_value",)
@@ -1058,7 +1061,6 @@ def test_get_monitored_resource_descriptor_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -1095,7 +1097,6 @@ async def test_get_monitored_resource_descriptor_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -1130,19 +1131,15 @@ def test_list_metric_descriptors(
         call.return_value = metric_service.ListMetricDescriptorsResponse(
             next_page_token="next_page_token_value",
         )
-
         response = client.list_metric_descriptors(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.ListMetricDescriptorsRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, pagers.ListMetricDescriptorsPager)
-
     assert response.next_page_token == "next_page_token_value"
 
 
@@ -1164,7 +1161,6 @@ def test_list_metric_descriptors_empty_call():
         client.list_metric_descriptors()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.ListMetricDescriptorsRequest()
 
 
@@ -1191,18 +1187,15 @@ async def test_list_metric_descriptors_async(
                 next_page_token="next_page_token_value",
             )
         )
-
         response = await client.list_metric_descriptors(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.ListMetricDescriptorsRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, pagers.ListMetricDescriptorsAsyncPager)
-
     assert response.next_page_token == "next_page_token_value"
 
 
@@ -1217,6 +1210,7 @@ def test_list_metric_descriptors_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = metric_service.ListMetricDescriptorsRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1224,7 +1218,6 @@ def test_list_metric_descriptors_field_headers():
         type(client.transport.list_metric_descriptors), "__call__"
     ) as call:
         call.return_value = metric_service.ListMetricDescriptorsResponse()
-
         client.list_metric_descriptors(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1244,6 +1237,7 @@ async def test_list_metric_descriptors_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = metric_service.ListMetricDescriptorsRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1253,7 +1247,6 @@ async def test_list_metric_descriptors_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             metric_service.ListMetricDescriptorsResponse()
         )
-
         await client.list_metric_descriptors(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1275,7 +1268,6 @@ def test_list_metric_descriptors_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = metric_service.ListMetricDescriptorsResponse()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.list_metric_descriptors(name="name_value",)
@@ -1284,7 +1276,6 @@ def test_list_metric_descriptors_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -1321,7 +1312,6 @@ async def test_list_metric_descriptors_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -1532,31 +1522,21 @@ def test_get_metric_descriptor(
             description="description_value",
             display_name="display_name_value",
         )
-
         response = client.get_metric_descriptor(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.GetMetricDescriptorRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, ga_metric.MetricDescriptor)
-
     assert response.name == "name_value"
-
     assert response.type == "type_value"
-
     assert response.metric_kind == ga_metric.MetricDescriptor.MetricKind.GAUGE
-
     assert response.value_type == ga_metric.MetricDescriptor.ValueType.BOOL
-
     assert response.unit == "unit_value"
-
     assert response.description == "description_value"
-
     assert response.display_name == "display_name_value"
 
 
@@ -1578,7 +1558,6 @@ def test_get_metric_descriptor_empty_call():
         client.get_metric_descriptor()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.GetMetricDescriptorRequest()
 
 
@@ -1611,30 +1590,21 @@ async def test_get_metric_descriptor_async(
                 display_name="display_name_value",
             )
         )
-
         response = await client.get_metric_descriptor(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.GetMetricDescriptorRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, ga_metric.MetricDescriptor)
-
     assert response.name == "name_value"
-
     assert response.type == "type_value"
-
     assert response.metric_kind == ga_metric.MetricDescriptor.MetricKind.GAUGE
-
     assert response.value_type == ga_metric.MetricDescriptor.ValueType.BOOL
-
     assert response.unit == "unit_value"
-
     assert response.description == "description_value"
-
     assert response.display_name == "display_name_value"
 
 
@@ -1649,6 +1619,7 @@ def test_get_metric_descriptor_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = metric_service.GetMetricDescriptorRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1656,7 +1627,6 @@ def test_get_metric_descriptor_field_headers():
         type(client.transport.get_metric_descriptor), "__call__"
     ) as call:
         call.return_value = ga_metric.MetricDescriptor()
-
         client.get_metric_descriptor(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1676,6 +1646,7 @@ async def test_get_metric_descriptor_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = metric_service.GetMetricDescriptorRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1685,7 +1656,6 @@ async def test_get_metric_descriptor_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             ga_metric.MetricDescriptor()
         )
-
         await client.get_metric_descriptor(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1707,7 +1677,6 @@ def test_get_metric_descriptor_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = ga_metric.MetricDescriptor()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.get_metric_descriptor(name="name_value",)
@@ -1716,7 +1685,6 @@ def test_get_metric_descriptor_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -1753,7 +1721,6 @@ async def test_get_metric_descriptor_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -1794,31 +1761,21 @@ def test_create_metric_descriptor(
             description="description_value",
             display_name="display_name_value",
         )
-
         response = client.create_metric_descriptor(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.CreateMetricDescriptorRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, ga_metric.MetricDescriptor)
-
     assert response.name == "name_value"
-
     assert response.type == "type_value"
-
     assert response.metric_kind == ga_metric.MetricDescriptor.MetricKind.GAUGE
-
     assert response.value_type == ga_metric.MetricDescriptor.ValueType.BOOL
-
     assert response.unit == "unit_value"
-
     assert response.description == "description_value"
-
     assert response.display_name == "display_name_value"
 
 
@@ -1840,7 +1797,6 @@ def test_create_metric_descriptor_empty_call():
         client.create_metric_descriptor()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.CreateMetricDescriptorRequest()
 
 
@@ -1873,30 +1829,21 @@ async def test_create_metric_descriptor_async(
                 display_name="display_name_value",
             )
         )
-
         response = await client.create_metric_descriptor(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.CreateMetricDescriptorRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, ga_metric.MetricDescriptor)
-
     assert response.name == "name_value"
-
     assert response.type == "type_value"
-
     assert response.metric_kind == ga_metric.MetricDescriptor.MetricKind.GAUGE
-
     assert response.value_type == ga_metric.MetricDescriptor.ValueType.BOOL
-
     assert response.unit == "unit_value"
-
     assert response.description == "description_value"
-
     assert response.display_name == "display_name_value"
 
 
@@ -1911,6 +1858,7 @@ def test_create_metric_descriptor_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = metric_service.CreateMetricDescriptorRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1918,7 +1866,6 @@ def test_create_metric_descriptor_field_headers():
         type(client.transport.create_metric_descriptor), "__call__"
     ) as call:
         call.return_value = ga_metric.MetricDescriptor()
-
         client.create_metric_descriptor(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1938,6 +1885,7 @@ async def test_create_metric_descriptor_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = metric_service.CreateMetricDescriptorRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1947,7 +1895,6 @@ async def test_create_metric_descriptor_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             ga_metric.MetricDescriptor()
         )
-
         await client.create_metric_descriptor(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1969,7 +1916,6 @@ def test_create_metric_descriptor_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = ga_metric.MetricDescriptor()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.create_metric_descriptor(
@@ -1981,9 +1927,7 @@ def test_create_metric_descriptor_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
-
         assert args[0].metric_descriptor == ga_metric.MetricDescriptor(
             name="name_value"
         )
@@ -2027,9 +1971,7 @@ async def test_create_metric_descriptor_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
-
         assert args[0].metric_descriptor == ga_metric.MetricDescriptor(
             name="name_value"
         )
@@ -2066,13 +2008,11 @@ def test_delete_metric_descriptor(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
-
         response = client.delete_metric_descriptor(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.DeleteMetricDescriptorRequest()
 
     # Establish that the response is the type that we expect.
@@ -2097,7 +2037,6 @@ def test_delete_metric_descriptor_empty_call():
         client.delete_metric_descriptor()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.DeleteMetricDescriptorRequest()
 
 
@@ -2120,13 +2059,11 @@ async def test_delete_metric_descriptor_async(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         response = await client.delete_metric_descriptor(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.DeleteMetricDescriptorRequest()
 
     # Establish that the response is the type that we expect.
@@ -2144,6 +2081,7 @@ def test_delete_metric_descriptor_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = metric_service.DeleteMetricDescriptorRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -2151,7 +2089,6 @@ def test_delete_metric_descriptor_field_headers():
         type(client.transport.delete_metric_descriptor), "__call__"
     ) as call:
         call.return_value = None
-
         client.delete_metric_descriptor(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -2171,6 +2108,7 @@ async def test_delete_metric_descriptor_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = metric_service.DeleteMetricDescriptorRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -2178,7 +2116,6 @@ async def test_delete_metric_descriptor_field_headers_async():
         type(client.transport.delete_metric_descriptor), "__call__"
     ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         await client.delete_metric_descriptor(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -2200,7 +2137,6 @@ def test_delete_metric_descriptor_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.delete_metric_descriptor(name="name_value",)
@@ -2209,7 +2145,6 @@ def test_delete_metric_descriptor_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -2244,7 +2179,6 @@ async def test_delete_metric_descriptor_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -2277,21 +2211,16 @@ def test_list_time_series(
         call.return_value = metric_service.ListTimeSeriesResponse(
             next_page_token="next_page_token_value", unit="unit_value",
         )
-
         response = client.list_time_series(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.ListTimeSeriesRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, pagers.ListTimeSeriesPager)
-
     assert response.next_page_token == "next_page_token_value"
-
     assert response.unit == "unit_value"
 
 
@@ -2311,7 +2240,6 @@ def test_list_time_series_empty_call():
         client.list_time_series()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.ListTimeSeriesRequest()
 
 
@@ -2335,20 +2263,16 @@ async def test_list_time_series_async(
                 next_page_token="next_page_token_value", unit="unit_value",
             )
         )
-
         response = await client.list_time_series(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.ListTimeSeriesRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, pagers.ListTimeSeriesAsyncPager)
-
     assert response.next_page_token == "next_page_token_value"
-
     assert response.unit == "unit_value"
 
 
@@ -2363,12 +2287,12 @@ def test_list_time_series_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = metric_service.ListTimeSeriesRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.list_time_series), "__call__") as call:
         call.return_value = metric_service.ListTimeSeriesResponse()
-
         client.list_time_series(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -2388,6 +2312,7 @@ async def test_list_time_series_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = metric_service.ListTimeSeriesRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -2395,7 +2320,6 @@ async def test_list_time_series_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             metric_service.ListTimeSeriesResponse()
         )
-
         await client.list_time_series(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -2415,7 +2339,6 @@ def test_list_time_series_flattened():
     with mock.patch.object(type(client.transport.list_time_series), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = metric_service.ListTimeSeriesResponse()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.list_time_series(
@@ -2429,15 +2352,11 @@ def test_list_time_series_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
-
         assert args[0].filter == "filter_value"
-
         assert args[0].interval == common.TimeInterval(
             end_time=timestamp.Timestamp(seconds=751)
         )
-
         assert (
             args[0].view == metric_service.ListTimeSeriesRequest.TimeSeriesView.HEADERS
         )
@@ -2483,15 +2402,11 @@ async def test_list_time_series_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
-
         assert args[0].filter == "filter_value"
-
         assert args[0].interval == common.TimeInterval(
             end_time=timestamp.Timestamp(seconds=751)
         )
-
         assert (
             args[0].view == metric_service.ListTimeSeriesRequest.TimeSeriesView.HEADERS
         )
@@ -2676,13 +2591,11 @@ def test_create_time_series(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
-
         response = client.create_time_series(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.CreateTimeSeriesRequest()
 
     # Establish that the response is the type that we expect.
@@ -2707,7 +2620,6 @@ def test_create_time_series_empty_call():
         client.create_time_series()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.CreateTimeSeriesRequest()
 
 
@@ -2729,13 +2641,11 @@ async def test_create_time_series_async(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         response = await client.create_time_series(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == metric_service.CreateTimeSeriesRequest()
 
     # Establish that the response is the type that we expect.
@@ -2753,6 +2663,7 @@ def test_create_time_series_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = metric_service.CreateTimeSeriesRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -2760,7 +2671,6 @@ def test_create_time_series_field_headers():
         type(client.transport.create_time_series), "__call__"
     ) as call:
         call.return_value = None
-
         client.create_time_series(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -2780,6 +2690,7 @@ async def test_create_time_series_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = metric_service.CreateTimeSeriesRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -2787,7 +2698,6 @@ async def test_create_time_series_field_headers_async():
         type(client.transport.create_time_series), "__call__"
     ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         await client.create_time_series(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -2809,7 +2719,6 @@ def test_create_time_series_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.create_time_series(
@@ -2823,9 +2732,7 @@ def test_create_time_series_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
-
         assert args[0].time_series == [
             gm_metric.TimeSeries(metric=ga_metric.Metric(type="type_value"))
         ]
@@ -2871,9 +2778,7 @@ async def test_create_time_series_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
-
         assert args[0].time_series == [
             gm_metric.TimeSeries(metric=ga_metric.Metric(type="type_value"))
         ]
@@ -3006,10 +2911,37 @@ def test_metric_service_base_transport():
             getattr(transport, method)(request=object())
 
 
+@requires_google_auth_gte_1_25_0
 def test_metric_service_base_transport_with_credentials_file():
     # Instantiate the base transport with a credentials file
     with mock.patch.object(
-        auth, "load_credentials_from_file"
+        auth, "load_credentials_from_file", autospec=True
+    ) as load_creds, mock.patch(
+        "google.cloud.monitoring_v3.services.metric_service.transports.MetricServiceTransport._prep_wrapped_messages"
+    ) as Transport:
+        Transport.return_value = None
+        load_creds.return_value = (credentials.AnonymousCredentials(), None)
+        transport = transports.MetricServiceTransport(
+            credentials_file="credentials.json", quota_project_id="octopus",
+        )
+        load_creds.assert_called_once_with(
+            "credentials.json",
+            scopes=None,
+            default_scopes=(
+                "https://www.googleapis.com/auth/cloud-platform",
+                "https://www.googleapis.com/auth/monitoring",
+                "https://www.googleapis.com/auth/monitoring.read",
+                "https://www.googleapis.com/auth/monitoring.write",
+            ),
+            quota_project_id="octopus",
+        )
+
+
+@requires_google_auth_lt_1_25_0
+def test_metric_service_base_transport_with_credentials_file_old_google_auth():
+    # Instantiate the base transport with a credentials file
+    with mock.patch.object(
+        auth, "load_credentials_from_file", autospec=True
     ) as load_creds, mock.patch(
         "google.cloud.monitoring_v3.services.metric_service.transports.MetricServiceTransport._prep_wrapped_messages"
     ) as Transport:
@@ -3032,7 +2964,7 @@ def test_metric_service_base_transport_with_credentials_file():
 
 def test_metric_service_base_transport_with_adc():
     # Test the default credentials are used if credentials and credentials_file are None.
-    with mock.patch.object(auth, "default") as adc, mock.patch(
+    with mock.patch.object(auth, "default", autospec=True) as adc, mock.patch(
         "google.cloud.monitoring_v3.services.metric_service.transports.MetricServiceTransport._prep_wrapped_messages"
     ) as Transport:
         Transport.return_value = None
@@ -3041,9 +2973,28 @@ def test_metric_service_base_transport_with_adc():
         adc.assert_called_once()
 
 
+@requires_google_auth_gte_1_25_0
 def test_metric_service_auth_adc():
     # If no credentials are provided, we should use ADC credentials.
-    with mock.patch.object(auth, "default") as adc:
+    with mock.patch.object(auth, "default", autospec=True) as adc:
+        adc.return_value = (credentials.AnonymousCredentials(), None)
+        MetricServiceClient()
+        adc.assert_called_once_with(
+            scopes=None,
+            default_scopes=(
+                "https://www.googleapis.com/auth/cloud-platform",
+                "https://www.googleapis.com/auth/monitoring",
+                "https://www.googleapis.com/auth/monitoring.read",
+                "https://www.googleapis.com/auth/monitoring.write",
+            ),
+            quota_project_id=None,
+        )
+
+
+@requires_google_auth_lt_1_25_0
+def test_metric_service_auth_adc_old_google_auth():
+    # If no credentials are provided, we should use ADC credentials.
+    with mock.patch.object(auth, "default", autospec=True) as adc:
         adc.return_value = (credentials.AnonymousCredentials(), None)
         MetricServiceClient()
         adc.assert_called_once_with(
@@ -3057,14 +3008,46 @@ def test_metric_service_auth_adc():
         )
 
 
-def test_metric_service_transport_auth_adc():
+@pytest.mark.parametrize(
+    "transport_class",
+    [
+        transports.MetricServiceGrpcTransport,
+        transports.MetricServiceGrpcAsyncIOTransport,
+    ],
+)
+@requires_google_auth_gte_1_25_0
+def test_metric_service_transport_auth_adc(transport_class):
     # If credentials and host are not provided, the transport class should use
     # ADC credentials.
-    with mock.patch.object(auth, "default") as adc:
+    with mock.patch.object(auth, "default", autospec=True) as adc:
         adc.return_value = (credentials.AnonymousCredentials(), None)
-        transports.MetricServiceGrpcTransport(
-            host="squid.clam.whelk", quota_project_id="octopus"
+        transport_class(quota_project_id="octopus", scopes=["1", "2"])
+        adc.assert_called_once_with(
+            scopes=["1", "2"],
+            default_scopes=(
+                "https://www.googleapis.com/auth/cloud-platform",
+                "https://www.googleapis.com/auth/monitoring",
+                "https://www.googleapis.com/auth/monitoring.read",
+                "https://www.googleapis.com/auth/monitoring.write",
+            ),
+            quota_project_id="octopus",
         )
+
+
+@pytest.mark.parametrize(
+    "transport_class",
+    [
+        transports.MetricServiceGrpcTransport,
+        transports.MetricServiceGrpcAsyncIOTransport,
+    ],
+)
+@requires_google_auth_lt_1_25_0
+def test_metric_service_transport_auth_adc_old_google_auth(transport_class):
+    # If credentials and host are not provided, the transport class should use
+    # ADC credentials.
+    with mock.patch.object(auth, "default", autospec=True) as adc:
+        adc.return_value = (credentials.AnonymousCredentials(), None)
+        transport_class(quota_project_id="octopus")
         adc.assert_called_once_with(
             scopes=(
                 "https://www.googleapis.com/auth/cloud-platform",
@@ -3073,6 +3056,119 @@ def test_metric_service_transport_auth_adc():
                 "https://www.googleapis.com/auth/monitoring.write",
             ),
             quota_project_id="octopus",
+        )
+
+
+@pytest.mark.parametrize(
+    "transport_class,grpc_helpers",
+    [
+        (transports.MetricServiceGrpcTransport, grpc_helpers),
+        (transports.MetricServiceGrpcAsyncIOTransport, grpc_helpers_async),
+    ],
+)
+@requires_api_core_gte_1_26_0
+def test_metric_service_transport_create_channel(transport_class, grpc_helpers):
+    # If credentials and host are not provided, the transport class should use
+    # ADC credentials.
+    with mock.patch.object(auth, "default", autospec=True) as adc, mock.patch.object(
+        grpc_helpers, "create_channel", autospec=True
+    ) as create_channel:
+        creds = credentials.AnonymousCredentials()
+        adc.return_value = (creds, None)
+        transport_class(quota_project_id="octopus", scopes=["1", "2"])
+
+        create_channel.assert_called_with(
+            "monitoring.googleapis.com",
+            credentials=creds,
+            credentials_file=None,
+            quota_project_id="octopus",
+            default_scopes=(
+                "https://www.googleapis.com/auth/cloud-platform",
+                "https://www.googleapis.com/auth/monitoring",
+                "https://www.googleapis.com/auth/monitoring.read",
+                "https://www.googleapis.com/auth/monitoring.write",
+            ),
+            scopes=["1", "2"],
+            default_host="monitoring.googleapis.com",
+            ssl_credentials=None,
+            options=[
+                ("grpc.max_send_message_length", -1),
+                ("grpc.max_receive_message_length", -1),
+            ],
+        )
+
+
+@pytest.mark.parametrize(
+    "transport_class,grpc_helpers",
+    [
+        (transports.MetricServiceGrpcTransport, grpc_helpers),
+        (transports.MetricServiceGrpcAsyncIOTransport, grpc_helpers_async),
+    ],
+)
+@requires_api_core_lt_1_26_0
+def test_metric_service_transport_create_channel_old_api_core(
+    transport_class, grpc_helpers
+):
+    # If credentials and host are not provided, the transport class should use
+    # ADC credentials.
+    with mock.patch.object(auth, "default", autospec=True) as adc, mock.patch.object(
+        grpc_helpers, "create_channel", autospec=True
+    ) as create_channel:
+        creds = credentials.AnonymousCredentials()
+        adc.return_value = (creds, None)
+        transport_class(quota_project_id="octopus")
+
+        create_channel.assert_called_with(
+            "monitoring.googleapis.com",
+            credentials=creds,
+            credentials_file=None,
+            quota_project_id="octopus",
+            scopes=(
+                "https://www.googleapis.com/auth/cloud-platform",
+                "https://www.googleapis.com/auth/monitoring",
+                "https://www.googleapis.com/auth/monitoring.read",
+                "https://www.googleapis.com/auth/monitoring.write",
+            ),
+            ssl_credentials=None,
+            options=[
+                ("grpc.max_send_message_length", -1),
+                ("grpc.max_receive_message_length", -1),
+            ],
+        )
+
+
+@pytest.mark.parametrize(
+    "transport_class,grpc_helpers",
+    [
+        (transports.MetricServiceGrpcTransport, grpc_helpers),
+        (transports.MetricServiceGrpcAsyncIOTransport, grpc_helpers_async),
+    ],
+)
+@requires_api_core_lt_1_26_0
+def test_metric_service_transport_create_channel_user_scopes(
+    transport_class, grpc_helpers
+):
+    # If credentials and host are not provided, the transport class should use
+    # ADC credentials.
+    with mock.patch.object(auth, "default", autospec=True) as adc, mock.patch.object(
+        grpc_helpers, "create_channel", autospec=True
+    ) as create_channel:
+        creds = credentials.AnonymousCredentials()
+        adc.return_value = (creds, None)
+
+        transport_class(quota_project_id="octopus", scopes=["1", "2"])
+
+        create_channel.assert_called_with(
+            "monitoring.googleapis.com",
+            credentials=creds,
+            credentials_file=None,
+            quota_project_id="octopus",
+            scopes=["1", "2"],
+            ssl_credentials=None,
+            options=[
+                ("grpc.max_send_message_length", -1),
+                ("grpc.max_receive_message_length", -1),
+            ],
         )
 
 
@@ -3280,7 +3376,6 @@ def test_metric_service_transport_channel_mtls_with_adc(transport_class):
 
 """def test_metric_descriptor_path():
     project = "squid"
-
     expected = "projects/{project}/metricDescriptors/{metric_descriptor=**}".format(project=project, )
     actual = MetricServiceClient.metric_descriptor_path(project)
     assert expected == actual
@@ -3288,8 +3383,7 @@ def test_metric_service_transport_channel_mtls_with_adc(transport_class):
 
 def test_parse_metric_descriptor_path():
     expected = {
-    "project": "clam",
-
+        "project": "clam",
     }
     path = MetricServiceClient.metric_descriptor_path(**expected)
 
@@ -3303,7 +3397,6 @@ def test_parse_metric_descriptor_path():
 def test_monitored_resource_descriptor_path():
     project = "whelk"
     monitored_resource_descriptor = "octopus"
-
     expected = "projects/{project}/monitoredResourceDescriptors/{monitored_resource_descriptor}".format(
         project=project, monitored_resource_descriptor=monitored_resource_descriptor,
     )
@@ -3328,7 +3421,6 @@ def test_parse_monitored_resource_descriptor_path():
 def test_time_series_path():
     project = "cuttlefish"
     time_series = "mussel"
-
     expected = "projects/{project}/timeSeries/{time_series}".format(
         project=project, time_series=time_series,
     )
@@ -3350,7 +3442,6 @@ def test_parse_time_series_path():
 
 def test_common_billing_account_path():
     billing_account = "scallop"
-
     expected = "billingAccounts/{billing_account}".format(
         billing_account=billing_account,
     )
@@ -3371,7 +3462,6 @@ def test_parse_common_billing_account_path():
 
 def test_common_folder_path():
     folder = "squid"
-
     expected = "folders/{folder}".format(folder=folder,)
     actual = MetricServiceClient.common_folder_path(folder)
     assert expected == actual
@@ -3390,7 +3480,6 @@ def test_parse_common_folder_path():
 
 def test_common_organization_path():
     organization = "whelk"
-
     expected = "organizations/{organization}".format(organization=organization,)
     actual = MetricServiceClient.common_organization_path(organization)
     assert expected == actual
@@ -3409,7 +3498,6 @@ def test_parse_common_organization_path():
 
 def test_common_project_path():
     project = "oyster"
-
     expected = "projects/{project}".format(project=project,)
     actual = MetricServiceClient.common_project_path(project)
     assert expected == actual
@@ -3429,7 +3517,6 @@ def test_parse_common_project_path():
 def test_common_location_path():
     project = "cuttlefish"
     location = "mussel"
-
     expected = "projects/{project}/locations/{location}".format(
         project=project, location=location,
     )

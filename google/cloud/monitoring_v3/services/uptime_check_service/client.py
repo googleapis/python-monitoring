@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 from collections import OrderedDict
 from distutils import util
 import os
@@ -37,7 +35,6 @@ from google.cloud.monitoring_v3.services.uptime_check_service import pagers
 from google.cloud.monitoring_v3.types import uptime
 from google.cloud.monitoring_v3.types import uptime_service
 from google.protobuf import duration_pb2 as duration  # type: ignore
-
 from .transports.base import UptimeCheckServiceTransport, DEFAULT_CLIENT_INFO
 from .transports.grpc import UptimeCheckServiceGrpcTransport
 from .transports.grpc_asyncio import UptimeCheckServiceGrpcAsyncIOTransport
@@ -371,7 +368,8 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
         Args:
             request (google.cloud.monitoring_v3.types.ListUptimeCheckConfigsRequest):
-                The request object. The protocol for the
+                The request object.
+                The protocol for the
                 `ListUptimeCheckConfigs` request.
             parent (str):
                 Required. The project whose Uptime check configurations
@@ -384,7 +382,6 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -415,10 +412,8 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, uptime_service.ListUptimeCheckConfigsRequest):
             request = uptime_service.ListUptimeCheckConfigsRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if parent is not None:
                 request.parent = parent
 
@@ -459,7 +454,8 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
         Args:
             request (google.cloud.monitoring_v3.types.GetUptimeCheckConfigRequest):
-                The request object. The protocol for the
+                The request object.
+                The protocol for the
                 `GetUptimeCheckConfig` request.
             name (str):
                 Required. The Uptime check configuration to retrieve.
@@ -472,7 +468,6 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -502,10 +497,8 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, uptime_service.GetUptimeCheckConfigRequest):
             request = uptime_service.GetUptimeCheckConfigRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if name is not None:
                 request.name = name
 
@@ -539,7 +532,8 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
         Args:
             request (google.cloud.monitoring_v3.types.CreateUptimeCheckConfigRequest):
-                The request object. The protocol for the
+                The request object.
+                The protocol for the
                 `CreateUptimeCheckConfig` request.
             parent (str):
                 Required. The project in which to create the Uptime
@@ -559,7 +553,6 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
                 This corresponds to the ``uptime_check_config`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -589,10 +582,8 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, uptime_service.CreateUptimeCheckConfigRequest):
             request = uptime_service.CreateUptimeCheckConfigRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if parent is not None:
                 request.parent = parent
             if uptime_check_config is not None:
@@ -633,7 +624,8 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
         Args:
             request (google.cloud.monitoring_v3.types.UpdateUptimeCheckConfigRequest):
-                The request object. The protocol for the
+                The request object.
+                The protocol for the
                 `UpdateUptimeCheckConfig` request.
             uptime_check_config (google.cloud.monitoring_v3.types.UptimeCheckConfig):
                 Required. If an ``updateMask`` has been specified, this
@@ -653,7 +645,6 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
                 This corresponds to the ``uptime_check_config`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -683,10 +674,8 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, uptime_service.UpdateUptimeCheckConfigRequest):
             request = uptime_service.UpdateUptimeCheckConfigRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if uptime_check_config is not None:
                 request.uptime_check_config = uptime_check_config
 
@@ -726,7 +715,8 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
         Args:
             request (google.cloud.monitoring_v3.types.DeleteUptimeCheckConfigRequest):
-                The request object. The protocol for the
+                The request object.
+                The protocol for the
                 `DeleteUptimeCheckConfig` request.
             name (str):
                 Required. The Uptime check configuration to delete. The
@@ -739,7 +729,6 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -762,10 +751,8 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, uptime_service.DeleteUptimeCheckConfigRequest):
             request = uptime_service.DeleteUptimeCheckConfigRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if name is not None:
                 request.name = name
 
@@ -799,9 +786,9 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
         Args:
             request (google.cloud.monitoring_v3.types.ListUptimeCheckIpsRequest):
-                The request object. The protocol for the
+                The request object.
+                The protocol for the
                 `ListUptimeCheckIps` request.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -817,7 +804,6 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
         """
         # Create or coerce a protobuf request object.
-
         # Minor optimization to avoid making a copy if the user passes
         # in a uptime_service.ListUptimeCheckIpsRequest.
         # There's no risk of modifying the input as we've already verified
