@@ -4,29 +4,15 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-monitoring.git",
-        "sha": "a0261c98d42ed550dc068fa2fd606b9150d54b2b"
+        "sha": "868feef55beecfacd9ccc99f428bc3071c6fc2d7"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "c3918feb2415878ac428d728fb473ed4187b7819",
-        "internalRef": "365166289"
-      }
-    },
-    {
-      "git": {
-        "name": "synthtool",
-        "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "0a071b3460344886297a304253bf924aa68ddb7e"
-      }
-    },
-    {
-      "git": {
-        "name": "synthtool",
-        "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "0a071b3460344886297a304253bf924aa68ddb7e"
+        "sha": "fc62a8d41f691de3524805cdb52a5c352796f322",
+        "internalRef": "372626134"
       }
     }
   ],
@@ -111,9 +97,11 @@
     "docs/monitoring_v3/types.rst",
     "docs/monitoring_v3/uptime_check_service.rst",
     "docs/multiprocessing.rst",
+    "examples/feature_fragments",
     "google/cloud/monitoring/__init__.py",
     "google/cloud/monitoring/py.typed",
     "google/cloud/monitoring_v3/__init__.py",
+    "google/cloud/monitoring_v3/gapic_metadata.json",
     "google/cloud/monitoring_v3/proto/alert.proto",
     "google/cloud/monitoring_v3/proto/alert_service.proto",
     "google/cloud/monitoring_v3/proto/common.proto",
@@ -225,6 +213,9 @@
     "scripts/readme-gen/templates/install_portaudio.tmpl.rst",
     "setup.cfg",
     "testing/.gitignore",
+    "tests/__init__.py",
+    "tests/unit/__init__.py",
+    "tests/unit/gapic/__init__.py",
     "tests/unit/gapic/monitoring_v3/__init__.py",
     "tests/unit/gapic/monitoring_v3/test_alert_policy_service.py",
     "tests/unit/gapic/monitoring_v3/test_group_service.py",
