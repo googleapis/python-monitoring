@@ -136,7 +136,7 @@ def test_enable_alert_policies(capsys, pochan):
     # Having multiple projects will void these `sleep()` calls.
     # See also #3310
     time.sleep(2)
-    snippets.enable_alert_policies(pochan.project_name, True)
+    snippets.enable_alert_policies(pochan.project_name, True, "name='{}'".format(pochan.alert_policy.name))
     out, _ = capsys.readouterr()
     assert (
         "Enabled {0}".format(pochan.project_name) in out
@@ -144,7 +144,7 @@ def test_enable_alert_policies(capsys, pochan):
     )
 
     time.sleep(2)
-    snippets.enable_alert_policies(pochan.project_name, False)
+    snippets.enable_alert_policies(pochan.project_name, False, "name='{}'".format(pochan.alert_policy.name))
     out, _ = capsys.readouterr()
     assert (
         "Disabled {}".format(pochan.project_name) in out
