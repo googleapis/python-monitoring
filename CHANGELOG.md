@@ -4,6 +4,13 @@
 
 [1]: https://pypi.org/project/google-cloud-monitoring/#history
 
+### [2.3.1](https://www.github.com/googleapis/python-monitoring/compare/v2.3.0...v2.3.1) (2021-06-19)
+
+
+### Documentation
+
+* omit mention of Python 2.7 in 'CONTRIBUTING.rst' ([#1127](https://www.github.com/googleapis/python-monitoring/issues/1127)) ([#159](https://www.github.com/googleapis/python-monitoring/issues/159)) ([adc82c9](https://www.github.com/googleapis/python-monitoring/commit/adc82c9d1812fb0efe00cbfa09f19e8c04277881)), closes [#1126](https://www.github.com/googleapis/python-monitoring/issues/1126)
+
 ## [2.3.0](https://www.github.com/googleapis/python-monitoring/compare/v2.2.1...v2.3.0) (2021-06-18)
 
 
