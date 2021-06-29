@@ -62,6 +62,15 @@ class PochanFixture:
             monitoring_v3.NotificationChannelServiceClient()
         )
 
+        # delete all existing policies prior to testing
+        for policy in self.alert_policy_client.list_alert_policies(name=self.project_name):
+            try:
+                self.alert_policy_client.delete_alert_policy(
+                    name=policy.name
+                )
+            except NotFound:
+                print("Ignored NotFound when deleting a policy.")
+
     def __enter__(self):
         @retry(
             wait_exponential_multiplier=1000,
