@@ -4,6 +4,18 @@
 
 [1]: https://pypi.org/project/google-cloud-monitoring/#history
 
+## [2.5.0](https://www.github.com/googleapis/python-monitoring/compare/v2.4.1...v2.5.0) (2021-07-24)
+
+
+### Features
+
+* add Samples section to CONTRIBUTING.rst ([#184](https://www.github.com/googleapis/python-monitoring/issues/184)) ([5b7b07b](https://www.github.com/googleapis/python-monitoring/commit/5b7b07b263e2e86f0b504b721c4295f7d8bb542a))
+
+
+### Bug Fixes
+
+* enable self signed jwt for grpc ([#190](https://www.github.com/googleapis/python-monitoring/issues/190)) ([502487a](https://www.github.com/googleapis/python-monitoring/commit/502487a6c40322b5d8a9d38e9bd0783c0db9d756))
+
 ### [2.4.1](https://www.github.com/googleapis/python-monitoring/compare/v2.4.0...v2.4.1) (2021-07-20)
 
 
