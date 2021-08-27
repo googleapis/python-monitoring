@@ -409,6 +409,7 @@ class BasicSli(proto.Message):
 
 class Range(proto.Message):
     r"""Range of numerical values within ``min`` and ``max``.
+
     Attributes:
         min_ (float):
             Range minimum.
