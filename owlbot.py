@@ -97,6 +97,18 @@ templated_files = common.py_library(
 )
 s.move(templated_files, excludes=[".coveragerc"])  # microgenerator has a good .coveragerc file
 
+s.replace(
+    "docs/conf.py",
+    "master_doc",
+    "root_doc",
+)
+
+s.replace(
+    "docs/conf.py",
+    "# The master toctree document.",
+    "# The root toctree document.",
+)
+
 # ----------------------------------------------------------------------------
 # Samples templates
 # ----------------------------------------------------------------------------
