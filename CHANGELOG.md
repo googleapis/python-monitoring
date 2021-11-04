@@ -4,6 +4,20 @@
 
 [1]: https://pypi.org/project/google-cloud-monitoring/#history
 
+## [2.7.0](github.com/googleapis/python-monitoring/compare/v2.6.0...v2.7.0) (2021-11-04)
+
+
+### Features
+
+* add CreateServiceTimeSeries RPC ([#235](github.com/googleapis/python-monitoring/issues/235)) ([2970b22](github.com/googleapis/python-monitoring/commit/2970b22ca5b4959ee1d3e1e883cdb00951e3917f))
+
+
+### Bug Fixes
+
+* **deps:** drop packaging dependency ([22d4eab](github.com/googleapis/python-monitoring/commit/22d4eabbafbdc16b0f4faf66f966442691de7666))
+* **deps:** require google-api-core >= 1.28.0 ([22d4eab](github.com/googleapis/python-monitoring/commit/22d4eabbafbdc16b0f4faf66f966442691de7666))
+* Reintroduce deprecated field/enum `ServiceTier` for backward compatibility ([#240](github.com/googleapis/python-monitoring/issues/240)) ([eeb0534](github.com/googleapis/python-monitoring/commit/eeb05347eaf6e7a0794e679d83fe70a0db6a02a3))
+
 ## [2.6.0](https://www.github.com/googleapis/python-monitoring/compare/v2.5.2...v2.6.0) (2021-11-01)
 
 
