@@ -244,6 +244,25 @@ class NotificationChannelServiceAsyncClient:
         The use of descriptors makes it possible for new channel
         types to be dynamically added.
 
+
+        .. code-block::
+
+            from google.cloud import monitoring_v3
+
+            def sample_list_notification_channel_descriptors():
+                # Create a client
+                client = monitoring_v3.NotificationChannelServiceClient()
+
+                # Initialize request argument(s)
+                request = monitoring_v3.ListNotificationChannelDescriptorsRequest(
+                    name="name_value",
+                )
+
+                # Make the request
+                page_result = client.list_notification_channel_descriptors(request=request)
+                for response in page_result:
+                    print(response)
+
         Args:
             request (Union[google.cloud.monitoring_v3.types.ListNotificationChannelDescriptorsRequest, dict]):
                 The request object. The
@@ -351,6 +370,26 @@ class NotificationChannelServiceAsyncClient:
         indicates which fields are expected / permitted for a
         notification channel of the given type.
 
+
+        .. code-block::
+
+            from google.cloud import monitoring_v3
+
+            def sample_get_notification_channel_descriptor():
+                # Create a client
+                client = monitoring_v3.NotificationChannelServiceClient()
+
+                # Initialize request argument(s)
+                request = monitoring_v3.GetNotificationChannelDescriptorRequest(
+                    name="name_value",
+                )
+
+                # Make the request
+                response = client.get_notification_channel_descriptor(request=request)
+
+                # Handle response
+                print(response)
+
         Args:
             request (Union[google.cloud.monitoring_v3.types.GetNotificationChannelDescriptorRequest, dict]):
                 The request object. The
@@ -440,6 +479,25 @@ class NotificationChannelServiceAsyncClient:
     ) -> pagers.ListNotificationChannelsAsyncPager:
         r"""Lists the notification channels that have been
         created for the project.
+
+
+        .. code-block::
+
+            from google.cloud import monitoring_v3
+
+            def sample_list_notification_channels():
+                # Create a client
+                client = monitoring_v3.NotificationChannelServiceClient()
+
+                # Initialize request argument(s)
+                request = monitoring_v3.ListNotificationChannelsRequest(
+                    name="name_value",
+                )
+
+                # Make the request
+                page_result = client.list_notification_channels(request=request)
+                for response in page_result:
+                    print(response)
 
         Args:
             request (Union[google.cloud.monitoring_v3.types.ListNotificationChannelsRequest, dict]):
@@ -547,6 +605,26 @@ class NotificationChannelServiceAsyncClient:
         identical to the information that was supplied in the
         call to the create method.
 
+
+        .. code-block::
+
+            from google.cloud import monitoring_v3
+
+            def sample_get_notification_channel():
+                # Create a client
+                client = monitoring_v3.NotificationChannelServiceClient()
+
+                # Initialize request argument(s)
+                request = monitoring_v3.GetNotificationChannelRequest(
+                    name="name_value",
+                )
+
+                # Make the request
+                response = client.get_notification_channel(request=request)
+
+                # Handle response
+                print(response)
+
         Args:
             request (Union[google.cloud.monitoring_v3.types.GetNotificationChannelRequest, dict]):
                 The request object. The `GetNotificationChannel`
@@ -640,6 +718,26 @@ class NotificationChannelServiceAsyncClient:
         r"""Creates a new notification channel, representing a
         single notification endpoint such as an email address,
         SMS number, or PagerDuty service.
+
+
+        .. code-block::
+
+            from google.cloud import monitoring_v3
+
+            def sample_create_notification_channel():
+                # Create a client
+                client = monitoring_v3.NotificationChannelServiceClient()
+
+                # Initialize request argument(s)
+                request = monitoring_v3.CreateNotificationChannelRequest(
+                    name="name_value",
+                )
+
+                # Make the request
+                response = client.create_notification_channel(request=request)
+
+                # Handle response
+                print(response)
 
         Args:
             request (Union[google.cloud.monitoring_v3.types.CreateNotificationChannelRequest, dict]):
@@ -742,6 +840,25 @@ class NotificationChannelServiceAsyncClient:
         r"""Updates a notification channel. Fields not specified
         in the field mask remain unchanged.
 
+
+        .. code-block::
+
+            from google.cloud import monitoring_v3
+
+            def sample_update_notification_channel():
+                # Create a client
+                client = monitoring_v3.NotificationChannelServiceClient()
+
+                # Initialize request argument(s)
+                request = monitoring_v3.UpdateNotificationChannelRequest(
+                )
+
+                # Make the request
+                response = client.update_notification_channel(request=request)
+
+                # Handle response
+                print(response)
+
         Args:
             request (Union[google.cloud.monitoring_v3.types.UpdateNotificationChannelRequest, dict]):
                 The request object. The `UpdateNotificationChannel`
@@ -832,6 +949,22 @@ class NotificationChannelServiceAsyncClient:
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Deletes a notification channel.
+
+        .. code-block::
+
+            from google.cloud import monitoring_v3
+
+            def sample_delete_notification_channel():
+                # Create a client
+                client = monitoring_v3.NotificationChannelServiceClient()
+
+                # Initialize request argument(s)
+                request = monitoring_v3.DeleteNotificationChannelRequest(
+                    name="name_value",
+                )
+
+                # Make the request
+                response = client.delete_notification_channel(request=request)
 
         Args:
             request (Union[google.cloud.monitoring_v3.types.DeleteNotificationChannelRequest, dict]):
@@ -929,6 +1062,23 @@ class NotificationChannelServiceAsyncClient:
         code can then be supplied in ``VerifyNotificationChannel`` to
         verify the channel.
 
+
+        .. code-block::
+
+            from google.cloud import monitoring_v3
+
+            def sample_send_notification_channel_verification_code():
+                # Create a client
+                client = monitoring_v3.NotificationChannelServiceClient()
+
+                # Initialize request argument(s)
+                request = monitoring_v3.SendNotificationChannelVerificationCodeRequest(
+                    name="name_value",
+                )
+
+                # Make the request
+                response = client.send_notification_channel_verification_code(request=request)
+
         Args:
             request (Union[google.cloud.monitoring_v3.types.SendNotificationChannelVerificationCodeRequest, dict]):
                 The request object. The
@@ -1024,6 +1174,26 @@ class NotificationChannelServiceAsyncClient:
         typically return a much longer, websafe base 64 encoded
         string that has a longer expiration time.
 
+
+        .. code-block::
+
+            from google.cloud import monitoring_v3
+
+            def sample_get_notification_channel_verification_code():
+                # Create a client
+                client = monitoring_v3.NotificationChannelServiceClient()
+
+                # Initialize request argument(s)
+                request = monitoring_v3.GetNotificationChannelVerificationCodeRequest(
+                    name="name_value",
+                )
+
+                # Make the request
+                response = client.get_notification_channel_verification_code(request=request)
+
+                # Handle response
+                print(response)
+
         Args:
             request (Union[google.cloud.monitoring_v3.types.GetNotificationChannelVerificationCodeRequest, dict]):
                 The request object. The
@@ -1112,6 +1282,27 @@ class NotificationChannelServiceAsyncClient:
         r"""Verifies a ``NotificationChannel`` by proving receipt of the
         code delivered to the channel as a result of calling
         ``SendNotificationChannelVerificationCode``.
+
+
+        .. code-block::
+
+            from google.cloud import monitoring_v3
+
+            def sample_verify_notification_channel():
+                # Create a client
+                client = monitoring_v3.NotificationChannelServiceClient()
+
+                # Initialize request argument(s)
+                request = monitoring_v3.VerifyNotificationChannelRequest(
+                    name="name_value",
+                    code="code_value",
+                )
+
+                # Make the request
+                response = client.verify_notification_channel(request=request)
+
+                # Handle response
+                print(response)
 
         Args:
             request (Union[google.cloud.monitoring_v3.types.VerifyNotificationChannelRequest, dict]):
