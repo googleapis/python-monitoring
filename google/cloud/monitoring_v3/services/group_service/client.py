@@ -418,8 +418,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
     ) -> pagers.ListGroupsPager:
         r"""Lists the existing groups.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -523,8 +522,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
     ) -> group.Group:
         r"""Gets a single group.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -648,8 +646,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
     ) -> gm_group.Group:
         r"""Creates a new group.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -785,8 +782,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
         except ``name``.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -908,8 +904,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
     ) -> None:
         r"""Deletes an existing group.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -995,8 +990,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
         group.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 

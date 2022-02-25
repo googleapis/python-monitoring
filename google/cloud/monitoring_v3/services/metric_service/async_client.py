@@ -233,7 +233,7 @@ class MetricServiceAsyncClient:
         filter. This method does not require a Workspace.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -350,7 +350,7 @@ class MetricServiceAsyncClient:
         method does not require a Workspace.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -467,7 +467,7 @@ class MetricServiceAsyncClient:
         method does not require a Workspace.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -581,7 +581,7 @@ class MetricServiceAsyncClient:
         require a Workspace.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -695,7 +695,7 @@ class MetricServiceAsyncClient:
         metrics <https://cloud.google.com/monitoring/custom-metrics>`__.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -803,7 +803,7 @@ class MetricServiceAsyncClient:
         can be deleted.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -904,7 +904,7 @@ class MetricServiceAsyncClient:
         does not require a Workspace.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -1066,7 +1066,7 @@ class MetricServiceAsyncClient:
         response.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -1177,7 +1177,7 @@ class MetricServiceAsyncClient:
         instead.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 

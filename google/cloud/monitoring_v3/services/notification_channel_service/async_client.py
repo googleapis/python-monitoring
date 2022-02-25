@@ -245,7 +245,7 @@ class NotificationChannelServiceAsyncClient:
         types to be dynamically added.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -373,7 +373,7 @@ class NotificationChannelServiceAsyncClient:
         notification channel of the given type.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -483,7 +483,7 @@ class NotificationChannelServiceAsyncClient:
         created for the project.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -610,7 +610,7 @@ class NotificationChannelServiceAsyncClient:
         call to the create method.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -724,7 +724,7 @@ class NotificationChannelServiceAsyncClient:
         SMS number, or PagerDuty service.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -845,7 +845,7 @@ class NotificationChannelServiceAsyncClient:
         in the field mask remain unchanged.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -954,7 +954,7 @@ class NotificationChannelServiceAsyncClient:
     ) -> None:
         r"""Deletes a notification channel.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -1067,7 +1067,7 @@ class NotificationChannelServiceAsyncClient:
         verify the channel.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -1179,7 +1179,7 @@ class NotificationChannelServiceAsyncClient:
         string that has a longer expiration time.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -1288,7 +1288,7 @@ class NotificationChannelServiceAsyncClient:
         ``SendNotificationChannelVerificationCode``.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 

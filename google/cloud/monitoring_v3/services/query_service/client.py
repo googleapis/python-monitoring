@@ -397,8 +397,7 @@ class QueryServiceClient(metaclass=QueryServiceClientMeta):
         This method does not require a Workspace.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 

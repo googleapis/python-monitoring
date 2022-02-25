@@ -445,8 +445,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         types to be dynamically added.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -569,8 +568,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         notification channel of the given type.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -677,8 +675,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         created for the project.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -800,8 +797,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         call to the create method.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -906,8 +902,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         SMS number, or PagerDuty service.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -1032,8 +1027,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         in the field mask remain unchanged.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -1146,8 +1140,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
     ) -> None:
         r"""Deletes a notification channel.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -1255,8 +1248,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         verify the channel.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -1372,8 +1364,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         string that has a longer expiration time.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -1477,8 +1468,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         ``SendNotificationChannelVerificationCode``.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 

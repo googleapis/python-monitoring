@@ -426,8 +426,7 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
         configurations).
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -534,8 +533,7 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
     ) -> uptime.UptimeCheckConfig:
         r"""Gets a single Uptime check configuration.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -631,8 +629,7 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
     ) -> uptime.UptimeCheckConfig:
         r"""Creates a new Uptime check configuration.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -744,8 +741,7 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
         configuration.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -854,8 +850,7 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
         that would be rendered invalid by the deletion.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -942,8 +937,7 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
         from
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
