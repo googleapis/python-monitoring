@@ -232,7 +232,7 @@ class UptimeCheckServiceAsyncClient:
         configurations).
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -346,7 +346,7 @@ class UptimeCheckServiceAsyncClient:
     ) -> uptime.UptimeCheckConfig:
         r"""Gets a single Uptime check configuration.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -451,7 +451,7 @@ class UptimeCheckServiceAsyncClient:
     ) -> uptime.UptimeCheckConfig:
         r"""Creates a new Uptime check configuration.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -561,7 +561,7 @@ class UptimeCheckServiceAsyncClient:
         configuration.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -668,7 +668,7 @@ class UptimeCheckServiceAsyncClient:
         that would be rendered invalid by the deletion.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -762,7 +762,7 @@ class UptimeCheckServiceAsyncClient:
         from
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 

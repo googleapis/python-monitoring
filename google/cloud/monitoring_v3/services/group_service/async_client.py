@@ -224,7 +224,7 @@ class GroupServiceAsyncClient:
     ) -> pagers.ListGroupsAsyncPager:
         r"""Lists the existing groups.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -337,7 +337,7 @@ class GroupServiceAsyncClient:
     ) -> group.Group:
         r"""Gets a single group.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -470,7 +470,7 @@ class GroupServiceAsyncClient:
     ) -> gm_group.Group:
         r"""Creates a new group.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -606,7 +606,7 @@ class GroupServiceAsyncClient:
         except ``name``.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -737,7 +737,7 @@ class GroupServiceAsyncClient:
     ) -> None:
         r"""Deletes an existing group.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -832,7 +832,7 @@ class GroupServiceAsyncClient:
         group.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 

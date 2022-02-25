@@ -438,8 +438,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
     ) -> gm_service.Service:
         r"""Create a ``Service``.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -544,8 +543,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
     ) -> service.Service:
         r"""Get the named ``Service``.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -642,8 +640,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
     ) -> pagers.ListServicesPager:
         r"""List ``Service``\ s for this workspace.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -748,8 +745,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
     ) -> gm_service.Service:
         r"""Update this ``Service``.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -843,8 +839,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
     ) -> None:
         r"""Soft delete this ``Service``.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -928,8 +923,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
     ) -> service.ServiceLevelObjective:
         r"""Create a ``ServiceLevelObjective`` for the given ``Service``.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -1046,8 +1040,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
     ) -> service.ServiceLevelObjective:
         r"""Get a ``ServiceLevelObjective`` by name.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -1154,8 +1147,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
     ) -> pagers.ListServiceLevelObjectivesPager:
         r"""List the ``ServiceLevelObjective``\ s for the given ``Service``.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -1262,8 +1254,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
     ) -> service.ServiceLevelObjective:
         r"""Update the given ``ServiceLevelObjective``.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -1373,8 +1364,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
     ) -> None:
         r"""Delete the given ``ServiceLevelObjective``.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 

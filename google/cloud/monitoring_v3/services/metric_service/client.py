@@ -449,8 +449,7 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
         filter. This method does not require a Workspace.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -562,8 +561,7 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
         method does not require a Workspace.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -675,8 +673,7 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
         method does not require a Workspace.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -781,8 +778,7 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
         require a Workspace.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -887,8 +883,7 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
         metrics <https://cloud.google.com/monitoring/custom-metrics>`__.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -996,8 +991,7 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
         can be deleted.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -1089,8 +1083,7 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
         does not require a Workspace.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -1243,8 +1236,7 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
         response.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -1355,8 +1347,7 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
         instead.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 

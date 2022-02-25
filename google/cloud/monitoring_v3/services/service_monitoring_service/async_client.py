@@ -233,7 +233,7 @@ class ServiceMonitoringServiceAsyncClient:
     ) -> gm_service.Service:
         r"""Create a ``Service``.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -338,7 +338,7 @@ class ServiceMonitoringServiceAsyncClient:
     ) -> service.Service:
         r"""Get the named ``Service``.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -444,7 +444,7 @@ class ServiceMonitoringServiceAsyncClient:
     ) -> pagers.ListServicesAsyncPager:
         r"""List ``Service``\ s for this workspace.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -558,7 +558,7 @@ class ServiceMonitoringServiceAsyncClient:
     ) -> gm_service.Service:
         r"""Update this ``Service``.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -652,7 +652,7 @@ class ServiceMonitoringServiceAsyncClient:
     ) -> None:
         r"""Soft delete this ``Service``.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -745,7 +745,7 @@ class ServiceMonitoringServiceAsyncClient:
     ) -> service.ServiceLevelObjective:
         r"""Create a ``ServiceLevelObjective`` for the given ``Service``.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -860,7 +860,7 @@ class ServiceMonitoringServiceAsyncClient:
     ) -> service.ServiceLevelObjective:
         r"""Get a ``ServiceLevelObjective`` by name.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -974,7 +974,7 @@ class ServiceMonitoringServiceAsyncClient:
     ) -> pagers.ListServiceLevelObjectivesAsyncPager:
         r"""List the ``ServiceLevelObjective``\ s for the given ``Service``.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -1088,7 +1088,7 @@ class ServiceMonitoringServiceAsyncClient:
     ) -> service.ServiceLevelObjective:
         r"""Update the given ``ServiceLevelObjective``.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -1196,7 +1196,7 @@ class ServiceMonitoringServiceAsyncClient:
     ) -> None:
         r"""Delete the given ``ServiceLevelObjective``.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 

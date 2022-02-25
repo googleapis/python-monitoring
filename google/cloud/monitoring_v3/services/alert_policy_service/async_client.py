@@ -238,7 +238,7 @@ class AlertPolicyServiceAsyncClient:
         workspace.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -357,7 +357,7 @@ class AlertPolicyServiceAsyncClient:
     ) -> alert.AlertPolicy:
         r"""Gets a single alerting policy.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -464,7 +464,7 @@ class AlertPolicyServiceAsyncClient:
     ) -> alert.AlertPolicy:
         r"""Creates a new alerting policy.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -583,7 +583,7 @@ class AlertPolicyServiceAsyncClient:
     ) -> None:
         r"""Deletes an alerting policy.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
@@ -683,7 +683,7 @@ class AlertPolicyServiceAsyncClient:
         via ``updateMask``. Returns the updated alerting policy.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import monitoring_v3
 
