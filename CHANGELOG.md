@@ -4,6 +4,13 @@
 
 [1]: https://pypi.org/project/google-cloud-monitoring/#history
 
+### [1.1.1](https://github.com/googleapis/python-monitoring/compare/v1.1.0...v1.1.1) (2022-04-01)
+
+
+### Bug Fixes
+
+* **deps:** require google-api-core >= 1.31.5, >= 2.3.2 on v1 release ([#291](https://github.com/googleapis/python-monitoring/issues/291)) ([0da6f9b](https://github.com/googleapis/python-monitoring/commit/0da6f9b5e4667a0853117fcaf40dbc64d6151c2f))
+
 ## [1.1.0](https://www.github.com/googleapis/python-monitoring/compare/v1.0.0...v1.1.0) (2020-08-20)
 
 
