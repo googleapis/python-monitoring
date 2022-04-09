@@ -87,6 +87,7 @@ class GroupServiceTransport(abc.ABC):
             always_use_jwt_access (Optional[bool]): Whether self signed JWT should
                 be used for service account credentials.
         """
+
         # Save the hostname. Default to port 443 (HTTPS) if none is specified.
         if ":" not in host:
             host += ":443"
@@ -134,7 +135,7 @@ class GroupServiceTransport(abc.ABC):
                     maximum=30.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        core_exceptions.ServiceUnavailable,
+                        core_exceptions.GoogleAPICallError,
                     ),
                     deadline=30.0,
                 ),
@@ -148,7 +149,7 @@ class GroupServiceTransport(abc.ABC):
                     maximum=30.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        core_exceptions.ServiceUnavailable,
+                        core_exceptions.GoogleAPICallError,
                     ),
                     deadline=30.0,
                 ),
@@ -167,7 +168,7 @@ class GroupServiceTransport(abc.ABC):
                     maximum=30.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        core_exceptions.ServiceUnavailable,
+                        core_exceptions.GoogleAPICallError,
                     ),
                     deadline=180.0,
                 ),
@@ -181,7 +182,7 @@ class GroupServiceTransport(abc.ABC):
                     maximum=30.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        core_exceptions.ServiceUnavailable,
+                        core_exceptions.GoogleAPICallError,
                     ),
                     deadline=30.0,
                 ),
@@ -195,7 +196,7 @@ class GroupServiceTransport(abc.ABC):
                     maximum=30.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        core_exceptions.ServiceUnavailable,
+                        core_exceptions.GoogleAPICallError,
                     ),
                     deadline=30.0,
                 ),
@@ -270,6 +271,10 @@ class GroupServiceTransport(abc.ABC):
             Awaitable[group_service.ListGroupMembersResponse],
         ],
     ]:
+        raise NotImplementedError()
+
+    @property
+    def kind(self) -> str:
         raise NotImplementedError()
 
 

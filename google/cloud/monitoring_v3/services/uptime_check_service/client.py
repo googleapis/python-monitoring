@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -451,7 +451,7 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_list_uptime_check_configs():
                 # Create a client
@@ -566,7 +566,7 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_get_uptime_check_config():
                 # Create a client
@@ -667,7 +667,7 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_create_uptime_check_config():
                 # Create a client
@@ -784,7 +784,7 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_update_uptime_check_config():
                 # Create a client
@@ -898,7 +898,7 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_delete_uptime_check_config():
                 # Create a client
@@ -988,7 +988,7 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_list_uptime_check_ips():
                 # Create a client

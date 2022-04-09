@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -447,7 +447,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_list_groups():
                 # Create a client
@@ -559,7 +559,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_get_group():
                 # Create a client
@@ -688,7 +688,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_create_group():
                 # Create a client
@@ -829,7 +829,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_update_group():
                 # Create a client
@@ -956,7 +956,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_delete_group():
                 # Create a client
@@ -1045,7 +1045,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_list_group_members():
                 # Create a client

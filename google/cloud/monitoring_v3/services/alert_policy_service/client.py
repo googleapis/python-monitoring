@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -474,7 +474,7 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_list_alert_policies():
                 # Create a client
@@ -592,7 +592,7 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_get_alert_policy():
                 # Create a client
@@ -695,7 +695,7 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_create_alert_policy():
                 # Create a client
@@ -819,7 +819,7 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_delete_alert_policy():
                 # Create a client
@@ -913,7 +913,7 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_update_alert_policy():
                 # Create a client

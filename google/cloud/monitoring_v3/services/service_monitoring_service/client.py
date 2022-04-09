@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -465,7 +465,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_create_service():
                 # Create a client
@@ -575,7 +575,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_get_service():
                 # Create a client
@@ -677,7 +677,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_list_services():
                 # Create a client
@@ -790,7 +790,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_update_service():
                 # Create a client
@@ -889,7 +889,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_delete_service():
                 # Create a client
@@ -976,7 +976,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_create_service_level_objective():
                 # Create a client
@@ -1098,7 +1098,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_get_service_level_objective():
                 # Create a client
@@ -1210,7 +1210,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_list_service_level_objectives():
                 # Create a client
@@ -1325,7 +1325,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_update_service_level_objective():
                 # Create a client
@@ -1440,7 +1440,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
         .. code-block:: python
 
-            from google.cloud import monitoring_v3
+                    from google.cloud import monitoring_v3
 
             def sample_delete_service_level_objective():
                 # Create a client
