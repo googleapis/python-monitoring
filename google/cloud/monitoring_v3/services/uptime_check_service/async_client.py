@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import functools
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core.client_options import ClientOptions
@@ -231,7 +231,6 @@ class UptimeCheckServiceAsyncClient:
         for the project (leaving out any invalid
         configurations).
 
-
         .. code-block:: python
 
             from google.cloud import monitoring_v3
@@ -309,7 +308,7 @@ class UptimeCheckServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=30.0,
             ),
@@ -427,7 +426,7 @@ class UptimeCheckServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=30.0,
             ),
@@ -578,7 +577,6 @@ class UptimeCheckServiceAsyncClient:
         be updated via ``updateMask``. Returns the updated
         configuration.
 
-
         .. code-block:: python
 
             from google.cloud import monitoring_v3
@@ -690,7 +688,6 @@ class UptimeCheckServiceAsyncClient:
         referenced by an alert policy or other dependent configs
         that would be rendered invalid by the deletion.
 
-
         .. code-block:: python
 
             from google.cloud import monitoring_v3
@@ -754,7 +751,7 @@ class UptimeCheckServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=30.0,
             ),
@@ -786,7 +783,6 @@ class UptimeCheckServiceAsyncClient:
     ) -> pagers.ListUptimeCheckIpsAsyncPager:
         r"""Returns the list of IP addresses that checkers run
         from
-
 
         .. code-block:: python
 
@@ -837,7 +833,7 @@ class UptimeCheckServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=30.0,
             ),

@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import functools
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core.client_options import ClientOptions
@@ -237,7 +237,6 @@ class AlertPolicyServiceAsyncClient:
         r"""Lists the existing alerting policies for the
         workspace.
 
-
         .. code-block:: python
 
             from google.cloud import monitoring_v3
@@ -320,7 +319,7 @@ class AlertPolicyServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=30.0,
             ),
@@ -440,7 +439,7 @@ class AlertPolicyServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=30.0,
             ),
@@ -666,7 +665,7 @@ class AlertPolicyServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=30.0,
             ),
@@ -702,7 +701,6 @@ class AlertPolicyServiceAsyncClient:
         policy with a new one or replace only certain fields in the
         current alerting policy by specifying the fields to be updated
         via ``updateMask``. Returns the updated alerting policy.
-
 
         .. code-block:: python
 

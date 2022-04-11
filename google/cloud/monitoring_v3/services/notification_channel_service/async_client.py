@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import functools
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core.client_options import ClientOptions
@@ -244,7 +244,6 @@ class NotificationChannelServiceAsyncClient:
         The use of descriptors makes it possible for new channel
         types to be dynamically added.
 
-
         .. code-block:: python
 
             from google.cloud import monitoring_v3
@@ -331,7 +330,7 @@ class NotificationChannelServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=30.0,
             ),
@@ -379,7 +378,6 @@ class NotificationChannelServiceAsyncClient:
         r"""Gets a single channel descriptor. The descriptor
         indicates which fields are expected / permitted for a
         notification channel of the given type.
-
 
         .. code-block:: python
 
@@ -456,7 +454,7 @@ class NotificationChannelServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=30.0,
             ),
@@ -494,7 +492,6 @@ class NotificationChannelServiceAsyncClient:
     ) -> pagers.ListNotificationChannelsAsyncPager:
         r"""Lists the notification channels that have been
         created for the project.
-
 
         .. code-block:: python
 
@@ -579,7 +576,7 @@ class NotificationChannelServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=30.0,
             ),
@@ -629,7 +626,6 @@ class NotificationChannelServiceAsyncClient:
         key matter and thus the response may not be 100%
         identical to the information that was supplied in the
         call to the create method.
-
 
         .. code-block:: python
 
@@ -708,7 +704,7 @@ class NotificationChannelServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=30.0,
             ),
@@ -748,7 +744,6 @@ class NotificationChannelServiceAsyncClient:
         r"""Creates a new notification channel, representing a
         single notification endpoint such as an email address,
         SMS number, or PagerDuty service.
-
 
         .. code-block:: python
 
@@ -874,7 +869,6 @@ class NotificationChannelServiceAsyncClient:
     ) -> notification.NotificationChannel:
         r"""Updates a notification channel. Fields not specified
         in the field mask remain unchanged.
-
 
         .. code-block:: python
 
@@ -1068,7 +1062,7 @@ class NotificationChannelServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=30.0,
             ),
@@ -1104,7 +1098,6 @@ class NotificationChannelServiceAsyncClient:
         r"""Causes a verification code to be delivered to the channel. The
         code can then be supplied in ``VerifyNotificationChannel`` to
         verify the channel.
-
 
         .. code-block:: python
 
@@ -1220,7 +1213,6 @@ class NotificationChannelServiceAsyncClient:
         typically return a much longer, websafe base 64 encoded
         string that has a longer expiration time.
 
-
         .. code-block:: python
 
             from google.cloud import monitoring_v3
@@ -1293,7 +1285,7 @@ class NotificationChannelServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=30.0,
             ),
@@ -1333,7 +1325,6 @@ class NotificationChannelServiceAsyncClient:
         r"""Verifies a ``NotificationChannel`` by proving receipt of the
         code delivered to the channel as a result of calling
         ``SendNotificationChannelVerificationCode``.
-
 
         .. code-block:: python
 
@@ -1425,7 +1416,7 @@ class NotificationChannelServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=30.0,
             ),

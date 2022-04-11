@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import functools
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core.client_options import ClientOptions
@@ -232,7 +232,6 @@ class MetricServiceAsyncClient:
         r"""Lists monitored resource descriptors that match a
         filter. This method does not require a Workspace.
 
-
         .. code-block:: python
 
             from google.cloud import monitoring_v3
@@ -309,7 +308,7 @@ class MetricServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=30.0,
             ),
@@ -356,7 +355,6 @@ class MetricServiceAsyncClient:
     ) -> monitored_resource_pb2.MonitoredResourceDescriptor:
         r"""Gets a single monitored resource descriptor. This
         method does not require a Workspace.
-
 
         .. code-block:: python
 
@@ -442,7 +440,7 @@ class MetricServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=30.0,
             ),
@@ -478,7 +476,6 @@ class MetricServiceAsyncClient:
     ) -> pagers.ListMetricDescriptorsAsyncPager:
         r"""Lists metric descriptors that match a filter. This
         method does not require a Workspace.
-
 
         .. code-block:: python
 
@@ -555,7 +552,7 @@ class MetricServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=30.0,
             ),
@@ -600,7 +597,6 @@ class MetricServiceAsyncClient:
     ) -> metric_pb2.MetricDescriptor:
         r"""Gets a single metric descriptor. This method does not
         require a Workspace.
-
 
         .. code-block:: python
 
@@ -679,7 +675,7 @@ class MetricServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=30.0,
             ),
@@ -719,7 +715,6 @@ class MetricServiceAsyncClient:
         track its progress. User-created metric descriptors define
         `custom
         metrics <https://cloud.google.com/monitoring/custom-metrics>`__.
-
 
         .. code-block:: python
 
@@ -833,7 +828,6 @@ class MetricServiceAsyncClient:
         metrics <https://cloud.google.com/monitoring/custom-metrics>`__
         can be deleted.
 
-
         .. code-block:: python
 
             from google.cloud import monitoring_v3
@@ -900,7 +894,7 @@ class MetricServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=30.0,
             ),
@@ -936,7 +930,6 @@ class MetricServiceAsyncClient:
     ) -> pagers.ListTimeSeriesAsyncPager:
         r"""Lists time series that match a filter. This method
         does not require a Workspace.
-
 
         .. code-block:: python
 
@@ -1057,7 +1050,7 @@ class MetricServiceAsyncClient:
                 maximum=30.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=90.0,
             ),
@@ -1106,7 +1099,6 @@ class MetricServiceAsyncClient:
         were written. If any time series could not be written, a
         corresponding failure message is included in the error
         response.
-
 
         .. code-block:: python
 
@@ -1220,7 +1212,6 @@ class MetricServiceAsyncClient:
         method is only for use by Google Cloud services. Use
         [projects.timeSeries.create][google.monitoring.v3.MetricService.CreateTimeSeries]
         instead.
-
 
         .. code-block:: python
 
