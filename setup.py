@@ -34,6 +34,7 @@ dependencies = [
     # https://github.com/googleapis/google-cloud-python/issues/10566
     "google-api-core[grpc] >= 1.31.5, <3.0.0dev,!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0",
     "proto-plus >= 1.15.0",
+    "setuptools >= 40.3.0",
 ]
 extras = {"pandas": "pandas >= 0.17.1"}
 
