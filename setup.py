@@ -29,7 +29,7 @@ version = "0.36.0"
 # 'Development Status :: 5 - Production/Stable'
 release_status = "Development Status :: 3 - Alpha"
 dependencies = [
-    "google-api-core[grpc] >= 1.31.5, <3.0.0dev,!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0",
+    "google-api-core[grpc] >= 1.31.5, <3.0.0dev,!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0"
 ]
 extras = {"pandas": "pandas >= 0.17.1"}
 
