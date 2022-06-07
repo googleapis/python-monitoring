@@ -72,6 +72,7 @@ nox.options.sessions = [
     "lint_setup_py",
     "blacken",
     "docs",
+    "prerelease_deps", # TODO: remove later
 ]
 
 # Error if a python version is missing
