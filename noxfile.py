@@ -161,8 +161,8 @@ def prerelease_deps(session):
     session.install("--no-deps", "-e", ".[all]")
 
     # Print out prerelease package versions..
-    session.run("python", "-c", "import ; print(google.protobuf.__version__)")
-    session.run("python", "-c", "import ; print(grpc.__version__)")
+    session.run("python", "-c", "import google.protobuf; print(google.protobuf.__version__)")
+    session.run("python", "-c", "import grpc; print(grpc.__version__)")
     
     # Run all tests, except a few samples tests which require extra dependencies.
     session.run("py.test", "tests/unit")
