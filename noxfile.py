@@ -159,7 +159,7 @@ def prerelease_deps(session):
     session.install(*deps)
     session.install("--no-deps", "-e", ".[all]")
 
-    # Print out prerelease package versions.
+    # Print out prerelease package versions..
     session.run("python", "-c", "import ; print(google.protobuf.__version__)")
     session.run("python", "-c", "import ; print(grpc.__version__)")
     
