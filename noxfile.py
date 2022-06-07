@@ -112,15 +112,15 @@ def prerelease_deps(session):
     session.install(
         "--pre",
         "--upgrade",
-        "google-api-core",
         # Deps for api-core
-        "googleapis-common-protos",
         "protobuf",
+        "googleapis-common-protos",
         "google-auth",
         "requests",
         "grpcio",
         "grpcio-status",
         "grpcio-gcp",
+        "google-api-core",
         # protoplus
         "proto-plus",
     )
