@@ -117,7 +117,7 @@ def prerelease_deps(session):
         "requests",
         "grpcio",
         "grpcio-status",
-        "grpcio-gcp",
+        #"grpcio-gcp",
         "google-api-core",
         # protoplus
         "proto-plus",
