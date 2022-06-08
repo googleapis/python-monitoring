@@ -111,7 +111,7 @@ def prerelease_deps(session):
     """
     prerel_deps = [
         # Deps for api-core
-        "protobuf==4.21.0rc2", # hack for now.
+        "protobuf", #==4.21.0rc2", # hack for now.
         "googleapis-common-protos",
         "google-auth",
         "requests",
@@ -122,11 +122,13 @@ def prerelease_deps(session):
         # protoplus
         "proto-plus",
     ]
-    session.install(
-        "--pre",
-        "--upgrade",
-        *prerel_deps,
-    )
+    # session.install(
+    #     "--pre",
+    #     "--upgrade",
+    #     *prerel_deps,
+    # )
+    for dep in prerel_deps:
+        session.install("--pre", "--upgrade", "--no-deps", dep)
     session.install(
         "mock",
         "pytest",
