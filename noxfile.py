@@ -109,11 +109,9 @@ def blacken(session):
 def prerelease_deps(session):
     """Run all tests with prerelease versions of dependencies installed.
     """
-    session.install(
-        "--pre",
-        "--upgrade",
+    prerel_deps = [
         # Deps for api-core
-        "protobuf==4.21.0rc2",
+        "protobuf==4.21.0rc2", # hack for now.
         "googleapis-common-protos",
         "google-auth",
         "requests",
@@ -123,6 +121,11 @@ def prerelease_deps(session):
         "google-api-core",
         # protoplus
         "proto-plus",
+    ]
+    session.install(
+        "--pre",
+        "--upgrade",
+        *prerelease_deps,
     )
     session.install(
         "mock",
@@ -142,17 +145,18 @@ def prerelease_deps(session):
         constraints_text = constraints_file.read()
 
     # Ignore leading whitespace and comment lines.
-    # deps = [
-    #     match.group(1)
-    #     for match in re.finditer(
-    #         r"^\s*(\S+)(?===\S+)", constraints_text, flags=re.MULTILINE
-    #     )
-    # ]
-
+    deps = [
+        match.group(1)
+        for match in re.finditer(
+            r"^\s*(\S+)(?===\S+)", constraints_text, flags=re.MULTILINE
+        )
+    ]
+    # Don't overwrite prerelease packages.
+    deps = [dep for dep in deps if dep not in prerel_deps and 'protobuf' not in dep]
     # We use --no-deps to ensure that pre-release versions aren't overwritten
     # by the version ranges in setup.py.
-    # session.install(*deps, "--no-deps", "-e", ".[all]")
-    # session.install("--no-deps", "-e", ".[all]")
+    session.install(*deps)
+    session.install("--no-deps", "-e", ".[all]")
 
     # Print out prerelease package versions..
     session.run("python", "-c", "import google.protobuf; print(google.protobuf.__version__)")
