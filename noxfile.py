@@ -114,7 +114,7 @@ def prerelease_deps(session):
         "protobuf", #==4.21.0rc2", # hack for now.
         "googleapis-common-protos",
         "google-auth",
-        "requests",
+        # "requests", # causing urllib3 module not found.
         "grpcio",
         "grpcio-status",
         #"grpcio-gcp",
