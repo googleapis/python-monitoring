@@ -114,13 +114,16 @@ def prerelease_deps(session):
         "protobuf", #==4.21.0rc2", # hack for now.
         "googleapis-common-protos",
         "google-auth",
-        # "requests", # causing urllib3 module not found.
+        "requests", # causing urllib3 module not found.
         "grpcio",
         "grpcio-status",
         #"grpcio-gcp",
         "google-api-core",
         # protoplus
         "proto-plus",
+    ]
+    other_deps = [
+        "urllib3"
     ]
     # session.install(
     #     "--pre",
@@ -129,6 +132,8 @@ def prerelease_deps(session):
     # )
     for dep in prerel_deps:
         session.install("--pre", "--upgrade", "--no-deps", dep)
+    for dep in other_deps:
+        session.install("--upgrade", "--no-deps", dep)
     session.install(
         "mock",
         "pytest",
