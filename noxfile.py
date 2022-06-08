@@ -122,6 +122,7 @@ def prerelease_deps(session):
         # protoplus
         "proto-plus",
     ]
+    # Install deps for certain packages to avoid rabbit hole.
     other_deps = [
         "requests"
     ]
@@ -131,7 +132,7 @@ def prerelease_deps(session):
     #     *prerel_deps,
     # )
     for dep in prerel_deps:
-        session.install("--pre", "--upgrade", "--no-deps", dep)
+        session.install("--pre", "--upgrade", dep)
     for dep in other_deps:
         session.install("--upgrade", dep)
     session.install(
