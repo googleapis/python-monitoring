@@ -132,7 +132,7 @@ def prerelease_deps(session):
     #     *prerel_deps,
     # )
     for dep in prerel_deps:
-        session.install("--pre", "--upgrade", dep)
+        session.install("--pre", "--no-deps", "--upgrade", dep) # "--no-deps" would force use download all of transitive deps ...
     for dep in other_deps:
         session.install("--upgrade", dep)
     session.install(
