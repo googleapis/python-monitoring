@@ -113,7 +113,7 @@ def prerelease_deps(session):
         "--pre",
         "--upgrade",
         # Deps for api-core
-        "protobuf",
+        "protobuf==4.21.0rc2",
         "googleapis-common-protos",
         "google-auth",
         "requests",
