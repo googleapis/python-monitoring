@@ -125,7 +125,7 @@ def prerelease_deps(session):
     session.install(
         "--pre",
         "--upgrade",
-        *prerelease_deps,
+        *prerel_deps,
     )
     session.install(
         "mock",
