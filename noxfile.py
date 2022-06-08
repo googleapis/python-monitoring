@@ -133,7 +133,7 @@ def prerelease_deps(session):
     for dep in prerel_deps:
         session.install("--pre", "--upgrade", "--no-deps", dep)
     for dep in other_deps:
-        session.install("--upgrade", "--no-deps", dep)
+        session.install("--upgrade", dep)
     session.install(
         "mock",
         "pytest",
