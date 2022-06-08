@@ -124,17 +124,11 @@ def prerelease_deps(session):
         # protoplus
         "proto-plus",
     )
-    # session.install(
-    #     "freezegun",
-    #     "google-cloud-datacatalog",
-    #     "google-cloud-storage",
-    #     "google-cloud-testutils",
-    #     "IPython",
-    #     "mock",
-    #     "psutil",
-    #     "pytest",
-    #     "pytest-cov",
-    # )
+    session.install(
+        "mock",
+        "pytest",
+        "pytest-cov",
+    )
 
     # Because we test minimum dependency versions on the minimum Python
     # version, the first version we test with in the unit tests sessions has a
@@ -148,17 +142,17 @@ def prerelease_deps(session):
         constraints_text = constraints_file.read()
 
     # Ignore leading whitespace and comment lines.
-    deps = [
-        match.group(1)
-        for match in re.finditer(
-            r"^\s*(\S+)(?===\S+)", constraints_text, flags=re.MULTILINE
-        )
-    ]
+    # deps = [
+    #     match.group(1)
+    #     for match in re.finditer(
+    #         r"^\s*(\S+)(?===\S+)", constraints_text, flags=re.MULTILINE
+    #     )
+    # ]
 
     # We use --no-deps to ensure that pre-release versions aren't overwritten
     # by the version ranges in setup.py.
-    session.install(*deps)
-    session.install("--no-deps", "-e", ".[all]")
+    # session.install(*deps, "--no-deps", "-e", ".[all]")
+    # session.install("--no-deps", "-e", ".[all]")
 
     # Print out prerelease package versions..
     session.run("python", "-c", "import google.protobuf; print(google.protobuf.__version__)")
