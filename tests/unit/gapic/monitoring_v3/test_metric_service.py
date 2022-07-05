@@ -3839,7 +3839,6 @@ def test_metric_service_transport_auth_adc(transport_class):
     [
         transports.MetricServiceGrpcTransport,
         transports.MetricServiceGrpcAsyncIOTransport,
-        transports.MetricServiceRestTransport,
     ],
 )
 def test_metric_service_transport_auth_gdch_credentials(transport_class):

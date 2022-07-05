@@ -2724,7 +2724,6 @@ def test_uptime_check_service_transport_auth_adc(transport_class):
     [
         transports.UptimeCheckServiceGrpcTransport,
         transports.UptimeCheckServiceGrpcAsyncIOTransport,
-        transports.UptimeCheckServiceRestTransport,
     ],
 )
 def test_uptime_check_service_transport_auth_gdch_credentials(transport_class):

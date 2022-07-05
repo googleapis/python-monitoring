@@ -3773,7 +3773,6 @@ def test_service_monitoring_service_transport_auth_adc(transport_class):
     [
         transports.ServiceMonitoringServiceGrpcTransport,
         transports.ServiceMonitoringServiceGrpcAsyncIOTransport,
-        transports.ServiceMonitoringServiceRestTransport,
     ],
 )
 def test_service_monitoring_service_transport_auth_gdch_credentials(transport_class):

@@ -2400,7 +2400,6 @@ def test_alert_policy_service_transport_auth_adc(transport_class):
     [
         transports.AlertPolicyServiceGrpcTransport,
         transports.AlertPolicyServiceGrpcAsyncIOTransport,
-        transports.AlertPolicyServiceRestTransport,
     ],
 )
 def test_alert_policy_service_transport_auth_gdch_credentials(transport_class):

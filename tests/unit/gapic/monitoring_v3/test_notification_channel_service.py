@@ -4011,7 +4011,6 @@ def test_notification_channel_service_transport_auth_adc(transport_class):
     [
         transports.NotificationChannelServiceGrpcTransport,
         transports.NotificationChannelServiceGrpcAsyncIOTransport,
-        transports.NotificationChannelServiceRestTransport,
     ],
 )
 def test_notification_channel_service_transport_auth_gdch_credentials(transport_class):

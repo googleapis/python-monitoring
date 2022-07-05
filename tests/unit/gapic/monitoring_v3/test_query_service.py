@@ -1262,7 +1262,6 @@ def test_query_service_transport_auth_adc(transport_class):
     [
         transports.QueryServiceGrpcTransport,
         transports.QueryServiceGrpcAsyncIOTransport,
-        transports.QueryServiceRestTransport,
     ],
 )
 def test_query_service_transport_auth_gdch_credentials(transport_class):
