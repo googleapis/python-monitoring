@@ -117,8 +117,8 @@ def replace_notification_channels(project_name, alert_policy_id, channel_ids):
             must be in the format - 'projects/<PROJECT_NAME>'.
         alert_policy_id (str): The ID of the alert policy whose notification
             channels are to be replaced.
-        channel_ids list(str): List of IDs of notification channels to be
-            replaced as channels for the given alert policy.
+        channel_ids (str): ID of notification channel to be added as channel
+            for the given alert policy.
     """
 
     _, project_id = project_name.split("/")
