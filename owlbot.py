@@ -14,6 +14,7 @@
 
 """This script is used to synthesize generated parts of this library."""
 import re
+import os
 
 import synthtool as s
 import synthtool.gcp as gcp
