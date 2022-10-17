@@ -35,14 +35,14 @@ class AlertPolicyServiceGrpcAsyncIOTransport(AlertPolicyServiceTransport):
     """gRPC AsyncIO backend transport for AlertPolicyService.
 
     The AlertPolicyService API is used to manage (list, create, delete,
-    edit) alert policies in Stackdriver Monitoring. An alerting policy
-    is a description of the conditions under which some aspect of your
-    system is considered to be "unhealthy" and the ways to notify people
-    or services about this state. In addition to using this API, alert
-    policies can also be managed through `Stackdriver
+    edit) alert policies in Cloud Monitoring. An alerting policy is a
+    description of the conditions under which some aspect of your system
+    is considered to be "unhealthy" and the ways to notify people or
+    services about this state. In addition to using this API, alert
+    policies can also be managed through `Cloud
     Monitoring <https://cloud.google.com/monitoring/docs/>`__, which can
     be reached by clicking the "Monitoring" tab in `Cloud
-    Console <https://console.cloud.google.com/>`__.
+    console <https://console.cloud.google.com/>`__.
 
     This class defines the same methods as the primary client, so the
     primary client can load the underlying transport implementation
@@ -113,6 +113,7 @@ class AlertPolicyServiceGrpcAsyncIOTransport(AlertPolicyServiceTransport):
         quota_project_id=None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
         always_use_jwt_access: Optional[bool] = False,
+        api_audience: Optional[str] = None,
     ) -> None:
         """Instantiate the transport.
 
@@ -208,6 +209,7 @@ class AlertPolicyServiceGrpcAsyncIOTransport(AlertPolicyServiceTransport):
             quota_project_id=quota_project_id,
             client_info=client_info,
             always_use_jwt_access=always_use_jwt_access,
+            api_audience=api_audience,
         )
 
         if not self._grpc_channel:

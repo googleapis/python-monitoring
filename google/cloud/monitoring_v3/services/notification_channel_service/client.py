@@ -452,6 +452,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
                 quota_project_id=client_options.quota_project_id,
                 client_info=client_info,
                 always_use_jwt_access=True,
+                api_audience=client_options.api_audience,
             )
 
     def list_notification_channel_descriptors(
@@ -471,6 +472,13 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             def sample_list_notification_channel_descriptors():
@@ -601,6 +609,13 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             def sample_get_notification_channel_descriptor():
@@ -712,6 +727,13 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             def sample_list_notification_channels():
@@ -841,6 +863,13 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             def sample_get_notification_channel():
@@ -950,6 +979,13 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             def sample_create_notification_channel():
@@ -1079,6 +1115,13 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             def sample_update_notification_channel():
@@ -1197,6 +1240,13 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             def sample_delete_notification_channel():
@@ -1307,6 +1357,13 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             def sample_send_notification_channel_verification_code():
@@ -1427,6 +1484,13 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             def sample_get_notification_channel_verification_code():
@@ -1537,6 +1601,13 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             def sample_verify_notification_channel():

@@ -45,14 +45,14 @@ from .client import AlertPolicyServiceClient
 
 class AlertPolicyServiceAsyncClient:
     """The AlertPolicyService API is used to manage (list, create, delete,
-    edit) alert policies in Stackdriver Monitoring. An alerting policy
-    is a description of the conditions under which some aspect of your
-    system is considered to be "unhealthy" and the ways to notify people
-    or services about this state. In addition to using this API, alert
-    policies can also be managed through `Stackdriver
+    edit) alert policies in Cloud Monitoring. An alerting policy is a
+    description of the conditions under which some aspect of your system
+    is considered to be "unhealthy" and the ways to notify people or
+    services about this state. In addition to using this API, alert
+    policies can also be managed through `Cloud
     Monitoring <https://cloud.google.com/monitoring/docs/>`__, which can
     be reached by clicking the "Monitoring" tab in `Cloud
-    Console <https://console.cloud.google.com/>`__.
+    console <https://console.cloud.google.com/>`__.
     """
 
     _client: AlertPolicyServiceClient
@@ -239,6 +239,13 @@ class AlertPolicyServiceAsyncClient:
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             async def sample_list_alert_policies():
@@ -366,6 +373,13 @@ class AlertPolicyServiceAsyncClient:
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             async def sample_get_alert_policy():
@@ -478,6 +492,13 @@ class AlertPolicyServiceAsyncClient:
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             async def sample_create_alert_policy():
@@ -511,10 +532,10 @@ class AlertPolicyServiceAsyncClient:
                 Note that this field names the parent container in which
                 the alerting policy will be written, not the name of the
                 created policy. \|name\| must be a host project of a
-                workspace, otherwise INVALID_ARGUMENT error will return.
-                The alerting policy that is returned will have a name
-                that contains a normalized representation of this name
-                as a prefix but adds a suffix of the form
+                Metrics Scope, otherwise INVALID_ARGUMENT error will
+                return. The alerting policy that is returned will have a
+                name that contains a normalized representation of this
+                name as a prefix but adds a suffix of the form
                 ``/alertPolicies/[ALERT_POLICY_ID]``, identifying the
                 policy in the container.
 
@@ -602,6 +623,13 @@ class AlertPolicyServiceAsyncClient:
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             async def sample_delete_alert_policy():
@@ -704,6 +732,13 @@ class AlertPolicyServiceAsyncClient:
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             async def sample_update_alert_policy():

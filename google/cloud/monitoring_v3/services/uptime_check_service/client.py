@@ -433,6 +433,7 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
                 quota_project_id=client_options.quota_project_id,
                 client_info=client_info,
                 always_use_jwt_access=True,
+                api_audience=client_options.api_audience,
             )
 
     def list_uptime_check_configs(
@@ -450,6 +451,13 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             def sample_list_uptime_check_configs():
@@ -565,6 +573,13 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             def sample_get_uptime_check_config():
@@ -666,6 +681,13 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             def sample_create_uptime_check_config():
@@ -782,6 +804,13 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             def sample_update_uptime_check_config():
@@ -895,6 +924,13 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             def sample_delete_uptime_check_config():
@@ -984,6 +1020,13 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
         .. code-block:: python
 
+            # This snippet has been automatically generated and should be regarded as a
+            # code template only.
+            # It will require modifications to work:
+            # - It may require correct/in-range values for request initialization.
+            # - It may require specifying regional endpoints when creating the service
+            #   client as shown in:
+            #   https://googleapis.dev/python/google-api-core/latest/client_options.html
             from google.cloud import monitoring_v3
 
             def sample_list_uptime_check_ips():
