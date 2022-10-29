@@ -1182,7 +1182,7 @@ def test_get_uptime_check_config(request_type, transport: str = "grpc"):
             selected_regions=[uptime.UptimeCheckRegion.USA],
             is_internal=True,
             monitored_resource=monitored_resource_pb2.MonitoredResource(
-                type="type_value"
+                type="typevalue"
             ),
             http_check=uptime.UptimeCheckConfig.HttpCheck(
                 request_method=uptime.UptimeCheckConfig.HttpCheck.RequestMethod.GET
@@ -1447,7 +1447,7 @@ def test_create_uptime_check_config(request_type, transport: str = "grpc"):
             selected_regions=[uptime.UptimeCheckRegion.USA],
             is_internal=True,
             monitored_resource=monitored_resource_pb2.MonitoredResource(
-                type="type_value"
+                type="typevalue"
             ),
             http_check=uptime.UptimeCheckConfig.HttpCheck(
                 request_method=uptime.UptimeCheckConfig.HttpCheck.RequestMethod.GET
@@ -1722,7 +1722,7 @@ def test_update_uptime_check_config(request_type, transport: str = "grpc"):
             selected_regions=[uptime.UptimeCheckRegion.USA],
             is_internal=True,
             monitored_resource=monitored_resource_pb2.MonitoredResource(
-                type="type_value"
+                type="typevalue"
             ),
             http_check=uptime.UptimeCheckConfig.HttpCheck(
                 request_method=uptime.UptimeCheckConfig.HttpCheck.RequestMethod.GET
