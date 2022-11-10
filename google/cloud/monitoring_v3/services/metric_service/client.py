@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -61,7 +72,7 @@ class MetricServiceClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[MetricServiceTransport]:
         """Returns an appropriate transport class.
 
@@ -366,7 +377,7 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, MetricServiceTransport, None] = None,
+        transport: Optional[Union[str, MetricServiceTransport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -464,13 +475,13 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
 
     def list_monitored_resource_descriptors(
         self,
-        request: Union[
-            metric_service.ListMonitoredResourceDescriptorsRequest, dict
+        request: Optional[
+            Union[metric_service.ListMonitoredResourceDescriptorsRequest, dict]
         ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListMonitoredResourceDescriptorsPager:
         r"""Lists monitored resource descriptors that match a
@@ -590,13 +601,13 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
 
     def get_monitored_resource_descriptor(
         self,
-        request: Union[
-            metric_service.GetMonitoredResourceDescriptorRequest, dict
+        request: Optional[
+            Union[metric_service.GetMonitoredResourceDescriptorRequest, dict]
         ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> monitored_resource_pb2.MonitoredResourceDescriptor:
         r"""Gets a single monitored resource descriptor. This
@@ -715,11 +726,13 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
 
     def list_metric_descriptors(
         self,
-        request: Union[metric_service.ListMetricDescriptorsRequest, dict] = None,
+        request: Optional[
+            Union[metric_service.ListMetricDescriptorsRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListMetricDescriptorsPager:
         r"""Lists metric descriptors that match a filter. This
@@ -834,11 +847,13 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
 
     def get_metric_descriptor(
         self,
-        request: Union[metric_service.GetMetricDescriptorRequest, dict] = None,
+        request: Optional[
+            Union[metric_service.GetMetricDescriptorRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> metric_pb2.MetricDescriptor:
         r"""Gets a single metric descriptor. This method does not
@@ -946,12 +961,14 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
 
     def create_metric_descriptor(
         self,
-        request: Union[metric_service.CreateMetricDescriptorRequest, dict] = None,
+        request: Optional[
+            Union[metric_service.CreateMetricDescriptorRequest, dict]
+        ] = None,
         *,
-        name: str = None,
-        metric_descriptor: metric_pb2.MetricDescriptor = None,
+        name: Optional[str] = None,
+        metric_descriptor: Optional[metric_pb2.MetricDescriptor] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> metric_pb2.MetricDescriptor:
         r"""Creates a new metric descriptor. The creation is executed
@@ -1068,11 +1085,13 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
 
     def delete_metric_descriptor(
         self,
-        request: Union[metric_service.DeleteMetricDescriptorRequest, dict] = None,
+        request: Optional[
+            Union[metric_service.DeleteMetricDescriptorRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Deletes a metric descriptor. Only user-created `custom
@@ -1167,14 +1186,14 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
 
     def list_time_series(
         self,
-        request: Union[metric_service.ListTimeSeriesRequest, dict] = None,
+        request: Optional[Union[metric_service.ListTimeSeriesRequest, dict]] = None,
         *,
-        name: str = None,
-        filter: str = None,
-        interval: common.TimeInterval = None,
-        view: metric_service.ListTimeSeriesRequest.TimeSeriesView = None,
+        name: Optional[str] = None,
+        filter: Optional[str] = None,
+        interval: Optional[common.TimeInterval] = None,
+        view: Optional[metric_service.ListTimeSeriesRequest.TimeSeriesView] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListTimeSeriesPager:
         r"""Lists time series that match a filter. This method
@@ -1333,12 +1352,12 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
 
     def create_time_series(
         self,
-        request: Union[metric_service.CreateTimeSeriesRequest, dict] = None,
+        request: Optional[Union[metric_service.CreateTimeSeriesRequest, dict]] = None,
         *,
-        name: str = None,
-        time_series: Sequence[gm_metric.TimeSeries] = None,
+        name: Optional[str] = None,
+        time_series: Optional[MutableSequence[gm_metric.TimeSeries]] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Creates or adds data to one or more time series.
@@ -1385,7 +1404,7 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            time_series (Sequence[google.cloud.monitoring_v3.types.TimeSeries]):
+            time_series (MutableSequence[google.cloud.monitoring_v3.types.TimeSeries]):
                 Required. The new data to be added to a list of time
                 series. Adds at most one data point to each of several
                 time series. The new data point must be more recent than
@@ -1449,12 +1468,12 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
 
     def create_service_time_series(
         self,
-        request: Union[metric_service.CreateTimeSeriesRequest, dict] = None,
+        request: Optional[Union[metric_service.CreateTimeSeriesRequest, dict]] = None,
         *,
-        name: str = None,
-        time_series: Sequence[gm_metric.TimeSeries] = None,
+        name: Optional[str] = None,
+        time_series: Optional[MutableSequence[gm_metric.TimeSeries]] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Creates or adds data to one or more service time series. A
@@ -1505,7 +1524,7 @@ class MetricServiceClient(metaclass=MetricServiceClientMeta):
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            time_series (Sequence[google.cloud.monitoring_v3.types.TimeSeries]):
+            time_series (MutableSequence[google.cloud.monitoring_v3.types.TimeSeries]):
                 Required. The new data to be added to a list of time
                 series. Adds at most one data point to each of several
                 time series. The new data point must be more recent than

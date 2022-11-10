@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -60,7 +71,7 @@ class UptimeCheckServiceClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[UptimeCheckServiceTransport]:
         """Returns an appropriate transport class.
 
@@ -341,7 +352,7 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, UptimeCheckServiceTransport, None] = None,
+        transport: Optional[Union[str, UptimeCheckServiceTransport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -439,11 +450,13 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
     def list_uptime_check_configs(
         self,
-        request: Union[uptime_service.ListUptimeCheckConfigsRequest, dict] = None,
+        request: Optional[
+            Union[uptime_service.ListUptimeCheckConfigsRequest, dict]
+        ] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListUptimeCheckConfigsPager:
         r"""Lists the existing valid Uptime check configurations
@@ -563,11 +576,13 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
     def get_uptime_check_config(
         self,
-        request: Union[uptime_service.GetUptimeCheckConfigRequest, dict] = None,
+        request: Optional[
+            Union[uptime_service.GetUptimeCheckConfigRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> uptime.UptimeCheckConfig:
         r"""Gets a single Uptime check configuration.
@@ -670,12 +685,14 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
     def create_uptime_check_config(
         self,
-        request: Union[uptime_service.CreateUptimeCheckConfigRequest, dict] = None,
+        request: Optional[
+            Union[uptime_service.CreateUptimeCheckConfigRequest, dict]
+        ] = None,
         *,
-        parent: str = None,
-        uptime_check_config: uptime.UptimeCheckConfig = None,
+        parent: Optional[str] = None,
+        uptime_check_config: Optional[uptime.UptimeCheckConfig] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> uptime.UptimeCheckConfig:
         r"""Creates a new Uptime check configuration.
@@ -790,11 +807,13 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
     def update_uptime_check_config(
         self,
-        request: Union[uptime_service.UpdateUptimeCheckConfigRequest, dict] = None,
+        request: Optional[
+            Union[uptime_service.UpdateUptimeCheckConfigRequest, dict]
+        ] = None,
         *,
-        uptime_check_config: uptime.UptimeCheckConfig = None,
+        uptime_check_config: Optional[uptime.UptimeCheckConfig] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> uptime.UptimeCheckConfig:
         r"""Updates an Uptime check configuration. You can either replace
@@ -911,11 +930,13 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
     def delete_uptime_check_config(
         self,
-        request: Union[uptime_service.DeleteUptimeCheckConfigRequest, dict] = None,
+        request: Optional[
+            Union[uptime_service.DeleteUptimeCheckConfigRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Deletes an Uptime check configuration. Note that this
@@ -1010,10 +1031,10 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
 
     def list_uptime_check_ips(
         self,
-        request: Union[uptime_service.ListUptimeCheckIpsRequest, dict] = None,
+        request: Optional[Union[uptime_service.ListUptimeCheckIpsRequest, dict]] = None,
         *,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListUptimeCheckIpsPager:
         r"""Returns the list of IP addresses that checkers run

@@ -16,7 +16,17 @@
 from collections import OrderedDict
 import functools
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+)
 import pkg_resources
 
 from google.api_core.client_options import ClientOptions
@@ -177,9 +187,9 @@ class ServiceMonitoringServiceAsyncClient:
     def __init__(
         self,
         *,
-        credentials: ga_credentials.Credentials = None,
+        credentials: Optional[ga_credentials.Credentials] = None,
         transport: Union[str, ServiceMonitoringServiceTransport] = "grpc_asyncio",
-        client_options: ClientOptions = None,
+        client_options: Optional[ClientOptions] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
         """Instantiates the service monitoring service client.
@@ -223,12 +233,12 @@ class ServiceMonitoringServiceAsyncClient:
 
     async def create_service(
         self,
-        request: Union[service_service.CreateServiceRequest, dict] = None,
+        request: Optional[Union[service_service.CreateServiceRequest, dict]] = None,
         *,
-        parent: str = None,
-        service: gm_service.Service = None,
+        parent: Optional[str] = None,
+        service: Optional[gm_service.Service] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> gm_service.Service:
         r"""Create a ``Service``.
@@ -260,7 +270,7 @@ class ServiceMonitoringServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.monitoring_v3.types.CreateServiceRequest, dict]):
+            request (Optional[Union[google.cloud.monitoring_v3.types.CreateServiceRequest, dict]]):
                 The request object. The `CreateService` request.
             parent (:class:`str`):
                 Required. Resource
@@ -341,11 +351,11 @@ class ServiceMonitoringServiceAsyncClient:
 
     async def get_service(
         self,
-        request: Union[service_service.GetServiceRequest, dict] = None,
+        request: Optional[Union[service_service.GetServiceRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> service.Service:
         r"""Get the named ``Service``.
@@ -377,7 +387,7 @@ class ServiceMonitoringServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.monitoring_v3.types.GetServiceRequest, dict]):
+            request (Optional[Union[google.cloud.monitoring_v3.types.GetServiceRequest, dict]]):
                 The request object. The `GetService` request.
             name (:class:`str`):
                 Required. Resource name of the ``Service``. The format
@@ -459,11 +469,11 @@ class ServiceMonitoringServiceAsyncClient:
 
     async def list_services(
         self,
-        request: Union[service_service.ListServicesRequest, dict] = None,
+        request: Optional[Union[service_service.ListServicesRequest, dict]] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListServicesAsyncPager:
         r"""List ``Service``\ s for this workspace.
@@ -496,7 +506,7 @@ class ServiceMonitoringServiceAsyncClient:
                     print(response)
 
         Args:
-            request (Union[google.cloud.monitoring_v3.types.ListServicesRequest, dict]):
+            request (Optional[Union[google.cloud.monitoring_v3.types.ListServicesRequest, dict]]):
                 The request object. The `ListServices` request.
             parent (:class:`str`):
                 Required. Resource name of the parent containing the
@@ -588,11 +598,11 @@ class ServiceMonitoringServiceAsyncClient:
 
     async def update_service(
         self,
-        request: Union[service_service.UpdateServiceRequest, dict] = None,
+        request: Optional[Union[service_service.UpdateServiceRequest, dict]] = None,
         *,
-        service: gm_service.Service = None,
+        service: Optional[gm_service.Service] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> gm_service.Service:
         r"""Update this ``Service``.
@@ -623,7 +633,7 @@ class ServiceMonitoringServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.monitoring_v3.types.UpdateServiceRequest, dict]):
+            request (Optional[Union[google.cloud.monitoring_v3.types.UpdateServiceRequest, dict]]):
                 The request object. The `UpdateService` request.
             service (:class:`google.cloud.monitoring_v3.types.Service`):
                 Required. The ``Service`` to draw updates from. The
@@ -694,11 +704,11 @@ class ServiceMonitoringServiceAsyncClient:
 
     async def delete_service(
         self,
-        request: Union[service_service.DeleteServiceRequest, dict] = None,
+        request: Optional[Union[service_service.DeleteServiceRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Soft delete this ``Service``.
@@ -727,7 +737,7 @@ class ServiceMonitoringServiceAsyncClient:
                 await client.delete_service(request=request)
 
         Args:
-            request (Union[google.cloud.monitoring_v3.types.DeleteServiceRequest, dict]):
+            request (Optional[Union[google.cloud.monitoring_v3.types.DeleteServiceRequest, dict]]):
                 The request object. The `DeleteService` request.
             name (:class:`str`):
                 Required. Resource name of the ``Service`` to delete.
@@ -796,12 +806,14 @@ class ServiceMonitoringServiceAsyncClient:
 
     async def create_service_level_objective(
         self,
-        request: Union[service_service.CreateServiceLevelObjectiveRequest, dict] = None,
+        request: Optional[
+            Union[service_service.CreateServiceLevelObjectiveRequest, dict]
+        ] = None,
         *,
-        parent: str = None,
-        service_level_objective: service.ServiceLevelObjective = None,
+        parent: Optional[str] = None,
+        service_level_objective: Optional[service.ServiceLevelObjective] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> service.ServiceLevelObjective:
         r"""Create a ``ServiceLevelObjective`` for the given ``Service``.
@@ -833,7 +845,7 @@ class ServiceMonitoringServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.monitoring_v3.types.CreateServiceLevelObjectiveRequest, dict]):
+            request (Optional[Union[google.cloud.monitoring_v3.types.CreateServiceLevelObjectiveRequest, dict]]):
                 The request object. The `CreateServiceLevelObjective`
                 request.
             parent (:class:`str`):
@@ -924,11 +936,13 @@ class ServiceMonitoringServiceAsyncClient:
 
     async def get_service_level_objective(
         self,
-        request: Union[service_service.GetServiceLevelObjectiveRequest, dict] = None,
+        request: Optional[
+            Union[service_service.GetServiceLevelObjectiveRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> service.ServiceLevelObjective:
         r"""Get a ``ServiceLevelObjective`` by name.
@@ -960,7 +974,7 @@ class ServiceMonitoringServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.monitoring_v3.types.GetServiceLevelObjectiveRequest, dict]):
+            request (Optional[Union[google.cloud.monitoring_v3.types.GetServiceLevelObjectiveRequest, dict]]):
                 The request object. The `GetServiceLevelObjective`
                 request.
             name (:class:`str`):
@@ -1050,11 +1064,13 @@ class ServiceMonitoringServiceAsyncClient:
 
     async def list_service_level_objectives(
         self,
-        request: Union[service_service.ListServiceLevelObjectivesRequest, dict] = None,
+        request: Optional[
+            Union[service_service.ListServiceLevelObjectivesRequest, dict]
+        ] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListServiceLevelObjectivesAsyncPager:
         r"""List the ``ServiceLevelObjective``\ s for the given ``Service``.
@@ -1087,7 +1103,7 @@ class ServiceMonitoringServiceAsyncClient:
                     print(response)
 
         Args:
-            request (Union[google.cloud.monitoring_v3.types.ListServiceLevelObjectivesRequest, dict]):
+            request (Optional[Union[google.cloud.monitoring_v3.types.ListServiceLevelObjectivesRequest, dict]]):
                 The request object. The `ListServiceLevelObjectives`
                 request.
             parent (:class:`str`):
@@ -1179,11 +1195,13 @@ class ServiceMonitoringServiceAsyncClient:
 
     async def update_service_level_objective(
         self,
-        request: Union[service_service.UpdateServiceLevelObjectiveRequest, dict] = None,
+        request: Optional[
+            Union[service_service.UpdateServiceLevelObjectiveRequest, dict]
+        ] = None,
         *,
-        service_level_objective: service.ServiceLevelObjective = None,
+        service_level_objective: Optional[service.ServiceLevelObjective] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> service.ServiceLevelObjective:
         r"""Update the given ``ServiceLevelObjective``.
@@ -1214,7 +1232,7 @@ class ServiceMonitoringServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.monitoring_v3.types.UpdateServiceLevelObjectiveRequest, dict]):
+            request (Optional[Union[google.cloud.monitoring_v3.types.UpdateServiceLevelObjectiveRequest, dict]]):
                 The request object. The `UpdateServiceLevelObjective`
                 request.
             service_level_objective (:class:`google.cloud.monitoring_v3.types.ServiceLevelObjective`):
@@ -1299,11 +1317,13 @@ class ServiceMonitoringServiceAsyncClient:
 
     async def delete_service_level_objective(
         self,
-        request: Union[service_service.DeleteServiceLevelObjectiveRequest, dict] = None,
+        request: Optional[
+            Union[service_service.DeleteServiceLevelObjectiveRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Delete the given ``ServiceLevelObjective``.
@@ -1332,7 +1352,7 @@ class ServiceMonitoringServiceAsyncClient:
                 await client.delete_service_level_objective(request=request)
 
         Args:
-            request (Union[google.cloud.monitoring_v3.types.DeleteServiceLevelObjectiveRequest, dict]):
+            request (Optional[Union[google.cloud.monitoring_v3.types.DeleteServiceLevelObjectiveRequest, dict]]):
                 The request object. The `DeleteServiceLevelObjective`
                 request.
             name (:class:`str`):

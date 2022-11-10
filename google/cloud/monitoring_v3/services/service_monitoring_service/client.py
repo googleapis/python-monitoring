@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -61,7 +72,7 @@ class ServiceMonitoringServiceClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[ServiceMonitoringServiceTransport]:
         """Returns an appropriate transport class.
 
@@ -357,7 +368,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, ServiceMonitoringServiceTransport, None] = None,
+        transport: Optional[Union[str, ServiceMonitoringServiceTransport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -455,12 +466,12 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
     def create_service(
         self,
-        request: Union[service_service.CreateServiceRequest, dict] = None,
+        request: Optional[Union[service_service.CreateServiceRequest, dict]] = None,
         *,
-        parent: str = None,
-        service: gm_service.Service = None,
+        parent: Optional[str] = None,
+        service: Optional[gm_service.Service] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> gm_service.Service:
         r"""Create a ``Service``.
@@ -573,11 +584,11 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
     def get_service(
         self,
-        request: Union[service_service.GetServiceRequest, dict] = None,
+        request: Optional[Union[service_service.GetServiceRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> service.Service:
         r"""Get the named ``Service``.
@@ -682,11 +693,11 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
     def list_services(
         self,
-        request: Union[service_service.ListServicesRequest, dict] = None,
+        request: Optional[Union[service_service.ListServicesRequest, dict]] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListServicesPager:
         r"""List ``Service``\ s for this workspace.
@@ -802,11 +813,11 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
     def update_service(
         self,
-        request: Union[service_service.UpdateServiceRequest, dict] = None,
+        request: Optional[Union[service_service.UpdateServiceRequest, dict]] = None,
         *,
-        service: gm_service.Service = None,
+        service: Optional[gm_service.Service] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> gm_service.Service:
         r"""Update this ``Service``.
@@ -908,11 +919,11 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
     def delete_service(
         self,
-        request: Union[service_service.DeleteServiceRequest, dict] = None,
+        request: Optional[Union[service_service.DeleteServiceRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Soft delete this ``Service``.
@@ -1001,12 +1012,14 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
     def create_service_level_objective(
         self,
-        request: Union[service_service.CreateServiceLevelObjectiveRequest, dict] = None,
+        request: Optional[
+            Union[service_service.CreateServiceLevelObjectiveRequest, dict]
+        ] = None,
         *,
-        parent: str = None,
-        service_level_objective: service.ServiceLevelObjective = None,
+        parent: Optional[str] = None,
+        service_level_objective: Optional[service.ServiceLevelObjective] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> service.ServiceLevelObjective:
         r"""Create a ``ServiceLevelObjective`` for the given ``Service``.
@@ -1131,11 +1144,13 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
     def get_service_level_objective(
         self,
-        request: Union[service_service.GetServiceLevelObjectiveRequest, dict] = None,
+        request: Optional[
+            Union[service_service.GetServiceLevelObjectiveRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> service.ServiceLevelObjective:
         r"""Get a ``ServiceLevelObjective`` by name.
@@ -1250,11 +1265,13 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
     def list_service_level_objectives(
         self,
-        request: Union[service_service.ListServiceLevelObjectivesRequest, dict] = None,
+        request: Optional[
+            Union[service_service.ListServiceLevelObjectivesRequest, dict]
+        ] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListServiceLevelObjectivesPager:
         r"""List the ``ServiceLevelObjective``\ s for the given ``Service``.
@@ -1372,11 +1389,13 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
     def update_service_level_objective(
         self,
-        request: Union[service_service.UpdateServiceLevelObjectiveRequest, dict] = None,
+        request: Optional[
+            Union[service_service.UpdateServiceLevelObjectiveRequest, dict]
+        ] = None,
         *,
-        service_level_objective: service.ServiceLevelObjective = None,
+        service_level_objective: Optional[service.ServiceLevelObjective] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> service.ServiceLevelObjective:
         r"""Update the given ``ServiceLevelObjective``.
@@ -1494,11 +1513,13 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
 
     def delete_service_level_objective(
         self,
-        request: Union[service_service.DeleteServiceLevelObjectiveRequest, dict] = None,
+        request: Optional[
+            Union[service_service.DeleteServiceLevelObjectiveRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Delete the given ``ServiceLevelObjective``.

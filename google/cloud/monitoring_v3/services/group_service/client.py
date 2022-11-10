@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -58,7 +69,7 @@ class GroupServiceClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[GroupServiceTransport]:
         """Returns an appropriate transport class.
 
@@ -340,7 +351,7 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, GroupServiceTransport, None] = None,
+        transport: Optional[Union[str, GroupServiceTransport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -438,11 +449,11 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
 
     def list_groups(
         self,
-        request: Union[group_service.ListGroupsRequest, dict] = None,
+        request: Optional[Union[group_service.ListGroupsRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListGroupsPager:
         r"""Lists the existing groups.
@@ -557,11 +568,11 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
 
     def get_group(
         self,
-        request: Union[group_service.GetGroupRequest, dict] = None,
+        request: Optional[Union[group_service.GetGroupRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> group.Group:
         r"""Gets a single group.
@@ -692,12 +703,12 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
 
     def create_group(
         self,
-        request: Union[group_service.CreateGroupRequest, dict] = None,
+        request: Optional[Union[group_service.CreateGroupRequest, dict]] = None,
         *,
-        name: str = None,
-        group: gm_group.Group = None,
+        name: Optional[str] = None,
+        group: Optional[gm_group.Group] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> gm_group.Group:
         r"""Creates a new group.
@@ -839,11 +850,11 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
 
     def update_group(
         self,
-        request: Union[group_service.UpdateGroupRequest, dict] = None,
+        request: Optional[Union[group_service.UpdateGroupRequest, dict]] = None,
         *,
-        group: gm_group.Group = None,
+        group: Optional[gm_group.Group] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> gm_group.Group:
         r"""Updates an existing group. You can change any group attributes
@@ -974,11 +985,11 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
 
     def delete_group(
         self,
-        request: Union[group_service.DeleteGroupRequest, dict] = None,
+        request: Optional[Union[group_service.DeleteGroupRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Deletes an existing group.
@@ -1068,11 +1079,11 @@ class GroupServiceClient(metaclass=GroupServiceClientMeta):
 
     def list_group_members(
         self,
-        request: Union[group_service.ListGroupMembersRequest, dict] = None,
+        request: Optional[Union[group_service.ListGroupMembersRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListGroupMembersPager:
         r"""Lists the monitored resources that are members of a

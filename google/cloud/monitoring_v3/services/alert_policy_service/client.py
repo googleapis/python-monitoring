@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -62,7 +73,7 @@ class AlertPolicyServiceClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[AlertPolicyServiceTransport]:
         """Returns an appropriate transport class.
 
@@ -365,7 +376,7 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, AlertPolicyServiceTransport, None] = None,
+        transport: Optional[Union[str, AlertPolicyServiceTransport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -463,11 +474,11 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
 
     def list_alert_policies(
         self,
-        request: Union[alert_service.ListAlertPoliciesRequest, dict] = None,
+        request: Optional[Union[alert_service.ListAlertPoliciesRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListAlertPoliciesPager:
         r"""Lists the existing alerting policies for the
@@ -589,11 +600,11 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
 
     def get_alert_policy(
         self,
-        request: Union[alert_service.GetAlertPolicyRequest, dict] = None,
+        request: Optional[Union[alert_service.GetAlertPolicyRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> alert.AlertPolicy:
         r"""Gets a single alerting policy.
@@ -698,12 +709,12 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
 
     def create_alert_policy(
         self,
-        request: Union[alert_service.CreateAlertPolicyRequest, dict] = None,
+        request: Optional[Union[alert_service.CreateAlertPolicyRequest, dict]] = None,
         *,
-        name: str = None,
-        alert_policy: alert.AlertPolicy = None,
+        name: Optional[str] = None,
+        alert_policy: Optional[alert.AlertPolicy] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> alert.AlertPolicy:
         r"""Creates a new alerting policy.
@@ -830,11 +841,11 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
 
     def delete_alert_policy(
         self,
-        request: Union[alert_service.DeleteAlertPolicyRequest, dict] = None,
+        request: Optional[Union[alert_service.DeleteAlertPolicyRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Deletes an alerting policy.
@@ -926,12 +937,12 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
 
     def update_alert_policy(
         self,
-        request: Union[alert_service.UpdateAlertPolicyRequest, dict] = None,
+        request: Optional[Union[alert_service.UpdateAlertPolicyRequest, dict]] = None,
         *,
-        update_mask: field_mask_pb2.FieldMask = None,
-        alert_policy: alert.AlertPolicy = None,
+        update_mask: Optional[field_mask_pb2.FieldMask] = None,
+        alert_policy: Optional[alert.AlertPolicy] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> alert.AlertPolicy:
         r"""Updates an alerting policy. You can either replace the entire
