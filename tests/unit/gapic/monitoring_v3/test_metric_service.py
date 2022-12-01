@@ -1169,9 +1169,10 @@ def test_get_monitored_resource_descriptor(request_type, transport: str = "grpc"
         # Designate an appropriate return value for the call.
         call.return_value = monitored_resource_pb2.MonitoredResourceDescriptor(
             name="name_value",
-            type="typevalue",
+            type="type_value",
             display_name="display_name_value",
             description="description_value",
+            launch_stage=launch_stage_pb2.LaunchStage.UNIMPLEMENTED,
         )
         response = client.get_monitored_resource_descriptor(request)
 
@@ -1183,9 +1184,10 @@ def test_get_monitored_resource_descriptor(request_type, transport: str = "grpc"
     # Establish that the response is the type that we expect.
     assert isinstance(response, monitored_resource_pb2.MonitoredResourceDescriptor)
     assert response.name == "name_value"
-    assert response.type == "typevalue"
+    assert response.type == "type_value"
     assert response.display_name == "display_name_value"
     assert response.description == "description_value"
+    assert response.launch_stage == launch_stage_pb2.LaunchStage.UNIMPLEMENTED
 
 
 def test_get_monitored_resource_descriptor_empty_call():
@@ -1228,9 +1230,10 @@ async def test_get_monitored_resource_descriptor_async(
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             monitored_resource_pb2.MonitoredResourceDescriptor(
                 name="name_value",
-                type="typevalue",
+                type="type_value",
                 display_name="display_name_value",
                 description="description_value",
+                launch_stage=launch_stage_pb2.LaunchStage.UNIMPLEMENTED,
             )
         )
         response = await client.get_monitored_resource_descriptor(request)
@@ -1243,9 +1246,10 @@ async def test_get_monitored_resource_descriptor_async(
     # Establish that the response is the type that we expect.
     assert isinstance(response, monitored_resource_pb2.MonitoredResourceDescriptor)
     assert response.name == "name_value"
-    assert response.type == "typevalue"
+    assert response.type == "type_value"
     assert response.display_name == "display_name_value"
     assert response.description == "description_value"
+    assert response.launch_stage == launch_stage_pb2.LaunchStage.UNIMPLEMENTED
 
 
 @pytest.mark.asyncio
@@ -1871,12 +1875,14 @@ def test_get_metric_descriptor(request_type, transport: str = "grpc"):
         # Designate an appropriate return value for the call.
         call.return_value = metric_pb2.MetricDescriptor(
             name="name_value",
-            type="typevalue",
+            type="type_value",
             metric_kind=metric_pb2.MetricDescriptor.MetricKind.GAUGE,
             value_type=metric_pb2.MetricDescriptor.ValueType.BOOL,
             unit="unit_value",
             description="description_value",
             display_name="display_name_value",
+            launch_stage=launch_stage_pb2.LaunchStage.UNIMPLEMENTED,
+            monitored_resource_types=["monitored_resource_types_value"],
         )
         response = client.get_metric_descriptor(request)
 
@@ -1888,12 +1894,14 @@ def test_get_metric_descriptor(request_type, transport: str = "grpc"):
     # Establish that the response is the type that we expect.
     assert isinstance(response, metric_pb2.MetricDescriptor)
     assert response.name == "name_value"
-    assert response.type == "typevalue"
+    assert response.type == "type_value"
     assert response.metric_kind == metric_pb2.MetricDescriptor.MetricKind.GAUGE
     assert response.value_type == metric_pb2.MetricDescriptor.ValueType.BOOL
     assert response.unit == "unit_value"
     assert response.description == "description_value"
     assert response.display_name == "display_name_value"
+    assert response.launch_stage == launch_stage_pb2.LaunchStage.UNIMPLEMENTED
+    assert response.monitored_resource_types == ["monitored_resource_types_value"]
 
 
 def test_get_metric_descriptor_empty_call():
@@ -1936,12 +1944,14 @@ async def test_get_metric_descriptor_async(
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             metric_pb2.MetricDescriptor(
                 name="name_value",
-                type="typevalue",
+                type="type_value",
                 metric_kind=metric_pb2.MetricDescriptor.MetricKind.GAUGE,
                 value_type=metric_pb2.MetricDescriptor.ValueType.BOOL,
                 unit="unit_value",
                 description="description_value",
                 display_name="display_name_value",
+                launch_stage=launch_stage_pb2.LaunchStage.UNIMPLEMENTED,
+                monitored_resource_types=["monitored_resource_types_value"],
             )
         )
         response = await client.get_metric_descriptor(request)
@@ -1954,12 +1964,14 @@ async def test_get_metric_descriptor_async(
     # Establish that the response is the type that we expect.
     assert isinstance(response, metric_pb2.MetricDescriptor)
     assert response.name == "name_value"
-    assert response.type == "typevalue"
+    assert response.type == "type_value"
     assert response.metric_kind == metric_pb2.MetricDescriptor.MetricKind.GAUGE
     assert response.value_type == metric_pb2.MetricDescriptor.ValueType.BOOL
     assert response.unit == "unit_value"
     assert response.description == "description_value"
     assert response.display_name == "display_name_value"
+    assert response.launch_stage == launch_stage_pb2.LaunchStage.UNIMPLEMENTED
+    assert response.monitored_resource_types == ["monitored_resource_types_value"]
 
 
 @pytest.mark.asyncio
@@ -2142,12 +2154,14 @@ def test_create_metric_descriptor(request_type, transport: str = "grpc"):
         # Designate an appropriate return value for the call.
         call.return_value = metric_pb2.MetricDescriptor(
             name="name_value",
-            type="typevalue",
+            type="type_value",
             metric_kind=metric_pb2.MetricDescriptor.MetricKind.GAUGE,
             value_type=metric_pb2.MetricDescriptor.ValueType.BOOL,
             unit="unit_value",
             description="description_value",
             display_name="display_name_value",
+            launch_stage=launch_stage_pb2.LaunchStage.UNIMPLEMENTED,
+            monitored_resource_types=["monitored_resource_types_value"],
         )
         response = client.create_metric_descriptor(request)
 
@@ -2159,12 +2173,14 @@ def test_create_metric_descriptor(request_type, transport: str = "grpc"):
     # Establish that the response is the type that we expect.
     assert isinstance(response, metric_pb2.MetricDescriptor)
     assert response.name == "name_value"
-    assert response.type == "typevalue"
+    assert response.type == "type_value"
     assert response.metric_kind == metric_pb2.MetricDescriptor.MetricKind.GAUGE
     assert response.value_type == metric_pb2.MetricDescriptor.ValueType.BOOL
     assert response.unit == "unit_value"
     assert response.description == "description_value"
     assert response.display_name == "display_name_value"
+    assert response.launch_stage == launch_stage_pb2.LaunchStage.UNIMPLEMENTED
+    assert response.monitored_resource_types == ["monitored_resource_types_value"]
 
 
 def test_create_metric_descriptor_empty_call():
@@ -2207,12 +2223,14 @@ async def test_create_metric_descriptor_async(
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             metric_pb2.MetricDescriptor(
                 name="name_value",
-                type="typevalue",
+                type="type_value",
                 metric_kind=metric_pb2.MetricDescriptor.MetricKind.GAUGE,
                 value_type=metric_pb2.MetricDescriptor.ValueType.BOOL,
                 unit="unit_value",
                 description="description_value",
                 display_name="display_name_value",
+                launch_stage=launch_stage_pb2.LaunchStage.UNIMPLEMENTED,
+                monitored_resource_types=["monitored_resource_types_value"],
             )
         )
         response = await client.create_metric_descriptor(request)
@@ -2225,12 +2243,14 @@ async def test_create_metric_descriptor_async(
     # Establish that the response is the type that we expect.
     assert isinstance(response, metric_pb2.MetricDescriptor)
     assert response.name == "name_value"
-    assert response.type == "typevalue"
+    assert response.type == "type_value"
     assert response.metric_kind == metric_pb2.MetricDescriptor.MetricKind.GAUGE
     assert response.value_type == metric_pb2.MetricDescriptor.ValueType.BOOL
     assert response.unit == "unit_value"
     assert response.description == "description_value"
     assert response.display_name == "display_name_value"
+    assert response.launch_stage == launch_stage_pb2.LaunchStage.UNIMPLEMENTED
+    assert response.monitored_resource_types == ["monitored_resource_types_value"]
 
 
 @pytest.mark.asyncio
@@ -3254,7 +3274,7 @@ def test_create_time_series_flattened():
         client.create_time_series(
             name="name_value",
             time_series=[
-                gm_metric.TimeSeries(metric=metric_pb2.Metric(type="typevalue"))
+                gm_metric.TimeSeries(metric=metric_pb2.Metric(type="type_value"))
             ],
         )
 
@@ -3266,7 +3286,7 @@ def test_create_time_series_flattened():
         mock_val = "name_value"
         assert arg == mock_val
         arg = args[0].time_series
-        mock_val = [gm_metric.TimeSeries(metric=metric_pb2.Metric(type="typevalue"))]
+        mock_val = [gm_metric.TimeSeries(metric=metric_pb2.Metric(type="type_value"))]
         assert arg == mock_val
 
 
@@ -3282,7 +3302,7 @@ def test_create_time_series_flattened_error():
             metric_service.CreateTimeSeriesRequest(),
             name="name_value",
             time_series=[
-                gm_metric.TimeSeries(metric=metric_pb2.Metric(type="typevalue"))
+                gm_metric.TimeSeries(metric=metric_pb2.Metric(type="type_value"))
             ],
         )
 
@@ -3306,7 +3326,7 @@ async def test_create_time_series_flattened_async():
         response = await client.create_time_series(
             name="name_value",
             time_series=[
-                gm_metric.TimeSeries(metric=metric_pb2.Metric(type="typevalue"))
+                gm_metric.TimeSeries(metric=metric_pb2.Metric(type="type_value"))
             ],
         )
 
@@ -3318,7 +3338,7 @@ async def test_create_time_series_flattened_async():
         mock_val = "name_value"
         assert arg == mock_val
         arg = args[0].time_series
-        mock_val = [gm_metric.TimeSeries(metric=metric_pb2.Metric(type="typevalue"))]
+        mock_val = [gm_metric.TimeSeries(metric=metric_pb2.Metric(type="type_value"))]
         assert arg == mock_val
 
 
@@ -3335,7 +3355,7 @@ async def test_create_time_series_flattened_error_async():
             metric_service.CreateTimeSeriesRequest(),
             name="name_value",
             time_series=[
-                gm_metric.TimeSeries(metric=metric_pb2.Metric(type="typevalue"))
+                gm_metric.TimeSeries(metric=metric_pb2.Metric(type="type_value"))
             ],
         )
 
@@ -3506,7 +3526,7 @@ def test_create_service_time_series_flattened():
         client.create_service_time_series(
             name="name_value",
             time_series=[
-                gm_metric.TimeSeries(metric=metric_pb2.Metric(type="typevalue"))
+                gm_metric.TimeSeries(metric=metric_pb2.Metric(type="type_value"))
             ],
         )
 
@@ -3518,7 +3538,7 @@ def test_create_service_time_series_flattened():
         mock_val = "name_value"
         assert arg == mock_val
         arg = args[0].time_series
-        mock_val = [gm_metric.TimeSeries(metric=metric_pb2.Metric(type="typevalue"))]
+        mock_val = [gm_metric.TimeSeries(metric=metric_pb2.Metric(type="type_value"))]
         assert arg == mock_val
 
 
@@ -3534,7 +3554,7 @@ def test_create_service_time_series_flattened_error():
             metric_service.CreateTimeSeriesRequest(),
             name="name_value",
             time_series=[
-                gm_metric.TimeSeries(metric=metric_pb2.Metric(type="typevalue"))
+                gm_metric.TimeSeries(metric=metric_pb2.Metric(type="type_value"))
             ],
         )
 
@@ -3558,7 +3578,7 @@ async def test_create_service_time_series_flattened_async():
         response = await client.create_service_time_series(
             name="name_value",
             time_series=[
-                gm_metric.TimeSeries(metric=metric_pb2.Metric(type="typevalue"))
+                gm_metric.TimeSeries(metric=metric_pb2.Metric(type="type_value"))
             ],
         )
 
@@ -3570,7 +3590,7 @@ async def test_create_service_time_series_flattened_async():
         mock_val = "name_value"
         assert arg == mock_val
         arg = args[0].time_series
-        mock_val = [gm_metric.TimeSeries(metric=metric_pb2.Metric(type="typevalue"))]
+        mock_val = [gm_metric.TimeSeries(metric=metric_pb2.Metric(type="type_value"))]
         assert arg == mock_val
 
 
@@ -3587,7 +3607,7 @@ async def test_create_service_time_series_flattened_error_async():
             metric_service.CreateTimeSeriesRequest(),
             name="name_value",
             time_series=[
-                gm_metric.TimeSeries(metric=metric_pb2.Metric(type="typevalue"))
+                gm_metric.TimeSeries(metric=metric_pb2.Metric(type="type_value"))
             ],
         )
 
