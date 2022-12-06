@@ -28,7 +28,8 @@ from typing import (
     Union,
     cast,
 )
-import pkg_resources
+
+from google.cloud.monitoring_v3 import gapic_version as package_version
 
 from google.api_core import client_options as client_options_lib
 from google.api_core import exceptions as core_exceptions
@@ -478,7 +479,7 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
         *,
         name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListAlertPoliciesPager:
         r"""Lists the existing alerting policies for the
@@ -604,7 +605,7 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
         *,
         name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> alert.AlertPolicy:
         r"""Gets a single alerting policy.
@@ -714,7 +715,7 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
         name: Optional[str] = None,
         alert_policy: Optional[alert.AlertPolicy] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> alert.AlertPolicy:
         r"""Creates a new alerting policy.
@@ -845,7 +846,7 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
         *,
         name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Deletes an alerting policy.
@@ -942,7 +943,7 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
         update_mask: Optional[field_mask_pb2.FieldMask] = None,
         alert_policy: Optional[alert.AlertPolicy] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> alert.AlertPolicy:
         r"""Updates an alerting policy. You can either replace the entire
@@ -1096,14 +1097,9 @@ class AlertPolicyServiceClient(metaclass=AlertPolicyServiceClientMeta):
         self.transport.close()
 
 
-try:
-    DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
-        gapic_version=pkg_resources.get_distribution(
-            "google-cloud-monitoring",
-        ).version,
-    )
-except pkg_resources.DistributionNotFound:
-    DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo()
+DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
+    gapic_version=package_version.__version__
+)
 
 
 __all__ = ("AlertPolicyServiceClient",)

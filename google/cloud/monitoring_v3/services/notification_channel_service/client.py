@@ -28,7 +28,8 @@ from typing import (
     Union,
     cast,
 )
-import pkg_resources
+
+from google.cloud.monitoring_v3 import gapic_version as package_version
 
 from google.api_core import client_options as client_options_lib
 from google.api_core import exceptions as core_exceptions
@@ -475,7 +476,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         *,
         name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListNotificationChannelDescriptorsPager:
         r"""Lists the descriptors for supported channel types.
@@ -612,7 +613,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         *,
         name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> notification.NotificationChannelDescriptor:
         r"""Gets a single channel descriptor. The descriptor
@@ -731,7 +732,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         *,
         name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListNotificationChannelsPager:
         r"""Lists the notification channels that have been
@@ -864,7 +865,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         *,
         name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> notification.NotificationChannel:
         r"""Gets a single notification channel. The channel
@@ -984,7 +985,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         name: Optional[str] = None,
         notification_channel: Optional[notification.NotificationChannel] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> notification.NotificationChannel:
         r"""Creates a new notification channel, representing a
@@ -1121,7 +1122,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         update_mask: Optional[field_mask_pb2.FieldMask] = None,
         notification_channel: Optional[notification.NotificationChannel] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> notification.NotificationChannel:
         r"""Updates a notification channel. Fields not specified
@@ -1247,7 +1248,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         name: Optional[str] = None,
         force: Optional[bool] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Deletes a notification channel.
@@ -1365,7 +1366,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         *,
         name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Causes a verification code to be delivered to the channel. The
@@ -1469,7 +1470,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         *,
         name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> notification_service.GetNotificationChannelVerificationCodeResponse:
         r"""Requests a verification code for an already verified
@@ -1611,7 +1612,7 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         name: Optional[str] = None,
         code: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> notification.NotificationChannel:
         r"""Verifies a ``NotificationChannel`` by proving receipt of the
@@ -1749,14 +1750,9 @@ class NotificationChannelServiceClient(metaclass=NotificationChannelServiceClien
         self.transport.close()
 
 
-try:
-    DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
-        gapic_version=pkg_resources.get_distribution(
-            "google-cloud-monitoring",
-        ).version,
-    )
-except pkg_resources.DistributionNotFound:
-    DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo()
+DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
+    gapic_version=package_version.__version__
+)
 
 
 __all__ = ("NotificationChannelServiceClient",)

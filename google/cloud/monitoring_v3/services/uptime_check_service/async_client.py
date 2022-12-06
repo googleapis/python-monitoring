@@ -27,7 +27,8 @@ from typing import (
     Type,
     Union,
 )
-import pkg_resources
+
+from google.cloud.monitoring_v3 import gapic_version as package_version
 
 from google.api_core.client_options import ClientOptions
 from google.api_core import exceptions as core_exceptions
@@ -236,7 +237,7 @@ class UptimeCheckServiceAsyncClient:
         *,
         parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListUptimeCheckConfigsAsyncPager:
         r"""Lists the existing valid Uptime check configurations
@@ -369,7 +370,7 @@ class UptimeCheckServiceAsyncClient:
         *,
         name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> uptime.UptimeCheckConfig:
         r"""Gets a single Uptime check configuration.
@@ -488,7 +489,7 @@ class UptimeCheckServiceAsyncClient:
         parent: Optional[str] = None,
         uptime_check_config: Optional[uptime.UptimeCheckConfig] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> uptime.UptimeCheckConfig:
         r"""Creates a new Uptime check configuration.
@@ -607,7 +608,7 @@ class UptimeCheckServiceAsyncClient:
         *,
         uptime_check_config: Optional[uptime.UptimeCheckConfig] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> uptime.UptimeCheckConfig:
         r"""Updates an Uptime check configuration. You can either replace
@@ -728,7 +729,7 @@ class UptimeCheckServiceAsyncClient:
         *,
         name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Deletes an Uptime check configuration. Note that this
@@ -833,7 +834,7 @@ class UptimeCheckServiceAsyncClient:
         request: Optional[Union[uptime_service.ListUptimeCheckIpsRequest, dict]] = None,
         *,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListUptimeCheckIpsAsyncPager:
         r"""Returns the list of IP addresses that checkers run
@@ -930,14 +931,9 @@ class UptimeCheckServiceAsyncClient:
         await self.transport.close()
 
 
-try:
-    DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
-        gapic_version=pkg_resources.get_distribution(
-            "google-cloud-monitoring",
-        ).version,
-    )
-except pkg_resources.DistributionNotFound:
-    DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo()
+DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
+    gapic_version=package_version.__version__
+)
 
 
 __all__ = ("UptimeCheckServiceAsyncClient",)
