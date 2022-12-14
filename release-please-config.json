@@ -5,6 +5,7 @@
         "release-type": "python",
         "extra-files": [
           "google/cloud/monitoring/gapic_version.py",
+          "google/cloud/monitoring_v3/gapic_version.py",
           {
             "type": "json",
             "path": "samples/generated_samples/snippet_metadata_google.monitoring.v3.json",
