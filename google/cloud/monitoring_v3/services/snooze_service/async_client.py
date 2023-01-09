@@ -143,7 +143,7 @@ class SnoozeServiceAsyncClient:
         The API endpoint is determined in the following order:
         (1) if `client_options.api_endpoint` if provided, use the provided one.
         (2) if `GOOGLE_API_USE_CLIENT_CERTIFICATE` environment variable is "always", use the
-        default mTLS endpoint; if the environment variabel is "never", use the default API
+        default mTLS endpoint; if the environment variable is "never", use the default API
         endpoint; otherwise if client cert source exists, use the default mTLS endpoint, otherwise
         use the default API endpoint.
 
@@ -654,12 +654,13 @@ class SnoozeServiceAsyncClient:
 
                 What fields can be updated depends on the start time and
                 end time of the `Snooze`.
-                * end time is in the past: These `Snooze`s are
+
+                  * end time is in the past: These `Snooze`s are
                 considered     read-only and cannot be updated.
-                * start time is in the past and end time is in the
+                  * start time is in the past and end time is in the
                 future: `display_name`     and `interval.end_time` can
                 be updated.
-                * start time is in the future: `display_name`,
+                  * start time is in the future: `display_name`,
                 `interval.start_time` and     `interval.end_time` can be
                 updated.
             snooze (:class:`google.cloud.monitoring_v3.types.Snooze`):
