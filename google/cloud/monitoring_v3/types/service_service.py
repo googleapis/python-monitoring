@@ -106,16 +106,16 @@ class ListServicesRequest(proto.Message):
             filter currently supports the following fields:
 
             ```
-                - `identifier_case`
-                - `app_engine.module_id`
-                - `cloud_endpoints.service` (reserved for future use)
-                - `mesh_istio.mesh_uid`
-                - `mesh_istio.service_namespace`
-                - `mesh_istio.service_name`
-                - `cluster_istio.location` (deprecated)
-                - `cluster_istio.cluster_name` (deprecated)
-                - `cluster_istio.service_namespace` (deprecated)
-                - `cluster_istio.service_name` (deprecated)
+                - `identifier_case`
+                - `app_engine.module_id`
+                - `cloud_endpoints.service` (reserved for future use)
+                - `mesh_istio.mesh_uid`
+                - `mesh_istio.service_namespace`
+                - `mesh_istio.service_name`
+                - `cluster_istio.location` (deprecated)
+                - `cluster_istio.cluster_name` (deprecated)
+                - `cluster_istio.service_namespace` (deprecated)
+                - `cluster_istio.service_name` (deprecated)
             ```
 
             ``identifier_case`` refers to which option in the identifier

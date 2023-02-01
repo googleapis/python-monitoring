@@ -736,8 +736,8 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
                 or a Monitoring Workspace. The formats are:
 
                 ```
-                    projects/[PROJECT_ID_OR_NUMBER]
-                    workspaces/[HOST_PROJECT_ID_OR_NUMBER]
+                    projects/[PROJECT_ID_OR_NUMBER]
+                    workspaces/[HOST_PROJECT_ID_OR_NUMBER]
                 ```
 
                 This corresponds to the ``parent`` field
