@@ -83,7 +83,7 @@ class ListSnoozesRequest(proto.Message):
 
             ```
                 interval.start_time > "2022-03-11T00:00:00-08:00" AND
-                interval.end_time < "2022-03-12T00:00:00-08:00"
+                    interval.end_time < "2022-03-12T00:00:00-08:00"
             ```
         page_size (int):
             Optional. The maximum number of results to return for a
