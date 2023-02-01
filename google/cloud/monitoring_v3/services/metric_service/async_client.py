@@ -1021,9 +1021,9 @@ class MetricServiceAsyncClient:
                 The format is:
 
                 ```
-                    projects/[PROJECT_ID_OR_NUMBER]
-                    organizations/[ORGANIZATION_ID]
-                    folders/[FOLDER_ID]
+                    projects/[PROJECT_ID_OR_NUMBER]
+                    organizations/[ORGANIZATION_ID]
+                    folders/[FOLDER_ID]
                 ```
 
                 This corresponds to the ``name`` field
@@ -1038,8 +1038,8 @@ class MetricServiceAsyncClient:
                 information. For example:
 
                 ```
-                    metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
-                        metric.labels.instance_name = "my-instance-name"
+                    metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
+                        metric.labels.instance_name = "my-instance-name"
                 ```
 
                 This corresponds to the ``filter`` field

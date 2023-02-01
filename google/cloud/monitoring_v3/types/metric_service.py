@@ -300,9 +300,9 @@ class ListTimeSeriesRequest(proto.Message):
             format is:
 
             ```
-                projects/[PROJECT_ID_OR_NUMBER]
-                organizations/[ORGANIZATION_ID]
-                folders/[FOLDER_ID]
+                projects/[PROJECT_ID_OR_NUMBER]
+                organizations/[ORGANIZATION_ID]
+                folders/[FOLDER_ID]
             ```
         filter (str):
             Required. A `monitoring
@@ -313,8 +313,8 @@ class ListTimeSeriesRequest(proto.Message):
             For example:
 
             ```
-                metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
-                    metric.labels.instance_name = "my-instance-name".
+                metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
+                    metric.labels.instance_name = "my-instance-name".
             ```
         interval (google.cloud.monitoring_v3.types.TimeInterval):
             Required. The time interval for which results
