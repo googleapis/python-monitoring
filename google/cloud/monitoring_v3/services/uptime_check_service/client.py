@@ -501,9 +501,7 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
                 whose Uptime check configurations are listed. The format
                 is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]
+                ```projects/[PROJECT_ID_OR_NUMBER]```
 
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -622,9 +620,7 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
                 Required. The Uptime check configuration to retrieve.
                 The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+                ```projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -733,9 +729,7 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
                 in which to create the Uptime check. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]
+                ```projects/[PROJECT_ID_OR_NUMBER]```
 
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -976,9 +970,7 @@ class UptimeCheckServiceClient(metaclass=UptimeCheckServiceClientMeta):
                 Required. The Uptime check configuration to delete. The
                 format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+                ```projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this

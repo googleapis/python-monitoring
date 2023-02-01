@@ -271,9 +271,7 @@ class GroupServiceAsyncClient:
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
                 whose groups are to be listed. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]
+                ```projects/[PROJECT_ID_OR_NUMBER]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -395,9 +393,7 @@ class GroupServiceAsyncClient:
             name (:class:`str`):
                 Required. The group to retrieve. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+                ```projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -542,9 +538,7 @@ class GroupServiceAsyncClient:
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
                 in which to create the group. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]
+                ```projects/[PROJECT_ID_OR_NUMBER]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -829,9 +823,7 @@ class GroupServiceAsyncClient:
             name (:class:`str`):
                 Required. The group to delete. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+                ```projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -936,9 +928,7 @@ class GroupServiceAsyncClient:
                 Required. The group whose members are listed. The format
                 is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+                ```projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this

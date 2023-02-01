@@ -278,9 +278,7 @@ class ServiceMonitoringServiceAsyncClient:
                 `name <https://cloud.google.com/monitoring/api/v3#project_name>`__
                 of the parent workspace. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]
+                ```projects/[PROJECT_ID_OR_NUMBER]```
 
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -394,9 +392,7 @@ class ServiceMonitoringServiceAsyncClient:
                 Required. Resource name of the ``Service``. The format
                 is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+                ```projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -515,10 +511,10 @@ class ServiceMonitoringServiceAsyncClient:
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
                 or a Monitoring Workspace. The formats are:
 
-                ::
-
+                ```
                     projects/[PROJECT_ID_OR_NUMBER]
                     workspaces/[HOST_PROJECT_ID_OR_NUMBER]
+                ```
 
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -744,9 +740,7 @@ class ServiceMonitoringServiceAsyncClient:
                 Required. Resource name of the ``Service`` to delete.
                 The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+                ```projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -853,9 +847,7 @@ class ServiceMonitoringServiceAsyncClient:
                 Required. Resource name of the parent ``Service``. The
                 format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+                ```projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]```
 
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -982,9 +974,7 @@ class ServiceMonitoringServiceAsyncClient:
                 Required. Resource name of the ``ServiceLevelObjective``
                 to get. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
+                ```projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -1112,10 +1102,10 @@ class ServiceMonitoringServiceAsyncClient:
                 listed SLOs, either a project or a Monitoring Workspace.
                 The formats are:
 
-                ::
-
+                ```
                     projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
                     workspaces/[HOST_PROJECT_ID_OR_NUMBER]/services/-
+                ```
 
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -1360,9 +1350,7 @@ class ServiceMonitoringServiceAsyncClient:
                 Required. Resource name of the ``ServiceLevelObjective``
                 to delete. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
+                ```projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this

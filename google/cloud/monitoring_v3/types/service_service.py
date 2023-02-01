@@ -49,9 +49,7 @@ class CreateServiceRequest(proto.Message):
             `name <https://cloud.google.com/monitoring/api/v3#project_name>`__
             of the parent workspace. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]
+            ```projects/[PROJECT_ID_OR_NUMBER]```
         service_id (str):
             Optional. The Service id to use for this Service. If
             omitted, an id will be generated instead. Must match the
@@ -82,9 +80,7 @@ class GetServiceRequest(proto.Message):
         name (str):
             Required. Resource name of the ``Service``. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]```
     """
 
     name: str = proto.Field(
@@ -103,16 +99,13 @@ class ListServicesRequest(proto.Message):
             `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
             or a Monitoring Workspace. The formats are:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]
+            ```projects/[PROJECT_ID_OR_NUMBER]```
                 workspaces/[HOST_PROJECT_ID_OR_NUMBER]
         filter (str):
             A filter specifying what ``Service``\ s to return. The
             filter currently supports the following fields:
 
-            ::
-
+            ```
                 - `identifier_case`
                 - `app_engine.module_id`
                 - `cloud_endpoints.service` (reserved for future use)
@@ -123,6 +116,7 @@ class ListServicesRequest(proto.Message):
                 - `cluster_istio.cluster_name` (deprecated)
                 - `cluster_istio.service_namespace` (deprecated)
                 - `cluster_istio.service_name` (deprecated)
+            ```
 
             ``identifier_case`` refers to which option in the identifier
             oneof is populated. For example, the filter
@@ -220,9 +214,7 @@ class DeleteServiceRequest(proto.Message):
             Required. Resource name of the ``Service`` to delete. The
             format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]```
     """
 
     name: str = proto.Field(
@@ -239,9 +231,7 @@ class CreateServiceLevelObjectiveRequest(proto.Message):
             Required. Resource name of the parent ``Service``. The
             format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]```
         service_level_objective_id (str):
             Optional. The ServiceLevelObjective id to use for this
             ServiceLevelObjective. If omitted, an id will be generated
@@ -275,9 +265,7 @@ class GetServiceLevelObjectiveRequest(proto.Message):
             Required. Resource name of the ``ServiceLevelObjective`` to
             get. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
+            ```projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]```
         view (google.cloud.monitoring_v3.types.ServiceLevelObjective.View):
             View of the ``ServiceLevelObjective`` to return. If
             ``DEFAULT``, return the ``ServiceLevelObjective`` as
@@ -307,9 +295,7 @@ class ListServiceLevelObjectivesRequest(proto.Message):
             SLOs, either a project or a Monitoring Workspace. The
             formats are:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]```
                 workspaces/[HOST_PROJECT_ID_OR_NUMBER]/services/-
         filter (str):
             A filter specifying what ``ServiceLevelObjective``\ s to
@@ -418,9 +404,7 @@ class DeleteServiceLevelObjectiveRequest(proto.Message):
             Required. Resource name of the ``ServiceLevelObjective`` to
             delete. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
+            ```projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]```
     """
 
     name: str = proto.Field(

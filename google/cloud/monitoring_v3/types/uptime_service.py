@@ -45,9 +45,7 @@ class ListUptimeCheckConfigsRequest(proto.Message):
             `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
             whose Uptime check configurations are listed. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]
+            ```projects/[PROJECT_ID_OR_NUMBER]```
         page_size (int):
             The maximum number of results to return in a single
             response. The server may further constrain the maximum
@@ -123,9 +121,7 @@ class GetUptimeCheckConfigRequest(proto.Message):
             Required. The Uptime check configuration to retrieve. The
             format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]```
     """
 
     name: str = proto.Field(
@@ -143,9 +139,7 @@ class CreateUptimeCheckConfigRequest(proto.Message):
             `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
             in which to create the Uptime check. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]
+            ```projects/[PROJECT_ID_OR_NUMBER]```
         uptime_check_config (google.cloud.monitoring_v3.types.UptimeCheckConfig):
             Required. The new Uptime check configuration.
     """
@@ -207,9 +201,7 @@ class DeleteUptimeCheckConfigRequest(proto.Message):
             Required. The Uptime check configuration to delete. The
             format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]```
     """
 
     name: str = proto.Field(

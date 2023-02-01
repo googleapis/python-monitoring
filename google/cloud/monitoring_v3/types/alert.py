@@ -44,9 +44,7 @@ class AlertPolicy(proto.Message):
             Required if the policy exists. The resource name for this
             policy. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]```
 
             ``[ALERT_POLICY_ID]`` is assigned by Cloud Monitoring when
             the policy is created. When calling the
@@ -116,9 +114,7 @@ class AlertPolicy(proto.Message):
             [google.monitoring.v3.NotificationChannelService.ListNotificationChannels]
             method. The format of the entries in this field is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]```
         creation_record (google.cloud.monitoring_v3.types.MutationRecord):
             A read-only record of the creation of the
             alerting policy. If provided in a call to create
@@ -203,9 +199,7 @@ class AlertPolicy(proto.Message):
                 Required if the condition exists. The unique resource name
                 for this condition. Its format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[POLICY_ID]/conditions/[CONDITION_ID]
+                ```projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[POLICY_ID]/conditions/[CONDITION_ID]```
 
                 ``[CONDITION_ID]`` is assigned by Cloud Monitoring when the
                 condition is created as part of a new or updated alerting

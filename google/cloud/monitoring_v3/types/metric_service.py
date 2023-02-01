@@ -56,9 +56,7 @@ class ListMonitoredResourceDescriptorsRequest(proto.Message):
             `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
             on which to execute the request. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]
+            ```projects/[PROJECT_ID_OR_NUMBER]```
         filter (str):
             An optional
             `filter <https://cloud.google.com/monitoring/api/v3/filters>`__
@@ -67,9 +65,7 @@ class ListMonitoredResourceDescriptorsRequest(proto.Message):
             following filter returns only Google Compute Engine
             descriptors that have an ``id`` label:
 
-            ::
-
-                resource.type = starts_with("gce_") AND resource.label:id
+            ```resource.type = starts_with("gce_") AND resource.label:id```
         page_size (int):
             A positive number that is the maximum number
             of results to return.
@@ -137,9 +133,7 @@ class GetMonitoredResourceDescriptorRequest(proto.Message):
             Required. The monitored resource descriptor to get. The
             format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/monitoredResourceDescriptors/[RESOURCE_TYPE]
+            ```projects/[PROJECT_ID_OR_NUMBER]/monitoredResourceDescriptors/[RESOURCE_TYPE]```
 
             The ``[RESOURCE_TYPE]`` is a predefined type, such as
             ``cloudsql_database``.
@@ -160,9 +154,7 @@ class ListMetricDescriptorsRequest(proto.Message):
             `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
             on which to execute the request. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]
+            ```projects/[PROJECT_ID_OR_NUMBER]```
         filter (str):
             If this field is empty, all custom and system-defined metric
             descriptors are returned. Otherwise, the
@@ -171,9 +163,7 @@ class ListMetricDescriptorsRequest(proto.Message):
             example, the following filter matches all `custom
             metrics <https://cloud.google.com/monitoring/custom-metrics>`__:
 
-            ::
-
-                metric.type = starts_with("custom.googleapis.com/")
+            ```metric.type = starts_with("custom.googleapis.com/")```
         page_size (int):
             A positive number that is the maximum number
             of results to return.
@@ -241,9 +231,7 @@ class GetMetricDescriptorRequest(proto.Message):
             Required. The metric descriptor on which to execute the
             request. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID]```
 
             An example value of ``[METRIC_ID]`` is
             ``"compute.googleapis.com/instance/disk/read_bytes_count"``.
@@ -289,9 +277,7 @@ class DeleteMetricDescriptorRequest(proto.Message):
             Required. The metric descriptor on which to execute the
             request. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID]```
 
             An example of ``[METRIC_ID]`` is:
             ``"custom.googleapis.com/my_test_metric"``.
@@ -313,11 +299,11 @@ class ListTimeSeriesRequest(proto.Message):
             organization or folder on which to execute the request. The
             format is:
 
-            ::
-
+            ```
                 projects/[PROJECT_ID_OR_NUMBER]
                 organizations/[ORGANIZATION_ID]
                 folders/[FOLDER_ID]
+            ```
         filter (str):
             Required. A `monitoring
             filter <https://cloud.google.com/monitoring/api/v3/filters>`__
@@ -326,10 +312,10 @@ class ListTimeSeriesRequest(proto.Message):
             additionally specify metric labels and other information.
             For example:
 
-            ::
-
+            ```
                 metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
                     metric.labels.instance_name = "my-instance-name".
+            ```
         interval (google.cloud.monitoring_v3.types.TimeInterval):
             Required. The time interval for which results
             should be returned. Only time series that
@@ -480,9 +466,7 @@ class CreateTimeSeriesRequest(proto.Message):
             `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
             on which to execute the request. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]
+            ```projects/[PROJECT_ID_OR_NUMBER]```
         time_series (MutableSequence[google.cloud.monitoring_v3.types.TimeSeries]):
             Required. The new data to be added to a list of time series.
             Adds at most one data point to each of several time series.
@@ -590,9 +574,7 @@ class QueryTimeSeriesRequest(proto.Message):
             `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
             on which to execute the request. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]
+            ```projects/[PROJECT_ID_OR_NUMBER]```
         query (str):
             Required. The query in the `Monitoring Query
             Language <https://cloud.google.com/monitoring/mql/reference>`__

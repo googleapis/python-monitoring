@@ -53,15 +53,11 @@ class ListGroupsRequest(proto.Message):
             `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
             whose groups are to be listed. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]
+            ```projects/[PROJECT_ID_OR_NUMBER]```
         children_of_group (str):
             A group name. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]```
 
             Returns groups whose ``parent_name`` field contains the
             group name. If no groups have this parent, the results are
@@ -71,9 +67,7 @@ class ListGroupsRequest(proto.Message):
         ancestors_of_group (str):
             A group name. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]```
 
             Returns groups that are ancestors of the specified group.
             The groups are returned in order, starting with the
@@ -85,9 +79,7 @@ class ListGroupsRequest(proto.Message):
         descendants_of_group (str):
             A group name. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]```
 
             Returns the descendants of the specified group. This is a
             superset of the results returned by the
@@ -169,9 +161,7 @@ class GetGroupRequest(proto.Message):
         name (str):
             Required. The group to retrieve. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]```
     """
 
     name: str = proto.Field(
@@ -189,9 +179,7 @@ class CreateGroupRequest(proto.Message):
             `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
             in which to create the group. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]
+            ```projects/[PROJECT_ID_OR_NUMBER]```
         group (google.cloud.monitoring_v3.types.Group):
             Required. A group definition. It is an error to define the
             ``name`` field because the system assigns the name.
@@ -247,9 +235,7 @@ class DeleteGroupRequest(proto.Message):
         name (str):
             Required. The group to delete. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]```
         recursive (bool):
             If this field is true, then the request means
             to delete a group with all its descendants.
@@ -275,9 +261,7 @@ class ListGroupMembersRequest(proto.Message):
         name (str):
             Required. The group whose members are listed. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]```
         page_size (int):
             A positive number that is the maximum number
             of results to return.
@@ -295,9 +279,7 @@ class ListGroupMembersRequest(proto.Message):
             only resources representing Compute Engine VM instances, use
             this filter:
 
-            ::
-
-                `resource.type = "gce_instance"`
+            ```resource.type = "gce_instance"```
         interval (google.cloud.monitoring_v3.types.TimeInterval):
             An optional time interval for which results
             should be returned. Only members that were part

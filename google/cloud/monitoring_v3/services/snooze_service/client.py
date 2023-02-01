@@ -515,9 +515,7 @@ class SnoozeServiceClient(metaclass=SnoozeServiceClientMeta):
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
                 in which a ``Snooze`` should be created. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]
+                ```projects/[PROJECT_ID_OR_NUMBER]```
 
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -638,9 +636,7 @@ class SnoozeServiceClient(metaclass=SnoozeServiceClientMeta):
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
                 whose ``Snooze``\ s should be listed. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]
+                ```projects/[PROJECT_ID_OR_NUMBER]```
 
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -757,9 +753,7 @@ class SnoozeServiceClient(metaclass=SnoozeServiceClientMeta):
                 Required. The ID of the ``Snooze`` to retrieve. The
                 format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/snoozes/[SNOOZE_ID]
+                ```projects/[PROJECT_ID_OR_NUMBER]/snoozes/[SNOOZE_ID]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this

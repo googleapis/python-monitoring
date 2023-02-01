@@ -43,9 +43,7 @@ class CreateAlertPolicyRequest(proto.Message):
             `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
             in which to create the alerting policy. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]
+            ```projects/[PROJECT_ID_OR_NUMBER]```
 
             Note that this field names the parent container in which the
             alerting policy will be written, not the name of the created
@@ -79,9 +77,7 @@ class GetAlertPolicyRequest(proto.Message):
         name (str):
             Required. The alerting policy to retrieve. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]```
     """
 
     name: str = proto.Field(
@@ -99,9 +95,7 @@ class ListAlertPoliciesRequest(proto.Message):
             `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
             whose alert policies are to be listed. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]
+            ```projects/[PROJECT_ID_OR_NUMBER]```
 
             Note that this field names the parent container in which the
             alerting policies to be listed are stored. To retrieve a
@@ -248,9 +242,7 @@ class DeleteAlertPolicyRequest(proto.Message):
         name (str):
             Required. The alerting policy to delete. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]```
 
             For more information, see
             [AlertPolicy][google.monitoring.v3.AlertPolicy].

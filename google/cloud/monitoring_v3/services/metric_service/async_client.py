@@ -279,9 +279,7 @@ class MetricServiceAsyncClient:
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
                 on which to execute the request. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]
+                ```projects/[PROJECT_ID_OR_NUMBER]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -408,9 +406,7 @@ class MetricServiceAsyncClient:
                 Required. The monitored resource descriptor to get. The
                 format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/monitoredResourceDescriptors/[RESOURCE_TYPE]
+                ```projects/[PROJECT_ID_OR_NUMBER]/monitoredResourceDescriptors/[RESOURCE_TYPE]```
 
                 The ``[RESOURCE_TYPE]`` is a predefined type, such as
                 ``cloudsql_database``.
@@ -539,9 +535,7 @@ class MetricServiceAsyncClient:
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
                 on which to execute the request. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]
+                ```projects/[PROJECT_ID_OR_NUMBER]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -667,9 +661,7 @@ class MetricServiceAsyncClient:
                 Required. The metric descriptor on which to execute the
                 request. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID]
+                ```projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID]```
 
                 An example value of ``[METRIC_ID]`` is
                 ``"compute.googleapis.com/instance/disk/read_bytes_count"``.
@@ -913,9 +905,7 @@ class MetricServiceAsyncClient:
                 Required. The metric descriptor on which to execute the
                 request. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID]
+                ```projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID]```
 
                 An example of ``[METRIC_ID]`` is:
                 ``"custom.googleapis.com/my_test_metric"``.
@@ -1030,11 +1020,11 @@ class MetricServiceAsyncClient:
                 organization or folder on which to execute the request.
                 The format is:
 
-                ::
-
+                ```
                     projects/[PROJECT_ID_OR_NUMBER]
                     organizations/[ORGANIZATION_ID]
                     folders/[FOLDER_ID]
+                ```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -1047,10 +1037,10 @@ class MetricServiceAsyncClient:
                 additionally specify metric labels and other
                 information. For example:
 
-                ::
-
+                ```
                     metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
                         metric.labels.instance_name = "my-instance-name"
+                ```
 
                 This corresponds to the ``filter`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -1199,9 +1189,7 @@ class MetricServiceAsyncClient:
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
                 on which to execute the request. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]
+                ```projects/[PROJECT_ID_OR_NUMBER]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -1319,9 +1307,7 @@ class MetricServiceAsyncClient:
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
                 on which to execute the request. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]
+                ```projects/[PROJECT_ID_OR_NUMBER]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this

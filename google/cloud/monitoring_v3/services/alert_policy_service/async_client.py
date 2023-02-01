@@ -284,9 +284,7 @@ class AlertPolicyServiceAsyncClient:
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
                 whose alert policies are to be listed. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]
+                ```projects/[PROJECT_ID_OR_NUMBER]```
 
                 Note that this field names the parent container in which
                 the alerting policies to be listed are stored. To
@@ -416,9 +414,7 @@ class AlertPolicyServiceAsyncClient:
                 Required. The alerting policy to retrieve. The format
                 is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
+                ```projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -536,9 +532,7 @@ class AlertPolicyServiceAsyncClient:
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
                 in which to create the alerting policy. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]
+                ```projects/[PROJECT_ID_OR_NUMBER]```
 
                 Note that this field names the parent container in which
                 the alerting policy will be written, not the name of the
@@ -662,9 +656,7 @@ class AlertPolicyServiceAsyncClient:
             name (:class:`str`):
                 Required. The alerting policy to delete. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
+                ```projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]```
 
                 For more information, see
                 [AlertPolicy][google.monitoring.v3.AlertPolicy].

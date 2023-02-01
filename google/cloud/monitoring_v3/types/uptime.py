@@ -91,9 +91,7 @@ class InternalChecker(proto.Message):
             A unique resource name for this InternalChecker. The format
             is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/internalCheckers/[INTERNAL_CHECKER_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/internalCheckers/[INTERNAL_CHECKER_ID]```
 
             ``[PROJECT_ID_OR_NUMBER]`` is the Stackdriver Workspace
             project for the Uptime check config associated with the
@@ -192,9 +190,7 @@ class UptimeCheckConfig(proto.Message):
             A unique resource name for this Uptime check configuration.
             The format is:
 
-            ::
-
-                 projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]```
 
             ``[PROJECT_ID_OR_NUMBER]`` is the Workspace host project
             associated with the Uptime check.

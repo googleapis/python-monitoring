@@ -511,9 +511,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
                 `name <https://cloud.google.com/monitoring/api/v3#project_name>`__
                 of the parent workspace. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]
+                ```projects/[PROJECT_ID_OR_NUMBER]```
 
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -627,9 +625,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
                 Required. Resource name of the ``Service``. The format
                 is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+                ```projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -739,10 +735,10 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
                 or a Monitoring Workspace. The formats are:
 
-                ::
-
+                ```
                     projects/[PROJECT_ID_OR_NUMBER]
                     workspaces/[HOST_PROJECT_ID_OR_NUMBER]
+                ```
 
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -959,9 +955,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
                 Required. Resource name of the ``Service`` to delete.
                 The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+                ```projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -1190,9 +1184,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
                 Required. Resource name of the ``ServiceLevelObjective``
                 to get. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
+                ```projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -1556,9 +1548,7 @@ class ServiceMonitoringServiceClient(metaclass=ServiceMonitoringServiceClientMet
                 Required. Resource name of the ``ServiceLevelObjective``
                 to delete. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
+                ```projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this

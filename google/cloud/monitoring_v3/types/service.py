@@ -55,9 +55,7 @@ class Service(proto.Message):
         name (str):
             Resource name for this Service. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]```
         display_name (str):
             Name used for UI elements listing this
             Service.
@@ -349,9 +347,7 @@ class ServiceLevelObjective(proto.Message):
             Resource name for this ``ServiceLevelObjective``. The format
             is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
+            ```projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]```
         display_name (str):
             Name used for UI elements listing this SLO.
         service_level_indicator (google.cloud.monitoring_v3.types.ServiceLevelIndicator):

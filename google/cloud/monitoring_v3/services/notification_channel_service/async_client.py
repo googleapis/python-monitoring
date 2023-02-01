@@ -291,9 +291,7 @@ class NotificationChannelServiceAsyncClient:
                 which to retrieve the notification channel descriptors.
                 The expected syntax is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]
+                ```projects/[PROJECT_ID_OR_NUMBER]```
 
                 Note that this
                 `names <https://cloud.google.com/monitoring/api/v3#project_name>`__
@@ -431,9 +429,7 @@ class NotificationChannelServiceAsyncClient:
                 Required. The channel type for which to execute the
                 request. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/notificationChannelDescriptors/[CHANNEL_TYPE]
+                ```projects/[PROJECT_ID_OR_NUMBER]/notificationChannelDescriptors/[CHANNEL_TYPE]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -554,9 +550,7 @@ class NotificationChannelServiceAsyncClient:
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
                 on which to execute the request. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]
+                ```projects/[PROJECT_ID_OR_NUMBER]```
 
                 This names the container in which to look for the
                 notification channels; it does not name a specific
@@ -695,9 +689,7 @@ class NotificationChannelServiceAsyncClient:
                 Required. The channel for which to execute the request.
                 The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
+                ```projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -821,9 +813,7 @@ class NotificationChannelServiceAsyncClient:
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
                 on which to execute the request. The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]
+                ```projects/[PROJECT_ID_OR_NUMBER]```
 
                 This names the container into which the channel will be
                 written, this does not name the newly created channel.
@@ -1070,9 +1060,7 @@ class NotificationChannelServiceAsyncClient:
                 Required. The channel for which to execute the request.
                 The format is:
 
-                ::
-
-                    projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
+                ```projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]```
 
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this

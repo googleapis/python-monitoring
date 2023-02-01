@@ -44,9 +44,7 @@ class CreateSnoozeRequest(proto.Message):
             `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
             in which a ``Snooze`` should be created. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]
+            ```projects/[PROJECT_ID_OR_NUMBER]```
         snooze (google.cloud.monitoring_v3.types.Snooze):
             Required. The ``Snooze`` to create. Omit the ``name`` field,
             as it will be filled in by the API.
@@ -73,9 +71,7 @@ class ListSnoozesRequest(proto.Message):
             `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
             whose ``Snooze``\ s should be listed. The format is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]
+            ```projects/[PROJECT_ID_OR_NUMBER]```
         filter (str):
             Optional. Optional filter to restrict results to the given
             criteria. The following fields are supported.
@@ -85,12 +81,10 @@ class ListSnoozesRequest(proto.Message):
 
             For example:
 
-            ::
-
-                ```
+            ```
                 interval.start_time > "2022-03-11T00:00:00-08:00" AND
-                    interval.end_time < "2022-03-12T00:00:00-08:00"
-                ```
+                interval.end_time < "2022-03-12T00:00:00-08:00"
+            ```
         page_size (int):
             Optional. The maximum number of results to return for a
             single query. The server may further constrain the maximum
@@ -158,9 +152,7 @@ class GetSnoozeRequest(proto.Message):
             Required. The ID of the ``Snooze`` to retrieve. The format
             is:
 
-            ::
-
-                projects/[PROJECT_ID_OR_NUMBER]/snoozes/[SNOOZE_ID]
+            ```projects/[PROJECT_ID_OR_NUMBER]/snoozes/[SNOOZE_ID]```
     """
 
     name: str = proto.Field(
