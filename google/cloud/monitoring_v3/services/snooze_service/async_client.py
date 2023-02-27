@@ -654,13 +654,12 @@ class SnoozeServiceAsyncClient:
 
                 What fields can be updated depends on the start time and
                 end time of the `Snooze`.
-
-                  * end time is in the past: These `Snooze`s are
+                * end time is in the past: These `Snooze`s are
                 considered     read-only and cannot be updated.
-                  * start time is in the past and end time is in the
+                * start time is in the past and end time is in the
                 future: `display_name`     and `interval.end_time` can
                 be updated.
-                  * start time is in the future: `display_name`,
+                * start time is in the future: `display_name`,
                 `interval.start_time` and     `interval.end_time` can be
                 updated.
             snooze (:class:`google.cloud.monitoring_v3.types.Snooze`):
