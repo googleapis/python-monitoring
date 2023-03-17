@@ -426,12 +426,14 @@ class MetricServiceAsyncClient:
 
         Returns:
             google.api.monitored_resource_pb2.MonitoredResourceDescriptor:
-                An object that describes the schema of a [MonitoredResource][google.api.MonitoredResource] object using a
-                   type name and a set of labels. For example, the
-                   monitored resource descriptor for Google Compute
-                   Engine VM instances has a type of "gce_instance" and
-                   specifies the use of the labels "instance_id" and
-                   "zone" to identify particular VM instances.
+                An object that describes the schema of a
+                   [MonitoredResource][google.api.MonitoredResource]
+                   object using a type name and a set of labels. For
+                   example, the monitored resource descriptor for Google
+                   Compute Engine VM instances has a type of
+                   "gce_instance" and specifies the use of the labels
+                   "instance_id" and "zone" to identify particular VM
+                   instances.
 
                    Different APIs can support different monitored
                    resource types. APIs generally provide a list method
