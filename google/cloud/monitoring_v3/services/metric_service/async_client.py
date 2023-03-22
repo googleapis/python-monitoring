@@ -272,8 +272,7 @@ class MetricServiceAsyncClient:
 
         Args:
             request (Optional[Union[google.cloud.monitoring_v3.types.ListMonitoredResourceDescriptorsRequest, dict]]):
-                The request object. The
-                `ListMonitoredResourceDescriptors` request.
+                The request object. The ``ListMonitoredResourceDescriptors`` request.
             name (:class:`str`):
                 Required. The
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
@@ -402,8 +401,7 @@ class MetricServiceAsyncClient:
 
         Args:
             request (Optional[Union[google.cloud.monitoring_v3.types.GetMonitoredResourceDescriptorRequest, dict]]):
-                The request object. The `GetMonitoredResourceDescriptor`
-                request.
+                The request object. The ``GetMonitoredResourceDescriptor`` request.
             name (:class:`str`):
                 Required. The monitored resource descriptor to get. The
                 format is:
@@ -535,7 +533,7 @@ class MetricServiceAsyncClient:
 
         Args:
             request (Optional[Union[google.cloud.monitoring_v3.types.ListMetricDescriptorsRequest, dict]]):
-                The request object. The `ListMetricDescriptors` request.
+                The request object. The ``ListMetricDescriptors`` request.
             name (:class:`str`):
                 Required. The
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
@@ -664,7 +662,7 @@ class MetricServiceAsyncClient:
 
         Args:
             request (Optional[Union[google.cloud.monitoring_v3.types.GetMetricDescriptorRequest, dict]]):
-                The request object. The `GetMetricDescriptor` request.
+                The request object. The ``GetMetricDescriptor`` request.
             name (:class:`str`):
                 Required. The metric descriptor on which to execute the
                 request. The format is:
@@ -791,8 +789,7 @@ class MetricServiceAsyncClient:
 
         Args:
             request (Optional[Union[google.cloud.monitoring_v3.types.CreateMetricDescriptorRequest, dict]]):
-                The request object. The `CreateMetricDescriptor`
-                request.
+                The request object. The ``CreateMetricDescriptor`` request.
             name (:class:`str`):
                 Required. The
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
@@ -909,8 +906,7 @@ class MetricServiceAsyncClient:
 
         Args:
             request (Optional[Union[google.cloud.monitoring_v3.types.DeleteMetricDescriptorRequest, dict]]):
-                The request object. The `DeleteMetricDescriptor`
-                request.
+                The request object. The ``DeleteMetricDescriptor`` request.
             name (:class:`str`):
                 Required. The metric descriptor on which to execute the
                 request. The format is:
@@ -1025,7 +1021,7 @@ class MetricServiceAsyncClient:
 
         Args:
             request (Optional[Union[google.cloud.monitoring_v3.types.ListTimeSeriesRequest, dict]]):
-                The request object. The `ListTimeSeries` request.
+                The request object. The ``ListTimeSeries`` request.
             name (:class:`str`):
                 Required. The
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__,
@@ -1195,7 +1191,7 @@ class MetricServiceAsyncClient:
 
         Args:
             request (Optional[Union[google.cloud.monitoring_v3.types.CreateTimeSeriesRequest, dict]]):
-                The request object. The `CreateTimeSeries` request.
+                The request object. The ``CreateTimeSeries`` request.
             name (:class:`str`):
                 Required. The
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
@@ -1315,7 +1311,7 @@ class MetricServiceAsyncClient:
 
         Args:
             request (Optional[Union[google.cloud.monitoring_v3.types.CreateTimeSeriesRequest, dict]]):
-                The request object. The `CreateTimeSeries` request.
+                The request object. The ``CreateTimeSeries`` request.
             name (:class:`str`):
                 Required. The
                 `project <https://cloud.google.com/monitoring/api/v3#project_name>`__
